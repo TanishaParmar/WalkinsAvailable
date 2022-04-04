@@ -19,11 +19,13 @@
             <connections>
                 <outlet property="emailButton" destination="5Dq-Pq-cvH" id="2Mc-5d-NEK"/>
                 <outlet property="emailTextField" destination="RoU-yc-g3D" id="cbM-b4-k5p"/>
+                <outlet property="emailTextFieldView" destination="2sU-5X-CFu" id="RdX-IG-kT1"/>
                 <outlet property="facebookButton" destination="3SI-lf-p6D" id="UN6-f1-Ie3"/>
                 <outlet property="forgotPasswordButton" destination="B12-AO-SKT" id="rrB-5f-tib"/>
                 <outlet property="instaButton" destination="vDu-Q3-TDB" id="pSY-uM-gbQ"/>
                 <outlet property="logInButton" destination="P09-8L-mD1" id="ehV-O9-GQD"/>
                 <outlet property="passwordTextField" destination="zeU-8d-yzA" id="n57-0O-cZ9"/>
+                <outlet property="passwordTextFieldView" destination="FVV-1D-Msb" id="DvN-Ws-wjm"/>
                 <outlet property="signUpButton" destination="qTx-HJ-DYh" id="Kjg-UP-TUf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -78,7 +80,7 @@
                                                                         <constraint firstAttribute="height" constant="20" id="Rzh-Wn-TVM"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoU-yc-g3D">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RoU-yc-g3D">
                                                                     <rect key="frame" x="36" y="0.0" width="338" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -127,10 +129,10 @@
                                                                         <constraint firstAttribute="height" constant="20" id="9bM-8c-kfJ"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zeU-8d-yzA">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zeU-8d-yzA">
                                                                     <rect key="frame" x="36" y="0.0" width="338" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
