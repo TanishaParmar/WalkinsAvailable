@@ -46,11 +46,13 @@ class LoginVC: UIViewController {
     //MARK: Actions
 
     @IBAction func logInButtonAction(_ sender: Any) {
-    
+        let viewcontroller = TabBarVC()
+        self.navigationController?.pushViewController(viewcontroller, animated: true)
     }
     
     @IBAction func forgotPasswordButtonAction(_ sender: Any) {
-    
+        let viewcontroller = ForgotPasswordVC()
+        self.navigationController?.pushViewController(viewcontroller, animated: true)
     }
     
     @IBAction func signUpButtonAction(_ sender: Any) {
@@ -75,7 +77,7 @@ class LoginVC: UIViewController {
 extension LoginVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         emailTextFieldView.layer.borderColor = textField == emailTextField ? #colorLiteral(red: 0.9816923738, green: 0.7313466668, blue: 0.7748305202, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        passwordTextFieldView.layer.borderColor = textField == passwordTextFieldView ? #colorLiteral(red: 0.9816923738, green: 0.7313466668, blue: 0.7748305202, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        passwordTextFieldView.layer.borderColor = textField == passwordTextField ? #colorLiteral(red: 0.9816923738, green: 0.7313466668, blue: 0.7748305202, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
