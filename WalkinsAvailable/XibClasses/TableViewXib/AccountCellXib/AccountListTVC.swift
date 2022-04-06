@@ -1,23 +1,29 @@
 //
-//  FavouriteListTVC.swift
+//  AccountListTVC.swift
 //  WalkinsAvailable
 //
-//  Created by MyMac on 4/5/22.
+//  Created by MyMac on 4/6/22.
 //
 
 import UIKit
 
-class FavouriteListTVC: UITableViewCell {
+class AccountListTVC: UITableViewCell {
     
     //MARK: Outlets
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var switchIcon: UISwitch!
     
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        configureUI()
+    }
+    
+    //MARK: Methods
+    func configureUI() {
+        iconImageView.addCornerRadius(view: iconImageView, cornerRadius: 10)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -63,6 +63,14 @@
 		1F422F1927FC4F8E00877618 /* ESTabBarItemBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0A27FC4F8E00877618 /* ESTabBarItemBadgeView.swift */; };
 		1F422F1A27FC4F8E00877618 /* ESTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0B27FC4F8E00877618 /* ESTabBar.swift */; };
 		1F422F1B27FC4F8E00877618 /* ESTabBarItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0C27FC4F8E00877618 /* ESTabBarItemContainer.swift */; };
+		1F68260F27FD641E00FFB4DA /* NotificationListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68260D27FD641E00FFB4DA /* NotificationListTVC.swift */; };
+		1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68260E27FD641E00FFB4DA /* NotificationListTVC.xib */; };
+		1F68261427FD74C700FFB4DA /* AccountListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68261227FD74C700FFB4DA /* AccountListTVC.swift */; };
+		1F68261527FD74C700FFB4DA /* AccountListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68261327FD74C700FFB4DA /* AccountListTVC.xib */; };
+		1F68261A27FD7DDD00FFB4DA /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68261827FD7DDD00FFB4DA /* EditProfileVC.swift */; };
+		1F68261B27FD7DDD00FFB4DA /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68261927FD7DDD00FFB4DA /* EditProfileVC.xib */; };
+		1F68262027FD811800FFB4DA /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68261E27FD811800FFB4DA /* ContactUsVC.swift */; };
+		1F68262127FD811800FFB4DA /* ContactUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68261F27FD811800FFB4DA /* ContactUsVC.xib */; };
 		B2A379552B5F9D1E1AD4AC52 /* Pods_WalkinsAvailable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8167BD75B3727D6B7E2CDE44 /* Pods_WalkinsAvailable.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +133,14 @@
 		1F422F0A27FC4F8E00877618 /* ESTabBarItemBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBarItemBadgeView.swift; sourceTree = "<group>"; };
 		1F422F0B27FC4F8E00877618 /* ESTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBar.swift; sourceTree = "<group>"; };
 		1F422F0C27FC4F8E00877618 /* ESTabBarItemContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBarItemContainer.swift; sourceTree = "<group>"; };
+		1F68260D27FD641E00FFB4DA /* NotificationListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListTVC.swift; sourceTree = "<group>"; };
+		1F68260E27FD641E00FFB4DA /* NotificationListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationListTVC.xib; sourceTree = "<group>"; };
+		1F68261227FD74C700FFB4DA /* AccountListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListTVC.swift; sourceTree = "<group>"; };
+		1F68261327FD74C700FFB4DA /* AccountListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountListTVC.xib; sourceTree = "<group>"; };
+		1F68261827FD7DDD00FFB4DA /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
+		1F68261927FD7DDD00FFB4DA /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
+		1F68261E27FD811800FFB4DA /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
+		1F68261F27FD811800FFB4DA /* ContactUsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactUsVC.xib; sourceTree = "<group>"; };
 		62FEC1905C4F5ABD6AF712CC /* Pods-WalkinsAvailable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkinsAvailable.release.xcconfig"; path = "Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable.release.xcconfig"; sourceTree = "<group>"; };
 		8167BD75B3727D6B7E2CDE44 /* Pods_WalkinsAvailable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkinsAvailable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5123D836EA82DD3B54591CD /* Pods-WalkinsAvailable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkinsAvailable.debug.xcconfig"; path = "Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable.debug.xcconfig"; sourceTree = "<group>"; };
@@ -273,6 +289,8 @@
 		1F39249D27F8493F000F08F5 /* AfterLogin */ = {
 			isa = PBXGroup;
 			children = (
+				1F68261C27FD80F100FFB4DA /* ContactUs */,
+				1F68261627FD7DAA00FFB4DA /* EditProfile */,
 				1F422ED427FC203100877618 /* Account */,
 				1F422ED327FC202A00877618 /* Notifications */,
 				1F422ED227FC202100877618 /* Home */,
@@ -467,6 +485,8 @@
 		1F422EEF27FC256200877618 /* TableViewXib */ = {
 			isa = PBXGroup;
 			children = (
+				1F68261127FD73B900FFB4DA /* AccountCellXib */,
+				1F68260C27FD640100FFB4DA /* NotificationCellXib */,
 				1F1CB9FE27FC6E23007D9244 /* FavouriteCellXib */,
 				1F422EF527FC32BF00877618 /* ChatListCell */,
 			);
@@ -535,6 +555,58 @@
 				1F422F0C27FC4F8E00877618 /* ESTabBarItemContainer.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		1F68260C27FD640100FFB4DA /* NotificationCellXib */ = {
+			isa = PBXGroup;
+			children = (
+				1F68260D27FD641E00FFB4DA /* NotificationListTVC.swift */,
+				1F68260E27FD641E00FFB4DA /* NotificationListTVC.xib */,
+			);
+			path = NotificationCellXib;
+			sourceTree = "<group>";
+		};
+		1F68261127FD73B900FFB4DA /* AccountCellXib */ = {
+			isa = PBXGroup;
+			children = (
+				1F68261227FD74C700FFB4DA /* AccountListTVC.swift */,
+				1F68261327FD74C700FFB4DA /* AccountListTVC.xib */,
+			);
+			path = AccountCellXib;
+			sourceTree = "<group>";
+		};
+		1F68261627FD7DAA00FFB4DA /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				1F68261727FD7DB700FFB4DA /* EditProfileView */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		1F68261727FD7DB700FFB4DA /* EditProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				1F68261827FD7DDD00FFB4DA /* EditProfileVC.swift */,
+				1F68261927FD7DDD00FFB4DA /* EditProfileVC.xib */,
+			);
+			path = EditProfileView;
+			sourceTree = "<group>";
+		};
+		1F68261C27FD80F100FFB4DA /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				1F68261D27FD80F800FFB4DA /* ContactUsView */,
+			);
+			path = ContactUs;
+			sourceTree = "<group>";
+		};
+		1F68261D27FD80F800FFB4DA /* ContactUsView */ = {
+			isa = PBXGroup;
+			children = (
+				1F68261E27FD811800FFB4DA /* ContactUsVC.swift */,
+				1F68261F27FD811800FFB4DA /* ContactUsVC.xib */,
+			);
+			path = ContactUsView;
 			sourceTree = "<group>";
 		};
 		7FEED01CAA115568416D77E3 /* Frameworks */ = {
@@ -606,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F39249427F84896000F08F5 /* LaunchScreen.storyboard in Resources */,
+				1F68262127FD811800FFB4DA /* ContactUsVC.xib in Resources */,
 				1F3344E427FAE636000BB072 /* Poppins-Bold.ttf in Resources */,
 				1F422EC927FC096F00877618 /* ForgotPasswordVC.xib in Resources */,
 				1F422EDA27FC206500877618 /* ChatListVC.xib in Resources */,
@@ -614,13 +687,16 @@
 				1F3344E227FAE636000BB072 /* Poppins-Black.ttf in Resources */,
 				1F1CBA0227FC6E8F007D9244 /* FavouriteListTVC.xib in Resources */,
 				1F422EED27FC20E400877618 /* AccountVC.xib in Resources */,
+				1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */,
 				1F3344FD27FB20EF000BB072 /* SignUpAsBusinessVC.xib in Resources */,
 				1F3344F227FB04BF000BB072 /* SignUpAsUserVC.xib in Resources */,
 				1F3344E527FAE636000BB072 /* Poppins-SemiBold.ttf in Resources */,
 				1F3344E327FAE636000BB072 /* Poppins-ExtraBold.ttf in Resources */,
 				1F422EFA27FC346300877618 /* HomeListCVC.xib in Resources */,
 				1F3344E127FAE636000BB072 /* Poppins-Medium.ttf in Resources */,
+				1F68261B27FD7DDD00FFB4DA /* EditProfileVC.xib in Resources */,
 				1F422EE327FC209B00877618 /* HomeVC.xib in Resources */,
+				1F68261527FD74C700FFB4DA /* AccountListTVC.xib in Resources */,
 				1F3344E627FAE636000BB072 /* Poppins-Regular.ttf in Resources */,
 				1F422EF327FC25A600877618 /* ChatListTVC.xib in Resources */,
 				1F39248F27F84894000F08F5 /* Main.storyboard in Resources */,
@@ -684,6 +760,7 @@
 				1F422F1527FC4F8E00877618 /* ESTabBarController.swift in Sources */,
 				1F422F1227FC4F8E00877618 /* ExampleTipsContentView.swift in Sources */,
 				1F422ED927FC206500877618 /* ChatListVC.swift in Sources */,
+				1F68261A27FD7DDD00FFB4DA /* EditProfileVC.swift in Sources */,
 				1F422EE727FC20C800877618 /* NotificationVC.swift in Sources */,
 				1F422F1327FC4F8E00877618 /* ExampleIrregularityContentView.swift in Sources */,
 				1F422F1727FC4F8E00877618 /* ExampleNavigationController.swift in Sources */,
@@ -696,10 +773,13 @@
 				1F422F1A27FC4F8E00877618 /* ESTabBar.swift in Sources */,
 				1F3344E927FAF40D000BB072 /* UIView+Extension.swift in Sources */,
 				1F422EC827FC096F00877618 /* ForgotPasswordVC.swift in Sources */,
+				1F68261427FD74C700FFB4DA /* AccountListTVC.swift in Sources */,
 				1F422F1627FC4F8E00877618 /* ESTabBarItemContentView.swift in Sources */,
 				1F422F1B27FC4F8E00877618 /* ESTabBarItemContainer.swift in Sources */,
+				1F68262027FD811800FFB4DA /* ContactUsVC.swift in Sources */,
 				1F39248827F84894000F08F5 /* AppDelegate.swift in Sources */,
 				1F422F1827FC4F8E00877618 /* ESTabBarItem.swift in Sources */,
+				1F68260F27FD641E00FFB4DA /* NotificationListTVC.swift in Sources */,
 				1F39248A27F84894000F08F5 /* SceneDelegate.swift in Sources */,
 				1F3924AC27F85F44000F08F5 /* SignUpAsVC.swift in Sources */,
 				1F422EDD27FC208000877618 /* FavouriteVC.swift in Sources */,
