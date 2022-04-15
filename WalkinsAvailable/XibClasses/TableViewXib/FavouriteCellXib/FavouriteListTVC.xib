@@ -47,9 +47,9 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PWI-wW-q2p">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favFilled" translatesAutoresizingMaskIntoConstraints="NO" id="PWI-wW-q2p">
                                                 <rect key="frame" x="375" y="1.5" width="17" height="17"/>
-                                                <color key="backgroundColor" red="1" green="0.71580386159999998" blue="0.73798209429999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="17" id="pUx-19-ZOL"/>
                                                     <constraint firstAttribute="width" secondItem="PWI-wW-q2p" secondAttribute="height" multiplier="1:1" id="yig-cq-p4r"/>
@@ -206,6 +206,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descriptionLabel" destination="lz1-zN-rZt" id="jR0-Tk-7i5"/>
+                <outlet property="favouriteImageView" destination="PWI-wW-q2p" id="Uuz-4z-dTJ"/>
                 <outlet property="profileImageView" destination="Xs1-Da-HGJ" id="WoO-g0-lhz"/>
                 <outlet property="titleLabel" destination="NAr-2F-jOl" id="3Gb-VN-KGj"/>
             </connections>
@@ -213,6 +214,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="favFilled" width="44" height="38"/>
         <image name="pf" width="459" height="462"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

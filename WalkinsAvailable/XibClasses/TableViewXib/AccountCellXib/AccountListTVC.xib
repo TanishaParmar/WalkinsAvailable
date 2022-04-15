@@ -27,7 +27,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pf" translatesAutoresizingMaskIntoConstraints="NO" id="Abx-SK-1a6">
                                 <rect key="frame" x="10" y="19.5" width="35" height="35"/>
-                                <color key="backgroundColor" red="0.99835592510000004" green="0.89730244869999998" blue="0.91712826489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Abx-SK-1a6" secondAttribute="height" multiplier="1:1" id="Idy-c1-bMU"/>
                                     <constraint firstAttribute="height" constant="35" id="TDK-be-oHH"/>

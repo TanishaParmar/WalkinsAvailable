@@ -11,6 +11,7 @@ class FavouriteListTVC: UITableViewCell {
     
     //MARK: Outlets
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var favouriteImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     

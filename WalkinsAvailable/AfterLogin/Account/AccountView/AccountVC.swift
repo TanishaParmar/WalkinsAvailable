@@ -65,9 +65,16 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewcontroller = ContactUsVC()
-        self.navigationController?.pushViewController(viewcontroller, animated: true)
-
+        if indexPath.row == 3 {
+            let viewcontroller = ContactUsVC()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+        } else if indexPath.row == 4 {
+            let viewcontroller = ComplaintsVC()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+        } else if indexPath.row == 5 {
+            let viewcontroller = ChangePasswordVC()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+        }
     }
     
     
