@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,23 +36,22 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paX-EM-tUp">
-                                <rect key="frame" x="73" y="0.0" width="400" height="89"/>
+                                <rect key="frame" x="73" y="2" width="400" height="87"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4D-zK-R0o">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md1-oR-YfO">
-                                                <rect key="frame" x="2" y="0.0" width="363" height="20"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                                <rect key="frame" x="2" y="0.0" width="362" height="20"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favFilled" translatesAutoresizingMaskIntoConstraints="NO" id="PWI-wW-q2p">
-                                                <rect key="frame" x="375" y="1.5" width="17" height="17"/>
+                                                <rect key="frame" x="374" y="1" width="18" height="18"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="17" id="pUx-19-ZOL"/>
-                                                    <constraint firstAttribute="width" secondItem="PWI-wW-q2p" secondAttribute="height" multiplier="1:1" id="yig-cq-p4r"/>
+                                                    <constraint firstAttribute="width" constant="18" id="pUx-19-ZOL"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -69,10 +68,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txN-PS-39h">
-                                        <rect key="frame" x="0.0" y="20" width="400" height="69"/>
+                                        <rect key="frame" x="0.0" y="20" width="400" height="67"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBp-0B-VsS">
-                                                <rect key="frame" x="2" y="0.0" width="393" height="69"/>
+                                                <rect key="frame" x="2" y="0.0" width="393" height="67"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.</string>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
@@ -175,7 +174,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="paX-EM-tUp" firstAttribute="top" secondItem="Ir1-8I-fb1" secondAttribute="top" id="0Lg-Sk-NLT"/>
+                            <constraint firstItem="paX-EM-tUp" firstAttribute="top" secondItem="Ir1-8I-fb1" secondAttribute="top" constant="2" id="0Lg-Sk-NLT"/>
                             <constraint firstItem="d0L-QA-dne" firstAttribute="top" secondItem="Ir1-8I-fb1" secondAttribute="top" constant="2" id="HWj-Sv-wRi"/>
                             <constraint firstItem="d0L-QA-dne" firstAttribute="leading" secondItem="Xs1-Da-HGJ" secondAttribute="trailing" constant="10" id="OED-f9-ghl"/>
                             <constraint firstAttribute="bottom" secondItem="paX-EM-tUp" secondAttribute="bottom" constant="13" id="UPy-0o-nNt"/>

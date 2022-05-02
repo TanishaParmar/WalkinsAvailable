@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAF-ci-eKa">
-                            <rect key="frame" x="0.0" y="5" width="414" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                             <subviews>
                                 <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="iaL-2S-RzB">
                                     <rect key="frame" x="10" y="4.5" width="394" height="51"/>
@@ -39,7 +39,7 @@
                             </constraints>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lj7-Tt-U0C">
-                            <rect key="frame" x="0.0" y="70" width="414" height="748"/>
+                            <rect key="frame" x="0.0" y="65" width="414" height="753"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="18" id="BcI-NB-wXd">
                                 <size key="itemSize" width="128" height="128"/>
@@ -55,7 +55,7 @@
                         <constraint firstItem="lj7-Tt-U0C" firstAttribute="leading" secondItem="hPB-PW-lnW" secondAttribute="leading" id="eI4-kd-2Bq"/>
                         <constraint firstAttribute="trailing" secondItem="lj7-Tt-U0C" secondAttribute="trailing" id="h0H-0o-b7a"/>
                         <constraint firstAttribute="trailing" secondItem="iAF-ci-eKa" secondAttribute="trailing" id="hta-hZ-ReF"/>
-                        <constraint firstItem="iAF-ci-eKa" firstAttribute="top" secondItem="hPB-PW-lnW" secondAttribute="top" constant="5" id="lPi-3e-OQL"/>
+                        <constraint firstItem="iAF-ci-eKa" firstAttribute="top" secondItem="hPB-PW-lnW" secondAttribute="top" id="lPi-3e-OQL"/>
                         <constraint firstItem="lj7-Tt-U0C" firstAttribute="top" secondItem="iAF-ci-eKa" secondAttribute="bottom" constant="5" id="ooF-ts-VVx"/>
                         <constraint firstItem="iAF-ci-eKa" firstAttribute="leading" secondItem="hPB-PW-lnW" secondAttribute="leading" id="rfS-rL-wlC"/>
                     </constraints>
@@ -80,6 +80,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hPB-PW-lnW" secondAttribute="trailing" id="kcl-pE-S2x"/>
                 <constraint firstItem="hPB-PW-lnW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wQW-7s-w5K"/>
             </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
             <point key="canvasLocation" x="139" y="80"/>
         </view>
     </objects>

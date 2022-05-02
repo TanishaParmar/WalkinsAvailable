@@ -1,16 +1,24 @@
 PODS:
+  - GrowingTextView (0.7.2)
+  - IQKeyboardManagerSwift (6.5.9)
   - pop (1.0.12)
 
 DEPENDENCIES:
+  - GrowingTextView
+  - IQKeyboardManagerSwift
   - pop
 
 SPEC REPOS:
   trunk:
+    - GrowingTextView
+    - IQKeyboardManagerSwift
     - pop
 
 SPEC CHECKSUMS:
+  GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
-PODFILE CHECKSUM: 09a7c1037db1868cbe707438dcbf33fe33d86323
+PODFILE CHECKSUM: 366ba346cc49f5762fa9e1895c17f22f97af3296
 
 COCOAPODS: 1.11.2

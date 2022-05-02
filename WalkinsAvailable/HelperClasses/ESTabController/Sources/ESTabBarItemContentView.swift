@@ -245,7 +245,7 @@ open class ESTabBarItemContentView: UIView {
                                                   width: s,
                                                   height: s)
                 } else {
-                    titleLabel.frame = CGRect.init(x: (w - titleLabel.bounds.size.width) / 2.0,
+                    titleLabel.frame = CGRect.init(x: (w - titleLabel.bounds.size.width - 10) / 2.0,
                                                    y: h - titleLabel.bounds.size.height + 2.0,
                                                    width: titleLabel.bounds.size.width,
                                                    height: titleLabel.bounds.size.height)
@@ -262,7 +262,7 @@ open class ESTabBarItemContentView: UIView {
             } else if !titleLabel.isHidden {
                 titleLabel.font = UIFont.systemFont(ofSize: f)
                 titleLabel.sizeToFit()
-                titleLabel.frame = CGRect.init(x: (w - titleLabel.bounds.size.width) / 2.0,
+                titleLabel.frame = CGRect.init(x: (w - titleLabel.bounds.size.width - 10) / 2.0,
                                                y: (h - titleLabel.bounds.size.height) / 2.0,
                                                width: titleLabel.bounds.size.width,
                                                height: titleLabel.bounds.size.height)
@@ -281,7 +281,7 @@ open class ESTabBarItemContentView: UIView {
             if !imageView.isHidden && !titleLabel.isHidden {
                 titleLabel.sizeToFit()
                 imageView.sizeToFit()
-                titleLabel.frame = CGRect.init(x: (w - titleLabel.bounds.size.width) / 2.0,
+                titleLabel.frame = CGRect.init(x: (w - titleLabel.bounds.size.width - 10) / 2.0,
                                                y: h - titleLabel.bounds.size.height - 1.0,
                                                width: titleLabel.bounds.size.width,
                                                height: titleLabel.bounds.size.height)

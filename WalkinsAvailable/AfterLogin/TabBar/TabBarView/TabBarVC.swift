@@ -42,7 +42,8 @@ class TabBarVC: ESTabBarController {
         let v4 = NotificationVC()
         let v5 = AccountVC()
         
-        
+        let nv = UINavigationController(rootViewController: v3)
+
         v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Chat", image: UIImage(named: "chat"), selectedImage: UIImage(named: "chatSelected"))
         v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Favourite", image:UIImage(named: "fav"), selectedImage: UIImage(named: "favSelected"))
             let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
@@ -50,8 +51,7 @@ class TabBarVC: ESTabBarController {
         v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Notification", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
         let img = UIImage(named: "pff")?.withRenderingMode(.alwaysOriginal)
         v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
-        
-        self.viewControllers = [v1, v2, v3, v4, v5]
+        self.viewControllers = [v1, v2, nv, v4, v5]
         
     }
     

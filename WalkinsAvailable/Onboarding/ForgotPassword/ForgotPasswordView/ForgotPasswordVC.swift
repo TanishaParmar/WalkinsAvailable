@@ -19,9 +19,7 @@ class ForgotPasswordVC: UIViewController {
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
-        
     }
     
     //MARK: Methods

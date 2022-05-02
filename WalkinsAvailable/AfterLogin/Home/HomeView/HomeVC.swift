@@ -7,6 +7,7 @@
 
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class HomeVC: UIViewController {
     
@@ -20,30 +21,27 @@ class HomeVC: UIViewController {
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
-        
     }
     
     //MARK: Methods
     func configureUI() {
         listingCollectionView.dataSource = self
         listingCollectionView.delegate = self
+        self.navigationController?.navigationBar.isHidden = true
         let nib = UINib(nibName: "HomeListCVC", bundle: nil)
         listingCollectionView.register(nib, forCellWithReuseIdentifier: "HomeListCVC")
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     
     //MARK: Actions
-    
-    
-    
-    
+
 }
 
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        listArr.count
+        return listArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,4 +61,11 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 18, bottom: 20, right: 18)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mapVC = MapController()
+        self.push(viewController: mapVC)
+    }
+    
 }

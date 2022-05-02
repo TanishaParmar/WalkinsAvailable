@@ -9,6 +9,7 @@
 import UIKit
 
 class AccountVC: UIViewController {
+
     
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -16,7 +17,7 @@ class AccountVC: UIViewController {
     
     //MARK: Properties
     var listArr: [(String, String)] = [("Switch account as Business",""),("Switch account as Service Provider",""),("About us",""),("Contact us",""),("Complaints",""),("Change Password",""),("Logout","")]
-    
+    var imgArr: [String] = ["pf1","pf2","pf3","pf4","pf5","pf6","pf7"]
     
     //MARK: VC Life Cycle
     override func viewDidLoad() {
@@ -41,9 +42,6 @@ class AccountVC: UIViewController {
         let viewcontroller = EditProfileVC()
         self.navigationController?.pushViewController(viewcontroller, animated: true)
     }
-    
-    
-    
 }
 
 extension AccountVC: UITableViewDataSource, UITableViewDelegate {
@@ -57,6 +55,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row > 1 {
             cell.switchIcon.isHidden = true
         }
+        cell.iconImageView.image = UIImage(named: imgArr[indexPath.row])
         return cell
     }
     
@@ -65,7 +64,19 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 3 {
+        if indexPath.row == 0{
+            let viewcontroller = SignUpBusinessProfile()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+        }
+        else if indexPath.row == 1 {
+            let controller = SignUpServiceProvider()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+        else if indexPath.row == 2{
+            let controller = AboutUsVC()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+        else if indexPath.row == 3 {
             let viewcontroller = ContactUsVC()
             self.navigationController?.pushViewController(viewcontroller, animated: true)
         } else if indexPath.row == 4 {

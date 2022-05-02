@@ -7,8 +7,10 @@
 
 
 import UIKit
-
+import IQKeyboardManagerSwift
 class ComplaintsVC: UIViewController {
+    
+    var listArr:[String] = ["Pending","Pending","Resolve","Pending","Resolve","Pending"]
     
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -25,8 +27,8 @@ class ComplaintsVC: UIViewController {
     func configureUI() {
         tableView.dataSource = self
         tableView.delegate = self
-        let nib = UINib(nibName: "FavouriteListTVC", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "FavouriteListTVC")
+        let nib = UINib(nibName: "ComplaintsListCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "ComplaintsListCell")
     }
     
     
@@ -40,21 +42,29 @@ class ComplaintsVC: UIViewController {
 
 extension ComplaintsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        return listArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavouriteListTVC", for: indexPath) as! FavouriteListTVC
-        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height / 2
-        cell.favouriteImageView.isHidden = true
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ComplaintsListCell", for: indexPath) as! ComplaintsListCell
+        cell.userProfileView.layer.cornerRadius = cell.userProfileView.frame.height / 2
+        cell.statusBtn.setTitle("\(listArr[indexPath.row])", for: .normal)
+        cell.statusBtn.layer.cornerRadius = 8
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ComplaintDetailVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
     
 }
 

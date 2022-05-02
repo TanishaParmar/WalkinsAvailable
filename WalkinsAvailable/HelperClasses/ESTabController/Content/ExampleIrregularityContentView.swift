@@ -136,10 +136,10 @@ class ExampleIrregularityContentView: ESTabBarItemContentView {
         scale?.removedOnCompletion = true
 
         let alpha = POPBasicAnimation.init(propertyNamed: kPOPLayerOpacity)
-        alpha?.fromValue = 0.6
-        alpha?.toValue = 0.6
+        alpha?.fromValue = 0.0 //0.6
+        alpha?.toValue = 0.0 //0.6
         alpha?.beginTime = CACurrentMediaTime()
-        alpha?.duration = 0.25
+        alpha?.duration = 0.0 //0.25
         alpha?.timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.easeOut)
         alpha?.removedOnCompletion = true
 

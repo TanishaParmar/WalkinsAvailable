@@ -13,3 +13,8 @@ struct Color {
     static let pinkBorderColor = #colorLiteral(red: 0.9816923738, green: 0.7313466668, blue: 0.7748305202, alpha: 1)
     static let blackBorderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 }
+enum AppAlertTitle : String {
+    case appName = "WALKINS AVAILABLE"
+    case connectionError = "Connection Error"
+    
+}

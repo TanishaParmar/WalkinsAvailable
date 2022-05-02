@@ -7,5 +7,7 @@ target 'WalkinsAvailable' do
 
   # Pods for WalkinsAvailable
   pod 'pop'
+  pod 'IQKeyboardManagerSwift'
+  pod 'GrowingTextView' 
 
 end

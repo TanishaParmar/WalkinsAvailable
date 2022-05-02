@@ -7,7 +7,7 @@
 
 
 import UIKit
-
+import IQKeyboardManagerSwift
 class ChangePasswordVC: UIViewController {
     
     //MARK: Outlets
