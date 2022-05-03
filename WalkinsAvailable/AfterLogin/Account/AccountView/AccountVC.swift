@@ -10,20 +10,21 @@ import UIKit
 
 class AccountVC: UIViewController {
 
+    var type:String = ""
     
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editProfileButton: UIButton!
     
     //MARK: Properties
-    var listArr: [(String, String)] = [("Switch account as Business",""),("Switch account as Service Provider",""),("About us",""),("Contact us",""),("Complaints",""),("Change Password",""),("Logout","")]
+    var listArr: [(String, String)] = [("Switch account as Business","pf1"),("Switch account as Service Provider","pf2"),("Set Availability","pf9"),("About us","pf3"),("Contact us","pf4"),("Complaints","pf5"),("Change Password","pf6"),("Logout","pf7")]
     var imgArr: [String] = ["pf1","pf2","pf3","pf4","pf5","pf6","pf7"]
     
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
+        print("navType ========>\(type)")
     }
     
     
@@ -55,12 +56,30 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row > 1 {
             cell.switchIcon.isHidden = true
         }
-        cell.iconImageView.image = UIImage(named: imgArr[indexPath.row])
+      
+        cell.iconImageView.image = UIImage(named: listArr[indexPath.row].1)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        if type == "1"{
+            if indexPath.row == 2{
+                return 0
+            }else{
+               return 40
+            }
+        }else if type == "2"{
+            if indexPath.row == 2{
+                return 40
+            }else{
+               return 40
+            }
+        }else if type == "3"{
+            
+        }else{
+         return 40
+        }
+        return 40
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -72,21 +91,26 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
             let controller = SignUpServiceProvider()
             self.navigationController?.pushViewController(controller, animated: true)
         }
-        else if indexPath.row == 2{
+        else if indexPath.row == 2 {
+            let controller = SetAvailbilityVC()
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+        else if indexPath.row == 3{
             let controller = AboutUsVC()
             self.navigationController?.pushViewController(controller, animated: true)
         }
-        else if indexPath.row == 3 {
+        else if indexPath.row == 4 {
             let viewcontroller = ContactUsVC()
             self.navigationController?.pushViewController(viewcontroller, animated: true)
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 5 {
             let viewcontroller = ComplaintsVC()
             self.navigationController?.pushViewController(viewcontroller, animated: true)
-        } else if indexPath.row == 5 {
+        } else if indexPath.row == 6 {
             let viewcontroller = ChangePasswordVC()
             self.navigationController?.pushViewController(viewcontroller, animated: true)
         }
     }
+    
     
     
     

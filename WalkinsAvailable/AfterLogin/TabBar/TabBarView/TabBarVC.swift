@@ -76,23 +76,25 @@ class TabBarVC: ESTabBarController {
             v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Notification", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
             let img = UIImage(named: "pff")?.withRenderingMode(.alwaysOriginal)
             v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
+            v5.type = "1"
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             
         case .business:
             
             let v1 = EventVC()
-            let v2 = FavouriteVC()
+            let v2 = BusinessFavouriteVC()
             let v3 = HomeVC()
-            let v4 = NotificationVC()
+            let v4 = BusinessNotificationVC()
             let v5 = AccountVC()
             
-            v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Event", image: UIImage(named: "1"), selectedImage: UIImage(named: "t"))
+            v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Event", image: UIImage(named: "eventTab"), selectedImage: UIImage(named: "t"))
             v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Favourite", image:UIImage(named: "fav"), selectedImage: UIImage(named: "favSelected"))
                 let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
             v3.tabBarItem = ESTabBarItem(ExampleIrregularityContentView(), title: nil, image: image, selectedImage: image)
             v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Notification", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
             let img = UIImage(named: "pff")?.withRenderingMode(.alwaysOriginal)
             v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
+            v5.type = "2"
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             
         case .serviceProvider:
@@ -110,6 +112,7 @@ class TabBarVC: ESTabBarController {
             v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Notification", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
             let img = UIImage(named: "pff")?.withRenderingMode(.alwaysOriginal)
             v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
+            v5.type = "3"
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
         }
     }

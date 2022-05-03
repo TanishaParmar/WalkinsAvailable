@@ -45,11 +45,15 @@ class SignUpBusinessProfile: UIViewController,UITextFieldDelegate,UITextViewDele
     }
     
     @IBAction func btnSave(_ sender: UIButton) {
-        if validate() == false {
-            return
-        }else{
-            Singleton.setHomeScreenView(userType: .business)
-        }
+//        if validate() == false {
+//            return
+//        }else{
+//            Singleton.setHomeScreenView(userType: .business)
+//        }
+        Singleton.setHomeScreenView(userType: .business)
+
+        
+
     }
     
 //    MARK: STORYBOARD_UPDATE

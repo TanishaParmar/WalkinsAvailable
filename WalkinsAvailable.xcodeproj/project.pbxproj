@@ -65,6 +65,18 @@
 		18B4D43F281BDBC9005C0816 /* ArtistListImgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B4D43D281BDBC9005C0816 /* ArtistListImgCell.xib */; };
 		18B4D443281BEE2A005C0816 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4D441281BEE2A005C0816 /* AboutUsVC.swift */; };
 		18B4D444281BEE2A005C0816 /* AboutUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B4D442281BEE2A005C0816 /* AboutUsVC.xib */; };
+		18C5B9632821133400876BAE /* BusinessFavouriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5B9612821133400876BAE /* BusinessFavouriteVC.swift */; };
+		18C5B9642821133400876BAE /* BusinessFavouriteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C5B9622821133400876BAE /* BusinessFavouriteVC.xib */; };
+		18C5B96728211B6300876BAE /* BusinessFavouriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5B96528211B6300876BAE /* BusinessFavouriteList.swift */; };
+		18C5B96828211B6300876BAE /* BusinessFavouriteList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C5B96628211B6300876BAE /* BusinessFavouriteList.xib */; };
+		18EFEAAB28213F25009ADBB4 /* BusinessNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFEAA928213F25009ADBB4 /* BusinessNotificationVC.swift */; };
+		18EFEAAC28213F25009ADBB4 /* BusinessNotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFEAAA28213F25009ADBB4 /* BusinessNotificationVC.xib */; };
+		18EFEAB12821483D009ADBB4 /* SetAvailbilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFEAAF2821483D009ADBB4 /* SetAvailbilityVC.swift */; };
+		18EFEAB22821483D009ADBB4 /* SetAvailbilityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFEAB02821483D009ADBB4 /* SetAvailbilityVC.xib */; };
+		18EFEAB628214F57009ADBB4 /* AvailbilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFEAB428214F57009ADBB4 /* AvailbilityVC.swift */; };
+		18EFEAB728214F57009ADBB4 /* AvailbilityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFEAB528214F57009ADBB4 /* AvailbilityVC.xib */; };
+		18EFEABB282150C4009ADBB4 /* AvailbilityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFEAB9282150C4009ADBB4 /* AvailbilityListCell.swift */; };
+		18EFEABC282150C4009ADBB4 /* AvailbilityListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFEABA282150C4009ADBB4 /* AvailbilityListCell.xib */; };
 		1F1CBA0127FC6E8F007D9244 /* FavouriteListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CB9FF27FC6E8F007D9244 /* FavouriteListTVC.swift */; };
 		1F1CBA0227FC6E8F007D9244 /* FavouriteListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CBA0027FC6E8F007D9244 /* FavouriteListTVC.xib */; };
 		1F3344E127FAE636000BB072 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F3344DB27FAE636000BB072 /* Poppins-Medium.ttf */; };
@@ -195,6 +207,18 @@
 		18B4D43D281BDBC9005C0816 /* ArtistListImgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListImgCell.xib; sourceTree = "<group>"; };
 		18B4D441281BEE2A005C0816 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
 		18B4D442281BEE2A005C0816 /* AboutUsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsVC.xib; sourceTree = "<group>"; };
+		18C5B9612821133400876BAE /* BusinessFavouriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessFavouriteVC.swift; sourceTree = "<group>"; };
+		18C5B9622821133400876BAE /* BusinessFavouriteVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessFavouriteVC.xib; sourceTree = "<group>"; };
+		18C5B96528211B6300876BAE /* BusinessFavouriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessFavouriteList.swift; sourceTree = "<group>"; };
+		18C5B96628211B6300876BAE /* BusinessFavouriteList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessFavouriteList.xib; sourceTree = "<group>"; };
+		18EFEAA928213F25009ADBB4 /* BusinessNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessNotificationVC.swift; sourceTree = "<group>"; };
+		18EFEAAA28213F25009ADBB4 /* BusinessNotificationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessNotificationVC.xib; sourceTree = "<group>"; };
+		18EFEAAF2821483D009ADBB4 /* SetAvailbilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailbilityVC.swift; sourceTree = "<group>"; };
+		18EFEAB02821483D009ADBB4 /* SetAvailbilityVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetAvailbilityVC.xib; sourceTree = "<group>"; };
+		18EFEAB428214F57009ADBB4 /* AvailbilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailbilityVC.swift; sourceTree = "<group>"; };
+		18EFEAB528214F57009ADBB4 /* AvailbilityVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailbilityVC.xib; sourceTree = "<group>"; };
+		18EFEAB9282150C4009ADBB4 /* AvailbilityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailbilityListCell.swift; sourceTree = "<group>"; };
+		18EFEABA282150C4009ADBB4 /* AvailbilityListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailbilityListCell.xib; sourceTree = "<group>"; };
 		1F1CB9FF27FC6E8F007D9244 /* FavouriteListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListTVC.swift; sourceTree = "<group>"; };
 		1F1CBA0027FC6E8F007D9244 /* FavouriteListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteListTVC.xib; sourceTree = "<group>"; };
 		1F3344DB27FAE636000BB072 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
@@ -370,27 +394,15 @@
 			path = ArtistList;
 			sourceTree = "<group>";
 		};
-		188EAB8E28201C93000552D5 /* Notification */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Notification;
-			sourceTree = "<group>";
-		};
 		1895B96E281FD08600842DD5 /* BusinessModule */ = {
 			isa = PBXGroup;
 			children = (
+				18EFEAAD28214808009ADBB4 /* SetAvailbility */,
+				18EFEAA728213CF7009ADBB4 /* Business Notification */,
+				18C5B9512821057100876BAE /* Business Fav List */,
 				1895B970281FD11F00842DD5 /* Event */,
-				188EAB8E28201C93000552D5 /* Notification */,
 			);
 			path = BusinessModule;
-			sourceTree = "<group>";
-		};
-		1895B96F281FD0EF00842DD5 /* ServiceProviderModule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ServiceProviderModule;
 			sourceTree = "<group>";
 		};
 		1895B970281FD11F00842DD5 /* Event */ = {
@@ -555,6 +567,79 @@
 			path = AboutUs;
 			sourceTree = "<group>";
 		};
+		18C5B9512821057100876BAE /* Business Fav List */ = {
+			isa = PBXGroup;
+			children = (
+				18C5B95C2821094E00876BAE /* BusinessFav */,
+				18C5B9612821133400876BAE /* BusinessFavouriteVC.swift */,
+				18C5B9622821133400876BAE /* BusinessFavouriteVC.xib */,
+			);
+			path = "Business Fav List";
+			sourceTree = "<group>";
+		};
+		18C5B95C2821094E00876BAE /* BusinessFav */ = {
+			isa = PBXGroup;
+			children = (
+				18C5B96528211B6300876BAE /* BusinessFavouriteList.swift */,
+				18C5B96628211B6300876BAE /* BusinessFavouriteList.xib */,
+			);
+			path = BusinessFav;
+			sourceTree = "<group>";
+		};
+		18EFEAA728213CF7009ADBB4 /* Business Notification */ = {
+			isa = PBXGroup;
+			children = (
+				18EFEAA928213F25009ADBB4 /* BusinessNotificationVC.swift */,
+				18EFEAAA28213F25009ADBB4 /* BusinessNotificationVC.xib */,
+			);
+			path = "Business Notification";
+			sourceTree = "<group>";
+		};
+		18EFEAAD28214808009ADBB4 /* SetAvailbility */ = {
+			isa = PBXGroup;
+			children = (
+				18EFEAB328214F33009ADBB4 /* Availbility */,
+				18EFEAAE2821481D009ADBB4 /* SetAvail */,
+			);
+			path = SetAvailbility;
+			sourceTree = "<group>";
+		};
+		18EFEAAE2821481D009ADBB4 /* SetAvail */ = {
+			isa = PBXGroup;
+			children = (
+				18EFEAAF2821483D009ADBB4 /* SetAvailbilityVC.swift */,
+				18EFEAB02821483D009ADBB4 /* SetAvailbilityVC.xib */,
+			);
+			path = SetAvail;
+			sourceTree = "<group>";
+		};
+		18EFEAB328214F33009ADBB4 /* Availbility */ = {
+			isa = PBXGroup;
+			children = (
+				18EFEABD282150CB009ADBB4 /* AvailbilityView */,
+				18EFEAB82821509D009ADBB4 /* AvailbilityXIBCell */,
+			);
+			path = Availbility;
+			sourceTree = "<group>";
+		};
+		18EFEAB82821509D009ADBB4 /* AvailbilityXIBCell */ = {
+			isa = PBXGroup;
+			children = (
+				18EFEAB9282150C4009ADBB4 /* AvailbilityListCell.swift */,
+				18EFEABA282150C4009ADBB4 /* AvailbilityListCell.xib */,
+			);
+			path = AvailbilityXIBCell;
+			sourceTree = "<group>";
+		};
+		18EFEABD282150CB009ADBB4 /* AvailbilityView */ = {
+			isa = PBXGroup;
+			children = (
+				18EFEAB428214F57009ADBB4 /* AvailbilityVC.swift */,
+				18EFEAB528214F57009ADBB4 /* AvailbilityVC.xib */,
+			);
+			path = AvailbilityView;
+			sourceTree = "<group>";
+		};
 		1F1CB9FE27FC6E23007D9244 /* FavouriteCellXib */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,7 +731,6 @@
 		1F39248627F84894000F08F5 /* WalkinsAvailable */ = {
 			isa = PBXGroup;
 			children = (
-				1895B96F281FD0EF00842DD5 /* ServiceProviderModule */,
 				1895B96E281FD08600842DD5 /* BusinessModule */,
 				1F39249B27F848DA000F08F5 /* InitialClasses */,
 				1F39249D27F8493F000F08F5 /* AfterLogin */,
@@ -1122,10 +1206,12 @@
 				18162EBF2818194300D29D10 /* ComplaintDetailCell.xib in Resources */,
 				1F39249427F84896000F08F5 /* LaunchScreen.storyboard in Resources */,
 				1F68262127FD811800FFB4DA /* ContactUsVC.xib in Resources */,
+				18EFEABC282150C4009ADBB4 /* AvailbilityListCell.xib in Resources */,
 				1F3344E427FAE636000BB072 /* Poppins-Bold.ttf in Resources */,
 				1F422EC927FC096F00877618 /* ForgotPasswordVC.xib in Resources */,
 				18B4D43A281BD015005C0816 /* ArtistProfileVC.xib in Resources */,
 				1F422EDA27FC206500877618 /* ChatListVC.xib in Resources */,
+				18EFEAB728214F57009ADBB4 /* AvailbilityVC.xib in Resources */,
 				1895B966281FC05A00842DD5 /* ChatCell.xib in Resources */,
 				1F39249127F84896000F08F5 /* Assets.xcassets in Resources */,
 				1F3924A727F8575D000F08F5 /* LoginVC.xib in Resources */,
@@ -1135,13 +1221,17 @@
 				1F1CBA0227FC6E8F007D9244 /* FavouriteListTVC.xib in Resources */,
 				1F422EED27FC20E400877618 /* AccountVC.xib in Resources */,
 				18162EB82818037D00D29D10 /* ComplaintsListCell.xib in Resources */,
+				18C5B9642821133400876BAE /* BusinessFavouriteVC.xib in Resources */,
 				1895B974281FD14D00842DD5 /* EventVC.xib in Resources */,
 				1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */,
 				1F3344FD27FB20EF000BB072 /* SignUpAsBusinessVC.xib in Resources */,
 				18697694281AB9D400F208BD /* ArtistListCell.xib in Resources */,
 				1F3344F227FB04BF000BB072 /* SignUpAsUserVC.xib in Resources */,
 				189FB2CE2819384700C1EC42 /* SignUpServiceProvider.xib in Resources */,
+				18EFEAAC28213F25009ADBB4 /* BusinessNotificationVC.xib in Resources */,
+				18C5B96828211B6300876BAE /* BusinessFavouriteList.xib in Resources */,
 				1F3344E527FAE636000BB072 /* Poppins-SemiBold.ttf in Resources */,
+				18EFEAB22821483D009ADBB4 /* SetAvailbilityVC.xib in Resources */,
 				1F3344E327FAE636000BB072 /* Poppins-ExtraBold.ttf in Resources */,
 				1F422EFA27FC346300877618 /* HomeListCVC.xib in Resources */,
 				1F3344E127FAE636000BB072 /* Poppins-Medium.ttf in Resources */,
@@ -1225,6 +1315,7 @@
 				1869767B281A6AF600F208BD /* LocationSearchBar.swift in Sources */,
 				18697683281A6E1200F208BD /* LocationCardAnnotation.swift in Sources */,
 				189FB2CA28192CFA00C1EC42 /* AppAlert.swift in Sources */,
+				18EFEAB12821483D009ADBB4 /* SetAvailbilityVC.swift in Sources */,
 				1F422F1527FC4F8E00877618 /* ESTabBarController.swift in Sources */,
 				18697673281A69A700F208BD /* FBAnnotationClusterView.swift in Sources */,
 				1F422F1227FC4F8E00877618 /* ExampleTipsContentView.swift in Sources */,
@@ -1236,6 +1327,7 @@
 				1F68261A27FD7DDD00FFB4DA /* EditProfileVC.swift in Sources */,
 				18697689281A722200F208BD /* UIViewController+Custom.swift in Sources */,
 				189FB2CD2819384700C1EC42 /* SignUpServiceProvider.swift in Sources */,
+				18C5B96728211B6300876BAE /* BusinessFavouriteList.swift in Sources */,
 				1F422EE727FC20C800877618 /* NotificationVC.swift in Sources */,
 				1869768E281AAAD100F208BD /* LocationDetailVC.swift in Sources */,
 				189FB2B72819177000C1EC42 /* ComplaintDetailVC.swift in Sources */,
@@ -1267,6 +1359,7 @@
 				1F68261427FD74C700FFB4DA /* AccountListTVC.swift in Sources */,
 				18162EBE2818194300D29D10 /* ComplaintDetailCell.swift in Sources */,
 				18697675281A69A700F208BD /* FBQuadTreeNode.swift in Sources */,
+				18EFEAB628214F57009ADBB4 /* AvailbilityVC.swift in Sources */,
 				18697685281A6EB800F208BD /* LocationManager.swift in Sources */,
 				1F422F1627FC4F8E00877618 /* ESTabBarItemContentView.swift in Sources */,
 				1F422F1B27FC4F8E00877618 /* ESTabBarItemContainer.swift in Sources */,
@@ -1278,11 +1371,13 @@
 				18697679281A6ACD00F208BD /* LocationSearchTable.swift in Sources */,
 				1F39248A27F84894000F08F5 /* SceneDelegate.swift in Sources */,
 				18697672281A69A700F208BD /* FBBoundingBox.swift in Sources */,
+				18EFEAAB28213F25009ADBB4 /* BusinessNotificationVC.swift in Sources */,
 				1F3924AC27F85F44000F08F5 /* SignUpAsVC.swift in Sources */,
 				1F422EDD27FC208000877618 /* FavouriteVC.swift in Sources */,
 				1F422ECE27FC155B00877618 /* TabBarVC.swift in Sources */,
 				1F422EF227FC25A600877618 /* ChatListTVC.swift in Sources */,
 				1869767D281A6B4A00F208BD /* SearchPlaces.swift in Sources */,
+				18EFEABB282150C4009ADBB4 /* AvailbilityListCell.swift in Sources */,
 				18B4D43E281BDBC9005C0816 /* ArtistListImgCell.swift in Sources */,
 				18697670281A69A700F208BD /* FBQuadTree.swift in Sources */,
 				1F422F1127FC4F8E00877618 /* ExampleHighlightableContentView.swift in Sources */,
@@ -1294,6 +1389,7 @@
 				1F3924A627F8575D000F08F5 /* LoginVC.swift in Sources */,
 				1F3924A127F851DA000F08F5 /* AppHelperMethods.swift in Sources */,
 				1F422F1027FC4F8E00877618 /* ExampleBasicContentView.swift in Sources */,
+				18C5B9632821133400876BAE /* BusinessFavouriteVC.swift in Sources */,
 				1F422F1427FC4F8E00877618 /* ESTabBarItemMoreContentView.swift in Sources */,
 				18697674281A69A700F208BD /* FBAnnotation.swift in Sources */,
 				1F422F0E27FC4F8E00877618 /* ExampleBouncesContentView.swift in Sources */,
@@ -1444,10 +1540,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6PFS82C7PP;
+				DEVELOPMENT_TEAM = NRT2V64YZ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "always permissions";
@@ -1463,9 +1559,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.walkinavaiable.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.sessionControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = DistributeApps;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1478,10 +1574,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6PFS82C7PP;
+				DEVELOPMENT_TEAM = NRT2V64YZ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "always permissions";
@@ -1497,9 +1593,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.walkinavaiable.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.sessionControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = DistributeApps;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

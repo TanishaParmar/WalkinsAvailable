@@ -8,8 +8,9 @@
 
 import UIKit
 
+var globalNotification = "1"
 class NotificationVC: UIViewController {
-    
+        
     //MARK: Outlets
     @IBOutlet weak var notificationListingTableView: UITableView!
     
@@ -27,20 +28,16 @@ class NotificationVC: UIViewController {
         notificationListingTableView.dataSource = self
         notificationListingTableView.delegate = self
         notificationListingTableView.rowHeight = UITableView.automaticDimension
-        notificationListingTableView.estimatedRowHeight = 60
         let nib = UINib(nibName: "NotificationListTVC", bundle: nil)
         notificationListingTableView.register(nib, forCellReuseIdentifier: "NotificationListTVC")
     }
-    
-    
+
     //MARK: Actions
     
     
     
     
 }
-
-
 
 extension NotificationVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,6 +46,10 @@ extension NotificationVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationListTVC", for: indexPath) as! NotificationListTVC
+        cell.statusView.isHidden = true
+        cell.authorLbl.isHidden = true
+        cell.statusheightConstraint.constant = 0
+        cell.authorheighConstraint.constant = 0
         return cell
     }
     
