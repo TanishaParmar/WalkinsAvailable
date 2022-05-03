@@ -10,7 +10,7 @@ import UIKit
 class AppHelperMethods: NSObject {
     
     class func navigateToHomeScreen(window: UIWindow?) {
-        let viewController = LoginVC()
+        let viewController = SignUpAsVC()
         viewController.view.backgroundColor = .gray
         let nav = UINavigationController(rootViewController: viewController)
         nav.isNavigationBarHidden = true
@@ -22,7 +22,6 @@ class AppHelperMethods: NSObject {
         let viewController = LoginVC()
         viewController.view.backgroundColor = .gray
         let nav = UINavigationController(rootViewController: viewController)
-        
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }

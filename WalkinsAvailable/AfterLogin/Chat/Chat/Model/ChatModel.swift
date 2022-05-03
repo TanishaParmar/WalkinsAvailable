@@ -23,22 +23,23 @@ class ChatModel: NSObject, Codable {
     var statusCode: Int?
 }
 
-//class Chats: Codable {
-//    var chats:[MessageData]?
-//}
+class Chats: Codable {
+    var chats:[MessageData]?
+}
 
-//class MessageData: Codable {
-//    var message, message_id: String?
+class MessageData: Codable {
+    var message, message_id: String?
 //    var sender: UserData?
-//    var message_type, chat_id, sent_date, status: String?
-//
-//    init() {
-//    }
-//
-//    init(message:String, chatId:String?, sender:UserData?, type:MESSAGE_TYPE) {
-//        self.message = message
-//        self.message_type = type.rawValue
-//        self.chat_id = chatId
-//        self.sender = sender
-//    }
-//}
+    var sender: String?
+    var message_type, chat_id, sent_date, status: String?
+
+    init() {
+    }
+
+    init(message:String, chatId:String?, sender:String? , type:MESSAGE_TYPE) {
+        self.message = message
+        self.message_type = type.rawValue
+        self.chat_id = chatId
+        self.sender = sender
+    }
+}

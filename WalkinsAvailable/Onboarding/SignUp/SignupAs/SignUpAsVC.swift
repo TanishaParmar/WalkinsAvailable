@@ -34,12 +34,12 @@ class SignUpAsVC: UIViewController {
     }
     
     @IBAction func signUpAsBusinessButtonAction(_ sender: Any) {
-        let viewcontroller = SignUpAsBusinessVC()
+        let viewcontroller = SignUpBusinessProfile()
         self.navigationController?.pushViewController(viewcontroller, animated: true)
     }
     
     @IBAction func signUpAsServiceProviderButtonAction(_ sender: Any) {
-        let viewcontroller = SignUpAsBusinessVC()
+        let viewcontroller = SignUpServiceProvider()
         self.navigationController?.pushViewController(viewcontroller, animated: true)
     }
     

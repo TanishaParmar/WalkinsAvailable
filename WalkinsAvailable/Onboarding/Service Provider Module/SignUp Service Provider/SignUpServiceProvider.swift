@@ -38,7 +38,7 @@ class SignUpServiceProvider: UIViewController,UITextFieldDelegate {
         if validate() == false {
             return
         }else{
-            print("Its business signup")
+            Singleton.setHomeScreenView(userType: .serviceProvider )
         }
     }
     

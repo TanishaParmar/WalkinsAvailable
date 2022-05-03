@@ -49,8 +49,8 @@ extension ChatListVC: UITableViewDataSource, UITableViewDelegate {
 //        return 60
 //    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let controller = SingleChatController()
-//        self.navigationController?.pushViewController(controller, animated: true)
+        let controller = SingleChatController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
 }

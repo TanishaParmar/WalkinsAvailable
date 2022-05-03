@@ -34,6 +34,20 @@
 		1869768F281AAAD100F208BD /* LocationDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1869768D281AAAD100F208BD /* LocationDetailVC.xib */; };
 		18697693281AB9D400F208BD /* ArtistListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18697691281AB9D400F208BD /* ArtistListCell.swift */; };
 		18697694281AB9D400F208BD /* ArtistListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18697692281AB9D400F208BD /* ArtistListCell.xib */; };
+		1895B95F281FC03900842DD5 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B95E281FC03900842DD5 /* ChatModel.swift */; };
+		1895B964281FC05A00842DD5 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B960281FC05A00842DD5 /* ChatCell.swift */; };
+		1895B965281FC05A00842DD5 /* SingleChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B961281FC05A00842DD5 /* SingleChatController.xib */; };
+		1895B966281FC05A00842DD5 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B962281FC05A00842DD5 /* ChatCell.xib */; };
+		1895B967281FC05A00842DD5 /* SingleChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B963281FC05A00842DD5 /* SingleChatController.swift */; };
+		1895B969281FC06300842DD5 /* ChatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B968281FC06300842DD5 /* ChatVM.swift */; };
+		1895B96B281FC81000842DD5 /* NSLayoutContraint+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B96A281FC81000842DD5 /* NSLayoutContraint+Custom.swift */; };
+		1895B96D281FCC4800842DD5 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B96C281FCC4800842DD5 /* Singleton.swift */; };
+		1895B973281FD14D00842DD5 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B971281FD14D00842DD5 /* EventVC.swift */; };
+		1895B974281FD14D00842DD5 /* EventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B972281FD14D00842DD5 /* EventVC.xib */; };
+		1895B978281FEB2B00842DD5 /* EventListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B976281FEB2B00842DD5 /* EventListCell.swift */; };
+		1895B979281FEB2B00842DD5 /* EventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B977281FEB2B00842DD5 /* EventListCell.xib */; };
+		1895B97E28200ED000842DD5 /* EventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B97C28200ED000842DD5 /* EventDetailVC.swift */; };
+		1895B97F28200ED000842DD5 /* EventDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B97D28200ED000842DD5 /* EventDetailVC.xib */; };
 		189FB2B72819177000C1EC42 /* ComplaintDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FB2B52819177000C1EC42 /* ComplaintDetailVC.swift */; };
 		189FB2B82819177000C1EC42 /* ComplaintDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189FB2B62819177000C1EC42 /* ComplaintDetailVC.xib */; };
 		189FB2BE2819214200C1EC42 /* SignUpBusinessProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FB2BC2819214100C1EC42 /* SignUpBusinessProfile.swift */; };
@@ -150,6 +164,20 @@
 		1869768D281AAAD100F208BD /* LocationDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationDetailVC.xib; sourceTree = "<group>"; };
 		18697691281AB9D400F208BD /* ArtistListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListCell.swift; sourceTree = "<group>"; };
 		18697692281AB9D400F208BD /* ArtistListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListCell.xib; sourceTree = "<group>"; };
+		1895B95E281FC03900842DD5 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		1895B960281FC05A00842DD5 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		1895B961281FC05A00842DD5 /* SingleChatController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChatController.xib; sourceTree = "<group>"; };
+		1895B962281FC05A00842DD5 /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		1895B963281FC05A00842DD5 /* SingleChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleChatController.swift; sourceTree = "<group>"; };
+		1895B968281FC06300842DD5 /* ChatVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVM.swift; sourceTree = "<group>"; };
+		1895B96A281FC81000842DD5 /* NSLayoutContraint+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutContraint+Custom.swift"; sourceTree = "<group>"; };
+		1895B96C281FCC4800842DD5 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		1895B971281FD14D00842DD5 /* EventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
+		1895B972281FD14D00842DD5 /* EventVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventVC.xib; sourceTree = "<group>"; };
+		1895B976281FEB2B00842DD5 /* EventListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListCell.swift; sourceTree = "<group>"; };
+		1895B977281FEB2B00842DD5 /* EventListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListCell.xib; sourceTree = "<group>"; };
+		1895B97C28200ED000842DD5 /* EventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVC.swift; sourceTree = "<group>"; };
+		1895B97D28200ED000842DD5 /* EventDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailVC.xib; sourceTree = "<group>"; };
 		189FB2B52819177000C1EC42 /* ComplaintDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintDetailVC.swift; sourceTree = "<group>"; };
 		189FB2B62819177000C1EC42 /* ComplaintDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplaintDetailVC.xib; sourceTree = "<group>"; };
 		189FB2BC2819214100C1EC42 /* SignUpBusinessProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBusinessProfile.swift; sourceTree = "<group>"; };
@@ -342,6 +370,66 @@
 			path = ArtistList;
 			sourceTree = "<group>";
 		};
+		188EAB8E28201C93000552D5 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		1895B96E281FD08600842DD5 /* BusinessModule */ = {
+			isa = PBXGroup;
+			children = (
+				1895B970281FD11F00842DD5 /* Event */,
+				188EAB8E28201C93000552D5 /* Notification */,
+			);
+			path = BusinessModule;
+			sourceTree = "<group>";
+		};
+		1895B96F281FD0EF00842DD5 /* ServiceProviderModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ServiceProviderModule;
+			sourceTree = "<group>";
+		};
+		1895B970281FD11F00842DD5 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				1895B97B28200E8E00842DD5 /* EventView */,
+				1895B97A28200E8300842DD5 /* EventDetail */,
+				1895B975281FEADD00842DD5 /* EventListCell */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		1895B975281FEADD00842DD5 /* EventListCell */ = {
+			isa = PBXGroup;
+			children = (
+				1895B976281FEB2B00842DD5 /* EventListCell.swift */,
+				1895B977281FEB2B00842DD5 /* EventListCell.xib */,
+			);
+			path = EventListCell;
+			sourceTree = "<group>";
+		};
+		1895B97A28200E8300842DD5 /* EventDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1895B97C28200ED000842DD5 /* EventDetailVC.swift */,
+				1895B97D28200ED000842DD5 /* EventDetailVC.xib */,
+			);
+			path = EventDetail;
+			sourceTree = "<group>";
+		};
+		1895B97B28200E8E00842DD5 /* EventView */ = {
+			isa = PBXGroup;
+			children = (
+				1895B971281FD14D00842DD5 /* EventVC.swift */,
+				1895B972281FD14D00842DD5 /* EventVC.xib */,
+			);
+			path = EventView;
+			sourceTree = "<group>";
+		};
 		189FB2B42819173E00C1EC42 /* ComplaintsDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +486,7 @@
 		189FB2D0281960B500C1EC42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1895B95E281FC03900842DD5 /* ChatModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,6 +494,10 @@
 		189FB2D1281960C300C1EC42 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1895B960281FC05A00842DD5 /* ChatCell.swift */,
+				1895B962281FC05A00842DD5 /* ChatCell.xib */,
+				1895B963281FC05A00842DD5 /* SingleChatController.swift */,
+				1895B961281FC05A00842DD5 /* SingleChatController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -412,6 +505,7 @@
 		189FB2D2281960CC00C1EC42 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				1895B968281FC06300842DD5 /* ChatVM.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -499,6 +593,8 @@
 				189FB2C928192CFA00C1EC42 /* AppAlert.swift */,
 				189FB2C528192BAF00C1EC42 /* ValidationBase.swift */,
 				1F3344E827FAF40D000BB072 /* UIView+Extension.swift */,
+				1895B96A281FC81000842DD5 /* NSLayoutContraint+Custom.swift */,
+				1895B96C281FCC4800842DD5 /* Singleton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -550,6 +646,8 @@
 		1F39248627F84894000F08F5 /* WalkinsAvailable */ = {
 			isa = PBXGroup;
 			children = (
+				1895B96F281FD0EF00842DD5 /* ServiceProviderModule */,
+				1895B96E281FD08600842DD5 /* BusinessModule */,
 				1F39249B27F848DA000F08F5 /* InitialClasses */,
 				1F39249D27F8493F000F08F5 /* AfterLogin */,
 				1F39249C27F848E8000F08F5 /* Onboarding */,
@@ -577,6 +675,8 @@
 		1F39249C27F848E8000F08F5 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				189FB2BA2819204F00C1EC42 /* Service Provider Module */,
+				189FB2B928191FDF00C1EC42 /* Business Module */,
 				1F422EC427FC093E00877618 /* ForgotPassword */,
 				1F3924A827F85F07000F08F5 /* SignUp */,
 				1F3924A227F85712000F08F5 /* Login */,
@@ -588,8 +688,6 @@
 			isa = PBXGroup;
 			children = (
 				18B4D440281BEDFF005C0816 /* AboutUs */,
-				189FB2BA2819204F00C1EC42 /* Service Provider Module */,
-				189FB2B928191FDF00C1EC42 /* Business Module */,
 				1F7910642809851900102EA6 /* Complaints */,
 				1F79105E28097DDF00102EA6 /* ChangePassword */,
 				1F68261C27FD80F100FFB4DA /* ContactUs */,
@@ -1028,13 +1126,16 @@
 				1F422EC927FC096F00877618 /* ForgotPasswordVC.xib in Resources */,
 				18B4D43A281BD015005C0816 /* ArtistProfileVC.xib in Resources */,
 				1F422EDA27FC206500877618 /* ChatListVC.xib in Resources */,
+				1895B966281FC05A00842DD5 /* ChatCell.xib in Resources */,
 				1F39249127F84896000F08F5 /* Assets.xcassets in Resources */,
 				1F3924A727F8575D000F08F5 /* LoginVC.xib in Resources */,
 				1F3344E227FAE636000BB072 /* Poppins-Black.ttf in Resources */,
+				1895B97F28200ED000842DD5 /* EventDetailVC.xib in Resources */,
 				18B4D444281BEE2A005C0816 /* AboutUsVC.xib in Resources */,
 				1F1CBA0227FC6E8F007D9244 /* FavouriteListTVC.xib in Resources */,
 				1F422EED27FC20E400877618 /* AccountVC.xib in Resources */,
 				18162EB82818037D00D29D10 /* ComplaintsListCell.xib in Resources */,
+				1895B974281FD14D00842DD5 /* EventVC.xib in Resources */,
 				1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */,
 				1F3344FD27FB20EF000BB072 /* SignUpAsBusinessVC.xib in Resources */,
 				18697694281AB9D400F208BD /* ArtistListCell.xib in Resources */,
@@ -1047,9 +1148,11 @@
 				1F68261B27FD7DDD00FFB4DA /* EditProfileVC.xib in Resources */,
 				18B4D43F281BDBC9005C0816 /* ArtistListImgCell.xib in Resources */,
 				189FB2B82819177000C1EC42 /* ComplaintDetailVC.xib in Resources */,
+				1895B965281FC05A00842DD5 /* SingleChatController.xib in Resources */,
 				18B4D434281BAEA7005C0816 /* ComplaintViewVC.xib in Resources */,
 				1869768F281AAAD100F208BD /* LocationDetailVC.xib in Resources */,
 				18697665281A68A800F208BD /* MapController.xib in Resources */,
+				1895B979281FEB2B00842DD5 /* EventListCell.xib in Resources */,
 				1F422EE327FC209B00877618 /* HomeVC.xib in Resources */,
 				1F68261527FD74C700FFB4DA /* AccountListTVC.xib in Resources */,
 				1F3344E627FAE636000BB072 /* Poppins-Regular.ttf in Resources */,
@@ -1113,7 +1216,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1895B95F281FC03900842DD5 /* ChatModel.swift in Sources */,
 				18697681281A6CB000F208BD /* ChargerData.swift in Sources */,
+				1895B969281FC06300842DD5 /* ChatVM.swift in Sources */,
+				1895B973281FD14D00842DD5 /* EventVC.swift in Sources */,
 				1F422EEC27FC20E400877618 /* AccountVC.swift in Sources */,
 				1F1CBA0127FC6E8F007D9244 /* FavouriteListTVC.swift in Sources */,
 				1869767B281A6AF600F208BD /* LocationSearchBar.swift in Sources */,
@@ -1123,6 +1229,7 @@
 				18697673281A69A700F208BD /* FBAnnotationClusterView.swift in Sources */,
 				1F422F1227FC4F8E00877618 /* ExampleTipsContentView.swift in Sources */,
 				1869766F281A69A700F208BD /* FBClusteringManager.swift in Sources */,
+				1895B967281FC05A00842DD5 /* SingleChatController.swift in Sources */,
 				1F422ED927FC206500877618 /* ChatListVC.swift in Sources */,
 				1F79106228097E2400102EA6 /* ChangePasswordVC.swift in Sources */,
 				18B4D433281BAEA7005C0816 /* ComplaintViewVC.swift in Sources */,
@@ -1137,10 +1244,14 @@
 				1F79106828098A5700102EA6 /* ComplaintsVC.swift in Sources */,
 				18B4D443281BEE2A005C0816 /* AboutUsVC.swift in Sources */,
 				18697671281A69A700F208BD /* FBAnnotationCluster.swift in Sources */,
+				1895B978281FEB2B00842DD5 /* EventListCell.swift in Sources */,
 				1F422F1327FC4F8E00877618 /* ExampleIrregularityContentView.swift in Sources */,
+				1895B97E28200ED000842DD5 /* EventDetailVC.swift in Sources */,
 				18162EB72818037D00D29D10 /* ComplaintsListCell.swift in Sources */,
 				1F422F1727FC4F8E00877618 /* ExampleNavigationController.swift in Sources */,
 				18697664281A68A800F208BD /* MapController.swift in Sources */,
+				1895B96D281FCC4800842DD5 /* Singleton.swift in Sources */,
+				1895B964281FC05A00842DD5 /* ChatCell.swift in Sources */,
 				1F422EE227FC209B00877618 /* HomeVC.swift in Sources */,
 				1F422F0D27FC4F8E00877618 /* ExampleBackgroundContentView.swift in Sources */,
 				18B4D439281BD015005C0816 /* ArtistProfileVC.swift in Sources */,
@@ -1175,6 +1286,7 @@
 				18B4D43E281BDBC9005C0816 /* ArtistListImgCell.swift in Sources */,
 				18697670281A69A700F208BD /* FBQuadTree.swift in Sources */,
 				1F422F1127FC4F8E00877618 /* ExampleHighlightableContentView.swift in Sources */,
+				1895B96B281FC81000842DD5 /* NSLayoutContraint+Custom.swift in Sources */,
 				18697677281A69B100F208BD /* SGMapView.swift in Sources */,
 				1F422F0F27FC4F8E00877618 /* ExampleAnimateTipsContentView.swift in Sources */,
 				189FB2C828192C6E00C1EC42 /* HelperMethod.swift in Sources */,

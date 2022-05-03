@@ -18,6 +18,7 @@ class SingleChatController: UIViewController {
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var chatTable: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var attachButton: UIButton!
     
     var firstTimeLoadCell: Bool = true
     
@@ -46,7 +47,7 @@ class SingleChatController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tableHeaderView()
+        self.tableHeaderView()
         self.setGrowingTextView()
         
     }
@@ -92,7 +93,7 @@ class SingleChatController: UIViewController {
     
     func setTableView() {
         self.messageTextView.text = ""
-//        self.chatHistory = ChatVM.getAllMessages()
+        self.chatHistory = ChatVM.getAllMessages()
         
         
         self.chatTable.delegate = self
@@ -322,14 +323,14 @@ class SingleChatController: UIViewController {
 //            }
 //        }
     }
-//
-//    func tableHeaderView() {
-//        self.headerView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_SIZE.width, height: 60))
-//        let activityIndigator = UIActivityIndicatorView(style: .gray)
-//        activityIndigator.frame = CGRect(x: 0, y: 15, width: SCREEN_SIZE.width, height: 30)
-//        activityIndigator.startAnimating()
-//        self.headerView.addSubview(activityIndigator)
-//    }
+    
+    func tableHeaderView() {
+        self.headerView = UIView(frame: CGRect(x: 0, y: 0, width: SCREEN_SIZE.width, height: 60))
+        let activityIndigator = UIActivityIndicatorView(style: .gray)
+        activityIndigator.frame = CGRect(x: 0, y: 15, width: SCREEN_SIZE.width, height: 30)
+        activityIndigator.startAnimating()
+        self.headerView.addSubview(activityIndigator)
+    }
     
 }
 

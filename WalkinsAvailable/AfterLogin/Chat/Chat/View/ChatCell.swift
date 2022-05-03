@@ -48,7 +48,7 @@ class ChatCell: UITableViewCell {
     @IBOutlet weak var leftImage: UIImageView!
     
     @IBOutlet weak var dayLabel: UILabel!
-//    @IBOutlet weak var chatImage: UIImageView!    
+//    @IBOutlet weak var chatImage: UIImageView!
 //    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rightImageBgView: UIView!
     @IBOutlet weak var leftImageBgView: UIView!
@@ -81,10 +81,10 @@ class ChatCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code1
-        self.chatBg.backgroundColor = UIColor.init(hexString: "#EEEEEE", alpha: 1)
-        timeLabel.textAlignment = .left
-        self.messageLabel.setLabel("message label", .black, FONT_NAMEs.Amazon_Ember, 14)
-//        self.nameLabel.setLabel("name label", .red , FONT_NAME.Amazon_Ember, 12)
+//        self.chatBg.backgroundColor = UIColor.init(hexString: "#EEEEEE", alpha: 1)
+//        timeLabel.textAlignment = .left
+//        self.messageLabel.setLabel("message label", .black, FONT_NAMEs.Amazon_Ember, 14)
+////        self.nameLabel.setLabel("name label", .red , FONT_NAME.Amazon_Ember, 12)
 //        self.timeLabel.setLabel("12:14", .black, FONT_NAMEs.Amazon_Ember_Bold, 8)
     }
 
@@ -107,7 +107,7 @@ class ChatCell: UITableViewCell {
         let type = MESSAGE_TYPE(rawValue: model?.message_type ?? "")
         switch type {
         case .audio: break
-        case .photo: 
+        case .photo:
             self.messageLabel.isHidden = true
 //            self.chatImage.isHidden = false
 //            self.chatImage.image = UIImage(named: "image1")//setImage(image: model?.message)
@@ -131,7 +131,7 @@ class ChatCell: UITableViewCell {
 
     func setChatDirection() {
         var side: ChatDirection = .left
-        if selectedModel?.sender?.user_id == "123" {
+        if selectedModel?.sender == "my" {
             side = .right
         }
       
@@ -139,19 +139,19 @@ class ChatCell: UITableViewCell {
             self.leadingConstraint = self.leadingConstraint.setRelation(relation: .equal, constant: leadingConstraintValue)
             self.trailingConstraint = self.trailingConstraint.setRelation(relation: .greaterThanOrEqual, constant: self.trailingConstraintValue)
             
-            self.chatBg.backgroundColor = UIColor.init(hexString: "#EEEEEE", alpha: 1)
+//            self.chatBg.backgroundColor = UIColor.init(hexString: "#EEEEEE", alpha: 1)
             self.timeLabel.textAlignment = .left
             self.messageLabel.textColor = .black
             
-            self.leftImage.image = UIImage(named: self.selectedModel?.sender?.profile_pic ?? "")
+            self.leftImage.image = UIImage(named: "img2")
             
         } else {
             self.leadingConstraint = self.leadingConstraint.setRelation(relation: .greaterThanOrEqual, constant: self.trailingConstraintValue)
             self.trailingConstraint = self.trailingConstraint.setRelation(relation: .equal, constant: self.leadingConstraintValue)
             
-            self.chatBg.backgroundColor = UIColor.init(hexString: "#005F69", alpha: 1)
+            self.chatBg.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.7294117647, blue: 0.7411764706, alpha: 1)
             self.timeLabel.textAlignment = .right
-            self.messageLabel.textColor = .white
+            self.messageLabel.textColor = .black
             self.leftImage.image = nil
         }
         

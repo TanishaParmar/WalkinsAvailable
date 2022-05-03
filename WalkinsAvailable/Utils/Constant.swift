@@ -14,7 +14,7 @@ struct Color {
     static let blackBorderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 }
 enum AppAlertTitle : String {
-    case appName = "WALKINS AVAILABLE"
+    case appName = "WALK-INS AVAILABLE"
     case connectionError = "Connection Error"
     
 }

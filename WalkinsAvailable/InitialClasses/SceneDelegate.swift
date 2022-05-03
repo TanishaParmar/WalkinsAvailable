@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private(set) static var shared: SceneDelegate!
+//    private(set) static var shared: SceneDelegate!
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -18,9 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let ws = (scene as? UIWindowScene) else { return }
-        Self.shared = self
+        
         self.window = UIWindow(windowScene: ws)
-        AppHelperMethods.navigateToHomeScreen(window: self.window)
+        Singleton.window = self.window
+        let token = ""
+        if token.count > 0 {
+            Singleton.setHomeScreenView(userType: .user)
+        } else {
+            Singleton.setLoginScreenView()
+        }
         
     }
 

@@ -11,6 +11,8 @@ import IQKeyboardManagerSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var window: UIWindow?
+    
     private func configureKeboard() {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
@@ -24,6 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LocationManager.shared.getLocation()
         // Override point for customization after application launch.
 //        appFonts()
+        
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        Singleton.window = self.window
+        
+        let token = ""
+        if token.count > 0 {
+            Singleton.setHomeScreenView(userType: .user)
+        } else {
+            Singleton.setLoginScreenView()
+        }
+        
         return true
     }
 

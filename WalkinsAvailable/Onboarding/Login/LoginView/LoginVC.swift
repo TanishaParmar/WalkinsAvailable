@@ -41,13 +41,9 @@ class LoginVC: UIViewController {
         self.logInButton.addCornerRadius(view: self.logInButton, cornerRadius: 5.0)
     }
     
-    
-    
     //MARK: Actions
-
     @IBAction func logInButtonAction(_ sender: Any) {
-        let viewcontroller = TabBarVC()
-        self.navigationController?.pushViewController(viewcontroller, animated: true)
+        Singleton.setHomeScreenView(userType: .user)
     }
     
     @IBAction func forgotPasswordButtonAction(_ sender: Any) {
