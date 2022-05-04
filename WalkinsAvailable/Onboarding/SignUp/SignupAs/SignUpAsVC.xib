@@ -18,8 +18,11 @@
             <connections>
                 <outlet property="logInButton" destination="ki8-Nj-95l" id="zbS-ua-oEz"/>
                 <outlet property="signUpAsBusinessButton" destination="vhE-vy-rVf" id="3gD-gv-F5e"/>
+                <outlet property="signUpAsBusinessView" destination="1Xb-My-cKw" id="CjB-Bn-HhB"/>
                 <outlet property="signUpAsServiceProviderButton" destination="nOa-53-nKT" id="Hii-YM-HNj"/>
+                <outlet property="signUpAsServiceProviderView" destination="dz1-om-Szv" id="UbU-8R-hJ2"/>
                 <outlet property="signUpAsUserButton" destination="ot1-e5-1ZD" id="3Hj-Qi-E8n"/>
+                <outlet property="signUpuserView" destination="Two-IM-qKi" id="c1l-xB-Shl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -37,7 +40,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Nfi-YP-IoY">
                             <rect key="frame" x="41.5" y="313.5" width="331" height="179.5"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Two-IM-qKi">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Two-IM-qKi">
                                     <rect key="frame" x="0.0" y="0.0" width="331" height="53"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot1-e5-1ZD">
@@ -61,7 +64,7 @@
                                         <constraint firstAttribute="trailing" secondItem="ot1-e5-1ZD" secondAttribute="trailing" id="zgw-b2-WtR"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xb-My-cKw">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xb-My-cKw">
                                     <rect key="frame" x="0.0" y="63" width="331" height="53"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhE-vy-rVf">
@@ -85,7 +88,7 @@
                                         <constraint firstItem="vhE-vy-rVf" firstAttribute="top" secondItem="1Xb-My-cKw" secondAttribute="top" id="hZX-SX-PbF"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dz1-om-Szv">
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dz1-om-Szv">
                                     <rect key="frame" x="0.0" y="126" width="331" height="53.5"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOa-53-nKT">
@@ -118,19 +121,20 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ki8-Nj-95l">
-                            <rect key="frame" x="90" y="602" width="234" height="30"/>
+                            <rect key="frame" x="96" y="602" width="222" height="30"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal">
                                 <attributedString key="attributedTitle">
                                     <fragment content="Already have an account? ">
                                         <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" metaFont="system" size="15"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Log In">
                                         <attributes>
-                                            <color key="NSColor" red="0.35164245960000001" green="0.69406217339999998" blue="0.49630922080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                            <color key="NSColor" red="0.35569113489999998" green="0.69786149259999997" blue="0.50858885050000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" metaFont="system" size="15"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>

@@ -200,17 +200,17 @@
                                                         <constraint firstAttribute="height" constant="30" id="IHF-En-d0S"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YXJ-ih-zMl">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YXJ-ih-zMl">
                                                     <rect key="frame" x="107" y="50" width="200" height="70"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wid-Ol-WYg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="70"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="70"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Dq-Pq-cvH">
-                                                                    <rect key="frame" x="5" y="10" width="50" height="50"/>
+                                                                    <rect key="frame" x="7" y="10" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="5Dq-Pq-cvH" secondAttribute="height" id="Evm-1B-USP"/>
                                                                         <constraint firstAttribute="height" constant="50" id="i6c-vA-2mH"/>
@@ -229,10 +229,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdn-4p-1s3">
-                                                            <rect key="frame" x="70" y="0.0" width="60" height="70"/>
+                                                            <rect key="frame" x="68" y="0.0" width="64" height="70"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SI-lf-p6D">
-                                                                    <rect key="frame" x="5" y="10" width="50" height="50"/>
+                                                                    <rect key="frame" x="7" y="10" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="3SI-lf-p6D" secondAttribute="height" id="FRJ-nd-fPG"/>
                                                                         <constraint firstAttribute="height" constant="50" id="m9x-85-fpn"/>
@@ -251,10 +251,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwY-CJ-Ces">
-                                                            <rect key="frame" x="140" y="0.0" width="60" height="70"/>
+                                                            <rect key="frame" x="136" y="0.0" width="64" height="70"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vDu-Q3-TDB">
-                                                                    <rect key="frame" x="5" y="10" width="50" height="50"/>
+                                                                    <rect key="frame" x="7" y="10" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="vDu-Q3-TDB" secondAttribute="height" id="2kP-Ax-qvp"/>
                                                                         <constraint firstAttribute="height" constant="50" id="3Qo-uu-x0y"/>

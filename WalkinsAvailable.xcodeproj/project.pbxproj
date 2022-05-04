@@ -48,6 +48,14 @@
 		1895B979281FEB2B00842DD5 /* EventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B977281FEB2B00842DD5 /* EventListCell.xib */; };
 		1895B97E28200ED000842DD5 /* EventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B97C28200ED000842DD5 /* EventDetailVC.swift */; };
 		1895B97F28200ED000842DD5 /* EventDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B97D28200ED000842DD5 /* EventDetailVC.xib */; };
+		189C961B2822598D004B99EF /* ServiceArtistProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */; };
+		189C961C2822598D004B99EF /* ServiceArtistProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */; };
+		189C961F28225CF1004B99EF /* BusinessHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C961D28225CF1004B99EF /* BusinessHomeVC.swift */; };
+		189C962028225CF1004B99EF /* BusinessHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C961E28225CF1004B99EF /* BusinessHomeVC.xib */; };
+		189C9624282260B6004B99EF /* EventCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C9622282260B6004B99EF /* EventCreateVC.swift */; };
+		189C9625282260B6004B99EF /* EventCreateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C9623282260B6004B99EF /* EventCreateVC.xib */; };
+		189C962E28227486004B99EF /* InviteGuestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C962C28227486004B99EF /* InviteGuestVC.swift */; };
+		189C962F28227486004B99EF /* InviteGuestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C962D28227486004B99EF /* InviteGuestVC.xib */; };
 		189FB2B72819177000C1EC42 /* ComplaintDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FB2B52819177000C1EC42 /* ComplaintDetailVC.swift */; };
 		189FB2B82819177000C1EC42 /* ComplaintDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189FB2B62819177000C1EC42 /* ComplaintDetailVC.xib */; };
 		189FB2BE2819214200C1EC42 /* SignUpBusinessProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189FB2BC2819214100C1EC42 /* SignUpBusinessProfile.swift */; };
@@ -190,6 +198,14 @@
 		1895B977281FEB2B00842DD5 /* EventListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListCell.xib; sourceTree = "<group>"; };
 		1895B97C28200ED000842DD5 /* EventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVC.swift; sourceTree = "<group>"; };
 		1895B97D28200ED000842DD5 /* EventDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailVC.xib; sourceTree = "<group>"; };
+		189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceArtistProfileVC.swift; sourceTree = "<group>"; };
+		189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceArtistProfileVC.xib; sourceTree = "<group>"; };
+		189C961D28225CF1004B99EF /* BusinessHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeVC.swift; sourceTree = "<group>"; };
+		189C961E28225CF1004B99EF /* BusinessHomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessHomeVC.xib; sourceTree = "<group>"; };
+		189C9622282260B6004B99EF /* EventCreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreateVC.swift; sourceTree = "<group>"; };
+		189C9623282260B6004B99EF /* EventCreateVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCreateVC.xib; sourceTree = "<group>"; };
+		189C962C28227486004B99EF /* InviteGuestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteGuestVC.swift; sourceTree = "<group>"; };
+		189C962D28227486004B99EF /* InviteGuestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteGuestVC.xib; sourceTree = "<group>"; };
 		189FB2B52819177000C1EC42 /* ComplaintDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintDetailVC.swift; sourceTree = "<group>"; };
 		189FB2B62819177000C1EC42 /* ComplaintDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplaintDetailVC.xib; sourceTree = "<group>"; };
 		189FB2BC2819214100C1EC42 /* SignUpBusinessProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBusinessProfile.swift; sourceTree = "<group>"; };
@@ -397,6 +413,7 @@
 		1895B96E281FD08600842DD5 /* BusinessModule */ = {
 			isa = PBXGroup;
 			children = (
+				189C961828225963004B99EF /* BusinessHome */,
 				18EFEAAD28214808009ADBB4 /* SetAvailbility */,
 				18EFEAA728213CF7009ADBB4 /* Business Notification */,
 				18C5B9512821057100876BAE /* Business Fav List */,
@@ -408,6 +425,8 @@
 		1895B970281FD11F00842DD5 /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				189C962B28227460004B99EF /* InviteGuest */,
+				189C96212822608B004B99EF /* EventCreate */,
 				1895B97B28200E8E00842DD5 /* EventView */,
 				1895B97A28200E8300842DD5 /* EventDetail */,
 				1895B975281FEADD00842DD5 /* EventListCell */,
@@ -440,6 +459,35 @@
 				1895B972281FD14D00842DD5 /* EventVC.xib */,
 			);
 			path = EventView;
+			sourceTree = "<group>";
+		};
+		189C961828225963004B99EF /* BusinessHome */ = {
+			isa = PBXGroup;
+			children = (
+				189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */,
+				189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */,
+				189C961D28225CF1004B99EF /* BusinessHomeVC.swift */,
+				189C961E28225CF1004B99EF /* BusinessHomeVC.xib */,
+			);
+			path = BusinessHome;
+			sourceTree = "<group>";
+		};
+		189C96212822608B004B99EF /* EventCreate */ = {
+			isa = PBXGroup;
+			children = (
+				189C9622282260B6004B99EF /* EventCreateVC.swift */,
+				189C9623282260B6004B99EF /* EventCreateVC.xib */,
+			);
+			path = EventCreate;
+			sourceTree = "<group>";
+		};
+		189C962B28227460004B99EF /* InviteGuest */ = {
+			isa = PBXGroup;
+			children = (
+				189C962C28227486004B99EF /* InviteGuestVC.swift */,
+				189C962D28227486004B99EF /* InviteGuestVC.xib */,
+			);
+			path = InviteGuest;
 			sourceTree = "<group>";
 		};
 		189FB2B42819173E00C1EC42 /* ComplaintsDetailView */ = {
@@ -1218,12 +1266,15 @@
 				1F3344E227FAE636000BB072 /* Poppins-Black.ttf in Resources */,
 				1895B97F28200ED000842DD5 /* EventDetailVC.xib in Resources */,
 				18B4D444281BEE2A005C0816 /* AboutUsVC.xib in Resources */,
+				189C962F28227486004B99EF /* InviteGuestVC.xib in Resources */,
 				1F1CBA0227FC6E8F007D9244 /* FavouriteListTVC.xib in Resources */,
 				1F422EED27FC20E400877618 /* AccountVC.xib in Resources */,
+				189C9625282260B6004B99EF /* EventCreateVC.xib in Resources */,
 				18162EB82818037D00D29D10 /* ComplaintsListCell.xib in Resources */,
 				18C5B9642821133400876BAE /* BusinessFavouriteVC.xib in Resources */,
 				1895B974281FD14D00842DD5 /* EventVC.xib in Resources */,
 				1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */,
+				189C961C2822598D004B99EF /* ServiceArtistProfileVC.xib in Resources */,
 				1F3344FD27FB20EF000BB072 /* SignUpAsBusinessVC.xib in Resources */,
 				18697694281AB9D400F208BD /* ArtistListCell.xib in Resources */,
 				1F3344F227FB04BF000BB072 /* SignUpAsUserVC.xib in Resources */,
@@ -1249,6 +1300,7 @@
 				1F79106328097E2400102EA6 /* ChangePasswordVC.xib in Resources */,
 				1F422EF327FC25A600877618 /* ChatListTVC.xib in Resources */,
 				1F39248F27F84894000F08F5 /* Main.storyboard in Resources */,
+				189C962028225CF1004B99EF /* BusinessHomeVC.xib in Resources */,
 				1F79106928098A5700102EA6 /* ComplaintsVC.xib in Resources */,
 				1F3924AD27F85F44000F08F5 /* SignUpAsVC.xib in Resources */,
 				189FB2BF2819214200C1EC42 /* SignUpBusinessProfile.xib in Resources */,
@@ -1313,6 +1365,7 @@
 				1F422EEC27FC20E400877618 /* AccountVC.swift in Sources */,
 				1F1CBA0127FC6E8F007D9244 /* FavouriteListTVC.swift in Sources */,
 				1869767B281A6AF600F208BD /* LocationSearchBar.swift in Sources */,
+				189C9624282260B6004B99EF /* EventCreateVC.swift in Sources */,
 				18697683281A6E1200F208BD /* LocationCardAnnotation.swift in Sources */,
 				189FB2CA28192CFA00C1EC42 /* AppAlert.swift in Sources */,
 				18EFEAB12821483D009ADBB4 /* SetAvailbilityVC.swift in Sources */,
@@ -1338,11 +1391,13 @@
 				18697671281A69A700F208BD /* FBAnnotationCluster.swift in Sources */,
 				1895B978281FEB2B00842DD5 /* EventListCell.swift in Sources */,
 				1F422F1327FC4F8E00877618 /* ExampleIrregularityContentView.swift in Sources */,
+				189C962E28227486004B99EF /* InviteGuestVC.swift in Sources */,
 				1895B97E28200ED000842DD5 /* EventDetailVC.swift in Sources */,
 				18162EB72818037D00D29D10 /* ComplaintsListCell.swift in Sources */,
 				1F422F1727FC4F8E00877618 /* ExampleNavigationController.swift in Sources */,
 				18697664281A68A800F208BD /* MapController.swift in Sources */,
 				1895B96D281FCC4800842DD5 /* Singleton.swift in Sources */,
+				189C961B2822598D004B99EF /* ServiceArtistProfileVC.swift in Sources */,
 				1895B964281FC05A00842DD5 /* ChatCell.swift in Sources */,
 				1F422EE227FC209B00877618 /* HomeVC.swift in Sources */,
 				1F422F0D27FC4F8E00877618 /* ExampleBackgroundContentView.swift in Sources */,
@@ -1362,6 +1417,7 @@
 				18EFEAB628214F57009ADBB4 /* AvailbilityVC.swift in Sources */,
 				18697685281A6EB800F208BD /* LocationManager.swift in Sources */,
 				1F422F1627FC4F8E00877618 /* ESTabBarItemContentView.swift in Sources */,
+				189C961F28225CF1004B99EF /* BusinessHomeVC.swift in Sources */,
 				1F422F1B27FC4F8E00877618 /* ESTabBarItemContainer.swift in Sources */,
 				1F68262027FD811800FFB4DA /* ContactUsVC.swift in Sources */,
 				1F39248827F84894000F08F5 /* AppDelegate.swift in Sources */,

@@ -7,6 +7,7 @@
 
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class SignUpAsUserVC: UIViewController {
     
@@ -27,7 +28,6 @@ class SignUpAsUserVC: UIViewController {
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
     }
     
@@ -50,6 +50,7 @@ class SignUpAsUserVC: UIViewController {
     }
     
     @IBAction func logInButtonAction(_ sender: Any) {
+        Singleton.setHomeScreenView(userType: .user)
     }
     
     @IBAction func logInWithEmailButtonAction(_ sender: Any) {

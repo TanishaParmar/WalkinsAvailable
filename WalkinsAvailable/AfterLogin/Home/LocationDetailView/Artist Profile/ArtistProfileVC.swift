@@ -23,6 +23,8 @@ class ArtistProfileVC: UIViewController {
         super.viewDidLoad()
         self.artistImgCollectionView.delegate = self
         self.artistImgCollectionView.dataSource = self
+        artistImgVw.layer.cornerRadius = 4
+        artistImgVw.clipsToBounds = true
         let nib = UINib(nibName: "ArtistListImgCell", bundle: nil)
         self.artistImgCollectionView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
         self.artistImgVw.layer.cornerRadius = artistImgVw.frame.height/2
@@ -34,7 +36,8 @@ class ArtistProfileVC: UIViewController {
     }
     
     @IBAction func chatBtn(_ sender: UIButton) {
-        
+        let controller = MapController()
+        self.push(viewController: controller)
     }
     
     @IBAction func favBtn(_ sender: UIButton) {

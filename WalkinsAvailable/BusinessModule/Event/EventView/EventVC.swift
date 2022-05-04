@@ -30,6 +30,10 @@ class EventVC: UIViewController {
     @IBAction func ongoingBtn(_ sender: UIButton) {
        onGoingUpdate()
     }
+    @IBAction func onCreateBtn(_ sender: UIButton) {
+        let controller = EventCreateVC()
+        self.push(viewController: controller)
+    }
     
     @IBAction func pastBtn(_ sender: UIButton) {
         ongoingLbl.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
