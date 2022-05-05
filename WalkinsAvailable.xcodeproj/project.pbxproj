@@ -11,6 +11,16 @@
 		18162EB82818037D00D29D10 /* ComplaintsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18162EB62818037D00D29D10 /* ComplaintsListCell.xib */; };
 		18162EBE2818194300D29D10 /* ComplaintDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18162EBC2818194300D29D10 /* ComplaintDetailCell.swift */; };
 		18162EBF2818194300D29D10 /* ComplaintDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18162EBD2818194300D29D10 /* ComplaintDetailCell.xib */; };
+		181C170C282398DD008E7C14 /* AddArtistListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C170A282398DD008E7C14 /* AddArtistListVC.swift */; };
+		181C170D282398DD008E7C14 /* AddArtistListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181C170B282398DD008E7C14 /* AddArtistListVC.xib */; };
+		181C171228239ED7008E7C14 /* BusinessHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C171028239ED7008E7C14 /* BusinessHomeVC.swift */; };
+		181C171328239ED7008E7C14 /* BusinessHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181C171128239ED7008E7C14 /* BusinessHomeVC.xib */; };
+		181C171A2823B680008E7C14 /* ArtistEventInvitedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C17182823B680008E7C14 /* ArtistEventInvitedVC.swift */; };
+		181C171B2823B680008E7C14 /* ArtistEventInvitedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181C17192823B680008E7C14 /* ArtistEventInvitedVC.xib */; };
+		181C171F2823B799008E7C14 /* EventInviteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181C171D2823B799008E7C14 /* EventInviteListCell.swift */; };
+		181C17202823B799008E7C14 /* EventInviteListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181C171E2823B799008E7C14 /* EventInviteListCell.xib */; };
+		185148A3282401FF00CB41A7 /* BusinessHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185148A2282401FF00CB41A7 /* BusinessHomeHeaderView.swift */; };
+		185148A52824020C00CB41A7 /* BusinessHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185148A42824020C00CB41A7 /* BusinessHomeHeaderView.xib */; };
 		18697664281A68A800F208BD /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18697662281A68A800F208BD /* MapController.swift */; };
 		18697665281A68A800F208BD /* MapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18697663281A68A800F208BD /* MapController.xib */; };
 		1869766F281A69A700F208BD /* FBClusteringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18697668281A69A600F208BD /* FBClusteringManager.swift */; };
@@ -48,10 +58,10 @@
 		1895B979281FEB2B00842DD5 /* EventListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B977281FEB2B00842DD5 /* EventListCell.xib */; };
 		1895B97E28200ED000842DD5 /* EventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1895B97C28200ED000842DD5 /* EventDetailVC.swift */; };
 		1895B97F28200ED000842DD5 /* EventDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B97D28200ED000842DD5 /* EventDetailVC.xib */; };
+		189B7DBD28239413009AC87C /* AddArtistListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B7DBB28239413009AC87C /* AddArtistListCell.swift */; };
+		189B7DBE28239413009AC87C /* AddArtistListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189B7DBC28239413009AC87C /* AddArtistListCell.xib */; };
 		189C961B2822598D004B99EF /* ServiceArtistProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */; };
 		189C961C2822598D004B99EF /* ServiceArtistProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */; };
-		189C961F28225CF1004B99EF /* BusinessHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C961D28225CF1004B99EF /* BusinessHomeVC.swift */; };
-		189C962028225CF1004B99EF /* BusinessHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C961E28225CF1004B99EF /* BusinessHomeVC.xib */; };
 		189C9624282260B6004B99EF /* EventCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C9622282260B6004B99EF /* EventCreateVC.swift */; };
 		189C9625282260B6004B99EF /* EventCreateVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C9623282260B6004B99EF /* EventCreateVC.xib */; };
 		189C962E28227486004B99EF /* InviteGuestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C962C28227486004B99EF /* InviteGuestVC.swift */; };
@@ -77,6 +87,26 @@
 		18C5B9642821133400876BAE /* BusinessFavouriteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C5B9622821133400876BAE /* BusinessFavouriteVC.xib */; };
 		18C5B96728211B6300876BAE /* BusinessFavouriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5B96528211B6300876BAE /* BusinessFavouriteList.swift */; };
 		18C5B96828211B6300876BAE /* BusinessFavouriteList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C5B96628211B6300876BAE /* BusinessFavouriteList.xib */; };
+		18E379982823C0160029C01A /* ServiceNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379962823C0160029C01A /* ServiceNotificationVC.swift */; };
+		18E379992823C0160029C01A /* ServiceNotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E379972823C0160029C01A /* ServiceNotificationVC.xib */; };
+		18E3799D2823C31E0029C01A /* ServiceShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E3799B2823C31E0029C01A /* ServiceShopVC.swift */; };
+		18E3799E2823C31E0029C01A /* ServiceShopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E3799C2823C31E0029C01A /* ServiceShopVC.xib */; };
+		18E379A22823C40F0029C01A /* ShopsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379A02823C40F0029C01A /* ShopsListCell.swift */; };
+		18E379A32823C40F0029C01A /* ShopsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E379A12823C40F0029C01A /* ShopsListCell.xib */; };
+		18E379AB2823D42C0029C01A /* InviteFromShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379A92823D42C0029C01A /* InviteFromShopVC.swift */; };
+		18E379AC2823D42C0029C01A /* InviteFromShopVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E379AA2823D42C0029C01A /* InviteFromShopVC.xib */; };
+		18E379B02823D5230029C01A /* RequestInviteFromCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379AE2823D5230029C01A /* RequestInviteFromCell.swift */; };
+		18E379B12823D5230029C01A /* RequestInviteFromCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E379AF2823D5230029C01A /* RequestInviteFromCell.xib */; };
+		18E379B52823D8F20029C01A /* ServiceEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379B32823D8F20029C01A /* ServiceEventVC.swift */; };
+		18E379B62823D8F20029C01A /* ServiceEventVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E379B42823D8F20029C01A /* ServiceEventVC.xib */; };
+		18E379C72823E4310029C01A /* GalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379BE2823E4310029C01A /* GalleryModel.swift */; };
+		18E379C82823E4310029C01A /* GridCameraViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379C02823E4310029C01A /* GridCameraViewCell.swift */; };
+		18E379C92823E4310029C01A /* GalleryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E379C12823E4310029C01A /* GalleryVC.xib */; };
+		18E379CA2823E4310029C01A /* GalleryAlbumTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379C22823E4310029C01A /* GalleryAlbumTableView.swift */; };
+		18E379CB2823E4310029C01A /* GalleryImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379C32823E4310029C01A /* GalleryImagesCollectionView.swift */; };
+		18E379CC2823E4310029C01A /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379C42823E4310029C01A /* GridViewCell.swift */; };
+		18E379CD2823E4310029C01A /* FeedGalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379C52823E4310029C01A /* FeedGalleryCollectionView.swift */; };
+		18E379CE2823E4320029C01A /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E379C62823E4310029C01A /* GalleryVC.swift */; };
 		18EFEAAB28213F25009ADBB4 /* BusinessNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFEAA928213F25009ADBB4 /* BusinessNotificationVC.swift */; };
 		18EFEAAC28213F25009ADBB4 /* BusinessNotificationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFEAAA28213F25009ADBB4 /* BusinessNotificationVC.xib */; };
 		18EFEAB12821483D009ADBB4 /* SetAvailbilityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFEAAF2821483D009ADBB4 /* SetAvailbilityVC.swift */; };
@@ -161,6 +191,16 @@
 		18162EB62818037D00D29D10 /* ComplaintsListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplaintsListCell.xib; sourceTree = "<group>"; };
 		18162EBC2818194300D29D10 /* ComplaintDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintDetailCell.swift; sourceTree = "<group>"; };
 		18162EBD2818194300D29D10 /* ComplaintDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplaintDetailCell.xib; sourceTree = "<group>"; };
+		181C170A282398DD008E7C14 /* AddArtistListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtistListVC.swift; sourceTree = "<group>"; };
+		181C170B282398DD008E7C14 /* AddArtistListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddArtistListVC.xib; sourceTree = "<group>"; };
+		181C171028239ED7008E7C14 /* BusinessHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeVC.swift; sourceTree = "<group>"; };
+		181C171128239ED7008E7C14 /* BusinessHomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessHomeVC.xib; sourceTree = "<group>"; };
+		181C17182823B680008E7C14 /* ArtistEventInvitedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistEventInvitedVC.swift; sourceTree = "<group>"; };
+		181C17192823B680008E7C14 /* ArtistEventInvitedVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistEventInvitedVC.xib; sourceTree = "<group>"; };
+		181C171D2823B799008E7C14 /* EventInviteListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInviteListCell.swift; sourceTree = "<group>"; };
+		181C171E2823B799008E7C14 /* EventInviteListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventInviteListCell.xib; sourceTree = "<group>"; };
+		185148A2282401FF00CB41A7 /* BusinessHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeHeaderView.swift; sourceTree = "<group>"; };
+		185148A42824020C00CB41A7 /* BusinessHomeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessHomeHeaderView.xib; sourceTree = "<group>"; };
 		18697662281A68A800F208BD /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		18697663281A68A800F208BD /* MapController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapController.xib; sourceTree = "<group>"; };
 		18697668281A69A600F208BD /* FBClusteringManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBClusteringManager.swift; sourceTree = "<group>"; };
@@ -198,10 +238,10 @@
 		1895B977281FEB2B00842DD5 /* EventListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListCell.xib; sourceTree = "<group>"; };
 		1895B97C28200ED000842DD5 /* EventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVC.swift; sourceTree = "<group>"; };
 		1895B97D28200ED000842DD5 /* EventDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailVC.xib; sourceTree = "<group>"; };
+		189B7DBB28239413009AC87C /* AddArtistListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtistListCell.swift; sourceTree = "<group>"; };
+		189B7DBC28239413009AC87C /* AddArtistListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddArtistListCell.xib; sourceTree = "<group>"; };
 		189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceArtistProfileVC.swift; sourceTree = "<group>"; };
 		189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceArtistProfileVC.xib; sourceTree = "<group>"; };
-		189C961D28225CF1004B99EF /* BusinessHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeVC.swift; sourceTree = "<group>"; };
-		189C961E28225CF1004B99EF /* BusinessHomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessHomeVC.xib; sourceTree = "<group>"; };
 		189C9622282260B6004B99EF /* EventCreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreateVC.swift; sourceTree = "<group>"; };
 		189C9623282260B6004B99EF /* EventCreateVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCreateVC.xib; sourceTree = "<group>"; };
 		189C962C28227486004B99EF /* InviteGuestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteGuestVC.swift; sourceTree = "<group>"; };
@@ -227,6 +267,26 @@
 		18C5B9622821133400876BAE /* BusinessFavouriteVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessFavouriteVC.xib; sourceTree = "<group>"; };
 		18C5B96528211B6300876BAE /* BusinessFavouriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessFavouriteList.swift; sourceTree = "<group>"; };
 		18C5B96628211B6300876BAE /* BusinessFavouriteList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessFavouriteList.xib; sourceTree = "<group>"; };
+		18E379962823C0160029C01A /* ServiceNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceNotificationVC.swift; sourceTree = "<group>"; };
+		18E379972823C0160029C01A /* ServiceNotificationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceNotificationVC.xib; sourceTree = "<group>"; };
+		18E3799B2823C31E0029C01A /* ServiceShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceShopVC.swift; sourceTree = "<group>"; };
+		18E3799C2823C31E0029C01A /* ServiceShopVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceShopVC.xib; sourceTree = "<group>"; };
+		18E379A02823C40F0029C01A /* ShopsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsListCell.swift; sourceTree = "<group>"; };
+		18E379A12823C40F0029C01A /* ShopsListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopsListCell.xib; sourceTree = "<group>"; };
+		18E379A92823D42C0029C01A /* InviteFromShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFromShopVC.swift; sourceTree = "<group>"; };
+		18E379AA2823D42C0029C01A /* InviteFromShopVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InviteFromShopVC.xib; sourceTree = "<group>"; };
+		18E379AE2823D5230029C01A /* RequestInviteFromCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInviteFromCell.swift; sourceTree = "<group>"; };
+		18E379AF2823D5230029C01A /* RequestInviteFromCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequestInviteFromCell.xib; sourceTree = "<group>"; };
+		18E379B32823D8F20029C01A /* ServiceEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEventVC.swift; sourceTree = "<group>"; };
+		18E379B42823D8F20029C01A /* ServiceEventVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceEventVC.xib; sourceTree = "<group>"; };
+		18E379BE2823E4310029C01A /* GalleryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryModel.swift; sourceTree = "<group>"; };
+		18E379C02823E4310029C01A /* GridCameraViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCameraViewCell.swift; sourceTree = "<group>"; };
+		18E379C12823E4310029C01A /* GalleryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryVC.xib; sourceTree = "<group>"; };
+		18E379C22823E4310029C01A /* GalleryAlbumTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryAlbumTableView.swift; sourceTree = "<group>"; };
+		18E379C32823E4310029C01A /* GalleryImagesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryImagesCollectionView.swift; sourceTree = "<group>"; };
+		18E379C42823E4310029C01A /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
+		18E379C52823E4310029C01A /* FeedGalleryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedGalleryCollectionView.swift; sourceTree = "<group>"; };
+		18E379C62823E4310029C01A /* GalleryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
 		18EFEAA928213F25009ADBB4 /* BusinessNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessNotificationVC.swift; sourceTree = "<group>"; };
 		18EFEAAA28213F25009ADBB4 /* BusinessNotificationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessNotificationVC.xib; sourceTree = "<group>"; };
 		18EFEAAF2821483D009ADBB4 /* SetAvailbilityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvailbilityVC.swift; sourceTree = "<group>"; };
@@ -349,6 +409,74 @@
 			path = ComplaintsDetailCellXib;
 			sourceTree = "<group>";
 		};
+		181C170E28239BFF008E7C14 /* BusinessProviderHome */ = {
+			isa = PBXGroup;
+			children = (
+				181C171028239ED7008E7C14 /* BusinessHomeVC.swift */,
+				181C171128239ED7008E7C14 /* BusinessHomeVC.xib */,
+				185148A2282401FF00CB41A7 /* BusinessHomeHeaderView.swift */,
+				185148A42824020C00CB41A7 /* BusinessHomeHeaderView.xib */,
+			);
+			path = BusinessProviderHome;
+			sourceTree = "<group>";
+		};
+		181C170F28239E2B008E7C14 /* BusinessAddArtistList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BusinessAddArtistList;
+			sourceTree = "<group>";
+		};
+		181C17142823B5F4008E7C14 /* ServiceProviderModule */ = {
+			isa = PBXGroup;
+			children = (
+				181C17152823B60D008E7C14 /* ServiceHome */,
+			);
+			path = ServiceProviderModule;
+			sourceTree = "<group>";
+		};
+		181C17152823B60D008E7C14 /* ServiceHome */ = {
+			isa = PBXGroup;
+			children = (
+				18E379B22823D8D20029C01A /* SEvent */,
+				18E379A42823D3E40029C01A /* RequestInviteFromShop */,
+				18E3799A2823C3060029C01A /* SShops */,
+				18E379952823BFF40029C01A /* SNotification */,
+				181C17172823B65C008E7C14 /* ArtistEventInvite */,
+				181C17162823B641008E7C14 /* SHome */,
+			);
+			path = ServiceHome;
+			sourceTree = "<group>";
+		};
+		181C17162823B641008E7C14 /* SHome */ = {
+			isa = PBXGroup;
+			children = (
+				18E379BC2823E4310029C01A /* GalleryVC */,
+				189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */,
+				189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */,
+			);
+			path = SHome;
+			sourceTree = "<group>";
+		};
+		181C17172823B65C008E7C14 /* ArtistEventInvite */ = {
+			isa = PBXGroup;
+			children = (
+				181C171C2823B771008E7C14 /* ArtistInviteEventListCell */,
+				181C17182823B680008E7C14 /* ArtistEventInvitedVC.swift */,
+				181C17192823B680008E7C14 /* ArtistEventInvitedVC.xib */,
+			);
+			path = ArtistEventInvite;
+			sourceTree = "<group>";
+		};
+		181C171C2823B771008E7C14 /* ArtistInviteEventListCell */ = {
+			isa = PBXGroup;
+			children = (
+				181C171D2823B799008E7C14 /* EventInviteListCell.swift */,
+				181C171E2823B799008E7C14 /* EventInviteListCell.xib */,
+			);
+			path = ArtistInviteEventListCell;
+			sourceTree = "<group>";
+		};
 		1869765D281A5D6300F208BD /* MapView */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,13 +589,31 @@
 			path = EventView;
 			sourceTree = "<group>";
 		};
+		189B7DB528239285009AC87C /* AddArtistList */ = {
+			isa = PBXGroup;
+			children = (
+				181C170A282398DD008E7C14 /* AddArtistListVC.swift */,
+				181C170B282398DD008E7C14 /* AddArtistListVC.xib */,
+			);
+			path = AddArtistList;
+			sourceTree = "<group>";
+		};
+		189B7DBA282393DE009AC87C /* AddArtistCell */ = {
+			isa = PBXGroup;
+			children = (
+				189B7DBB28239413009AC87C /* AddArtistListCell.swift */,
+				189B7DBC28239413009AC87C /* AddArtistListCell.xib */,
+			);
+			path = AddArtistCell;
+			sourceTree = "<group>";
+		};
 		189C961828225963004B99EF /* BusinessHome */ = {
 			isa = PBXGroup;
 			children = (
-				189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */,
-				189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */,
-				189C961D28225CF1004B99EF /* BusinessHomeVC.swift */,
-				189C961E28225CF1004B99EF /* BusinessHomeVC.xib */,
+				181C170F28239E2B008E7C14 /* BusinessAddArtistList */,
+				181C170E28239BFF008E7C14 /* BusinessProviderHome */,
+				189B7DBA282393DE009AC87C /* AddArtistCell */,
+				189B7DB528239285009AC87C /* AddArtistList */,
 			);
 			path = BusinessHome;
 			sourceTree = "<group>";
@@ -634,6 +780,93 @@
 			path = BusinessFav;
 			sourceTree = "<group>";
 		};
+		18E379952823BFF40029C01A /* SNotification */ = {
+			isa = PBXGroup;
+			children = (
+				18E379962823C0160029C01A /* ServiceNotificationVC.swift */,
+				18E379972823C0160029C01A /* ServiceNotificationVC.xib */,
+			);
+			path = SNotification;
+			sourceTree = "<group>";
+		};
+		18E3799A2823C3060029C01A /* SShops */ = {
+			isa = PBXGroup;
+			children = (
+				18E3799F2823C3F70029C01A /* SShopsListCell */,
+				18E3799B2823C31E0029C01A /* ServiceShopVC.swift */,
+				18E3799C2823C31E0029C01A /* ServiceShopVC.xib */,
+			);
+			path = SShops;
+			sourceTree = "<group>";
+		};
+		18E3799F2823C3F70029C01A /* SShopsListCell */ = {
+			isa = PBXGroup;
+			children = (
+				18E379A02823C40F0029C01A /* ShopsListCell.swift */,
+				18E379A12823C40F0029C01A /* ShopsListCell.xib */,
+			);
+			path = SShopsListCell;
+			sourceTree = "<group>";
+		};
+		18E379A42823D3E40029C01A /* RequestInviteFromShop */ = {
+			isa = PBXGroup;
+			children = (
+				18E379AD2823D5000029C01A /* RequestInviteCell */,
+				18E379A92823D42C0029C01A /* InviteFromShopVC.swift */,
+				18E379AA2823D42C0029C01A /* InviteFromShopVC.xib */,
+			);
+			path = RequestInviteFromShop;
+			sourceTree = "<group>";
+		};
+		18E379AD2823D5000029C01A /* RequestInviteCell */ = {
+			isa = PBXGroup;
+			children = (
+				18E379AE2823D5230029C01A /* RequestInviteFromCell.swift */,
+				18E379AF2823D5230029C01A /* RequestInviteFromCell.xib */,
+			);
+			path = RequestInviteCell;
+			sourceTree = "<group>";
+		};
+		18E379B22823D8D20029C01A /* SEvent */ = {
+			isa = PBXGroup;
+			children = (
+				18E379B32823D8F20029C01A /* ServiceEventVC.swift */,
+				18E379B42823D8F20029C01A /* ServiceEventVC.xib */,
+			);
+			path = SEvent;
+			sourceTree = "<group>";
+		};
+		18E379BC2823E4310029C01A /* GalleryVC */ = {
+			isa = PBXGroup;
+			children = (
+				18E379BD2823E4310029C01A /* Model */,
+				18E379BF2823E4310029C01A /* View */,
+			);
+			path = GalleryVC;
+			sourceTree = "<group>";
+		};
+		18E379BD2823E4310029C01A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18E379BE2823E4310029C01A /* GalleryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18E379BF2823E4310029C01A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18E379C02823E4310029C01A /* GridCameraViewCell.swift */,
+				18E379C12823E4310029C01A /* GalleryVC.xib */,
+				18E379C22823E4310029C01A /* GalleryAlbumTableView.swift */,
+				18E379C32823E4310029C01A /* GalleryImagesCollectionView.swift */,
+				18E379C42823E4310029C01A /* GridViewCell.swift */,
+				18E379C52823E4310029C01A /* FeedGalleryCollectionView.swift */,
+				18E379C62823E4310029C01A /* GalleryVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		18EFEAA728213CF7009ADBB4 /* Business Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,9 +1012,10 @@
 		1F39248627F84894000F08F5 /* WalkinsAvailable */ = {
 			isa = PBXGroup;
 			children = (
-				1895B96E281FD08600842DD5 /* BusinessModule */,
 				1F39249B27F848DA000F08F5 /* InitialClasses */,
-				1F39249D27F8493F000F08F5 /* AfterLogin */,
+				1F39249D27F8493F000F08F5 /* UserModule */,
+				1895B96E281FD08600842DD5 /* BusinessModule */,
+				181C17142823B5F4008E7C14 /* ServiceProviderModule */,
 				1F39249C27F848E8000F08F5 /* Onboarding */,
 				1F422EEE27FC255200877618 /* XibClasses */,
 				1F39249F27F84AAD000F08F5 /* HelperClasses */,
@@ -816,7 +1050,7 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		1F39249D27F8493F000F08F5 /* AfterLogin */ = {
+		1F39249D27F8493F000F08F5 /* UserModule */ = {
 			isa = PBXGroup;
 			children = (
 				18B4D440281BEDFF005C0816 /* AboutUs */,
@@ -831,7 +1065,7 @@
 				1F422ED027FC201400877618 /* Chat */,
 				1F422ECA27FC152D00877618 /* TabBar */,
 			);
-			path = AfterLogin;
+			path = UserModule;
 			sourceTree = "<group>";
 		};
 		1F39249E27F84A34000F08F5 /* Storyboard */ = {
@@ -1251,15 +1485,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				181C17202823B799008E7C14 /* EventInviteListCell.xib in Resources */,
 				18162EBF2818194300D29D10 /* ComplaintDetailCell.xib in Resources */,
 				1F39249427F84896000F08F5 /* LaunchScreen.storyboard in Resources */,
 				1F68262127FD811800FFB4DA /* ContactUsVC.xib in Resources */,
 				18EFEABC282150C4009ADBB4 /* AvailbilityListCell.xib in Resources */,
 				1F3344E427FAE636000BB072 /* Poppins-Bold.ttf in Resources */,
 				1F422EC927FC096F00877618 /* ForgotPasswordVC.xib in Resources */,
+				18E379C92823E4310029C01A /* GalleryVC.xib in Resources */,
 				18B4D43A281BD015005C0816 /* ArtistProfileVC.xib in Resources */,
 				1F422EDA27FC206500877618 /* ChatListVC.xib in Resources */,
 				18EFEAB728214F57009ADBB4 /* AvailbilityVC.xib in Resources */,
+				18E379AC2823D42C0029C01A /* InviteFromShopVC.xib in Resources */,
+				181C170D282398DD008E7C14 /* AddArtistListVC.xib in Resources */,
 				1895B966281FC05A00842DD5 /* ChatCell.xib in Resources */,
 				1F39249127F84896000F08F5 /* Assets.xcassets in Resources */,
 				1F3924A727F8575D000F08F5 /* LoginVC.xib in Resources */,
@@ -1275,13 +1513,16 @@
 				1895B974281FD14D00842DD5 /* EventVC.xib in Resources */,
 				1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */,
 				189C961C2822598D004B99EF /* ServiceArtistProfileVC.xib in Resources */,
+				181C171328239ED7008E7C14 /* BusinessHomeVC.xib in Resources */,
 				1F3344FD27FB20EF000BB072 /* SignUpAsBusinessVC.xib in Resources */,
 				18697694281AB9D400F208BD /* ArtistListCell.xib in Resources */,
 				1F3344F227FB04BF000BB072 /* SignUpAsUserVC.xib in Resources */,
 				189FB2CE2819384700C1EC42 /* SignUpServiceProvider.xib in Resources */,
 				18EFEAAC28213F25009ADBB4 /* BusinessNotificationVC.xib in Resources */,
 				18C5B96828211B6300876BAE /* BusinessFavouriteList.xib in Resources */,
+				181C171B2823B680008E7C14 /* ArtistEventInvitedVC.xib in Resources */,
 				1F3344E527FAE636000BB072 /* Poppins-SemiBold.ttf in Resources */,
+				18E379B62823D8F20029C01A /* ServiceEventVC.xib in Resources */,
 				18EFEAB22821483D009ADBB4 /* SetAvailbilityVC.xib in Resources */,
 				1F3344E327FAE636000BB072 /* Poppins-ExtraBold.ttf in Resources */,
 				1F422EFA27FC346300877618 /* HomeListCVC.xib in Resources */,
@@ -1290,20 +1531,25 @@
 				18B4D43F281BDBC9005C0816 /* ArtistListImgCell.xib in Resources */,
 				189FB2B82819177000C1EC42 /* ComplaintDetailVC.xib in Resources */,
 				1895B965281FC05A00842DD5 /* SingleChatController.xib in Resources */,
+				18E3799E2823C31E0029C01A /* ServiceShopVC.xib in Resources */,
+				18E379992823C0160029C01A /* ServiceNotificationVC.xib in Resources */,
 				18B4D434281BAEA7005C0816 /* ComplaintViewVC.xib in Resources */,
 				1869768F281AAAD100F208BD /* LocationDetailVC.xib in Resources */,
 				18697665281A68A800F208BD /* MapController.xib in Resources */,
 				1895B979281FEB2B00842DD5 /* EventListCell.xib in Resources */,
 				1F422EE327FC209B00877618 /* HomeVC.xib in Resources */,
+				189B7DBE28239413009AC87C /* AddArtistListCell.xib in Resources */,
 				1F68261527FD74C700FFB4DA /* AccountListTVC.xib in Resources */,
 				1F3344E627FAE636000BB072 /* Poppins-Regular.ttf in Resources */,
+				18E379B12823D5230029C01A /* RequestInviteFromCell.xib in Resources */,
 				1F79106328097E2400102EA6 /* ChangePasswordVC.xib in Resources */,
 				1F422EF327FC25A600877618 /* ChatListTVC.xib in Resources */,
 				1F39248F27F84894000F08F5 /* Main.storyboard in Resources */,
-				189C962028225CF1004B99EF /* BusinessHomeVC.xib in Resources */,
 				1F79106928098A5700102EA6 /* ComplaintsVC.xib in Resources */,
+				185148A52824020C00CB41A7 /* BusinessHomeHeaderView.xib in Resources */,
 				1F3924AD27F85F44000F08F5 /* SignUpAsVC.xib in Resources */,
 				189FB2BF2819214200C1EC42 /* SignUpBusinessProfile.xib in Resources */,
+				18E379A32823C40F0029C01A /* ShopsListCell.xib in Resources */,
 				1F422EE827FC20C800877618 /* NotificationVC.xib in Resources */,
 				1F422EDE27FC208000877618 /* FavouriteVC.xib in Resources */,
 			);
@@ -1370,12 +1616,14 @@
 				189FB2CA28192CFA00C1EC42 /* AppAlert.swift in Sources */,
 				18EFEAB12821483D009ADBB4 /* SetAvailbilityVC.swift in Sources */,
 				1F422F1527FC4F8E00877618 /* ESTabBarController.swift in Sources */,
+				181C171A2823B680008E7C14 /* ArtistEventInvitedVC.swift in Sources */,
 				18697673281A69A700F208BD /* FBAnnotationClusterView.swift in Sources */,
 				1F422F1227FC4F8E00877618 /* ExampleTipsContentView.swift in Sources */,
 				1869766F281A69A700F208BD /* FBClusteringManager.swift in Sources */,
 				1895B967281FC05A00842DD5 /* SingleChatController.swift in Sources */,
 				1F422ED927FC206500877618 /* ChatListVC.swift in Sources */,
 				1F79106228097E2400102EA6 /* ChangePasswordVC.swift in Sources */,
+				18E379CD2823E4310029C01A /* FeedGalleryCollectionView.swift in Sources */,
 				18B4D433281BAEA7005C0816 /* ComplaintViewVC.swift in Sources */,
 				1F68261A27FD7DDD00FFB4DA /* EditProfileVC.swift in Sources */,
 				18697689281A722200F208BD /* UIViewController+Custom.swift in Sources */,
@@ -1385,6 +1633,8 @@
 				1869768E281AAAD100F208BD /* LocationDetailVC.swift in Sources */,
 				189FB2B72819177000C1EC42 /* ComplaintDetailVC.swift in Sources */,
 				18697693281AB9D400F208BD /* ArtistListCell.swift in Sources */,
+				18E379C72823E4310029C01A /* GalleryModel.swift in Sources */,
+				181C170C282398DD008E7C14 /* AddArtistListVC.swift in Sources */,
 				18697687281A704F00F208BD /* LocationItem.swift in Sources */,
 				1F79106828098A5700102EA6 /* ComplaintsVC.swift in Sources */,
 				18B4D443281BEE2A005C0816 /* AboutUsVC.swift in Sources */,
@@ -1395,9 +1645,12 @@
 				1895B97E28200ED000842DD5 /* EventDetailVC.swift in Sources */,
 				18162EB72818037D00D29D10 /* ComplaintsListCell.swift in Sources */,
 				1F422F1727FC4F8E00877618 /* ExampleNavigationController.swift in Sources */,
+				18E379B52823D8F20029C01A /* ServiceEventVC.swift in Sources */,
+				181C171228239ED7008E7C14 /* BusinessHomeVC.swift in Sources */,
 				18697664281A68A800F208BD /* MapController.swift in Sources */,
 				1895B96D281FCC4800842DD5 /* Singleton.swift in Sources */,
 				189C961B2822598D004B99EF /* ServiceArtistProfileVC.swift in Sources */,
+				18E379C82823E4310029C01A /* GridCameraViewCell.swift in Sources */,
 				1895B964281FC05A00842DD5 /* ChatCell.swift in Sources */,
 				1F422EE227FC209B00877618 /* HomeVC.swift in Sources */,
 				1F422F0D27FC4F8E00877618 /* ExampleBackgroundContentView.swift in Sources */,
@@ -1406,26 +1659,35 @@
 				1F422F1927FC4F8E00877618 /* ESTabBarItemBadgeView.swift in Sources */,
 				1F3344ED27FAFF76000BB072 /* Constant.swift in Sources */,
 				1F3344FE27FB20EF000BB072 /* SignUpAsBusinessVC.swift in Sources */,
+				18E379AB2823D42C0029C01A /* InviteFromShopVC.swift in Sources */,
 				1F3344F127FB04BF000BB072 /* SignUpAsUserVC.swift in Sources */,
 				1F422F1A27FC4F8E00877618 /* ESTabBar.swift in Sources */,
 				1F3344E927FAF40D000BB072 /* UIView+Extension.swift in Sources */,
 				189FB2BE2819214200C1EC42 /* SignUpBusinessProfile.swift in Sources */,
 				1F422EC827FC096F00877618 /* ForgotPasswordVC.swift in Sources */,
+				181C171F2823B799008E7C14 /* EventInviteListCell.swift in Sources */,
 				1F68261427FD74C700FFB4DA /* AccountListTVC.swift in Sources */,
+				18E379CC2823E4310029C01A /* GridViewCell.swift in Sources */,
 				18162EBE2818194300D29D10 /* ComplaintDetailCell.swift in Sources */,
 				18697675281A69A700F208BD /* FBQuadTreeNode.swift in Sources */,
 				18EFEAB628214F57009ADBB4 /* AvailbilityVC.swift in Sources */,
 				18697685281A6EB800F208BD /* LocationManager.swift in Sources */,
 				1F422F1627FC4F8E00877618 /* ESTabBarItemContentView.swift in Sources */,
-				189C961F28225CF1004B99EF /* BusinessHomeVC.swift in Sources */,
 				1F422F1B27FC4F8E00877618 /* ESTabBarItemContainer.swift in Sources */,
 				1F68262027FD811800FFB4DA /* ContactUsVC.swift in Sources */,
 				1F39248827F84894000F08F5 /* AppDelegate.swift in Sources */,
 				1F422F1827FC4F8E00877618 /* ESTabBarItem.swift in Sources */,
+				18E379A22823C40F0029C01A /* ShopsListCell.swift in Sources */,
 				1869767F281A6BD300F208BD /* AnimatingView.swift in Sources */,
+				18E379B02823D5230029C01A /* RequestInviteFromCell.swift in Sources */,
+				18E379CA2823E4310029C01A /* GalleryAlbumTableView.swift in Sources */,
 				1F68260F27FD641E00FFB4DA /* NotificationListTVC.swift in Sources */,
+				189B7DBD28239413009AC87C /* AddArtistListCell.swift in Sources */,
+				18E379CE2823E4320029C01A /* GalleryVC.swift in Sources */,
 				18697679281A6ACD00F208BD /* LocationSearchTable.swift in Sources */,
+				18E379982823C0160029C01A /* ServiceNotificationVC.swift in Sources */,
 				1F39248A27F84894000F08F5 /* SceneDelegate.swift in Sources */,
+				18E379CB2823E4310029C01A /* GalleryImagesCollectionView.swift in Sources */,
 				18697672281A69A700F208BD /* FBBoundingBox.swift in Sources */,
 				18EFEAAB28213F25009ADBB4 /* BusinessNotificationVC.swift in Sources */,
 				1F3924AC27F85F44000F08F5 /* SignUpAsVC.swift in Sources */,
@@ -1443,9 +1705,11 @@
 				189FB2C828192C6E00C1EC42 /* HelperMethod.swift in Sources */,
 				1F422EF927FC346300877618 /* HomeListCVC.swift in Sources */,
 				1F3924A627F8575D000F08F5 /* LoginVC.swift in Sources */,
+				185148A3282401FF00CB41A7 /* BusinessHomeHeaderView.swift in Sources */,
 				1F3924A127F851DA000F08F5 /* AppHelperMethods.swift in Sources */,
 				1F422F1027FC4F8E00877618 /* ExampleBasicContentView.swift in Sources */,
 				18C5B9632821133400876BAE /* BusinessFavouriteVC.swift in Sources */,
+				18E3799D2823C31E0029C01A /* ServiceShopVC.swift in Sources */,
 				1F422F1427FC4F8E00877618 /* ESTabBarItemMoreContentView.swift in Sources */,
 				18697674281A69A700F208BD /* FBAnnotation.swift in Sources */,
 				1F422F0E27FC4F8E00877618 /* ExampleBouncesContentView.swift in Sources */,

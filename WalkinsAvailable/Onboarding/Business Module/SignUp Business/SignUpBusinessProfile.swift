@@ -30,6 +30,7 @@ class SignUpBusinessProfile: UIViewController,UITextFieldDelegate,UITextViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         uiUpdate()
+        self.tabBarController?.tabBar.isHidden = true
     }
 
     @IBAction func backBtn(_ sender: UIButton) {

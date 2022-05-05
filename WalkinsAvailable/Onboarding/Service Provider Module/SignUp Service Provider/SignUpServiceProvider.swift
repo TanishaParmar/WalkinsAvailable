@@ -24,6 +24,8 @@ class SignUpServiceProvider: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         uiUpdate()
+        self.tabBarController?.tabBar.isHidden = true
+
     }
     
     @IBAction func uploadBtnProfile(_ sender: UIButton) {
@@ -35,11 +37,13 @@ class SignUpServiceProvider: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {
-        if validate() == false {
-            return
-        }else{
-            Singleton.setHomeScreenView(userType: .serviceProvider )
-        }
+//        if validate() == false {
+//            return
+//        }else{
+//            Singleton.setHomeScreenView(userType: .serviceProvider )
+//        }
+        Singleton.setHomeScreenView(userType: .serviceProvider )
+
     }
     
     //    MARK: STORYBOARD_UPDATE

@@ -29,6 +29,8 @@ class SignUpAsUserVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        self.tabBarController?.tabBar.isHidden = true
+
     }
     
     //MARK: Methods

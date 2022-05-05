@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="KGk-i7-Jjw" customClass="RequestInviteFromCell" customModule="WalkinsAvailable" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img3" translatesAutoresizingMaskIntoConstraints="NO" id="aTu-I2-alX">
+                        <rect key="frame" x="16" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="b73-Rp-TSa"/>
+                            <constraint firstAttribute="height" constant="50" id="snP-hf-8H9"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gm-x6-8sl">
+                        <rect key="frame" x="76" y="24.5" width="99" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdb-4n-8hS">
+                        <rect key="frame" x="235" y="20" width="75" height="30"/>
+                        <color key="backgroundColor" red="0.97791153190000002" green="0.72789973019999998" blue="0.74231415990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="LdN-P1-5M1"/>
+                            <constraint firstAttribute="height" constant="30" id="Qd9-8l-Gpr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Request">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeb-0c-SsJ">
+                        <rect key="frame" x="16" y="68.5" width="304" height="1.5"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1.5" id="W9K-iv-kZr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="yeb-0c-SsJ" secondAttribute="trailing" id="ITB-qO-4aG"/>
+                    <constraint firstAttribute="bottom" secondItem="yeb-0c-SsJ" secondAttribute="bottom" id="PcQ-h9-SmG"/>
+                    <constraint firstAttribute="trailing" secondItem="vdb-4n-8hS" secondAttribute="trailing" constant="10" id="Yzp-Ep-huX"/>
+                    <constraint firstItem="aTu-I2-alX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="axL-KZ-h2r"/>
+                    <constraint firstItem="0Gm-x6-8sl" firstAttribute="leading" secondItem="aTu-I2-alX" secondAttribute="trailing" constant="10" id="c0h-uQ-dfX"/>
+                    <constraint firstItem="yeb-0c-SsJ" firstAttribute="leading" secondItem="aTu-I2-alX" secondAttribute="leading" id="dw4-Cu-rbZ"/>
+                    <constraint firstItem="0Gm-x6-8sl" firstAttribute="centerY" secondItem="aTu-I2-alX" secondAttribute="centerY" id="fpU-eE-JK4"/>
+                    <constraint firstItem="aTu-I2-alX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iSl-8B-853"/>
+                    <constraint firstItem="vdb-4n-8hS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ukc-ms-0OZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgCell" destination="aTu-I2-alX" id="AGJ-bi-NPi"/>
+                <outlet property="nameLbl" destination="0Gm-x6-8sl" id="qQT-Yt-Do4"/>
+                <outlet property="requestBtn" destination="vdb-4n-8hS" id="uVe-o8-rFb"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img3" width="202" height="250"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
