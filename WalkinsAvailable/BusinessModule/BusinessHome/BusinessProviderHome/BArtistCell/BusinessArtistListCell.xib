@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="BusinessArtistListCell" customModule="WalkinsAvailable" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="104"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="104"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xaw-Fd-DcH">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="85"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yol-iT-lOW">
+                                <rect key="frame" x="5" y="7.5" width="70" height="70"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L17-Hg-v8E">
+                                        <rect key="frame" x="2" y="2" width="66" height="66"/>
+                                        <color key="tintColor" red="0.14104312660000001" green="0.1357859075" blue="0.2021077275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <imageReference key="image" image="img3" symbolScale="small"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="110" scale="medium" weight="regular"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="L17-Hg-v8E" firstAttribute="centerY" secondItem="yol-iT-lOW" secondAttribute="centerY" id="Ezd-VA-cA5"/>
+                                    <constraint firstAttribute="width" secondItem="yol-iT-lOW" secondAttribute="height" multiplier="1:1" id="Fgr-O9-LZv"/>
+                                    <constraint firstItem="L17-Hg-v8E" firstAttribute="height" secondItem="yol-iT-lOW" secondAttribute="height" multiplier="0.94" id="Ry5-q6-b5S"/>
+                                    <constraint firstItem="L17-Hg-v8E" firstAttribute="centerX" secondItem="yol-iT-lOW" secondAttribute="centerX" id="cPY-dD-aL4"/>
+                                    <constraint firstItem="L17-Hg-v8E" firstAttribute="width" secondItem="yol-iT-lOW" secondAttribute="width" multiplier="0.94" id="mWy-Z5-yCv"/>
+                                    <constraint firstAttribute="height" constant="70" id="uO9-fO-2mS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yol-iT-lOW" firstAttribute="centerX" secondItem="Xaw-Fd-DcH" secondAttribute="centerX" id="KSa-Y3-Ggp"/>
+                            <constraint firstItem="yol-iT-lOW" firstAttribute="centerY" secondItem="Xaw-Fd-DcH" secondAttribute="centerY" id="jzB-at-9W9"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F54-Os-zyu">
+                        <rect key="frame" x="24.5" y="88" width="31" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="1e1-rv-15e"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="F54-Os-zyu" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Hnp-Hb-6If"/>
+                <constraint firstItem="Xaw-Fd-DcH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="U7F-dl-P6h"/>
+                <constraint firstItem="Xaw-Fd-DcH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dos-FZ-S2T"/>
+                <constraint firstAttribute="bottom" secondItem="F54-Os-zyu" secondAttribute="bottom" id="fpA-Gr-mVb"/>
+                <constraint firstAttribute="trailing" secondItem="Xaw-Fd-DcH" secondAttribute="trailing" id="g17-DS-Hah"/>
+                <constraint firstItem="F54-Os-zyu" firstAttribute="top" secondItem="Xaw-Fd-DcH" secondAttribute="bottom" constant="3" id="qfl-7R-RlH"/>
+            </constraints>
+            <size key="customSize" width="80" height="104"/>
+            <connections>
+                <outlet property="imageSuperView" destination="yol-iT-lOW" id="Rfr-I9-EhY"/>
+                <outlet property="imageView" destination="L17-Hg-v8E" id="Umu-8n-Tek"/>
+                <outlet property="nameHeightConstraionts" destination="1e1-rv-15e" id="yDi-hx-RZX"/>
+                <outlet property="nameLbl" destination="F54-Os-zyu" id="7dc-NB-MW5"/>
+            </connections>
+            <point key="canvasLocation" x="152.17391304347828" y="123.88392857142857"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="img3" width="202" height="250"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

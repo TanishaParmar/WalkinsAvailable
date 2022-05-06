@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="EventHomeCollectionListcell" customModule="WalkinsAvailable" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="160"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZaD-eS-bCa">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="160"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileListImg" translatesAutoresizingMaskIntoConstraints="NO" id="h6k-w9-v5j">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="cUK-lI-btu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlQ-2S-4sP">
+                                <rect key="frame" x="10" y="100" width="92" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="gsC-eZ-J7k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your dummy text here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcR-7M-9ro">
+                                <rect key="frame" x="10" y="123" width="280" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="f9q-rb-mzP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h6k-w9-v5j" firstAttribute="leading" secondItem="ZaD-eS-bCa" secondAttribute="leading" id="0NB-QO-QEM"/>
+                            <constraint firstItem="UcR-7M-9ro" firstAttribute="leading" secondItem="ZaD-eS-bCa" secondAttribute="leading" constant="10" id="4Vv-q1-2N6"/>
+                            <constraint firstItem="UcR-7M-9ro" firstAttribute="top" secondItem="xlQ-2S-4sP" secondAttribute="bottom" constant="8" symbolic="YES" id="5JU-yT-ui8"/>
+                            <constraint firstAttribute="trailing" secondItem="h6k-w9-v5j" secondAttribute="trailing" id="Elm-dq-Hwn"/>
+                            <constraint firstItem="xlQ-2S-4sP" firstAttribute="top" secondItem="h6k-w9-v5j" secondAttribute="bottom" constant="4" id="H93-ji-agt"/>
+                            <constraint firstItem="h6k-w9-v5j" firstAttribute="top" secondItem="ZaD-eS-bCa" secondAttribute="top" id="Q40-UP-xEp"/>
+                            <constraint firstItem="xlQ-2S-4sP" firstAttribute="leading" secondItem="ZaD-eS-bCa" secondAttribute="leading" constant="10" id="Q7c-EC-MJA"/>
+                            <constraint firstAttribute="trailing" secondItem="UcR-7M-9ro" secondAttribute="trailing" constant="10" id="VKX-qI-mTg"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ZaD-eS-bCa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="F8w-jV-0KI"/>
+                <constraint firstAttribute="bottom" secondItem="ZaD-eS-bCa" secondAttribute="bottom" id="cHe-sa-MQz"/>
+                <constraint firstAttribute="trailing" secondItem="ZaD-eS-bCa" secondAttribute="trailing" id="qQm-WX-Ziy"/>
+                <constraint firstItem="ZaD-eS-bCa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rPS-8f-tx0"/>
+            </constraints>
+            <size key="customSize" width="300" height="163"/>
+            <connections>
+                <outlet property="descriptionLbl" destination="UcR-7M-9ro" id="cQD-Lg-jUI"/>
+                <outlet property="eventView" destination="ZaD-eS-bCa" id="yYm-Dh-n9H"/>
+                <outlet property="eventname" destination="xlQ-2S-4sP" id="s8D-6V-rr9"/>
+                <outlet property="imgCell" destination="h6k-w9-v5j" id="wmH-hm-jH5"/>
+            </connections>
+            <point key="canvasLocation" x="-27.536231884057973" y="159.04017857142856"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="profileListImg" width="212" height="112"/>
+    </resources>
+</document>

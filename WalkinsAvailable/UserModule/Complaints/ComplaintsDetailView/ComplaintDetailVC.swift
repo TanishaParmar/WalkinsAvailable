@@ -45,6 +45,8 @@ extension ComplaintDetailVC : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ComplaintDetailCell", for: indexPath) as! ComplaintDetailCell
+//        cell.replyUIview.isHidden = true
+//        cell.btnUiview.isHidden = true
         return cell
     }
     

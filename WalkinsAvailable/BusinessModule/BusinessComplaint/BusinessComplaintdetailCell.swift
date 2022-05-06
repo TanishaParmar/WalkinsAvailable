@@ -1,28 +1,30 @@
 //
-//  ComplaintDetailCell.swift
+//  BusinessComplaintdetailCell.swift
 //  WalkinsAvailable
 //
-//  Created by apple on 26/04/22.
+//  Created by apple on 06/05/22.
 //
 
 import UIKit
 
-class ComplaintDetailCell: UITableViewCell {
-    
-//MARK: OUTLETS
-    
+class BusinessComplaintdetailCell: UITableViewCell {
+
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var shopNameLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var complaintsView: UIView!
-    
+    @IBOutlet weak var replydescriptionView: UITextView!
+    @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var replyUIview: UIView!
+    @IBOutlet weak var btnUiview: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.complaintsView.layer.cornerRadius = 6
-        self.complaintsView.layer.borderColor = UIColor.gray.cgColor
         self.complaintsView.layer.borderWidth = 1
-        self.statusLbl.layer.cornerRadius = 8
+        self.complaintsView.layer.borderColor = UIColor.gray.cgColor
+        self.complaintsView.layer.cornerRadius = 4
+        self.complaintsView.clipsToBounds = true
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

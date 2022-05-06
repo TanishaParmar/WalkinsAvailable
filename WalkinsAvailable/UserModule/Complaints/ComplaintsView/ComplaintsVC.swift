@@ -16,6 +16,8 @@ class ComplaintsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
     
+    var userType : USER_TYPE = .business
+
     
     //MARK: VC Life Cycle
     override func viewDidLoad() {
@@ -54,8 +56,16 @@ extension ComplaintsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = ComplaintDetailVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        switch userType {
+        case .user:
+            let vc = ComplaintDetailVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .business:
+            let vc = BusinessComplaintDetailVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

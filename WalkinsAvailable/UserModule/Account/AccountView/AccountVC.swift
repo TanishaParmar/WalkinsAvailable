@@ -153,6 +153,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             } else if indexPath.row == 6 {
                 let viewcontroller = ComplaintsVC()
+                viewcontroller.userType = self.userType
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             } else if indexPath.row == 7 {
                 let viewcontroller = ChangePasswordVC()
