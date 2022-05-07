@@ -81,7 +81,7 @@ class TabBarVC: ESTabBarController {
 //            v5.type = "1"
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
-            
+            self.selectedIndex = 2
         case .business:
             let v1 = EventVC()
             let v2 = BusinessFavouriteVC()
@@ -99,7 +99,8 @@ class TabBarVC: ESTabBarController {
 //            v5.type = "2"
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
-            
+            self.selectedIndex = 2
+
         case .serviceProvider:
             let v1 = ServiceEventVC()
             let v2 = ChatListVC()
@@ -117,6 +118,8 @@ class TabBarVC: ESTabBarController {
 //            v5.type = "3"
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
+            self.selectedIndex = 2
+
         }
     }
     

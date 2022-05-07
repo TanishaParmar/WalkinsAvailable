@@ -36,7 +36,7 @@ class ArtistProfileVC: UIViewController {
     }
     
     @IBAction func chatBtn(_ sender: UIButton) {
-        let controller = MapController()
+        let controller = ChatListVC()
         self.push(viewController: controller)
     }
     

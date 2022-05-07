@@ -66,7 +66,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="jPU-t5-g4o"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="24"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
