@@ -14,7 +14,11 @@ class AddArtistListCell: UITableViewCell {
     @IBOutlet weak var nameLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        artistImgCell.layer.cornerRadius = artistImgCell.frame.height/2
+        artistImgCell.clipsToBounds = true
+        addBtn.layer.cornerRadius = 4
+        addBtn.clipsToBounds = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

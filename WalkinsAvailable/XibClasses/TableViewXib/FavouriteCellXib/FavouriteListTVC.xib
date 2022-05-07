@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="473" height="102"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="Xs1-Da-HGJ">
-                                <rect key="frame" x="15" y="16" width="70" height="70"/>
+                                <rect key="frame" x="15" y="6" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="m7v-b5-V5B"/>
                                     <constraint firstAttribute="width" secondItem="Xs1-Da-HGJ" secondAttribute="height" multiplier="1:1" id="nj8-1K-FIG"/>
@@ -182,7 +182,7 @@
                             <constraint firstItem="Xs1-Da-HGJ" firstAttribute="leading" secondItem="Ir1-8I-fb1" secondAttribute="leading" constant="15" id="W6L-BT-qF6"/>
                             <constraint firstAttribute="trailing" secondItem="paX-EM-tUp" secondAttribute="trailing" id="X22-RO-UA9"/>
                             <constraint firstAttribute="trailing" secondItem="HMO-jY-x78" secondAttribute="trailing" id="ZmF-5q-d8h"/>
-                            <constraint firstItem="Xs1-Da-HGJ" firstAttribute="centerY" secondItem="Ir1-8I-fb1" secondAttribute="centerY" id="hJJ-NE-agE"/>
+                            <constraint firstItem="Xs1-Da-HGJ" firstAttribute="top" secondItem="Ir1-8I-fb1" secondAttribute="top" constant="6" id="frg-5g-PLD"/>
                             <constraint firstAttribute="trailing" secondItem="d0L-QA-dne" secondAttribute="trailing" id="mGu-71-gFj"/>
                             <constraint firstItem="HMO-jY-x78" firstAttribute="leading" secondItem="d0L-QA-dne" secondAttribute="leading" id="o7h-LW-up5"/>
                             <constraint firstItem="HMO-jY-x78" firstAttribute="leading" secondItem="paX-EM-tUp" secondAttribute="leading" id="qc0-yh-Slk"/>

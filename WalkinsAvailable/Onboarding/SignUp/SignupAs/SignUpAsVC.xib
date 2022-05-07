@@ -12,6 +12,9 @@
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpAsVC" customModule="WalkinsAvailable" customModuleProvider="target">
@@ -115,8 +118,8 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up as" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2C-EO-yT8">
-                            <rect key="frame" x="158" y="240" width="98.5" height="23.5"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                            <rect key="frame" x="143.5" y="239.5" width="127.5" height="34"/>
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="24"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -152,7 +155,7 @@
                         <constraint firstItem="Nfi-YP-IoY" firstAttribute="centerY" secondItem="udr-f8-1B5" secondAttribute="centerY" multiplier="0.9" id="WpT-3f-sbX"/>
                         <constraint firstItem="btV-5S-wkj" firstAttribute="leading" secondItem="udr-f8-1B5" secondAttribute="leading" id="cU4-au-cj4"/>
                         <constraint firstItem="U2C-EO-yT8" firstAttribute="centerX" secondItem="Nfi-YP-IoY" secondAttribute="centerX" id="cfH-kD-gff"/>
-                        <constraint firstItem="Nfi-YP-IoY" firstAttribute="top" secondItem="U2C-EO-yT8" secondAttribute="bottom" constant="50" id="gdE-Pm-e63"/>
+                        <constraint firstItem="Nfi-YP-IoY" firstAttribute="top" secondItem="U2C-EO-yT8" secondAttribute="bottom" constant="40" id="gdE-Pm-e63"/>
                         <constraint firstItem="Nfi-YP-IoY" firstAttribute="height" secondItem="udr-f8-1B5" secondAttribute="height" multiplier="0.2" id="n2I-23-Ca7"/>
                         <constraint firstItem="Nfi-YP-IoY" firstAttribute="centerX" secondItem="udr-f8-1B5" secondAttribute="centerX" id="oOU-3K-RSj"/>
                         <constraint firstItem="ki8-Nj-95l" firstAttribute="top" secondItem="Nfi-YP-IoY" secondAttribute="bottom" constant="109" id="pdh-rA-FSK"/>

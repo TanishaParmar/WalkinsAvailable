@@ -160,7 +160,8 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             } else if indexPath.row == 8{
                 self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
-
+                    UIApplication.shared.windows.first?.rootViewController = LoginVC()
+                    UIApplication.shared.windows.first?.makeKeyAndVisible()
                 },{
                     cancel in
                     self.dismiss(animated: false, completion: nil)
@@ -194,6 +195,8 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
             }
             else if indexPath.row == 8{
                 self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
+                    UIApplication.shared.windows.first?.rootViewController = LoginVC()
+                    UIApplication.shared.windows.first?.makeKeyAndVisible()
 
                 },{
                     cancel in
@@ -228,7 +231,8 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             } else if indexPath.row == 7{
                 self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
-
+                    UIApplication.shared.windows.first?.rootViewController = LoginVC()
+                    UIApplication.shared.windows.first?.makeKeyAndVisible()
                 },{
                     cancel in
                     self.dismiss(animated: false, completion: nil)

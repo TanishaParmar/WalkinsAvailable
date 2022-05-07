@@ -36,6 +36,9 @@ class ForgotPasswordVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func backButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
 }

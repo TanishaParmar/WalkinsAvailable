@@ -49,15 +49,28 @@
                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                         </state>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3u-JJ-EfX">
+                        <rect key="frame" x="10" y="59" width="310" height="1"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="YZf-oQ-ObU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="y3u-JJ-EfX" secondAttribute="trailing" id="0XY-Qa-f91"/>
                     <constraint firstItem="0iI-Ub-33T" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7nb-rI-7nc"/>
+                    <constraint firstItem="y3u-JJ-EfX" firstAttribute="leading" secondItem="0iI-Ub-33T" secondAttribute="leading" id="AnS-Oz-rdh"/>
                     <constraint firstItem="0iI-Ub-33T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Pd5-Qj-knT"/>
                     <constraint firstItem="NQ4-JC-2mV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RoY-te-Av2"/>
                     <constraint firstItem="NQ4-JC-2mV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dj8-Tu-bzy" secondAttribute="trailing" constant="10" id="VJb-kf-sRq"/>
                     <constraint firstAttribute="trailing" secondItem="NQ4-JC-2mV" secondAttribute="trailing" constant="16" id="gKc-NV-uBh"/>
                     <constraint firstItem="dj8-Tu-bzy" firstAttribute="centerY" secondItem="0iI-Ub-33T" secondAttribute="centerY" id="huE-gA-09a"/>
                     <constraint firstItem="dj8-Tu-bzy" firstAttribute="leading" secondItem="0iI-Ub-33T" secondAttribute="trailing" constant="17" id="jnC-GZ-8tF"/>
+                    <constraint firstAttribute="bottom" secondItem="y3u-JJ-EfX" secondAttribute="bottom" id="y7K-pg-Fkv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -71,6 +84,9 @@
     </objects>
     <resources>
         <image name="img4" width="276" height="183"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
