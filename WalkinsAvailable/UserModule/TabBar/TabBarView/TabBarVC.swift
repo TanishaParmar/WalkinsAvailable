@@ -50,6 +50,8 @@ class TabBarVC: ESTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBar.frame.size.height = 40
+        tabBar.frame.origin.y = view.frame.height - 40
 //        self.setTabController()
     }
     

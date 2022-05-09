@@ -51,7 +51,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="CIb-1L-a5a">
-                                                    <rect key="frame" x="15" y="17.5" width="22" height="24"/>
+                                                    <rect key="frame" x="15" y="18" width="22" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="CIb-1L-a5a" secondAttribute="height" multiplier="1:1" constant="-2" id="g3j-Wu-P58"/>
                                                         <constraint firstAttribute="height" constant="24" id="vGl-mk-JNQ"/>
@@ -128,7 +128,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-jn-Syr">
                                                             <rect key="frame" x="0.0" y="41" width="374" height="40"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="vMB-CS-Ht4">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="vMB-CS-Ht4">
                                                                     <rect key="frame" x="8" y="10" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="vMB-CS-Ht4" secondAttribute="height" multiplier="1:1" id="0Wy-bb-ynj"/>
@@ -136,14 +136,14 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf6-Tm-9fQ">
-                                                                    <rect key="frame" x="36" y="0.0" width="338" height="40"/>
+                                                                    <rect key="frame" x="42" y="0.0" width="332" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="Xf6-Tm-9fQ" firstAttribute="leading" secondItem="vMB-CS-Ht4" secondAttribute="trailing" constant="8" id="18Q-Gj-HLX"/>
+                                                                <constraint firstItem="Xf6-Tm-9fQ" firstAttribute="leading" secondItem="vMB-CS-Ht4" secondAttribute="trailing" constant="14" id="18Q-Gj-HLX"/>
                                                                 <constraint firstItem="vMB-CS-Ht4" firstAttribute="centerY" secondItem="Phm-jn-Syr" secondAttribute="centerY" id="3qw-2M-YHQ"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Xf6-Tm-9fQ" secondAttribute="bottom" id="7qP-ct-lLq"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Xf6-Tm-9fQ" secondAttribute="trailing" id="C8f-53-dTH"/>
@@ -185,7 +185,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jig-vt-p1U">
-                                                                    <rect key="frame" x="36" y="0.0" width="338" height="40"/>
+                                                                    <rect key="frame" x="42" y="0.0" width="332" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
@@ -197,7 +197,7 @@
                                                                 <constraint firstItem="Twt-nn-i2e" firstAttribute="centerY" secondItem="zBf-uG-mCg" secondAttribute="centerY" id="Ydg-AD-fmP"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Jig-vt-p1U" secondAttribute="trailing" id="anc-hZ-R13"/>
                                                                 <constraint firstItem="Jig-vt-p1U" firstAttribute="top" secondItem="zBf-uG-mCg" secondAttribute="top" id="bID-ND-aFE"/>
-                                                                <constraint firstItem="Jig-vt-p1U" firstAttribute="leading" secondItem="Twt-nn-i2e" secondAttribute="trailing" constant="8" id="qHA-as-sCr"/>
+                                                                <constraint firstItem="Jig-vt-p1U" firstAttribute="leading" secondItem="Twt-nn-i2e" secondAttribute="trailing" constant="14" id="qHA-as-sCr"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Jig-vt-p1U" secondAttribute="bottom" id="qMZ-ad-Sci"/>
                                                             </constraints>
                                                         </view>
@@ -234,7 +234,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0t-2a-gFu">
-                                                                    <rect key="frame" x="36" y="0.0" width="338" height="40"/>
+                                                                    <rect key="frame" x="42" y="0.0" width="332" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 </textField>
@@ -242,7 +242,7 @@
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="W0t-2a-gFu" firstAttribute="top" secondItem="ha2-Pg-8tk" secondAttribute="top" id="5qY-Ly-h3W"/>
-                                                                <constraint firstItem="W0t-2a-gFu" firstAttribute="leading" secondItem="BnD-08-d1G" secondAttribute="trailing" constant="8" id="Nvq-L6-UEG"/>
+                                                                <constraint firstItem="W0t-2a-gFu" firstAttribute="leading" secondItem="BnD-08-d1G" secondAttribute="trailing" constant="14" id="Nvq-L6-UEG"/>
                                                                 <constraint firstItem="BnD-08-d1G" firstAttribute="leading" secondItem="ha2-Pg-8tk" secondAttribute="leading" constant="8" id="RHj-Gf-zHs"/>
                                                                 <constraint firstItem="BnD-08-d1G" firstAttribute="centerY" secondItem="ha2-Pg-8tk" secondAttribute="centerY" id="ktD-WO-fq1"/>
                                                                 <constraint firstAttribute="bottom" secondItem="W0t-2a-gFu" secondAttribute="bottom" id="lVq-xP-bRW"/>
@@ -273,7 +273,7 @@
                                                                     <color key="backgroundColor" red="0.97782820459999997" green="0.72796261309999999" blue="0.74222213029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                    <state key="normal" title="Save">
+                                                                    <state key="normal" title="SignUp">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </state>
                                                                     <connections>
@@ -470,6 +470,7 @@
         <image name="lock" width="52" height="52"/>
         <image name="mail" width="170" height="169"/>
         <image name="pf" width="459" height="462"/>
+        <image name="user" width="56" height="59"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

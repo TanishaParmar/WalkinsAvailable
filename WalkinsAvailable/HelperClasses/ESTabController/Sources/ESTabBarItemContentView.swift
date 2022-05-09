@@ -209,7 +209,7 @@ open class ESTabBarItemContentView: UIView {
     
     open func updateLayout() {
         let w = self.bounds.size.width
-        let h = self.bounds.size.height
+        let h = self.bounds.size.height - 5
         
         imageView.isHidden = (imageView.image == nil)
         titleLabel.isHidden = (titleLabel.text == nil)

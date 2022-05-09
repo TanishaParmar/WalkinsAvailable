@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,15 +26,25 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yws-NL-bcM">
                         <rect key="frame" x="2" y="2" width="116" height="116"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img3" translatesAutoresizingMaskIntoConstraints="NO" id="2E0-WY-dH2">
-                                <rect key="frame" x="28" y="6" width="60" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGN-rM-i5g">
+                                <rect key="frame" x="23" y="6" width="70" height="70"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img3" translatesAutoresizingMaskIntoConstraints="NO" id="2E0-WY-dH2">
+                                        <rect key="frame" x="4" y="4" width="62" height="62"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="DLv-m4-jkx"/>
-                                    <constraint firstAttribute="height" constant="60" id="Ptl-d3-QJP"/>
+                                    <constraint firstAttribute="width" constant="70" id="Bgn-Ne-lia"/>
+                                    <constraint firstItem="2E0-WY-dH2" firstAttribute="leading" secondItem="EGN-rM-i5g" secondAttribute="leading" constant="4" id="Gwq-td-FD4"/>
+                                    <constraint firstItem="2E0-WY-dH2" firstAttribute="top" secondItem="EGN-rM-i5g" secondAttribute="top" constant="4" id="HUz-6V-2Nw"/>
+                                    <constraint firstAttribute="height" constant="70" id="JQa-9U-Aal"/>
+                                    <constraint firstAttribute="trailing" secondItem="2E0-WY-dH2" secondAttribute="trailing" constant="4" id="jsi-7P-ufp"/>
+                                    <constraint firstAttribute="bottom" secondItem="2E0-WY-dH2" secondAttribute="bottom" constant="4" id="ylH-Nv-uBg"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naaz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKA-wG-VJt">
-                                <rect key="frame" x="40" y="72" width="36" height="18"/>
+                                <rect key="frame" x="42" y="80" width="32" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="fzg-pJ-fYR"/>
                                 </constraints>
@@ -44,10 +55,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2E0-WY-dH2" firstAttribute="centerX" secondItem="yws-NL-bcM" secondAttribute="centerX" id="65O-vR-RIz"/>
+                            <constraint firstItem="EGN-rM-i5g" firstAttribute="centerX" secondItem="yws-NL-bcM" secondAttribute="centerX" id="B3n-MC-QTZ"/>
                             <constraint firstItem="CKA-wG-VJt" firstAttribute="centerX" secondItem="yws-NL-bcM" secondAttribute="centerX" id="WPo-gN-07C"/>
-                            <constraint firstItem="2E0-WY-dH2" firstAttribute="top" secondItem="yws-NL-bcM" secondAttribute="top" constant="6" id="Wl4-uL-AJ4"/>
-                            <constraint firstItem="CKA-wG-VJt" firstAttribute="top" secondItem="2E0-WY-dH2" secondAttribute="bottom" constant="6" id="ZMi-mw-ZPw"/>
+                            <constraint firstItem="EGN-rM-i5g" firstAttribute="top" secondItem="yws-NL-bcM" secondAttribute="top" constant="6" id="oT5-cE-djA"/>
+                            <constraint firstItem="CKA-wG-VJt" firstAttribute="top" secondItem="EGN-rM-i5g" secondAttribute="bottom" constant="4" id="ttk-sT-ERo"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -63,6 +74,7 @@
             <connections>
                 <outlet property="artistImgView" destination="2E0-WY-dH2" id="KNb-ya-HKL"/>
                 <outlet property="artistNameLbl" destination="CKA-wG-VJt" id="g7h-TG-cwa"/>
+                <outlet property="superImageView" destination="EGN-rM-i5g" id="PB5-9h-mIk"/>
             </connections>
             <point key="canvasLocation" x="185.50724637681162" y="107.14285714285714"/>
         </collectionViewCell>

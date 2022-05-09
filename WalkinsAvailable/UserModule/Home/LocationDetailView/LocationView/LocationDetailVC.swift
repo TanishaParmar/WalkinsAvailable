@@ -70,9 +70,13 @@ extension LocationDetailVC: UICollectionViewDelegate, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistListCell", for: indexPath) as! ArtistListCell
         cell.artistImgView.image = UIImage(named: imgArr[indexPath.row])
         if indexPath.row == 0{
+            cell.superImageView.layer.borderColor = UIColor.green.cgColor
+            cell.superImageView.layer.borderWidth = 1
             cell.artistImgView.layer.borderColor = UIColor.green.cgColor
             cell.artistImgView.layer.borderWidth = 1.5
         }else{
+            cell.superImageView.layer.borderColor = UIColor.clear.cgColor
+            cell.superImageView.layer.borderWidth = 1
             cell.artistImgView.layer.borderColor = UIColor.red.cgColor
             cell.artistImgView.layer.borderWidth = 1
         }

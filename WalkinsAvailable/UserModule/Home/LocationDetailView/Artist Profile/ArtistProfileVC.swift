@@ -12,7 +12,6 @@ class ArtistProfileVC: UIViewController {
     var imgArr:[String] = ["img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4"]
     
 //    MARK: OUTLETS
-    
     @IBOutlet weak var artistImgVw: UIImageView!
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var artistNameLbl: UILabel!
@@ -29,6 +28,7 @@ class ArtistProfileVC: UIViewController {
         self.artistImgCollectionView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
         self.artistImgVw.layer.cornerRadius = artistImgVw.frame.height/2
         self.artistImgVw.clipsToBounds = true
+        self.tabBarController?.tabBar.isHidden = true
     }
 
     @IBAction func backBtn(_ sender: UIButton) {
@@ -51,7 +51,7 @@ extension ArtistProfileVC: UICollectionViewDelegate,UICollectionViewDataSource,U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
     UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       let padding: CGFloat =  artistImgCollectionView.frame.size.width
-      let collectionViewSize = artistImgCollectionView.frame.size.width - 20
+      let collectionViewSize = artistImgCollectionView.frame.size.width - 12
       return CGSize(width: collectionViewSize/3, height: collectionViewSize/3)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

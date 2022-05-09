@@ -9,7 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-class ContactUsVC: UIViewController {
+class ContactUsVC: UIViewController,UITextFieldDelegate{
     
     //MARK: Outlets
     @IBOutlet weak var nameView: UIView!
@@ -20,24 +20,35 @@ class ContactUsVC: UIViewController {
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     
-    
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
     
-    //MARK: Methods
+    //MARK: METHODS
     func configureUI() {
-//        userNameTextField.delegate = self
-//        emailTextField.delegate = self
-//        passwordTextField.delegate = self
+        self.nameTextField.delegate = self
+        self.emailTextField.delegate = self
         self.nameView.addCornerBorderAndShadow(view: self.nameView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.emailView.addCornerBorderAndShadow(view: self.emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.messageView.addCornerBorderAndShadow(view: self.messageView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.saveButton.addCornerRadius(view: self.saveButton, cornerRadius: 5.0)
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        nameView.layer.borderColor = textField == nameTextField ? #colorLiteral(red: 0.9816923738, green: 0.7313466668, blue: 0.7748305202, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        emailView.layer.borderColor = textField == emailTextField ? #colorLiteral(red: 0.9816923738, green: 0.7313466668, blue: 0.7748305202, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        nameView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        emailView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     
     //MARK: Actions

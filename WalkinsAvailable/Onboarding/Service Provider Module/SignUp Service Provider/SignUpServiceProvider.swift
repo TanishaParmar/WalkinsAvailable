@@ -63,7 +63,7 @@ class SignUpServiceProvider: UIViewController,UITextFieldDelegate {
     //    MARK: VAILDATIONS
     func validate() -> Bool {
         if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business name.", okButton: "OK", controller: self) {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter Artist name.", okButton: "OK", controller: self) {
             }
             return false
         }
