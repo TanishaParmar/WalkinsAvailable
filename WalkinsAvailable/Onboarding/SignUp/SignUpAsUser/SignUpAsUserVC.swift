@@ -10,6 +10,8 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class SignUpAsUserVC: UIViewController {
+
+    var isUser:Bool?
     
     //MARK: Outlets
     @IBOutlet weak var userNameView: UIView!

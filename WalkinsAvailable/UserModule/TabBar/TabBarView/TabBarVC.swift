@@ -58,6 +58,7 @@ class TabBarVC: ESTabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setTabController()
+        self.tabBar.isHidden = false
 
     }
     

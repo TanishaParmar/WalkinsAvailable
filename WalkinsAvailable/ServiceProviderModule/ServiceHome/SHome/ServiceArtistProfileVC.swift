@@ -30,6 +30,10 @@ class ServiceArtistProfileVC: UIViewController {
         let nib = UINib(nibName: "ArtistListImgCell", bundle: nil)
         self.collectionImgView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
     
 //    MARK: BUTTON ACTIONS

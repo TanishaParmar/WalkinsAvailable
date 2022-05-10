@@ -88,7 +88,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBg-uo-wzE">
                                             <rect key="frame" x="0.0" y="70" width="414" height="140"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="QCz-We-cNN">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pf" translatesAutoresizingMaskIntoConstraints="NO" id="QCz-We-cNN">
                                                     <rect key="frame" x="157" y="20" width="100" height="100"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -314,7 +314,7 @@
         <image name="back" width="25" height="41"/>
         <image name="camera" width="99" height="100"/>
         <image name="email" width="51" height="39"/>
-        <image name="logo" width="522" height="364"/>
+        <image name="pf" width="459" height="462"/>
         <image name="user" width="56" height="59"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

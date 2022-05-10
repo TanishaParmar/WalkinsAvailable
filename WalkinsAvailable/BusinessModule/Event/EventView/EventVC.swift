@@ -23,6 +23,12 @@ class EventVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
 
 //    MARK: BUTTON ACTIONS

@@ -21,6 +21,10 @@
 		181C17202823B799008E7C14 /* EventInviteListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181C171E2823B799008E7C14 /* EventInviteListCell.xib */; };
 		185148A3282401FF00CB41A7 /* BusinessHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185148A2282401FF00CB41A7 /* BusinessHomeHeaderView.swift */; };
 		185148A52824020C00CB41A7 /* BusinessHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185148A42824020C00CB41A7 /* BusinessHomeHeaderView.xib */; };
+		1862D3D8282A81090013F492 /* SignUpServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862D3D6282A81090013F492 /* SignUpServiceVC.swift */; };
+		1862D3D9282A81090013F492 /* SignUpServiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1862D3D7282A81090013F492 /* SignUpServiceVC.xib */; };
+		1862D3DC282A87E70013F492 /* ServiceProviderEditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862D3DA282A87E70013F492 /* ServiceProviderEditProfile.swift */; };
+		1862D3DD282A87E70013F492 /* ServiceProviderEditProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1862D3DB282A87E70013F492 /* ServiceProviderEditProfile.xib */; };
 		18697664281A68A800F208BD /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18697662281A68A800F208BD /* MapController.swift */; };
 		18697665281A68A800F208BD /* MapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18697663281A68A800F208BD /* MapController.xib */; };
 		1869766F281A69A700F208BD /* FBClusteringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18697668281A69A600F208BD /* FBClusteringManager.swift */; };
@@ -139,8 +143,6 @@
 		1F3344ED27FAFF76000BB072 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3344EC27FAFF76000BB072 /* Constant.swift */; };
 		1F3344F127FB04BF000BB072 /* SignUpAsUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3344EF27FB04BF000BB072 /* SignUpAsUserVC.swift */; };
 		1F3344F227FB04BF000BB072 /* SignUpAsUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3344F027FB04BF000BB072 /* SignUpAsUserVC.xib */; };
-		1F3344FD27FB20EF000BB072 /* SignUpAsBusinessVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3344FB27FB20EF000BB072 /* SignUpAsBusinessVC.xib */; };
-		1F3344FE27FB20EF000BB072 /* SignUpAsBusinessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3344FC27FB20EF000BB072 /* SignUpAsBusinessVC.swift */; };
 		1F39248827F84894000F08F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39248727F84894000F08F5 /* AppDelegate.swift */; };
 		1F39248A27F84894000F08F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39248927F84894000F08F5 /* SceneDelegate.swift */; };
 		1F39248F27F84894000F08F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F39248D27F84894000F08F5 /* Main.storyboard */; };
@@ -213,6 +215,10 @@
 		181C171E2823B799008E7C14 /* EventInviteListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventInviteListCell.xib; sourceTree = "<group>"; };
 		185148A2282401FF00CB41A7 /* BusinessHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeHeaderView.swift; sourceTree = "<group>"; };
 		185148A42824020C00CB41A7 /* BusinessHomeHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessHomeHeaderView.xib; sourceTree = "<group>"; };
+		1862D3D6282A81090013F492 /* SignUpServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpServiceVC.swift; sourceTree = "<group>"; };
+		1862D3D7282A81090013F492 /* SignUpServiceVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpServiceVC.xib; sourceTree = "<group>"; };
+		1862D3DA282A87E70013F492 /* ServiceProviderEditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderEditProfile.swift; sourceTree = "<group>"; };
+		1862D3DB282A87E70013F492 /* ServiceProviderEditProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceProviderEditProfile.xib; sourceTree = "<group>"; };
 		18697662281A68A800F208BD /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		18697663281A68A800F208BD /* MapController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapController.xib; sourceTree = "<group>"; };
 		18697668281A69A600F208BD /* FBClusteringManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBClusteringManager.swift; sourceTree = "<group>"; };
@@ -331,8 +337,6 @@
 		1F3344EC27FAFF76000BB072 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		1F3344EF27FB04BF000BB072 /* SignUpAsUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAsUserVC.swift; sourceTree = "<group>"; };
 		1F3344F027FB04BF000BB072 /* SignUpAsUserVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpAsUserVC.xib; sourceTree = "<group>"; };
-		1F3344FB27FB20EF000BB072 /* SignUpAsBusinessVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpAsBusinessVC.xib; sourceTree = "<group>"; };
-		1F3344FC27FB20EF000BB072 /* SignUpAsBusinessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpAsBusinessVC.swift; sourceTree = "<group>"; };
 		1F39248427F84894000F08F5 /* WalkinsAvailable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkinsAvailable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F39248727F84894000F08F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F39248927F84894000F08F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -449,6 +453,8 @@
 		181C17142823B5F4008E7C14 /* ServiceProviderModule */ = {
 			isa = PBXGroup;
 			children = (
+				18C97F6F282A756400F763FE /* SEditProfile */,
+				18E379952823BFF40029C01A /* SNotification */,
 				181C17152823B60D008E7C14 /* ServiceHome */,
 			);
 			path = ServiceProviderModule;
@@ -460,7 +466,6 @@
 				18E379B22823D8D20029C01A /* SEvent */,
 				18E379A42823D3E40029C01A /* RequestInviteFromShop */,
 				18E3799A2823C3060029C01A /* SShops */,
-				18E379952823BFF40029C01A /* SNotification */,
 				181C17172823B65C008E7C14 /* ArtistEventInvite */,
 				181C17162823B641008E7C14 /* SHome */,
 			);
@@ -676,6 +681,8 @@
 			isa = PBXGroup;
 			children = (
 				189FB2C02819214A00C1EC42 /* SignUp Service Provider */,
+				1862D3D6282A81090013F492 /* SignUpServiceVC.swift */,
+				1862D3D7282A81090013F492 /* SignUpServiceVC.xib */,
 			);
 			path = "Service Provider Module";
 			sourceTree = "<group>";
@@ -797,6 +804,15 @@
 				18C5B96628211B6300876BAE /* BusinessFavouriteList.xib */,
 			);
 			path = BusinessFav;
+			sourceTree = "<group>";
+		};
+		18C97F6F282A756400F763FE /* SEditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				1862D3DA282A87E70013F492 /* ServiceProviderEditProfile.swift */,
+				1862D3DB282A87E70013F492 /* ServiceProviderEditProfile.xib */,
+			);
+			path = SEditProfile;
 			sourceTree = "<group>";
 		};
 		18D620C72824E79100BE9C95 /* BusinessComplaint */ = {
@@ -1066,15 +1082,6 @@
 			path = SignUpAsUser;
 			sourceTree = "<group>";
 		};
-		1F3344FA27FB20B2000BB072 /* SignUpAsBusiness */ = {
-			isa = PBXGroup;
-			children = (
-				1F3344FC27FB20EF000BB072 /* SignUpAsBusinessVC.swift */,
-				1F3344FB27FB20EF000BB072 /* SignUpAsBusinessVC.xib */,
-			);
-			path = SignUpAsBusiness;
-			sourceTree = "<group>";
-		};
 		1F39247B27F84894000F08F5 = {
 			isa = PBXGroup;
 			children = (
@@ -1191,7 +1198,6 @@
 		1F3924A827F85F07000F08F5 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				1F3344FA27FB20B2000BB072 /* SignUpAsBusiness */,
 				1F3344EE27FB0499000BB072 /* SignUpAsUser */,
 				1F3924A927F85F12000F08F5 /* SignupAs */,
 			);
@@ -1596,17 +1602,18 @@
 				189C9625282260B6004B99EF /* EventCreateVC.xib in Resources */,
 				18162EB82818037D00D29D10 /* ComplaintsListCell.xib in Resources */,
 				18C5B9642821133400876BAE /* BusinessFavouriteVC.xib in Resources */,
+				1862D3DD282A87E70013F492 /* ServiceProviderEditProfile.xib in Resources */,
 				1895B974281FD14D00842DD5 /* EventVC.xib in Resources */,
 				1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */,
 				189C961C2822598D004B99EF /* ServiceArtistProfileVC.xib in Resources */,
 				181C171328239ED7008E7C14 /* BusinessHomeVC.xib in Resources */,
-				1F3344FD27FB20EF000BB072 /* SignUpAsBusinessVC.xib in Resources */,
 				18697694281AB9D400F208BD /* ArtistListCell.xib in Resources */,
 				1F3344F227FB04BF000BB072 /* SignUpAsUserVC.xib in Resources */,
 				189FB2CE2819384700C1EC42 /* SignUpServiceProvider.xib in Resources */,
 				18EFEAAC28213F25009ADBB4 /* BusinessNotificationVC.xib in Resources */,
 				18C5B96828211B6300876BAE /* BusinessFavouriteList.xib in Resources */,
 				181C171B2823B680008E7C14 /* ArtistEventInvitedVC.xib in Resources */,
+				1862D3D9282A81090013F492 /* SignUpServiceVC.xib in Resources */,
 				1F3344E527FAE636000BB072 /* Poppins-SemiBold.ttf in Resources */,
 				18E379B62823D8F20029C01A /* ServiceEventVC.xib in Resources */,
 				18EFEAB22821483D009ADBB4 /* SetAvailbilityVC.xib in Resources */,
@@ -1710,6 +1717,7 @@
 				181C171A2823B680008E7C14 /* ArtistEventInvitedVC.swift in Sources */,
 				18697673281A69A700F208BD /* FBAnnotationClusterView.swift in Sources */,
 				1F422F1227FC4F8E00877618 /* ExampleTipsContentView.swift in Sources */,
+				1862D3DC282A87E70013F492 /* ServiceProviderEditProfile.swift in Sources */,
 				1869766F281A69A700F208BD /* FBClusteringManager.swift in Sources */,
 				1895B967281FC05A00842DD5 /* SingleChatController.swift in Sources */,
 				1F422ED927FC206500877618 /* ChatListVC.swift in Sources */,
@@ -1749,7 +1757,7 @@
 				189FB2C628192BAF00C1EC42 /* ValidationBase.swift in Sources */,
 				1F422F1927FC4F8E00877618 /* ESTabBarItemBadgeView.swift in Sources */,
 				1F3344ED27FAFF76000BB072 /* Constant.swift in Sources */,
-				1F3344FE27FB20EF000BB072 /* SignUpAsBusinessVC.swift in Sources */,
+				1862D3D8282A81090013F492 /* SignUpServiceVC.swift in Sources */,
 				18E379AB2823D42C0029C01A /* InviteFromShopVC.swift in Sources */,
 				1F3344F127FB04BF000BB072 /* SignUpAsUserVC.swift in Sources */,
 				1F422F1A27FC4F8E00877618 /* ESTabBar.swift in Sources */,

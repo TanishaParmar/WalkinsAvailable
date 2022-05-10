@@ -32,6 +32,13 @@ class EventCreateVC: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     //MARK: FUNCTIONS
     func configureUI(){

@@ -59,11 +59,17 @@ class GalleryVC: UIViewController {
         collectionView.setImageCollection(type: pickerType)
         
     }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setGalleryPermission()
         collectionView.maxSelection = self.maxSelection
+        self.tabBarController?.tabBar.isHidden = true
+
     }
     
     private func setGalleryPermission() {

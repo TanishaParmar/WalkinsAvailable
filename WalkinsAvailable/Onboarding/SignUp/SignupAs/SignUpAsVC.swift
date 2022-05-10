@@ -46,7 +46,7 @@ class SignUpAsVC: UIViewController {
     }
     
     @IBAction func signUpAsServiceProviderButtonAction(_ sender: Any) {
-        let viewcontroller = SignUpServiceProvider()
+        let viewcontroller = SignUpServiceVC()
         self.navigationController?.pushViewController(viewcontroller, animated: true)
     }
     

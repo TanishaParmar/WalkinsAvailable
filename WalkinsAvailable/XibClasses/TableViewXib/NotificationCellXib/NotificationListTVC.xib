@@ -158,7 +158,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP9-VL-Bjh">
-                                <rect key="frame" x="75" y="231" width="429" height="1"/>
+                                <rect key="frame" x="15" y="231" width="489" height="1"/>
                                 <color key="backgroundColor" red="0.9371530414" green="0.93731355670000005" blue="0.93714290860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="NYI-vG-q3W"/>
@@ -170,7 +170,6 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vP9-VL-Bjh" firstAttribute="leading" secondItem="u7m-DS-yaK" secondAttribute="leading" id="1pS-8s-yHc"/>
                             <constraint firstItem="vP9-VL-Bjh" firstAttribute="top" secondItem="ORI-MU-iLO" secondAttribute="bottom" constant="8" symbolic="YES" id="8si-vy-Cf9"/>
                             <constraint firstItem="u7m-DS-yaK" firstAttribute="top" secondItem="pFn-PF-4zF" secondAttribute="bottom" constant="8" symbolic="YES" id="AcD-Eg-xKd"/>
                             <constraint firstItem="kb2-03-MeA" firstAttribute="leading" secondItem="ksC-jQ-qH8" secondAttribute="leading" constant="15" id="FtM-0s-tsg"/>
@@ -183,6 +182,7 @@
                             <constraint firstItem="u7m-DS-yaK" firstAttribute="leading" secondItem="kb2-03-MeA" secondAttribute="trailing" constant="10" id="ffC-aS-6Qu"/>
                             <constraint firstItem="ORI-MU-iLO" firstAttribute="top" secondItem="u7m-DS-yaK" secondAttribute="bottom" constant="16" id="sZc-6K-ac0"/>
                             <constraint firstItem="pFn-PF-4zF" firstAttribute="top" secondItem="ksC-jQ-qH8" secondAttribute="top" constant="10" id="vih-hF-Qgs"/>
+                            <constraint firstItem="vP9-VL-Bjh" firstAttribute="leading" secondItem="kb2-03-MeA" secondAttribute="leading" id="wlf-d7-CCz"/>
                         </constraints>
                     </view>
                 </subviews>

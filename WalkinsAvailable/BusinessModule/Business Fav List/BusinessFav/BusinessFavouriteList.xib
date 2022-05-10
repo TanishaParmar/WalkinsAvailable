@@ -86,9 +86,20 @@
                         <inset key="imageEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                         <state key="normal" image="favFilled"/>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFp-MU-bJs">
+                        <rect key="frame" x="16" y="168" width="372" height="1"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="esc-Yf-5Vb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="b9U-2h-7vO" firstAttribute="leading" secondItem="QVT-9k-GDw" secondAttribute="leading" id="1Mk-JM-uwB"/>
+                    <constraint firstAttribute="bottom" secondItem="jFp-MU-bJs" secondAttribute="bottom" id="5Yo-oQ-pJX"/>
                     <constraint firstItem="6SL-7N-ni2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JEc-QK-FiO"/>
                     <constraint firstItem="xgB-Pn-DHs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="MKS-TM-rYd"/>
                     <constraint firstAttribute="bottom" secondItem="b9U-2h-7vO" secondAttribute="bottom" constant="5" id="WZt-ZM-pkI"/>
@@ -96,7 +107,9 @@
                     <constraint firstItem="b9U-2h-7vO" firstAttribute="top" secondItem="QVT-9k-GDw" secondAttribute="bottom" constant="4" id="hHQ-xn-Lf9"/>
                     <constraint firstAttribute="trailing" secondItem="xgB-Pn-DHs" secondAttribute="trailing" constant="10" id="hJs-Ov-jXz"/>
                     <constraint firstItem="xgB-Pn-DHs" firstAttribute="leading" secondItem="QVT-9k-GDw" secondAttribute="trailing" constant="8" symbolic="YES" id="rvZ-Ds-nfy"/>
+                    <constraint firstItem="jFp-MU-bJs" firstAttribute="leading" secondItem="6SL-7N-ni2" secondAttribute="leading" id="tK8-vN-its"/>
                     <constraint firstItem="QVT-9k-GDw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="uNS-K7-4Tg"/>
+                    <constraint firstItem="jFp-MU-bJs" firstAttribute="trailing" secondItem="xgB-Pn-DHs" secondAttribute="trailing" id="uoa-Cu-pzh"/>
                     <constraint firstItem="6SL-7N-ni2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="zEf-w9-Gs4"/>
                 </constraints>
             </tableViewCellContentView>
@@ -114,6 +127,9 @@
     <resources>
         <image name="favFilled" width="44" height="38"/>
         <image name="img3" width="202" height="250"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

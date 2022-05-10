@@ -9,6 +9,7 @@ import UIKit
 import IQKeyboardManagerSwift
 class SignUpBusinessProfile: UIViewController,UITextFieldDelegate,UITextViewDelegate {
 
+    var isNAv:Bool?
 //    MARK: OUTLETS
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var uploadProfileBtn: UIButton!

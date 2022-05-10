@@ -16,6 +16,7 @@ class AccountVC: UIViewController {
     @IBOutlet weak var accounttableView: UITableView!
     @IBOutlet weak var accountProfileImgView: UIImageView!
     @IBOutlet weak var editProfileButton: UIButton!
+    @IBOutlet weak var userProfielbl: UILabel!
     
     //MARK: Properties
     
@@ -38,15 +39,45 @@ class AccountVC: UIViewController {
         accounttableView.dataSource = self
         accounttableView.delegate = self
         self.accountProfileImgView.layer.cornerRadius = 4
+        self.accountProfileImgView.clipsToBounds = true
         let nib = UINib(nibName: "AccountListTVC", bundle: nil)
         accounttableView.register(nib, forCellReuseIdentifier: "AccountListTVC")
+        switch userType {
+        case .user:
+            self.userProfielbl.text = "User Profile"
+            break
+        case .business:
+            self.userProfielbl.text = "Business Profile"
+            break
+        case .serviceProvider:
+            self.userProfielbl.text = "Artist Profile"
+            break
+        default:
+        print("Its Type")
     }
+    }
+       
     
     //MARK: Actions
     
     @IBAction func editProfileButtonAction(_ sender: Any) {
-        let viewcontroller = EditProfileVC()
-        self.navigationController?.pushViewController(viewcontroller, animated: true)
+        switch userType {
+        case .user:
+            let viewcontroller = EditProfileVC()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+            break
+        case .business:
+            let viewcontroller = EditProfileVC()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+            break
+        case .serviceProvider:
+            let viewcontroller = ServiceProviderEditProfile()
+            self.navigationController?.pushViewController(viewcontroller, animated: true)
+            break
+        default :
+            print("its work")
+        }
+        
     }
 }
 
@@ -104,31 +135,31 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
             }else if indexPath.row == 3{
                 return 0
             }else{
-                return 40
+                return 60
             }
             break
         case .business:
             if indexPath.row == 2{
-                return 40
+                return 60
             }else if indexPath.row == 3{
                 return 0
             }else{
-                return 40
+                return 60
             }
             break
         case .serviceProvider:
             if indexPath.row == 6{
-                return 0
+                return 60
             }else if indexPath.row == 3{
-                return 40
+                return 60
             }else{
-                return 40
+                return 60
             }
             break
         default:
             break
         }
-        return 40
+        return 60
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -227,7 +258,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 let viewcontroller = ContactUsVC()
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             } else if indexPath.row == 6 {
-                let viewcontroller = ComplaintsVC()
+                let viewcontroller = ChangePasswordVC()
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             } else if indexPath.row == 7{
                 self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in

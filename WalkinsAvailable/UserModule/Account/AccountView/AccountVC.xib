@@ -22,6 +22,7 @@
                 <outlet property="accountProfileImgView" destination="rbJ-Le-4nF" id="X2g-il-rhb"/>
                 <outlet property="accounttableView" destination="Fai-bJ-gV6" id="yC1-Gc-mNc"/>
                 <outlet property="editProfileButton" destination="FaP-nY-c7M" id="FoS-mT-iOw"/>
+                <outlet property="userProfielbl" destination="W1Z-6I-MPX" id="bOK-aZ-PHm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

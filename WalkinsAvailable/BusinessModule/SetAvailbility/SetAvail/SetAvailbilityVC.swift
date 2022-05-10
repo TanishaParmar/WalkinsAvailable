@@ -34,6 +34,13 @@ class SetAvailbilityVC: UIViewController,UITextFieldDelegate {
             self.headerLbl.text = "Set Availbilty"
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
 //    MARK: Actions
     @IBAction func btnSaveAction(_ sender: UIButton) {

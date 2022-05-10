@@ -8,6 +8,8 @@
 import UIKit
 import IQKeyboardManagerSwift
 class SignUpServiceProvider: UIViewController,UITextFieldDelegate {
+
+    var isService:Bool?
     
     //    MARK: OUTLETS
     @IBOutlet weak var backBtn: UIButton!

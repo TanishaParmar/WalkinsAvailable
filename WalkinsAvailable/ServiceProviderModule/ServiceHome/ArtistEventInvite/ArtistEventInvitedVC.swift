@@ -18,6 +18,13 @@ class ArtistEventInvitedVC: UIViewController {
         let nib = UINib(nibName: "EventInviteListCell", bundle: nil)
         eventInvitedlisttableView.register(nib, forCellReuseIdentifier: "EventInviteListCell")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
     @IBAction func backBtn(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
