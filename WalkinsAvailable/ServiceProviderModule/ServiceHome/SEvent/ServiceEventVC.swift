@@ -18,6 +18,7 @@ class ServiceEventVC: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+   
 
     @IBAction func ongoingBtn(_ sender: UIButton) {
         onGoingUpdate()

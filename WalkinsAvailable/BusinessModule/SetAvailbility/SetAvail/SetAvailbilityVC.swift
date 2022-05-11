@@ -38,9 +38,6 @@ class SetAvailbilityVC: UIViewController,UITextFieldDelegate {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
     
 //    MARK: Actions
     @IBAction func btnSaveAction(_ sender: UIButton) {

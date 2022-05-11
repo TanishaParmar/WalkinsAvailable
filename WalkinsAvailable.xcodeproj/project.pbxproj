@@ -64,6 +64,10 @@
 		1895B97F28200ED000842DD5 /* EventDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1895B97D28200ED000842DD5 /* EventDetailVC.xib */; };
 		189B7DBD28239413009AC87C /* AddArtistListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189B7DBB28239413009AC87C /* AddArtistListCell.swift */; };
 		189B7DBE28239413009AC87C /* AddArtistListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189B7DBC28239413009AC87C /* AddArtistListCell.xib */; };
+		189C2D82282B809C00AA3665 /* BusinessArtistTotalListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C2D80282B809C00AA3665 /* BusinessArtistTotalListCell.swift */; };
+		189C2D83282B809C00AA3665 /* BusinessArtistTotalListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C2D81282B809C00AA3665 /* BusinessArtistTotalListCell.xib */; };
+		189C2D87282B8D8F00AA3665 /* BusinessEditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C2D85282B8D8F00AA3665 /* BusinessEditProfile.swift */; };
+		189C2D88282B8D8F00AA3665 /* BusinessEditProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C2D86282B8D8F00AA3665 /* BusinessEditProfile.xib */; };
 		189C961B2822598D004B99EF /* ServiceArtistProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */; };
 		189C961C2822598D004B99EF /* ServiceArtistProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */; };
 		189C9624282260B6004B99EF /* EventCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189C9622282260B6004B99EF /* EventCreateVC.swift */; };
@@ -258,6 +262,10 @@
 		1895B97D28200ED000842DD5 /* EventDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailVC.xib; sourceTree = "<group>"; };
 		189B7DBB28239413009AC87C /* AddArtistListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArtistListCell.swift; sourceTree = "<group>"; };
 		189B7DBC28239413009AC87C /* AddArtistListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddArtistListCell.xib; sourceTree = "<group>"; };
+		189C2D80282B809C00AA3665 /* BusinessArtistTotalListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessArtistTotalListCell.swift; sourceTree = "<group>"; };
+		189C2D81282B809C00AA3665 /* BusinessArtistTotalListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessArtistTotalListCell.xib; sourceTree = "<group>"; };
+		189C2D85282B8D8F00AA3665 /* BusinessEditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessEditProfile.swift; sourceTree = "<group>"; };
+		189C2D86282B8D8F00AA3665 /* BusinessEditProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessEditProfile.xib; sourceTree = "<group>"; };
 		189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceArtistProfileVC.swift; sourceTree = "<group>"; };
 		189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceArtistProfileVC.xib; sourceTree = "<group>"; };
 		189C9622282260B6004B99EF /* EventCreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreateVC.swift; sourceTree = "<group>"; };
@@ -565,6 +573,7 @@
 		1895B96E281FD08600842DD5 /* BusinessModule */ = {
 			isa = PBXGroup;
 			children = (
+				189C2D84282B8D6800AA3665 /* BEditProfile */,
 				18D620C72824E79100BE9C95 /* BusinessComplaint */,
 				189C961828225963004B99EF /* BusinessHome */,
 				18EFEAAD28214808009ADBB4 /* SetAvailbility */,
@@ -630,6 +639,15 @@
 				189B7DBC28239413009AC87C /* AddArtistListCell.xib */,
 			);
 			path = AddArtistCell;
+			sourceTree = "<group>";
+		};
+		189C2D84282B8D6800AA3665 /* BEditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				189C2D85282B8D8F00AA3665 /* BusinessEditProfile.swift */,
+				189C2D86282B8D8F00AA3665 /* BusinessEditProfile.xib */,
+			);
+			path = BEditProfile;
 			sourceTree = "<group>";
 		};
 		189C961828225963004B99EF /* BusinessHome */ = {
@@ -936,6 +954,8 @@
 			children = (
 				18B6521128250EF6000F8E02 /* BusinessArtistListCell.swift */,
 				18B6521228250EF6000F8E02 /* BusinessArtistListCell.xib */,
+				189C2D80282B809C00AA3665 /* BusinessArtistTotalListCell.swift */,
+				189C2D81282B809C00AA3665 /* BusinessArtistTotalListCell.xib */,
 			);
 			path = BArtistCell;
 			sourceTree = "<group>";
@@ -1593,6 +1613,7 @@
 				1F3924A727F8575D000F08F5 /* LoginVC.xib in Resources */,
 				18D620CF2824F0A600BE9C95 /* BusinessComplaintdetailCell.xib in Resources */,
 				1F3344E227FAE636000BB072 /* Poppins-Black.ttf in Resources */,
+				189C2D83282B809C00AA3665 /* BusinessArtistTotalListCell.xib in Resources */,
 				1895B97F28200ED000842DD5 /* EventDetailVC.xib in Resources */,
 				18E6983328252F4100644838 /* EventHomeCollectionListcell.xib in Resources */,
 				18B4D444281BEE2A005C0816 /* AboutUsVC.xib in Resources */,
@@ -1605,6 +1626,7 @@
 				1862D3DD282A87E70013F492 /* ServiceProviderEditProfile.xib in Resources */,
 				1895B974281FD14D00842DD5 /* EventVC.xib in Resources */,
 				1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */,
+				189C2D88282B8D8F00AA3665 /* BusinessEditProfile.xib in Resources */,
 				189C961C2822598D004B99EF /* ServiceArtistProfileVC.xib in Resources */,
 				181C171328239ED7008E7C14 /* BusinessHomeVC.xib in Resources */,
 				18697694281AB9D400F208BD /* ArtistListCell.xib in Resources */,
@@ -1750,6 +1772,7 @@
 				1895B96D281FCC4800842DD5 /* Singleton.swift in Sources */,
 				189C961B2822598D004B99EF /* ServiceArtistProfileVC.swift in Sources */,
 				18E379C82823E4310029C01A /* GridCameraViewCell.swift in Sources */,
+				189C2D82282B809C00AA3665 /* BusinessArtistTotalListCell.swift in Sources */,
 				1895B964281FC05A00842DD5 /* ChatCell.swift in Sources */,
 				1F422EE227FC209B00877618 /* HomeVC.swift in Sources */,
 				1F422F0D27FC4F8E00877618 /* ExampleBackgroundContentView.swift in Sources */,
@@ -1817,6 +1840,7 @@
 				1F422F1427FC4F8E00877618 /* ESTabBarItemMoreContentView.swift in Sources */,
 				18697674281A69A700F208BD /* FBAnnotation.swift in Sources */,
 				1F422F0E27FC4F8E00877618 /* ExampleBouncesContentView.swift in Sources */,
+				189C2D87282B8D8F00AA3665 /* BusinessEditProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1964,14 +1988,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NRT2V64YZ9;
+				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "always permissions";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "When in use permissions";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Access Warning";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
@@ -1983,9 +2008,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.sessionControl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walkinavaiable.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = DistributeApps;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1998,14 +2023,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NRT2V64YZ9;
+				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "always permissions";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "When in use permissions";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Access Warning";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
@@ -2017,9 +2043,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.sessionControl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walkinavaiable.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = DistributeApps;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

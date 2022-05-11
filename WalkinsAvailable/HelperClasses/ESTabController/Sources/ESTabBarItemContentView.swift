@@ -213,7 +213,6 @@ open class ESTabBarItemContentView: UIView {
         
         imageView.isHidden = (imageView.image == nil)
         titleLabel.isHidden = (titleLabel.text == nil)
-        
         self.titleLabel.font = UIFont.systemFont(ofSize: 10)
         
         if self.itemContentMode == .alwaysTemplate {
@@ -241,18 +240,20 @@ open class ESTabBarItemContentView: UIView {
                                                    width: titleLabel.bounds.size.width,
                                                    height: titleLabel.bounds.size.height)
                     imageView.frame = CGRect.init(x: titleLabel.frame.origin.x - s - (UIScreen.main.scale == 3.0 ? 6.0 : 5.0),
-                                                  y: (h - s) / 2.0,
+                                                  y: 0,//(h - s) / 2.0,
                                                   width: s,
                                                   height: s)
                 } else {
-                    titleLabel.frame = CGRect.init(x: (w - titleLabel.bounds.size.width - 10) / 2.0,
-                                                   y: h - titleLabel.bounds.size.height + 2.0,
-                                                   width: titleLabel.bounds.size.width,
-                                                   height: titleLabel.bounds.size.height)
                     imageView.frame = CGRect.init(x: (w - s) / 2.0,
-                                                  y: (h - s) / 2.0 - 6.0,
+                                                  y: 3,//(h - s) / 2.0 - 6.0,
                                                   width: s,
                                                   height: s)
+                    
+                    titleLabel.frame = CGRect.init(x: (w - titleLabel.bounds.size.width - 10) / 2.0,
+                                                   y: imageView.frame.maxY + 3, //h - titleLabel.bounds.size.height + 2.0,
+                                                   width: titleLabel.bounds.size.width,
+                                                   height: titleLabel.bounds.size.height)
+                    
                 }
             } else if !imageView.isHidden { ///// (w - s) ///   (h - s)
                 imageView.frame = CGRect.init(x: (w) / 2.0,

@@ -59,7 +59,24 @@ class TabBarVC: ESTabBarController {
         super.viewWillAppear(animated)
         self.setTabController()
         self.tabBar.isHidden = false
+        self.delegate = self
 
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        var tabFrame: CGRect = self.tabBar.frame
+        tabFrame.size.height += 10
+        tabFrame.origin.y = self.view.frame.size.height - tabFrame.size.height
+        self.tabBar.frame = tabFrame
+        print("set ************** ")
+        addRedDotAtTabBarItemIndex(index: 0)
+    }
+    
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        super.tabBar(tabBar, didSelect: item)
+        addRedDotAtTabBarItemIndex(index: item.tag)
     }
     
     func setTabController() {
@@ -74,13 +91,13 @@ class TabBarVC: ESTabBarController {
             let v4 = NotificationVC()
             let v5 = AccountVC()
             
-            v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Chat", image: UIImage(named: "chat"), selectedImage: UIImage(named: "chatSelected"))
-            v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Favourite", image:UIImage(named: "fav"), selectedImage: UIImage(named: "favSelected"))
+            v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Chat", image: UIImage(named: "chat"), selectedImage: UIImage(named: "chatSelected"))
+            v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Favourites", image:UIImage(named: "fav"), selectedImage: UIImage(named: "favSelected"))
                 let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
             v3.tabBarItem = ESTabBarItem(ExampleIrregularityContentView(), title: nil, image: image, selectedImage: image)
-            v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Notification", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
+            v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Notifications", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
             let img = UIImage(named: "pff")?.withRenderingMode(.alwaysOriginal)
-            v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
+            v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Account", image: img, selectedImage: img)
 //            v5.type = "1"
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
@@ -93,10 +110,10 @@ class TabBarVC: ESTabBarController {
             let v5 = AccountVC()
             
             v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Event", image: UIImage(named: "eventTab"), selectedImage: UIImage(named: "t"))
-            v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Favourite", image:UIImage(named: "fav"), selectedImage: UIImage(named: "favSelected"))
+            v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Favourites", image:UIImage(named: "fav"), selectedImage: UIImage(named: "favSelected"))
                 let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
             v3.tabBarItem = ESTabBarItem(ExampleIrregularityContentView(), title: nil, image: image, selectedImage: image)
-            v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Notification", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
+            v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Notifications", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
             let img = UIImage(named: "pff")?.withRenderingMode(.alwaysOriginal)
             v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
 //            v5.type = "2"
@@ -124,6 +141,66 @@ class TabBarVC: ESTabBarController {
             self.selectedIndex = 2
 
         }
+        
+        self.tabBar.items?.enumerated().forEach({ index, item in
+            item.tag = index
+        })
+        
+    }
+    
+    func addRedDotAtTabBarItemIndex(index: Int) {
+        print("tag *** \(index)")
+        for subview in self.tabBar.subviews {
+            
+            if subview.tag == 1314 {
+                subview.removeFromSuperview()
+                break
+            }
+            
+        }
+        guard index != 2 else {return}
+                
+        
+        let RedDotRadius: CGFloat = 4
+        let RedDotDiameter = RedDotRadius * 2
+
+        let TabBarItemCount = CGFloat(self.tabBar.items!.count)
+        
+
+        let bottomSafeArea = self.view.safeAreaInsets.bottom
+        
+        let TopMargin:CGFloat = self.tabBar.frame.height-bottomSafeArea-15
+
+        let itemWidth = self.tabBar.frame.width/CGFloat(TabBarItemCount)
+        
+        
+        let  xOffset = ((CGFloat(index + 1) * itemWidth) - (itemWidth/2))-5
+
+        let frame = CGRect(x: xOffset, y: TopMargin, width: RedDotDiameter, height: RedDotDiameter)
+        
+        let redDot = UIView(frame: frame)
+        print("frame *** \(frame) *** \(bottomSafeArea)")
+        redDot.tag = 1314
+        redDot.backgroundColor = UIColor.red
+        redDot.layer.cornerRadius = RedDotRadius
+        self.tabBar.addSubview(redDot)
+    }
+
+}
+
+
+extension TabBarVC:UITabBarControllerDelegate{
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+//        let size = CGSize(width: tabBarController.tabBar.frame.width / (5),
+//                          height: tabBarController.tabBar.frame.height)
+//
+//        let dotImage = UIImage().createSelectionIndicator(color: .blue, size: size, lineHeight: 7)
+//
+//        tabBarController.tabBar.selectionIndicatorImage = dotImage
+        
+        
+        
+        return true
     }
     
     
@@ -160,3 +237,21 @@ class NavigationController: UINavigationController {
 //                }
 //            }
 //        }
+extension UIImage {
+    func createSelectionIndicator(color: UIColor, size: CGSize, lineHeight: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+
+        let innerRect = CGRect(x: (size.width/2) - lineHeight/2,
+                               y: size.height - lineHeight - 2,
+                               width: lineHeight,
+                               height: lineHeight)
+
+        let path = UIBezierPath(roundedRect: innerRect, cornerRadius: lineHeight/2)
+        path.fill()
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
+}

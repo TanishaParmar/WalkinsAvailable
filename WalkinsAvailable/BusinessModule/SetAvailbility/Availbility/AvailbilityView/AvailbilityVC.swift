@@ -25,9 +25,6 @@ class AvailbilityVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
-    }
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

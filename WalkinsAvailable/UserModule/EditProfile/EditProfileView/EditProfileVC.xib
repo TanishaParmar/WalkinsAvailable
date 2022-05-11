@@ -135,7 +135,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22k-Oy-cQI">
                                                             <rect key="frame" x="0.0" y="30" width="374" height="40"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="Ucu-z3-Oz6">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user12" translatesAutoresizingMaskIntoConstraints="NO" id="Ucu-z3-Oz6">
                                                                     <rect key="frame" x="8" y="10" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="mjv-gb-mdk"/>
@@ -315,7 +315,7 @@
         <image name="camera" width="99" height="100"/>
         <image name="email" width="51" height="39"/>
         <image name="pf" width="459" height="462"/>
-        <image name="user" width="56" height="59"/>
+        <image name="user12" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

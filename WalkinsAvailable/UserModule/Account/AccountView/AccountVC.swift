@@ -34,6 +34,10 @@ class AccountVC: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     //MARK: Methods
     func configureUI() {
         accounttableView.dataSource = self
@@ -67,7 +71,7 @@ class AccountVC: UIViewController {
             self.navigationController?.pushViewController(viewcontroller, animated: true)
             break
         case .business:
-            let viewcontroller = EditProfileVC()
+            let viewcontroller = BusinessEditProfile()
             self.navigationController?.pushViewController(viewcontroller, animated: true)
             break
         case .serviceProvider:

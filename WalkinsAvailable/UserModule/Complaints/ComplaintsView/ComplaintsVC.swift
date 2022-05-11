@@ -24,6 +24,10 @@ class ComplaintsVC: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
     
     //MARK: Actions
     func configureUI() {

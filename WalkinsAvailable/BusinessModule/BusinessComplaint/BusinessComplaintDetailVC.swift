@@ -20,6 +20,10 @@ class BusinessComplaintDetailVC: UIViewController {
         let nib = UINib(nibName: "BusinessComplaintdetailCell", bundle: nil)
         businesComplaintTableView.register(nib, forCellReuseIdentifier: "BusinessComplaintdetailCell")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
 
     @IBAction func backBtn(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

@@ -11,6 +11,7 @@ class BusinessHomeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var listArr:[String] = ["Invite Events","Nearby Events"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -19,6 +20,11 @@ class BusinessHomeVC: UIViewController {
         let nib = UINib(nibName: "BusinessHomeListCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "BusinessHomeListCell")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
 }
 
 
@@ -49,6 +55,8 @@ extension BusinessHomeVC: UITableViewDataSource, UITableViewDelegate {
         view?.collectionArtistListView.dataSource = self
         view?.collectionArtistListView.delegate = self
         view?.headerView()
+        view?.editProfileBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+
         return view
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -59,7 +67,14 @@ extension BusinessHomeVC: UITableViewDataSource, UITableViewDelegate {
         self.push(viewController: controller)
     }
     
+    @objc func buttonAction(sender : UIButton) {
+        let controller = BusinessEditProfile()
+        self.push(viewController: controller)
+    }
+    
 }
+
+
 
 extension BusinessHomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
