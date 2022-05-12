@@ -18,6 +18,10 @@ class ServiceEventVC: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
    
 
     @IBAction func ongoingBtn(_ sender: UIButton) {

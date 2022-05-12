@@ -82,10 +82,11 @@ class ChatCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code1
 //        self.chatBg.backgroundColor = UIColor.init(hexString: "#EEEEEE", alpha: 1)
-//        timeLabel.textAlignment = .left
+        timeLabel.textAlignment = .left
 //        self.messageLabel.setLabel("message label", .black, FONT_NAMEs.Amazon_Ember, 14)
 ////        self.nameLabel.setLabel("name label", .red , FONT_NAME.Amazon_Ember, 12)
-//        self.timeLabel.setLabel("12:14", .black, FONT_NAMEs.Amazon_Ember_Bold, 8)
+        self.timeLabel.text = "23:18 PM"
+        self.timeLabel.textColor = UIColor.black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -102,8 +103,8 @@ class ChatCell: UITableViewCell {
     }
     
     func setChatData(model: MessageData?) {
-//        self.timeLabel.isHidden = false
-        self.timeLabel.text = "23:18"//model?.sent_date//changeFormat(.full1, to: .time)
+        self.timeLabel.isHidden = false
+        self.timeLabel.text = "23:18 PM"//model?.sent_date//changeFormat(.full1, to: .time)
         let type = MESSAGE_TYPE(rawValue: model?.message_type ?? "")
         switch type {
         case .audio: break

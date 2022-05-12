@@ -62,8 +62,10 @@ class SetAvailbilityVC: UIViewController,UITextFieldDelegate {
         self.endTimeView.layer.borderWidth = 1
         self.waitingView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         self.waitingView.layer.borderWidth = 1
-        
+        btnSave.layer.cornerRadius = 4
+        btnSave.clipsToBounds = true
     }
+    
     //    MARK: TEXTFIELD DELEGATES
         func textFieldDidBeginEditing(_ textField: UITextField) {
             dayView.layer.borderColor = textField == dayTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)

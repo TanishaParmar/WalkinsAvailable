@@ -48,7 +48,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFb-yz-kbI">
-                                    <rect key="frame" x="20" y="10" width="30" height="30"/>
+                                    <rect key="frame" x="10" y="10" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="q3D-Ur-9De"/>
                                         <constraint firstAttribute="height" constant="30" id="yC8-ur-nhi"/>
@@ -59,8 +59,8 @@
                                         <action selector="backBtn:" destination="-1" eventType="touchUpInside" id="rrN-tT-gH2"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Availbility" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi4-ox-ZVJ">
-                                    <rect key="frame" x="60" y="9.5" width="149" height="31"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi4-ox-ZVJ">
+                                    <rect key="frame" x="50" y="9.5" width="164" height="31"/>
                                     <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="22"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                 <constraint firstItem="Mi4-ox-ZVJ" firstAttribute="leading" secondItem="IFb-yz-kbI" secondAttribute="trailing" constant="10" id="7uD-Be-BG6"/>
                                 <constraint firstItem="Mi4-ox-ZVJ" firstAttribute="centerY" secondItem="uaT-NU-SQw" secondAttribute="centerY" id="Ogl-lb-4EV"/>
                                 <constraint firstItem="IFb-yz-kbI" firstAttribute="centerY" secondItem="uaT-NU-SQw" secondAttribute="centerY" id="WCs-pA-qzY"/>
-                                <constraint firstItem="IFb-yz-kbI" firstAttribute="leading" secondItem="uaT-NU-SQw" secondAttribute="leading" constant="20" id="ZQC-8p-dix"/>
+                                <constraint firstItem="IFb-yz-kbI" firstAttribute="leading" secondItem="uaT-NU-SQw" secondAttribute="leading" constant="10" id="ZQC-8p-dix"/>
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWP-CA-0Ku">

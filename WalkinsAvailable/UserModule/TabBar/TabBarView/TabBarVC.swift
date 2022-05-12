@@ -181,7 +181,7 @@ class TabBarVC: ESTabBarController {
         let redDot = UIView(frame: frame)
         print("frame *** \(frame) *** \(bottomSafeArea)")
         redDot.tag = 1314
-        redDot.backgroundColor = UIColor.red
+        redDot.backgroundColor = UIColor.clear
         redDot.layer.cornerRadius = RedDotRadius
         self.tabBar.addSubview(redDot)
     }

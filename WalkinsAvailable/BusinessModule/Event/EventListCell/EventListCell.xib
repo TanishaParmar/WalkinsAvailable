@@ -54,7 +54,7 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X30-Ke-7NO">
-                        <rect key="frame" x="16" y="83" width="334" height="1"/>
+                        <rect key="frame" x="160" y="83" width="190" height="1"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Kye-dN-nOS"/>
@@ -67,9 +67,9 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="X30-Ke-7NO" secondAttribute="bottom" id="4xR-78-fmN"/>
                     <constraint firstAttribute="bottom" secondItem="JqI-sV-Wg2" secondAttribute="bottom" constant="10" id="DWN-Tl-Hv3"/>
+                    <constraint firstItem="X30-Ke-7NO" firstAttribute="leading" secondItem="JqI-sV-Wg2" secondAttribute="leading" id="Dl0-MM-mVb"/>
                     <constraint firstItem="JqI-sV-Wg2" firstAttribute="leading" secondItem="anI-5g-iyt" secondAttribute="trailing" constant="20" id="LUH-gA-MjR"/>
                     <constraint firstItem="anI-5g-iyt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="NJd-ct-zXG"/>
-                    <constraint firstItem="X30-Ke-7NO" firstAttribute="leading" secondItem="anI-5g-iyt" secondAttribute="leading" id="VR8-hR-gOZ"/>
                     <constraint firstAttribute="trailing" secondItem="JqI-sV-Wg2" secondAttribute="trailing" constant="10" id="bEh-C1-BkQ"/>
                     <constraint firstItem="JqI-sV-Wg2" firstAttribute="centerY" secondItem="anI-5g-iyt" secondAttribute="centerY" id="nkm-Rj-NY3"/>
                     <constraint firstItem="anI-5g-iyt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qBT-ke-pt0"/>
