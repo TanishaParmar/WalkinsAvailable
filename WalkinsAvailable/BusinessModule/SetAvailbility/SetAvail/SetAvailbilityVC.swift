@@ -31,7 +31,7 @@ class SetAvailbilityVC: UIViewController,UITextFieldDelegate {
         if isNav == true{
             self.headerLbl.text = "Edit Set Availability"
         }else{
-            self.headerLbl.text = "Set Availbilty"
+            self.headerLbl.text = "Set Availabilty"
         }
     }
     override func viewWillAppear(_ animated: Bool) {

@@ -31,6 +31,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img3" translatesAutoresizingMaskIntoConstraints="NO" id="2E0-WY-dH2">
                                         <rect key="frame" x="4" y="4" width="62" height="62"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -44,11 +45,11 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Naaz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKA-wG-VJt">
-                                <rect key="frame" x="42" y="80" width="32" height="18"/>
+                                <rect key="frame" x="42.5" y="78" width="31" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="18" id="fzg-pJ-fYR"/>
+                                    <constraint firstAttribute="height" constant="16" id="fzg-pJ-fYR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -58,7 +59,7 @@
                             <constraint firstItem="EGN-rM-i5g" firstAttribute="centerX" secondItem="yws-NL-bcM" secondAttribute="centerX" id="B3n-MC-QTZ"/>
                             <constraint firstItem="CKA-wG-VJt" firstAttribute="centerX" secondItem="yws-NL-bcM" secondAttribute="centerX" id="WPo-gN-07C"/>
                             <constraint firstItem="EGN-rM-i5g" firstAttribute="top" secondItem="yws-NL-bcM" secondAttribute="top" constant="6" id="oT5-cE-djA"/>
-                            <constraint firstItem="CKA-wG-VJt" firstAttribute="top" secondItem="EGN-rM-i5g" secondAttribute="bottom" constant="4" id="ttk-sT-ERo"/>
+                            <constraint firstItem="CKA-wG-VJt" firstAttribute="top" secondItem="EGN-rM-i5g" secondAttribute="bottom" constant="2" id="ttk-sT-ERo"/>
                         </constraints>
                     </view>
                 </subviews>

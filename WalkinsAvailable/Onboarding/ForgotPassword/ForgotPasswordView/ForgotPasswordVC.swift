@@ -27,6 +27,7 @@ class ForgotPasswordVC: UIViewController {
         emailTextField.delegate = self
         self.emailView.addCornerBorderAndShadow(view: self.emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.saveButton.addCornerRadius(view: self.saveButton, cornerRadius: 5.0)
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     

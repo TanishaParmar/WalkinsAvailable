@@ -23,6 +23,10 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     //MARK: Methods
     func configureUI() {

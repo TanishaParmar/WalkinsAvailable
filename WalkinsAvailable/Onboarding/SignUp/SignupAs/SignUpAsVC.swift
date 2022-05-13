@@ -31,6 +31,8 @@ class SignUpAsVC: UIViewController {
         signUpuserView.layer.cornerRadius = 4
         signUpAsBusinessView.layer.cornerRadius = 4
         signUpAsServiceProviderView.layer.cornerRadius = 4
+        self.navigationController?.navigationBar.isHidden = true
+
     }
     
     

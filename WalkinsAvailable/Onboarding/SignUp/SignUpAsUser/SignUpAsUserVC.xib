@@ -128,7 +128,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Phm-jn-Syr">
                                                             <rect key="frame" x="0.0" y="41" width="374" height="40"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="vMB-CS-Ht4">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user12" translatesAutoresizingMaskIntoConstraints="NO" id="vMB-CS-Ht4">
                                                                     <rect key="frame" x="8" y="10" width="20" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="vMB-CS-Ht4" secondAttribute="height" multiplier="1:1" id="0Wy-bb-ynj"/>
@@ -470,7 +470,7 @@
         <image name="lock" width="52" height="52"/>
         <image name="mail" width="170" height="169"/>
         <image name="pf" width="459" height="462"/>
-        <image name="user" width="56" height="59"/>
+        <image name="user12" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

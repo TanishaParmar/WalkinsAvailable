@@ -40,6 +40,10 @@ class MapController: UIViewController {
         
         self.stackView.clipsToBounds = true
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

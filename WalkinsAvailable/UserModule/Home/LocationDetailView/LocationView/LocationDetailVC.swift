@@ -70,9 +70,9 @@ extension LocationDetailVC: UICollectionViewDelegate, UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistListCell", for: indexPath) as! ArtistListCell
         cell.artistImgView.image = UIImage(named: imgArr[indexPath.row])
         if indexPath.row == 0{
-            cell.superImageView.layer.borderColor = UIColor.green.cgColor
+            cell.superImageView.layer.borderColor = #colorLiteral(red: 0.3437896967, green: 0.6861312985, blue: 0.4926523566, alpha: 1)
             cell.superImageView.layer.borderWidth = 1
-            cell.artistImgView.layer.borderColor = UIColor.green.cgColor
+            cell.artistImgView.layer.borderColor =  #colorLiteral(red: 0.7493617535, green: 0.8840726018, blue: 0.8102315664, alpha: 1)
             cell.artistImgView.layer.borderWidth = 1.5
         }else{
             cell.superImageView.layer.borderColor = UIColor.clear.cgColor
@@ -82,5 +82,9 @@ extension LocationDetailVC: UICollectionViewDelegate, UICollectionViewDataSource
         }
         return cell
     }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: collectionView.frame.width, height: 120)
+//       }
+    
    
 }

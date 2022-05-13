@@ -36,7 +36,7 @@ class ArtistProfileVC: UIViewController {
     }
     
     @IBAction func chatBtn(_ sender: UIButton) {
-        let controller = ChatListVC()
+        let controller = SingleChatController()
         self.push(viewController: controller)
     }
     
@@ -51,7 +51,7 @@ extension ArtistProfileVC: UICollectionViewDelegate,UICollectionViewDataSource,U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
     UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       let padding: CGFloat =  artistImgCollectionView.frame.size.width
-      let collectionViewSize = artistImgCollectionView.frame.size.width - 12
+      let collectionViewSize = artistImgCollectionView.frame.size.width - 2
       return CGSize(width: collectionViewSize/3, height: collectionViewSize/3)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

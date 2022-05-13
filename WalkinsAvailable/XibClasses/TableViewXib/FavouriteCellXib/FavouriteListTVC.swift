@@ -18,6 +18,7 @@ class FavouriteListTVC: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        profileImageView.layer.cornerRadius = 6
         // Initialization code
     }
 

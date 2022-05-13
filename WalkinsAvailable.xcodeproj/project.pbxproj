@@ -1167,7 +1167,6 @@
 				18B4D440281BEDFF005C0816 /* AboutUs */,
 				1F7910642809851900102EA6 /* Complaints */,
 				1F79105E28097DDF00102EA6 /* ChangePassword */,
-				1F68261C27FD80F100FFB4DA /* ContactUs */,
 				1F68261627FD7DAA00FFB4DA /* EditProfile */,
 				1F422ED427FC203100877618 /* Account */,
 				1F422ED327FC202A00877618 /* Notifications */,
@@ -1321,6 +1320,7 @@
 		1F422ED627FC204600877618 /* FavouriteView */ = {
 			isa = PBXGroup;
 			children = (
+				1F68261C27FD80F100FFB4DA /* ContactUs */,
 				1F422EDB27FC208000877618 /* FavouriteVC.swift */,
 				1F422EDC27FC208000877618 /* FavouriteVC.xib */,
 			);
