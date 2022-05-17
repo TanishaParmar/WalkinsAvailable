@@ -26,6 +26,10 @@ class EditProfileVC: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
     
     //MARK: Methods
     func configureUI() {

@@ -26,8 +26,8 @@ class ArtistProfileVC: UIViewController {
         artistImgVw.clipsToBounds = true
         let nib = UINib(nibName: "ArtistListImgCell", bundle: nil)
         self.artistImgCollectionView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
-        self.artistImgVw.layer.cornerRadius = artistImgVw.frame.height/2
-        self.artistImgVw.clipsToBounds = true
+//        self.artistImgVw.layer.cornerRadius = artistImgVw.frame.height/2
+//        self.artistImgVw.clipsToBounds = true
         self.tabBarController?.tabBar.isHidden = true
     }
 

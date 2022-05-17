@@ -54,7 +54,7 @@ class LocationDetailVC: UIViewController {
     }
 }
 
-extension LocationDetailVC: UICollectionViewDelegate, UICollectionViewDataSource{
+extension LocationDetailVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgArr.count
     }
@@ -82,9 +82,9 @@ extension LocationDetailVC: UICollectionViewDelegate, UICollectionViewDataSource
         }
         return cell
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: collectionView.frame.width, height: 120)
-//       }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 90, height: 100)
+       }
     
    
 }

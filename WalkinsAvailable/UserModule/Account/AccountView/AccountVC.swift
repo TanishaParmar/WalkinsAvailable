@@ -112,18 +112,28 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
         case .user:
             cell.titleLabel.text = userListArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: userListArr[indexPath.row].1)
+            if indexPath.row == 0{
+                cell.switchIcon.onTintColor = #colorLiteral(red: 0, green: 0.8551515937, blue: 0.6841568947, alpha: 1)
+            }else if indexPath.row == 1{
+                cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
+            }
         case .business:
             cell.titleLabel.text = businessListArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: businessListArr[indexPath.row].1)
-            if indexPath.row == 1{
-                cell.switchIcon.onTintColor = UIColor.blue
+            if indexPath.row == 0{
+                cell.switchIcon.onTintColor = #colorLiteral(red: 0.2428347766, green: 0.9325304627, blue: 0.4965850115, alpha: 1)
+            }else if indexPath.row == 1{
+                cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
             }
         case .serviceProvider:
             cell.titleLabel.text = serviceProviderArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: serviceProviderArr[indexPath.row].1)
-            if indexPath.row == 1{
-                cell.switchIcon.onTintColor = UIColor.blue
+            if indexPath.row == 0{
+                cell.switchIcon.onTintColor = #colorLiteral(red: 0.2428347766, green: 0.9325304627, blue: 0.4965850115, alpha: 1)
+            }else if indexPath.row == 1{
+                cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
             }
+            
             break
         default:
             break
