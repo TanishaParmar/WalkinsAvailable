@@ -47,6 +47,25 @@ class SignUpAsUserVC: UIViewController {
         self.profileImageView.addCornerRadius(view: self.profileImageView, cornerRadius: self.profileImageView.bounds.height / 2)
     }
     
+    //MARK: VALIDATIONS
+    func validate() {
+        if ValidationManager.shared.isEmpty(text: userNameTextField.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter user name.", okButton: "OK", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: emailTextField.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter email.", okButton: "OK", controller: self) {
+            }
+        }else if emailTextField.text!.isValidEmail == false {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter vaild email." , okButton: "Ok", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: passwordTextField.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter password.", okButton: "OK", controller: self) {
+            }
+        }else {
+            Singleton.setHomeScreenView(userType: .user)
+        }
+    }
+    
     
     //MARK: Actions
     @IBAction func backButtonAction(_ sender: Any) {
@@ -54,7 +73,7 @@ class SignUpAsUserVC: UIViewController {
     }
     
     @IBAction func logInButtonAction(_ sender: Any) {
-        Singleton.setHomeScreenView(userType: .user)
+        validate()
     }
     
     @IBAction func logInWithEmailButtonAction(_ sender: Any) {

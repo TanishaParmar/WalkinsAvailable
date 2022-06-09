@@ -7,7 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-class SignUpBusinessProfile: UIViewController,UITextFieldDelegate,UITextViewDelegate {
+class SignUpBusinessProfile: UIViewController {
 
     var isNAv:Bool?
 //    MARK: OUTLETS
@@ -33,6 +33,56 @@ class SignUpBusinessProfile: UIViewController,UITextFieldDelegate,UITextViewDele
         uiUpdate()
         self.tabBarController?.tabBar.isHidden = true
     }
+    
+    //    MARK: STORYBOARD_UPDATE
+        
+        func uiUpdate(){
+            self.businessTF.delegate = self
+            self.businessTypeTF.delegate = self
+            self.emailTF.delegate = self
+            self.passwordTf.delegate = self
+            self.addressTF.delegate = self
+            self.descriptionTextView.delegate = self
+            self.businessView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            self.businessView.layer.borderWidth = 1
+            self.businessTypeView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            self.businessTypeView.layer.borderWidth = 1
+            self.emailView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            self.emailView.layer.borderWidth = 1
+            self.passwordView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            self.passwordView.layer.borderWidth = 1
+            self.addressView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            self.addressView.layer.borderWidth = 1
+            self.descriptionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            self.descriptionView.layer.borderWidth = 1
+        }
+        
+    //    MARK: VAILDATIONS
+        func validate() {
+            if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
+                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business name.", okButton: "OK", controller: self) {
+                }
+            }else if ValidationManager.shared.isEmpty(text: businessTypeTF.text) == true {
+                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business type.", okButton: "OK", controller: self) {
+                }
+            }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
+                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter email.", okButton: "OK", controller: self) {
+                }
+            }else if ValidationManager.shared.isEmpty(text: passwordTf.text) == true {
+                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter password.", okButton: "OK", controller: self) {
+                }
+            }else if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
+                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter address.", okButton: "OK", controller: self) {
+                }
+            }else if ValidationManager.shared.isEmpty(text: descriptionTextView.text) == true{
+                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter description.", okButton: "OK", controller: self) {
+                }
+            }else {
+                Singleton.setHomeScreenView(userType: .business)
+            }
+        }
+    
+    
 
     @IBAction func backBtn(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -47,85 +97,17 @@ class SignUpBusinessProfile: UIViewController,UITextFieldDelegate,UITextViewDele
     }
     
     @IBAction func btnSave(_ sender: UIButton) {
-//        if validate() == false {
-//            return
-//        }else{
-//            Singleton.setHomeScreenView(userType: .business)
-//        }
-        Singleton.setHomeScreenView(userType: .business)
+        self.validate()
+    }
+    
 
-        
+    
+    
+}
 
-    }
-    
-//    MARK: STORYBOARD_UPDATE
-    
-    func uiUpdate(){
-        self.businessTF.delegate = self
-        self.businessTypeTF.delegate = self
-        self.emailTF.delegate = self
-        self.passwordTf.delegate = self
-        self.addressTF.delegate = self
-        self.descriptionTextView.delegate = self
-        self.businessView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.businessView.layer.borderWidth = 1
-        self.businessTypeView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.businessTypeView.layer.borderWidth = 1
-        self.emailView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.emailView.layer.borderWidth = 1
-        self.passwordView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.passwordView.layer.borderWidth = 1
-        self.addressView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.addressView.layer.borderWidth = 1
-        self.descriptionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.descriptionView.layer.borderWidth = 1
-    }
-    
-//    MARK: VAILDATIONS
-    func validate() -> Bool {
-        if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business name.", okButton: "OK", controller: self) {
-                
-            }
-            return false
-        }
-        
-        if ValidationManager.shared.isEmpty(text: businessTypeTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business type.", okButton: "OK", controller: self) {
-                
-            }
-            return false
-        }
-        
-        if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter email.", okButton: "OK", controller: self) {
-                
-            }
-            return false
-        }
-        if ValidationManager.shared.isEmpty(text: passwordTf.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter password.", okButton: "OK", controller: self) {
-                
-            }
-            return false
-        }
-        if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter address.", okButton: "OK", controller: self) {
-                
-            }
-            return false
-        }
-        if ValidationManager.shared.isEmpty(text: descriptionTextView.text) == true{
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter description.", okButton: "OK", controller: self) {
-                
-            }
-            return false
-        }
-        
-        return true
-    }
-    
+
 //    MARK: TEXTFIELD DELEGATES
+extension SignUpBusinessProfile: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         businessTypeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -146,12 +128,17 @@ class SignUpBusinessProfile: UIViewController,UITextFieldDelegate,UITextViewDele
         textField.resignFirstResponder()
         return true
     }
-//    MARK: TEXTVIEW DELEGATES
+
     
+}
+
+//    MARK: TEXTVIEW DELEGATES
+extension SignUpBusinessProfile: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.descriptionView.layer.borderColor = #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         self.descriptionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
+    
 }
