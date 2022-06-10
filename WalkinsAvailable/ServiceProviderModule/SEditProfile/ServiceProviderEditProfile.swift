@@ -15,6 +15,8 @@ class ServiceProviderEditProfile: UIViewController {
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var artistView: UIView!
     @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var artistNameTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
     override func viewDidLoad() {
@@ -27,18 +29,35 @@ class ServiceProviderEditProfile: UIViewController {
     }
     
     func uiUpdate(){
-        emailView.layer.borderColor = UIColor.black.cgColor
-        emailView.layer.borderWidth = 1
-        artistView.layer.borderColor = UIColor.black.cgColor
-        artistView.layer.borderWidth = 1
-        emailView.layer.cornerRadius = 4
-        artistView.layer.cornerRadius = 4
-        descriptionTextView.layer.cornerRadius = 4
-        descriptionTextView.layer.borderWidth = 1
-        descriptionTextView.layer.borderColor = UIColor.black.cgColor
-        saveBtn.layer.cornerRadius = 4
-        saveBtn.clipsToBounds = true
+        self.artistNameTF.delegate = self
+        self.emailTF.delegate = self
+        self.descriptionTextView.delegate = self
+        emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        artistView.addCornerBorderAndShadow(view: artistView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        descriptionTextView.addCornerBorderAndShadow(view: descriptionTextView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        saveBtn.addCornerRadius(view: saveBtn, cornerRadius: 5)
     }
+    
+    // MARK: VAILDATIONS
+    func validate() {
+        if ValidationManager.shared.isEmpty(text: artistNameTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterArtistName, okButton: "OK", controller: self) {
+            }
+        }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
+            }
+        }else if emailTF.text!.isValidEmail == false {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: descriptionTextView.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterDescription, okButton: "OK", controller: self) {
+            }
+        }else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+
     
     @IBAction func backBtn(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -48,8 +67,40 @@ class ServiceProviderEditProfile: UIViewController {
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {
-        
+        validate()
     }
     
 
+}
+
+
+//    MARK: TEXTFIELD DELEGATES
+extension ServiceProviderEditProfile: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        artistView.layer.borderColor = textField == artistNameTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        artistView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        emailView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    
+}
+
+//    MARK: TEXTVIEW DELEGATES
+extension ServiceProviderEditProfile: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.descriptionTextView.layer.borderColor = #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.descriptionTextView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
 }

@@ -43,44 +43,41 @@ class SignUpBusinessProfile: UIViewController {
             self.passwordTf.delegate = self
             self.addressTF.delegate = self
             self.descriptionTextView.delegate = self
-            self.businessView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            self.businessView.layer.borderWidth = 1
-            self.businessTypeView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            self.businessTypeView.layer.borderWidth = 1
-            self.emailView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            self.emailView.layer.borderWidth = 1
-            self.passwordView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            self.passwordView.layer.borderWidth = 1
-            self.addressView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            self.addressView.layer.borderWidth = 1
-            self.descriptionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            self.descriptionView.layer.borderWidth = 1
+            businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+            businessTypeView.addCornerBorderAndShadow(view: businessTypeView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+            emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+            passwordView.addCornerBorderAndShadow(view: passwordView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+            addressView.addCornerBorderAndShadow(view: addressView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+            descriptionView.addCornerBorderAndShadow(view: descriptionView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         }
         
-    //    MARK: VAILDATIONS
-        func validate() {
-            if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business name.", okButton: "OK", controller: self) {
-                }
-            }else if ValidationManager.shared.isEmpty(text: businessTypeTF.text) == true {
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business type.", okButton: "OK", controller: self) {
-                }
-            }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter email.", okButton: "OK", controller: self) {
-                }
-            }else if ValidationManager.shared.isEmpty(text: passwordTf.text) == true {
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter password.", okButton: "OK", controller: self) {
-                }
-            }else if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter address.", okButton: "OK", controller: self) {
-                }
-            }else if ValidationManager.shared.isEmpty(text: descriptionTextView.text) == true{
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter description.", okButton: "OK", controller: self) {
-                }
-            }else {
-                Singleton.setHomeScreenView(userType: .business)
+    // MARK: VAILDATIONS
+    func validate() {
+        if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterBusinessName, okButton: "OK", controller: self) {
             }
+        }else if ValidationManager.shared.isEmpty(text: businessTypeTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterBusinessType, okButton: "OK", controller: self) {
+            }
+        }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
+            }
+        }else if emailTF.text!.isValidEmail == false {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: passwordTf.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterAddress, okButton: "OK", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: descriptionTextView.text) == true{
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterDescription, okButton: "OK", controller: self) {
+            }
+        }else {
+            Singleton.setHomeScreenView(userType: .business)
         }
+    }
     
     
 

@@ -8,7 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-class BusinessEditProfile: UIViewController,UITextFieldDelegate,UITextViewDelegate {
+class BusinessEditProfile: UIViewController {
 
 //    MARK: OUTLETS
     @IBOutlet weak var backBtn: UIButton!
@@ -43,32 +43,7 @@ class BusinessEditProfile: UIViewController,UITextFieldDelegate,UITextViewDelega
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    
-    //MARK: BUTTON ACTIONS
-    
-    @IBAction func backBtn(_ sender: UIButton) {
-        textFieldInterationDisable()
-        self.navigationController?.popViewController(animated: true)
-    }
-
-    @IBAction func editProfileBtn(_ sender: UIButton) {
-        textFieldInterationEnable()
-    }
-    
-    @IBAction func imgUploadBtn(_ sender: UIButton) {
-        
-    }
-    
-    @IBAction func saveBtn(_ sender: UIButton) {
-        if validate() == false {
-            return
-        }else{
-            print("its work")
-        }
-    }
-    
     //MARK: FUNCTIONS
-    
     func configureUI(){
         businessTF.delegate = self
         businessTypeTF.delegate = self
@@ -78,19 +53,15 @@ class BusinessEditProfile: UIViewController,UITextFieldDelegate,UITextViewDelega
         descriptionTF.delegate = self
         self.userImgView.layer.cornerRadius = userImgView.frame.height/2
         userImgView.clipsToBounds = true
-        self.businessView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.businessView.layer.borderWidth = 1
-        self.businessTYpeView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.businessTYpeView.layer.borderWidth = 1
-        self.emailView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.emailView.layer.borderWidth = 1
-        self.passwordView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.passwordView.layer.borderWidth = 1
-        self.addressView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.addressView.layer.borderWidth = 1
-        self.descriptionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.descriptionView.layer.borderWidth = 1
+        
+        businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        businessTYpeView.addCornerBorderAndShadow(view: businessTYpeView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        passwordView.addCornerBorderAndShadow(view: passwordView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        addressView.addCornerBorderAndShadow(view: addressView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        descriptionView.addCornerBorderAndShadow(view: descriptionView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
     }
+    
     func textFieldInterationEnable(){
         self.headerNameLbl.text = "Edit Business Profile"
         businessTF.isUserInteractionEnabled = true
@@ -116,76 +87,92 @@ class BusinessEditProfile: UIViewController,UITextFieldDelegate,UITextViewDelega
         self.dropdownImgView.isHidden = true
         self.imgUploadBtn.isHidden = true
     }
-    //    MARK: VAILDATIONS
-        func validate() -> Bool {
-            if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business name.", okButton: "OK", controller: self) {
-                }
-                return false
-            }
-            
-            if ValidationManager.shared.isEmpty(text: businessTypeTF.text) == true {
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business type.", okButton: "OK", controller: self) {
-                    
-                }
-                return false
-            }
-            
-            if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter email.", okButton: "OK", controller: self) {
-                    
-                }
-                return false
-            }
-            if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter password.", okButton: "OK", controller: self) {
-                    
-                }
-                return false
-            }
-            if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter address.", okButton: "OK", controller: self) {
-                    
-                }
-                return false
-            }
-            if ValidationManager.shared.isEmpty(text: descriptionTF.text) == true{
-                showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter description.", okButton: "OK", controller: self) {
-                    
-                }
-                return false
-            }
-            
-            return true
-        }
+
     
-    //    MARK: TEXTFIELD DELEGATES
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            businessTYpeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            passwordView.layer.borderColor = textField == passwordTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    
+    // MARK: VAILDATIONS
+    func validate() {
+        if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterBusinessName, okButton: "OK", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: businessTypeTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterBusinessType, okButton: "OK", controller: self) {
+            }
+        }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
+            }
+        }else if emailTF.text!.isValidEmail == false {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterAddress, okButton: "OK", controller: self) {
+            }
+        }else if ValidationManager.shared.isEmpty(text: descriptionTF.text) == true{
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterDescription, okButton: "OK", controller: self) {
+            }
+        }else {
+            self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    
+    //MARK: BUTTON ACTIONS
+    
+    @IBAction func backBtn(_ sender: UIButton) {
+        textFieldInterationDisable()
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction func editProfileBtn(_ sender: UIButton) {
+        textFieldInterationEnable()
+    }
+    
+    @IBAction func imgUploadBtn(_ sender: UIButton) {
         
-        func textFieldDidEndEditing(_ textField: UITextField) {
-            businessView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            businessTYpeView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            emailView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            passwordView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            addressView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        }
-        
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
-        }
-    //    MARK: TEXTVIEW DELEGATES
-        
-        func textViewDidBeginEditing(_ textView: UITextView) {
-            self.descriptionView.layer.borderColor = #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)
-        }
-        func textViewDidEndEditing(_ textView: UITextView) {
-            self.descriptionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        }
+    }
+    
+    @IBAction func saveBtn(_ sender: UIButton) {
+         validate()
+    }
+    
+  
+    
+}
+
+
+//    MARK: TEXTFIELD DELEGATES
+extension BusinessEditProfile: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        businessTYpeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        passwordView.layer.borderColor = textField == passwordTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        businessView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        businessTYpeView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        emailView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        passwordView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        addressView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+//    MARK: TEXTVIEW DELEGATES
+extension BusinessEditProfile: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.descriptionView.layer.borderColor = #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.descriptionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
 }

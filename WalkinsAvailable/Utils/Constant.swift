@@ -16,5 +16,31 @@ struct Color {
 enum AppAlertTitle : String {
     case appName = "WALK-INS AVAILABLE"
     case connectionError = "Connection Error"
-    
+
 }
+
+
+struct AppAlertMessage {
+    static let appName = "WALK-INS AVAILABLE"
+    static let connectionError = "Connection Error"
+    static let enterEmail = "Please enter email."
+    static let validEmail = "Please enter vaild email."
+    static let enterPassword = "Please enter password."
+    static let enterArtistName = "Please enter artist name."
+    static let enterBusinessName = "Please enter business name."
+    static let enterBusinessType = "Please enter business type."
+    static let enterAddress = "Please enter address."
+    static let enterDescription = "Please enter description."
+    static let enterUserName = "Please enter user name."
+    static let ChooseStage = "Please choose stage."
+    static let selectDate = "Please select date."
+    static let enterNote = "Please enter note."
+    static let actionType = "Please choose action type."
+    static let enterDes = "Please enter description."
+    static let noRepeat = "Please choose repeat method."
+    static let forever = "Please select Forever or Until date"
+    static let enterDate = "Please enter date."
+    static let addedNutrient = "Already added this nutrient."
+
+}
+

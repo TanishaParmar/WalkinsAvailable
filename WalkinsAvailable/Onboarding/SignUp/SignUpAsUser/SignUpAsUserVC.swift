@@ -50,16 +50,16 @@ class SignUpAsUserVC: UIViewController {
     //MARK: VALIDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: userNameTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter user name.", okButton: "OK", controller: self) {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterUserName, okButton: "OK", controller: self) {
             }
         }else if ValidationManager.shared.isEmpty(text: emailTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter email.", okButton: "OK", controller: self) {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
             }
         }else if emailTextField.text!.isValidEmail == false {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter vaild email." , okButton: "Ok", controller: self) {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
             }
         }else if ValidationManager.shared.isEmpty(text: passwordTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter password.", okButton: "OK", controller: self) {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
             }
         }else {
             Singleton.setHomeScreenView(userType: .user)

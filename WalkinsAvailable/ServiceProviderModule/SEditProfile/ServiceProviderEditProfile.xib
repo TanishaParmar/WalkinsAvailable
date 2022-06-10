@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,10 +19,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceProviderEditProfile" customModule="WalkinsAvailable" customModuleProvider="target">
             <connections>
+                <outlet property="artistNameTF" destination="bn9-sW-4G2" id="a27-Nz-iLd"/>
                 <outlet property="artistView" destination="uKC-a3-gTg" id="W4T-6N-qeh"/>
                 <outlet property="backBtn" destination="Qmp-CU-nm8" id="V8V-rR-tcw"/>
                 <outlet property="descriptionTextView" destination="Dzo-iQ-Re8" id="ORa-48-Dfz"/>
                 <outlet property="editProfileImgVw" destination="khA-vS-ceT" id="KK1-1O-0fe"/>
+                <outlet property="emailTF" destination="O7N-EE-2uH" id="v7s-JG-8DL"/>
                 <outlet property="emailView" destination="N2R-mz-vKT" id="E1h-tJ-Qep"/>
                 <outlet property="profilrImgView" destination="N2S-wI-sQp" id="Vhw-zY-X2y"/>
                 <outlet property="saveBtn" destination="o65-oN-AKI" id="DOa-or-IOm"/>

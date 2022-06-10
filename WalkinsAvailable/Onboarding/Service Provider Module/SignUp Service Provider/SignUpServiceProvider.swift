@@ -7,7 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-class SignUpServiceProvider: UIViewController,UITextFieldDelegate {
+class SignUpServiceProvider: UIViewController {
 
     var isService:Bool?
     
@@ -39,50 +39,48 @@ class SignUpServiceProvider: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {
-//        if validate() == false {
-//            return
-//        }else{
-//            Singleton.setHomeScreenView(userType: .serviceProvider )
-//        }
-        Singleton.setHomeScreenView(userType: .serviceProvider )
-
+        validate()
     }
     
     //    MARK: STORYBOARD_UPDATE
     
-    func uiUpdate(){
+    func uiUpdate() {
         self.businessTF.delegate = self
         self.emailTF.delegate = self
         self.passwordTF.delegate = self
-        self.businessView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.businessView.layer.borderWidth = 1
-        self.emailView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.emailView.layer.borderWidth = 1
-        self.passwordView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.passwordView.layer.borderWidth = 1
+        businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        passwordView.addCornerBorderAndShadow(view: passwordView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
     }
     
-    //    MARK: VAILDATIONS
-    func validate() -> Bool {
+    
+    // MARK: VAILDATIONS
+    func validate() {
         if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter Artist name.", okButton: "OK", controller: self) {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterArtistName, okButton: "OK", controller: self) {
             }
-            return false
-        }
-        
-        if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter email.", okButton: "OK", controller: self) {
+        }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
             }
-            return false
-        }
-        if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter password.", okButton: "OK", controller: self) {
+        }else if emailTF.text!.isValidEmail == false {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
             }
-            return false
+        }else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
+            }
+        }else {
+            Singleton.setHomeScreenView(userType: .serviceProvider )
         }
-        return true
     }
-    //    MARK: TEXTFIELD DELEGATES
+    
+
+    
+    
+}
+
+
+//    MARK: TEXTFIELD DELEGATES
+extension SignUpServiceProvider: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -99,4 +97,5 @@ class SignUpServiceProvider: UIViewController,UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
 }

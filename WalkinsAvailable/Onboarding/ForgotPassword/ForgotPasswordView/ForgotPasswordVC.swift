@@ -30,11 +30,24 @@ class ForgotPasswordVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    //MARK: VALIDATIONS
+    func validate() {
+        if ValidationManager.shared.isEmpty(text: emailTextField.text) == true {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
+            }
+        }else if emailTextField.text!.isValidEmail == false {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
+            }
+        }else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     
     //MARK: Actions
     
     @IBAction func saveButtonAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        validate()
     }
     
     @IBAction func backButton(_ sender: UIButton) {

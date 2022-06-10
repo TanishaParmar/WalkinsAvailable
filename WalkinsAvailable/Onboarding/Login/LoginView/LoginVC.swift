@@ -41,9 +41,26 @@ class LoginVC: UIViewController {
         self.logInButton.addCornerRadius(view: self.logInButton, cornerRadius: 5.0)
     }
     
+    // MARK: VAILDATIONS
+    func validate() {
+//        if ValidationManager.shared.isEmpty(text: emailTextField.text) == true {
+//            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
+//            }
+//        }else if emailTextField.text!.isValidEmail == false {
+//            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
+//            }
+//        }else if ValidationManager.shared.isEmpty(text: passwordTextField.text) == true {
+//            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
+//            }
+//        }else {
+            Singleton.setHomeScreenView(userType: .user)
+//        }
+    }
+    
     //MARK: Actions
     @IBAction func logInButtonAction(_ sender: Any) {
-        Singleton.setHomeScreenView(userType: .user)
+        validate()
+//        Singleton.setHomeScreenView(userType: .user)
     }
     
     @IBAction func forgotPasswordButtonAction(_ sender: Any) {
