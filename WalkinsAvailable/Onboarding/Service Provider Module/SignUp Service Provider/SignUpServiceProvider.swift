@@ -27,7 +27,6 @@ class SignUpServiceProvider: UIViewController {
         super.viewDidLoad()
         uiUpdate()
         self.tabBarController?.tabBar.isHidden = true
-
     }
     
     @IBAction func uploadBtnProfile(_ sender: UIButton) {
@@ -42,8 +41,8 @@ class SignUpServiceProvider: UIViewController {
         validate()
     }
     
-    //    MARK: STORYBOARD_UPDATE
     
+    //    MARK: STORYBOARD_UPDATE
     func uiUpdate() {
         self.businessTF.delegate = self
         self.emailTF.delegate = self

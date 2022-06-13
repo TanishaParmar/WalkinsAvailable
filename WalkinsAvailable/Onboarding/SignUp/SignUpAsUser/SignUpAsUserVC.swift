@@ -11,7 +11,7 @@ import IQKeyboardManagerSwift
 
 class SignUpAsUserVC: UIViewController {
 
-    var isUser:Bool?
+    
     
     //MARK: Outlets
     @IBOutlet weak var userNameView: UIView!
@@ -27,6 +27,12 @@ class SignUpAsUserVC: UIViewController {
     @IBOutlet weak var logInWithInstaButton: UIButton!
     
     
+    //MARK: Properties
+    var isUser:Bool?
+    var pickerData: PickerData?
+    var imagePicker: ImagePicker!
+    
+    
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +46,37 @@ class SignUpAsUserVC: UIViewController {
         userNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.userNameView.addCornerBorderAndShadow(view: self.userNameView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.emailView.addCornerBorderAndShadow(view: self.emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.passwordView.addCornerBorderAndShadow(view: self.passwordView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.logInButton.addCornerRadius(view: self.logInButton, cornerRadius: 5.0)
         self.profileImageView.addCornerRadius(view: self.profileImageView, cornerRadius: self.profileImageView.bounds.height / 2)
+    }
+    
+    func generatingParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["userName"] = userNameTextField.text
+        params["email"] = emailTextField.text
+        params["password"] = passwordTextField.text
+        return params
+    }
+    
+    //MARK: Hit API
+    func hitSignUpApi() {
+        ApiHandler.updateProfile(apiName: API.Name.signUp, params: generatingParameters(), profilePhoto: self.pickerData) { succeeded, response, data in
+            debugPrint("response data ** \(response)")
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
     }
     
     //MARK: VALIDATIONS
@@ -61,8 +93,12 @@ class SignUpAsUserVC: UIViewController {
         }else if ValidationManager.shared.isEmpty(text: passwordTextField.text) == true {
             showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
             }
+        }else if (self.profileImageView.image == nil) {
+            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.chooseImage, okButton: "OK", controller: self) {
+            }
         }else {
-            Singleton.setHomeScreenView(userType: .user)
+            hitSignUpApi()
+//            Singleton.setHomeScreenView(userType: .user)
         }
     }
     
@@ -72,17 +108,25 @@ class SignUpAsUserVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func imagePickerButtonAction(_ sender: UIButton) {
+        self.imagePicker.present(from: sender)
+    }
+    
+    
     @IBAction func logInButtonAction(_ sender: Any) {
         validate()
     }
     
     @IBAction func logInWithEmailButtonAction(_ sender: Any) {
+        
     }
     
     @IBAction func logInWithFacebookButtonAction(_ sender: Any) {
+        
     }
     
     @IBAction func logInWithInstaButtonAction(_ sender: Any) {
+        
     }
     
     
@@ -104,6 +148,20 @@ extension SignUpAsUserVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+}
+
+
+
+extension SignUpAsUserVC: ImagePickerDelegate {
+
+    func didSelect(image: UIImage?) {
+        self.profileImageView.image = image
+        let jpegData = image?.jpegData(compressionQuality: 1.0)
+        self.pickerData = PickerData()
+        self.pickerData?.image = image
+        self.pickerData?.data = jpegData
     }
     
 }

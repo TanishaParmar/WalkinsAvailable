@@ -92,23 +92,32 @@
                                                         <constraint firstAttribute="height" constant="150" id="XjH-lV-zU4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-Pz-iwt">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="etd-a8-wQw">
                                                     <rect key="frame" x="242" y="120" width="32" height="32"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="MTE-Pz-iwt" secondAttribute="height" multiplier="1:1" id="oiE-lk-kjH"/>
-                                                        <constraint firstAttribute="height" constant="32" id="zM5-mt-jg1"/>
+                                                        <constraint firstAttribute="width" secondItem="etd-a8-wQw" secondAttribute="height" multiplier="1:1" id="mK6-9c-04i"/>
+                                                        <constraint firstAttribute="height" constant="32" id="x2e-aK-8Bg"/>
                                                     </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-Pz-iwt">
+                                                    <rect key="frame" x="132" y="10" width="150" height="150"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="camera"/>
+                                                    <connections>
+                                                        <action selector="imagePickerButtonAction:" destination="-1" eventType="touchUpInside" id="4gi-86-a6U"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstItem="etd-a8-wQw" firstAttribute="bottom" secondItem="bkN-uc-uB4" secondAttribute="bottom" constant="-8" id="2nP-0u-hhB"/>
                                                 <constraint firstItem="bkN-uc-uB4" firstAttribute="centerY" secondItem="4ql-9d-dqW" secondAttribute="centerY" id="8J8-bM-Qh7"/>
-                                                <constraint firstItem="MTE-Pz-iwt" firstAttribute="trailing" secondItem="bkN-uc-uB4" secondAttribute="trailing" constant="-8" id="OP1-qX-vvN"/>
-                                                <constraint firstItem="MTE-Pz-iwt" firstAttribute="bottom" secondItem="bkN-uc-uB4" secondAttribute="bottom" constant="-8" id="g19-2O-RxN"/>
+                                                <constraint firstItem="MTE-Pz-iwt" firstAttribute="trailing" secondItem="bkN-uc-uB4" secondAttribute="trailing" id="OP1-qX-vvN"/>
+                                                <constraint firstItem="MTE-Pz-iwt" firstAttribute="leading" secondItem="bkN-uc-uB4" secondAttribute="leading" id="e9G-do-iO0"/>
+                                                <constraint firstItem="MTE-Pz-iwt" firstAttribute="bottom" secondItem="bkN-uc-uB4" secondAttribute="bottom" id="g19-2O-RxN"/>
+                                                <constraint firstItem="MTE-Pz-iwt" firstAttribute="top" secondItem="bkN-uc-uB4" secondAttribute="top" id="hDP-Zf-JWm"/>
                                                 <constraint firstItem="bkN-uc-uB4" firstAttribute="centerX" secondItem="4ql-9d-dqW" secondAttribute="centerX" id="pHv-1h-HPQ"/>
+                                                <constraint firstItem="etd-a8-wQw" firstAttribute="trailing" secondItem="bkN-uc-uB4" secondAttribute="trailing" constant="-8" id="uvj-vd-Hs5"/>
                                                 <constraint firstAttribute="height" constant="170" id="xS4-SL-mOQ"/>
                                             </constraints>
                                         </view>
@@ -135,7 +144,7 @@
                                                                         <constraint firstAttribute="height" constant="20" id="civ-nZ-lh5"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf6-Tm-9fQ">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xf6-Tm-9fQ">
                                                                     <rect key="frame" x="42" y="0.0" width="332" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -184,7 +193,7 @@
                                                                         <constraint firstAttribute="width" secondItem="Twt-nn-i2e" secondAttribute="height" multiplier="1:1" id="nla-Ig-Y96"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jig-vt-p1U">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="a@gmail.com" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jig-vt-p1U">
                                                                     <rect key="frame" x="42" y="0.0" width="332" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -233,7 +242,7 @@
                                                                         <constraint firstAttribute="width" secondItem="BnD-08-d1G" secondAttribute="height" multiplier="1:1" id="zEo-xc-PXm"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0t-2a-gFu">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0t-2a-gFu">
                                                                     <rect key="frame" x="42" y="0.0" width="332" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>

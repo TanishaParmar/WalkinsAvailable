@@ -30,6 +30,31 @@ class ForgotPasswordVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    
+    func generatingParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["email"] = emailTextField.text
+        return params
+    }
+    
+    //MARK: Hit API
+    func hitForgotPasswordApi() {
+        ApiHandler.updateProfile(apiName: API.Name.forgetPassword, params: generatingParameters()) { succeeded, response, data in
+            if succeeded {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .success)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+
+    
+    
     //MARK: VALIDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: emailTextField.text) == true {
@@ -39,7 +64,7 @@ class ForgotPasswordVC: UIViewController {
             showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
             }
         }else {
-            self.navigationController?.popViewController(animated: true)
+            hitForgotPasswordApi()
         }
     }
     

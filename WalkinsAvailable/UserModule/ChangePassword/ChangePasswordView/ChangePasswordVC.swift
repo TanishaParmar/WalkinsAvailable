@@ -43,6 +43,31 @@ class ChangePasswordVC: UIViewController {
     }
     
     
+    func generatingParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["password"] = oldPasswordTextField.text
+        params["newPassword"] = newPasswordTextField.text
+        return params
+    }
+    
+    //MARK: Hit API
+    func hitForgotPasswordApi() {
+        ApiHandler.updateProfile(apiName: API.Name.forgetPassword, params: generatingParameters()) { succeeded, response, data in
+            if succeeded {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .success)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+
+    
+    
     //MARK: Actions
     
     @IBAction func submitButtonAction(_ sender: Any) {

@@ -13,6 +13,13 @@ import Photos
 import PhotosUI
 
 
+enum PICKER_TYPE {
+    case image
+    case video
+    case documents
+}
+
+
 protocol GalleryImagesCollectionViewDelegate: NSObjectProtocol {
     func galleryOpenCamera()
     func didSelect(item atIndex:IndexPath)
@@ -240,6 +247,19 @@ extension PHAsset {
 }
 
 class PickerData: NSObject{
+    
+    
+    var fileName:String?
+    var url: URL?
+    var imgUrlStr: String?
+    var image: UIImage?
+    var index: Int?
+    var data: Data?
+    var fileSize:Int?
+    var id: String?
+    var asset: PHAsset?
+    var videoAsset: AVURLAsset?
+    var type: PICKER_TYPE?
     
 }
 

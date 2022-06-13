@@ -8,6 +8,17 @@ target 'WalkinsAvailable' do
   # Pods for WalkinsAvailable
   pod 'pop'
   pod 'IQKeyboardManagerSwift'
-  pod 'GrowingTextView' 
+  pod 'GrowingTextView'
+  
+  pod 'Kingfisher'
+  pod 'GoogleSignIn'
+  
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+  
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
+  
 
 end

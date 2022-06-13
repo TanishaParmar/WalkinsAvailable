@@ -91,4 +91,19 @@ extension String{
     var isValidEmail: Bool {
         return NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").evaluate(with: self)
     }
+    
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGRect {
+        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+        
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return boundingBox
+    }
+    
+    func widthWithConstrainedHeight(height: CGFloat, font: UIFont) -> CGRect {
+        let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: height)
+        
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return boundingBox
+    }
+    
 }

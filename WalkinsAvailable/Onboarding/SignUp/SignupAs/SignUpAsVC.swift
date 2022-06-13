@@ -53,8 +53,7 @@ class SignUpAsVC: UIViewController {
     }
     
     @IBAction func logInButtonAction(_ sender: Any) {
-        let viewcontroller = LoginVC()
-        self.navigationController?.pushViewController(viewcontroller, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

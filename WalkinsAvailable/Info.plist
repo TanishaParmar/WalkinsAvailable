@@ -6,6 +6,10 @@
 	<false/>
 	<key>NSLocationAlwaysAndWhenInUsageDescription</key>
 	<string>Always and in usage permissions</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires the camera access to take profile photo.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires the gallery access to choose photo.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Black.ttf</string>

@@ -32,15 +32,25 @@ struct AppAlertMessage {
     static let enterAddress = "Please enter address."
     static let enterDescription = "Please enter description."
     static let enterUserName = "Please enter user name."
-    static let ChooseStage = "Please choose stage."
-    static let selectDate = "Please select date."
-    static let enterNote = "Please enter note."
-    static let actionType = "Please choose action type."
-    static let enterDes = "Please enter description."
-    static let noRepeat = "Please choose repeat method."
-    static let forever = "Please select Forever or Until date"
-    static let enterDate = "Please enter date."
-    static let addedNutrient = "Already added this nutrient."
-
+    static let chooseImage = "Please choose profile image."
 }
 
+struct HEIGHT {
+    static let errorMessageHeight: CGFloat = 43.0
+    static let navigationHeight: CGFloat = 190 + getTopInsetofSafeArea + UIApplication.shared.statusBarFrame.height
+    static let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow})
+    
+    
+    static var getTopInsetofSafeArea: CGFloat {
+        guard let topInset = Self.window?.safeAreaInsets.top else {return 0}
+        if topInset > 0 {
+            return topInset - 20
+        }
+        return topInset
+    }
+    
+    static var getBottomInsetofSafeArea:CGFloat {
+        let topInset = Self.window?.safeAreaInsets.bottom ?? 0
+        return topInset
+    }
+}
