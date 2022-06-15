@@ -30,7 +30,13 @@ class API {
        //MARK: LOGIN AND SOCIAL LOGIN CONSTANT API
         static let login                  = "webservice/user/logIn.php"
         static let signUp                 = "webservice/user/userSignup.php"
+        static let googleLogIn            = "webservice/user/googleLogin.php"
+        static let appleLogIn             = "webservice/user/appleLogin.php"
+        static let facebookLogIn          = "webservice/user/facebookLogin.php"
+        static let instagramLogIn         = "webservice/user/instaLogin.php"
         static let forgetPassword         = "webservice/user/forgetPassword.php"
+        static let changePassword         = "webservice/user/changePassword.php"
+        static let contactUs              = "webservice/user/contactUs.php"
     }
     
     struct keys {

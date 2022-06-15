@@ -33,6 +33,10 @@ struct AppAlertMessage {
     static let enterDescription = "Please enter description."
     static let enterUserName = "Please enter user name."
     static let chooseImage = "Please choose profile image."
+    static let enterOldPassword = "Please enter old password."
+    static let enterNewPassword = "Please enter new password."
+    static let enterConfirmPassword = "Please enter confirm password."
+
 }
 
 struct HEIGHT {

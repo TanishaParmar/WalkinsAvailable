@@ -101,8 +101,8 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleSignIn (6.1.0):
-    - AppAuth (~> 1.4)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
     - GTMAppAuth (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleUtilities/AppDelegateSwizzler (7.7.0):
@@ -145,7 +145,7 @@ DEPENDENCIES:
   - FacebookShare
   - Firebase/Analytics
   - Firebase/Crashlytics
-  - GoogleSignIn
+  - GoogleSignIn (~> 5.0)
   - GrowingTextView
   - IQKeyboardManagerSwift
   - Kingfisher
@@ -195,7 +195,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 60edbf7e11d91ae4c751d26c200dfd037099abe0
   GoogleAppMeasurement: 135c2fbcf5038e0f37dbce04fa641a702fc275d1
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
-  GoogleSignIn: c90b5bec45e780f54c6a8e1e3c182a86e3dda69d
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
@@ -206,6 +206,6 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 85a6c5414a8e4d105b29db54c61c3f5594e4e94f
+PODFILE CHECKSUM: 5df1a0217136e80060aad19620d1f50de80e458d
 
 COCOAPODS: 1.11.2

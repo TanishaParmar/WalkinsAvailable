@@ -11,7 +11,7 @@ target 'WalkinsAvailable' do
   pod 'GrowingTextView'
   
   pod 'Kingfisher'
-  pod 'GoogleSignIn'
+  pod 'GoogleSignIn', '~> 5.0' 
   
   pod 'FacebookCore'
   pod 'FacebookLogin'

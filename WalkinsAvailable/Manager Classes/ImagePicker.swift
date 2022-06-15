@@ -43,7 +43,6 @@ open class ImagePicker: NSObject {
     }
 
     public func present(from sourceView: UIView) {
-
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
         if let action = self.action(for: .camera, title: "Take photo") {

@@ -31,7 +31,7 @@ class Singleton: NSObject {
     static var homeTabController: TabBarVC?
 
     func logoutFromDevice() {
-        GIDSignIn.sharedInstance.signOut()
+        GIDSignIn.sharedInstance().signOut()
         if AccessToken.current != nil {
             DispatchQueue.main.async {
                 AccessToken.current = nil

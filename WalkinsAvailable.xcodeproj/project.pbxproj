@@ -196,6 +196,7 @@
 		1F68261B27FD7DDD00FFB4DA /* EditProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68261927FD7DDD00FFB4DA /* EditProfileVC.xib */; };
 		1F68262027FD811800FFB4DA /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68261E27FD811800FFB4DA /* ContactUsVC.swift */; };
 		1F68262127FD811800FFB4DA /* ContactUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68261F27FD811800FFB4DA /* ContactUsVC.xib */; };
+		1F6F99F5285A08100011BD63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F6F99F4285A08100011BD63 /* GoogleService-Info.plist */; };
 		1F79106228097E2400102EA6 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79106028097E2400102EA6 /* ChangePasswordVC.swift */; };
 		1F79106328097E2400102EA6 /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F79106128097E2400102EA6 /* ChangePasswordVC.xib */; };
 		1F79106828098A5700102EA6 /* ComplaintsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79106628098A5700102EA6 /* ComplaintsVC.swift */; };
@@ -411,6 +412,7 @@
 		1F68261927FD7DDD00FFB4DA /* EditProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileVC.xib; sourceTree = "<group>"; };
 		1F68261E27FD811800FFB4DA /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
 		1F68261F27FD811800FFB4DA /* ContactUsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactUsVC.xib; sourceTree = "<group>"; };
+		1F6F99F4285A08100011BD63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F79106028097E2400102EA6 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		1F79106128097E2400102EA6 /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
 		1F79106628098A5700102EA6 /* ComplaintsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintsVC.swift; sourceTree = "<group>"; };
@@ -1166,6 +1168,7 @@
 				1F39249E27F84A34000F08F5 /* Storyboard */,
 				1F39249027F84896000F08F5 /* Assets.xcassets */,
 				1F39249527F84896000F08F5 /* Info.plist */,
+				1F6F99F4285A08100011BD63 /* GoogleService-Info.plist */,
 			);
 			path = WalkinsAvailable;
 			sourceTree = "<group>";
@@ -1624,6 +1627,7 @@
 				1F39248127F84894000F08F5 /* Frameworks */,
 				1F39248227F84894000F08F5 /* Resources */,
 				C65B31DF16C0527D23D6F632 /* [CP] Embed Pods Frameworks */,
+				A4452D5816D887A64A6A67E9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1733,6 +1737,7 @@
 				18697665281A68A800F208BD /* MapController.xib in Resources */,
 				1895B979281FEB2B00842DD5 /* EventListCell.xib in Resources */,
 				1F422EE327FC209B00877618 /* HomeVC.xib in Resources */,
+				1F6F99F5285A08100011BD63 /* GoogleService-Info.plist in Resources */,
 				189B7DBE28239413009AC87C /* AddArtistListCell.xib in Resources */,
 				1F68261527FD74C700FFB4DA /* AccountListTVC.xib in Resources */,
 				18E698382825460B00644838 /* BusinessEventVC.xib in Resources */,
@@ -1777,6 +1782,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4452D5816D887A64A6A67E9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C65B31DF16C0527D23D6F632 /* [CP] Embed Pods Frameworks */ = {
@@ -2086,9 +2108,10 @@
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires the camera access to take profile photo.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "always permissions";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "When in use permissions";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Access Warning";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires the gallery access to choose photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
@@ -2121,9 +2144,10 @@
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires the camera access to take profile photo.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "always permissions";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "When in use permissions";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Access Warning";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires the gallery access to choose photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;

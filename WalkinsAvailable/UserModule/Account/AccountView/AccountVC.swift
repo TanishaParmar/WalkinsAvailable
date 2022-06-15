@@ -40,6 +40,7 @@ class AccountVC: UIViewController {
     }
     //MARK: Methods
     func configureUI() {
+        getUserData()
         accounttableView.dataSource = self
         accounttableView.delegate = self
         self.accountProfileImgView.layer.cornerRadius = 4
@@ -57,8 +58,13 @@ class AccountVC: UIViewController {
             self.userProfielbl.text = "Artist Profile"
             break
         default:
-        print("Its Type")
+            print("Its Type")
+        }
     }
+    
+    func getUserData() {
+        let data = UserDefaultsCustom.getUserData()
+        debugPrint("user data * \(data)")
     }
        
     
