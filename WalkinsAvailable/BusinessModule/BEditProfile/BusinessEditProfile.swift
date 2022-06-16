@@ -93,26 +93,19 @@ class BusinessEditProfile: UIViewController {
     // MARK: VAILDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterBusinessName, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterBusinessName, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: businessTypeTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterBusinessType, okButton: "OK", controller: self) {
-            }
-        }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterBusinessType, isError: .error)
+        }else if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
         }else if emailTF.text!.isValidEmail == false {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterAddress, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterAddress, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: descriptionTF.text) == true{
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterDescription, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDescription, isError: .error)
         }else {
             self.navigationController?.popViewController(animated: true)
         }

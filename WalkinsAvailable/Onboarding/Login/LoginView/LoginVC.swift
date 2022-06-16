@@ -9,6 +9,7 @@ import UIKit
 import GoogleSignIn
 import FBSDKCoreKit
 import FacebookLogin
+import AuthenticationServices
 import MapKit
 
 class LoginVC: UIViewController {
@@ -20,6 +21,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var appleButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var instaButton: UIButton!
@@ -61,6 +63,17 @@ class LoginVC: UIViewController {
             print("dict =>", dict)
             hitGoogleLogInApi(dict: dict)
         }
+    }
+    
+    
+    func actionAppleSignin() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
     
     
@@ -113,7 +126,30 @@ class LoginVC: UIViewController {
     
     //MARK: Hit Google Log In API
     func hitGoogleLogInApi(dict: GIDGoogleUser) {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.googleLogIn, params: generatingGoogleLogInParameters(dict: dict)) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    if let data = response.data {
+                        UserDefaultsCustom.saveUserData(userData: data)
+                        Singleton.setHomeScreenView(userType: .user)
+                    }
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+    
+    //MARK: Hit Apple Log In API
+    func hitAppleLogInApi(with email: String, userName: String,appleToken: String, appleImage: String) {
+        let params = ["userName":userName,"email":email,"image":appleImage,"appleToken":appleToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+        debugPrint("params ****** \(params)")
+        ApiHandler.updateProfile(apiName: API.Name.appleLogIn, params: params) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     if let data = response.data {
@@ -132,9 +168,11 @@ class LoginVC: UIViewController {
     
     //MARK: Hit Facebook Log In API
     func hitFacebookLogInApi(with email: String, userName: String,facebookToken: String, facebookImage: String) {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
         let params = ["userName":userName,"email":email,"image":facebookImage,"facebookToken":facebookToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
         debugPrint("params ****** \(params)")
         ApiHandler.updateProfile(apiName: API.Name.facebookLogIn, params: params) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     if let data = response.data {
@@ -163,7 +201,9 @@ class LoginVC: UIViewController {
     
     //MARK: Hit API
     func hitLogInApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.login, params: generatingParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     if let data = response.data {
@@ -183,14 +223,11 @@ class LoginVC: UIViewController {
     // MARK: VAILDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: emailTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
         }else if emailTextField.text!.isValidEmail == false {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: passwordTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         }else {
             hitLogInApi()
             //            Singleton.setHomeScreenView(userType: .user)
@@ -199,8 +236,8 @@ class LoginVC: UIViewController {
     
     //MARK: Actions
     @IBAction func logInButtonAction(_ sender: Any) {
-        //        validate()
-        Singleton.setHomeScreenView(userType: .user)
+                validate()
+//        Singleton.setHomeScreenView(userType: .user)
     }
     
     @IBAction func forgotPasswordButtonAction(_ sender: Any) {
@@ -211,6 +248,11 @@ class LoginVC: UIViewController {
     @IBAction func signUpButtonAction(_ sender: Any) {
         let viewcontroller = SignUpAsVC()
         self.navigationController?.pushViewController(viewcontroller, animated: true)
+    }
+    
+    
+    @IBAction func appleLoginButtonAction(_ sender: Any) {
+        actionAppleSignin()
     }
     
     @IBAction func emailLogInButtonAction(_ sender: Any) {
@@ -242,5 +284,31 @@ extension LoginVC: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+}
+
+extension LoginVC: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
     
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            let appleId = appleIDCredential.user ?? ""
+            let appleUserFirstName = appleIDCredential.fullName?.givenName ?? ""
+            let appleUserLastName = appleIDCredential.fullName?.familyName ?? ""
+            let appleUserEmail = appleIDCredential.email ?? ""
+            let userName = appleUserFirstName + appleUserLastName
+            //Write your code
+            ActivityIndicator.sharedInstance.showActivityIndicator()
+            hitAppleLogInApi(with: appleUserEmail, userName: userName, appleToken: appleId, appleImage: "")
+        } else if let passwordCredential = authorization.credential as? ASPasswordCredential {
+            print("password credentials are =>", passwordCredential)
+        }
+    }
+}
+
+extension LoginVC: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
 }

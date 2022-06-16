@@ -7,59 +7,43 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>AppIcon</string>
+			<key>CFBundleURLName</key>
+			<string>com.walkinavaiable.app</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.169642617507-d96ffhvh2f5u00912gdjki9gie8638kk</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>AppIcon</string>
+			<key>CFBundleURLName</key>
+			<string>com.walkinavaiable.app</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb784530212924598</string>
+			</array>
+		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>784530212924598</string>
+	<key>FacebookDisplayName</key>
+	<string>Walk-InsAvailable</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>NSLocationAlwaysAndWhenInUsageDescription</key>
 	<string>Always and in usage permissions</string>
-    
-    
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLIconFile</key>
-            <string>AppIcon</string>
-            <key>CFBundleURLName</key>
-            <string>com.walkinavaiable.app</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>com.googleusercontent.apps.169642617507-d96ffhvh2f5u00912gdjki9gie8638kk</string>
-            </array>
-        </dict>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLIconFile</key>
-            <string>AppIcon</string>
-            <key>CFBundleURLName</key>
-            <string>com.walkinavaiable.app</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb784530212924598</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>784530212924598</string>
-    <key>FacebookDisplayName</key>
-    <string>Walk-InsAvailable</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
-    
-    
-    
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Black.ttf</string>

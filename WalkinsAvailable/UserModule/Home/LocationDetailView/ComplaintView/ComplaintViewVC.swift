@@ -23,11 +23,11 @@ class ComplaintViewVC: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     }
 
     @IBAction func saveBtn(_ sender: UIButton) {
-        if validate() == false {
-            return
-        }else{
-            self.dismiss(animated: true, completion: nil)
-        }
+        validate()
+//            return
+//        }else{
+//            self.dismiss(animated: true, completion: nil)
+//        }
     }
     
     func uiUpdate(){
@@ -51,19 +51,14 @@ class ComplaintViewVC: UIViewController,UITextViewDelegate,UITextFieldDelegate {
     
 //    MARK: VALIDATION
     
-    func validate() -> Bool {
+    func validate()  {
         if ValidationManager.shared.isEmpty(text: shopNameTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter business name.", okButton: "OK", controller: self) {
-            }
-            return false
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterBusinessName, isError: .error)
         }
         if ValidationManager.shared.isEmpty(text: descriptionField.text) == true{
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: "Please enter description.", okButton: "OK", controller: self) {
-            }
-            return false
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDescription, isError: .error)
         }
         
-        return true
     }
     //    MARK: TEXTFIELD DELEGATES
         func textFieldDidBeginEditing(_ textField: UITextField) {

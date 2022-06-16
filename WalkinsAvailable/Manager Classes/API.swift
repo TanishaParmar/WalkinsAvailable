@@ -37,6 +37,9 @@ class API {
         static let forgetPassword         = "webservice/user/forgetPassword.php"
         static let changePassword         = "webservice/user/changePassword.php"
         static let contactUs              = "webservice/user/contactUs.php"
+        static let editProfile            = "webservice/user/editProfile.php"
+        static let logOut                 = "webservice/user/logout.php"
+        
     }
     
     struct keys {

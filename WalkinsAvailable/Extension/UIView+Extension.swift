@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 extension UIView {
     func addShadowAndCornerRadius(view: UIView, cornerRadius: CGFloat, shadowColor: UIColor) {
@@ -106,4 +107,14 @@ extension String{
         return boundingBox
     }
     
+}
+
+extension UIImageView {
+    func setImage(url: String?, placeHolder: UIImage?) {
+        if let urlst = url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlst) {
+            self.kf.setImage(with: url, placeholder: placeHolder, options: nil, completionHandler: nil)
+        } else {
+            self.image = placeHolder
+        }
+    }
 }

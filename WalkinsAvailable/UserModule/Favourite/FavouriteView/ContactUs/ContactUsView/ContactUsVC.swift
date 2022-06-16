@@ -51,7 +51,9 @@ class ContactUsVC: UIViewController {
     
     //MARK: Hit API
     func hitContactUsApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.contactUs, params: generatingParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .success)
@@ -70,8 +72,7 @@ class ContactUsVC: UIViewController {
     //MARK: VALIDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: messageTextView.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterOldPassword, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterOldPassword, isError: .error)
         } else {
             hitContactUsApi()
         }

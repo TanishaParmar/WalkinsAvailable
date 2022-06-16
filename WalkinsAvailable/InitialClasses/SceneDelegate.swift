@@ -21,15 +21,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: ws)
         Singleton.window = self.window
-        let token = ""
-        if token.count > 0 {
+        let data = UserDefaultsCustom.getUserData()
+        if let token = data?.userToken {
             Singleton.setHomeScreenView(userType: .user)
         } else {
             Singleton.setLoginScreenView()
         }
-        
     }
 
+//    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+//        if let openURLContext = URLContexts.first {
+//            ApplicationDelegate.shared.application(UIApplication.shared, open: openURLContext.url, sourceApplication: openURLContext.options.sourceApplication, annotation: openURLContext.options.annotation)
+//        }
+//    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
@@ -58,6 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    
 
 }
 

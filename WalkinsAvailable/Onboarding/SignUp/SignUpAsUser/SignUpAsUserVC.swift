@@ -62,10 +62,12 @@ class SignUpAsUserVC: UIViewController {
         return params
     }
     
-    //MARK: Hit API
+    //MARK: Hit Sign Up API
     func hitSignUpApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.signUp, params: generatingParameters(), profilePhoto: self.pickerData) { succeeded, response, data in
             debugPrint("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
@@ -82,20 +84,15 @@ class SignUpAsUserVC: UIViewController {
     //MARK: VALIDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: userNameTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterUserName, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterUserName, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: emailTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
         }else if emailTextField.text!.isValidEmail == false {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: passwordTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         }else if (self.profileImageView.image == nil) {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.chooseImage, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
         }else {
             hitSignUpApi()
 //            Singleton.setHomeScreenView(userType: .user)
@@ -158,7 +155,7 @@ extension SignUpAsUserVC: ImagePickerDelegate {
 
     func didSelect(image: UIImage?) {
         self.profileImageView.image = image
-        let jpegData = image?.jpegData(compressionQuality: 1.0)
+        let jpegData = image?.jpegData(compressionQuality: 0.5)
         self.pickerData = PickerData()
         self.pickerData?.image = image
         self.pickerData?.data = jpegData

@@ -49,7 +49,8 @@ class Singleton: NSObject {
         UserDefaults.standard.removeObject(forKey: UserDefaultsCustom.accessToken)
         UserDefaults.standard.removeObject(forKey: UserDefaultsCustom.userData)
         NotificationCenter.default.removeObserver(self)
-        self.gotoLogin()
+//        self.gotoLogin()
+        Self.setLoginScreenView()
     }
 
     //    func cancelAllURLRequest() {

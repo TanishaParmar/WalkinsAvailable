@@ -188,6 +188,7 @@
 		1F422F1927FC4F8E00877618 /* ESTabBarItemBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0A27FC4F8E00877618 /* ESTabBarItemBadgeView.swift */; };
 		1F422F1A27FC4F8E00877618 /* ESTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0B27FC4F8E00877618 /* ESTabBar.swift */; };
 		1F422F1B27FC4F8E00877618 /* ESTabBarItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0C27FC4F8E00877618 /* ESTabBarItemContainer.swift */; };
+		1F61ABF9285B454900A8F826 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F61ABF8285B454900A8F826 /* ActivityIndicator.swift */; };
 		1F68260F27FD641E00FFB4DA /* NotificationListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68260D27FD641E00FFB4DA /* NotificationListTVC.swift */; };
 		1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68260E27FD641E00FFB4DA /* NotificationListTVC.xib */; };
 		1F68261427FD74C700FFB4DA /* AccountListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68261227FD74C700FFB4DA /* AccountListTVC.swift */; };
@@ -404,6 +405,8 @@
 		1F422F0A27FC4F8E00877618 /* ESTabBarItemBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBarItemBadgeView.swift; sourceTree = "<group>"; };
 		1F422F0B27FC4F8E00877618 /* ESTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBar.swift; sourceTree = "<group>"; };
 		1F422F0C27FC4F8E00877618 /* ESTabBarItemContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBarItemContainer.swift; sourceTree = "<group>"; };
+		1F61ABF7285B02DA00A8F826 /* WalkinsAvailable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WalkinsAvailable.entitlements; sourceTree = "<group>"; };
+		1F61ABF8285B454900A8F826 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1F68260D27FD641E00FFB4DA /* NotificationListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListTVC.swift; sourceTree = "<group>"; };
 		1F68260E27FD641E00FFB4DA /* NotificationListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationListTVC.xib; sourceTree = "<group>"; };
 		1F68261227FD74C700FFB4DA /* AccountListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListTVC.swift; sourceTree = "<group>"; };
@@ -1154,6 +1157,7 @@
 		1F39248627F84894000F08F5 /* WalkinsAvailable */ = {
 			isa = PBXGroup;
 			children = (
+				1F61ABF7285B02DA00A8F826 /* WalkinsAvailable.entitlements */,
 				1F39249B27F848DA000F08F5 /* InitialClasses */,
 				1F39249D27F8493F000F08F5 /* UserModule */,
 				1895B96E281FD08600842DD5 /* BusinessModule */,
@@ -1226,6 +1230,7 @@
 				18697666281A698A00F208BD /* SGMapView */,
 				1F422EFB27FC4F8E00877618 /* ESTabController */,
 				1F3924A027F851DA000F08F5 /* AppHelperMethods.swift */,
+				1F61ABF8285B454900A8F826 /* ActivityIndicator.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -1933,6 +1938,7 @@
 				18D620CE2824F0A600BE9C95 /* BusinessComplaintdetailCell.swift in Sources */,
 				1869767D281A6B4A00F208BD /* SearchPlaces.swift in Sources */,
 				18EFEABB282150C4009ADBB4 /* AvailbilityListCell.swift in Sources */,
+				1F61ABF9285B454900A8F826 /* ActivityIndicator.swift in Sources */,
 				18B4D43E281BDBC9005C0816 /* ArtistListImgCell.swift in Sources */,
 				18697670281A69A700F208BD /* FBQuadTree.swift in Sources */,
 				1F422F1127FC4F8E00877618 /* ExampleHighlightableContentView.swift in Sources */,
@@ -2102,10 +2108,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = 6PFS82C7PP;
+				DEVELOPMENT_TEAM = H38582986Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires the camera access to take profile photo.";
@@ -2123,9 +2130,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.walkinavaiable.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goserve.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Goserve Dev 11 Jan2021";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2138,10 +2145,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = 6PFS82C7PP;
+				DEVELOPMENT_TEAM = H38582986Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires the camera access to take profile photo.";
@@ -2159,9 +2167,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.walkinavaiable.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goserve.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Goserve Dev 11 Jan2021";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Medium.ttf">
-            <string>Poppins-Medium</string>
-        </array>
         <array key="Poppins-SemiBold.ttf">
             <string>Poppins-SemiBold</string>
         </array>
@@ -21,6 +18,7 @@
             <connections>
                 <outlet property="backBtn" destination="nsc-CJ-fcB" id="KRF-O3-XD2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wkWebView" destination="XGm-Vw-oo0" id="ZL5-L8-kvP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -81,21 +79,23 @@
                                 <constraint firstAttribute="height" constant="50" id="wob-dz-fMO"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fu-4s-msL">
-                            <rect key="frame" x="20" y="70" width="374" height="291.5"/>
-                            <mutableString key="text">We are a small group of friends with ideas of ways to improve the growth of small business like ours , to increase the customer base , and to compete with bigger company’s and franchises , we like to think that we can help the small businesses to be seen by all potential customers without spending a fortune in website , paid adds and fake followers and likes. We hope that we will spend less time trying to call business or even to go to places just to be turned down , facilitating the communication with all service provider.</mutableString>
-                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGm-Vw-oo0">
+                            <rect key="frame" x="0.0" y="50" width="414" height="768"/>
+                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <wkWebViewConfiguration key="configuration">
+                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkPreferences key="preferences"/>
+                            </wkWebViewConfiguration>
+                        </wkWebView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="9fu-4s-msL" secondAttribute="trailing" constant="20" id="EJ6-w4-X6O"/>
+                        <constraint firstAttribute="trailing" secondItem="XGm-Vw-oo0" secondAttribute="trailing" id="FZC-Im-ccc"/>
                         <constraint firstItem="yoE-zi-cKB" firstAttribute="leading" secondItem="Fhn-6R-6Gl" secondAttribute="leading" id="JHH-6R-l9l"/>
-                        <constraint firstItem="9fu-4s-msL" firstAttribute="top" secondItem="yoE-zi-cKB" secondAttribute="bottom" constant="20" id="Z52-4n-SYM"/>
+                        <constraint firstItem="XGm-Vw-oo0" firstAttribute="leading" secondItem="Fhn-6R-6Gl" secondAttribute="leading" id="PaC-ub-uro"/>
+                        <constraint firstAttribute="bottom" secondItem="XGm-Vw-oo0" secondAttribute="bottom" id="VYq-BR-IdA"/>
                         <constraint firstAttribute="trailing" secondItem="yoE-zi-cKB" secondAttribute="trailing" id="ikj-Oc-qB5"/>
-                        <constraint firstItem="9fu-4s-msL" firstAttribute="leading" secondItem="Fhn-6R-6Gl" secondAttribute="leading" constant="20" id="v9h-gg-l8a"/>
+                        <constraint firstItem="XGm-Vw-oo0" firstAttribute="top" secondItem="yoE-zi-cKB" secondAttribute="bottom" id="sNo-CZ-9sL"/>
                         <constraint firstItem="yoE-zi-cKB" firstAttribute="top" secondItem="Fhn-6R-6Gl" secondAttribute="top" id="zaB-ZF-Bd2"/>
                     </constraints>
                 </view>

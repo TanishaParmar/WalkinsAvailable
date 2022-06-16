@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        appFonts()
         
-        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         Singleton.window = self.window
         
@@ -41,11 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Singleton.setLoginScreenView()
         }
         
+        FBSDKCoreKit.ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+
+        
         GIDSignIn.sharedInstance().clientID = "169642617507-d96ffhvh2f5u00912gdjki9gie8638kk.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().restorePreviousSignIn()
-        
-        FBSDKCoreKit.ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
@@ -64,9 +64,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if (GIDSignIn.sharedInstance().handle(url)) {
+            return true
+        } else if (ApplicationDelegate.shared.application(app, open: url, options: options)) {
+            return true
+        }
+        return false
     }
+
+    
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+////        return GIDSignIn.sharedInstance().handle(url)
+//        if let isFBOpenUrl = SDKApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation) {
+//            return true
+//        }
+//        if let isGoogleOpenUrl = GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation) {
+//            return true
+//        }
+//        return false
+//    }
+    
+//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+//        if ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation) {
+//            return true
+//        }
+//        if GIDSignIn.sharedInstance().handle(url) { // GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation) {
+//            return true
+//        }
+//        return false
+//    }
+
 
     
     func appFonts() {

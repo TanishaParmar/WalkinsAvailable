@@ -7,6 +7,7 @@
 
 
 import UIKit
+import Kingfisher
 
 class AccountVC: UIViewController {
     
@@ -17,6 +18,8 @@ class AccountVC: UIViewController {
     @IBOutlet weak var accountProfileImgView: UIImageView!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var userProfielbl: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userEmailLabel: UILabel!
     
     //MARK: Properties
     
@@ -27,6 +30,7 @@ class AccountVC: UIViewController {
     
     
     var userType : USER_TYPE = .business
+    var data: UserData?
     
     //MARK: VC Life Cycle
     override func viewDidLoad() {
@@ -37,10 +41,10 @@ class AccountVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        getUserData()
     }
     //MARK: Methods
     func configureUI() {
-        getUserData()
         accounttableView.dataSource = self
         accounttableView.delegate = self
         self.accountProfileImgView.layer.cornerRadius = 4
@@ -63,18 +67,47 @@ class AccountVC: UIViewController {
     }
     
     func getUserData() {
-        let data = UserDefaultsCustom.getUserData()
-        debugPrint("user data * \(data)")
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        if let data = UserDefaultsCustom.getUserData() {
+            debugPrint("user data * \(data)")
+            self.data = data
+            self.userNameLabel.text = self.data?.userName
+            self.userEmailLabel.text = self.data?.email
+            let imgUrl = self.data?.image
+            let placeHolder = UIImage(named: "")
+            self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
+        }
+        ActivityIndicator.sharedInstance.hideActivityIndicator()
     }
-       
+    
+
+    //MARK: Hit Logout API
+    func hitLogOutApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.logOut, params: [:]) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let msg = response["message"] as? String {
+//                    Singleton.shared.showErrorMessage(error: msg, isError: .success)
+                    Singleton.shared.logoutFromDevice()
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+    
     
     //MARK: Actions
     
     @IBAction func editProfileButtonAction(_ sender: Any) {
         switch userType {
         case .user:
-            let viewcontroller = EditProfileVC()
-            self.navigationController?.pushViewController(viewcontroller, animated: true)
+            let userEditVC = EditProfileVC()
+            userEditVC.data = self.data
+            self.navigationController?.pushViewController(userEditVC, animated: true)
             break
         case .business:
             let viewcontroller = BusinessEditProfile()
@@ -211,10 +244,12 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             } else if indexPath.row == 8{
                 self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
-                    let controller = UINavigationController(rootViewController: LoginVC())
-                   
-                    Singleton.window?.rootViewController = controller
-                    Singleton.window?.makeKeyAndVisible()
+                    self.hitLogOutApi()
+                    
+//                    let controller = UINavigationController(rootViewController: LoginVC())
+//                    Singleton.window?.rootViewController = controller
+//                    Singleton.window?.makeKeyAndVisible()
+                    
                 },{
                     cancel in
                     self.dismiss(animated: false, completion: nil)

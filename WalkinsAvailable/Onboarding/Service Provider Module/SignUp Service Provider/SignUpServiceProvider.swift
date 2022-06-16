@@ -56,18 +56,14 @@ class SignUpServiceProvider: UIViewController {
     // MARK: VAILDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterArtistName, okButton: "OK", controller: self) {
-            }
-        }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
-            }
-        }else if emailTF.text!.isValidEmail == false {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
-            }
-        }else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterPassword, okButton: "OK", controller: self) {
-            }
-        }else {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterArtistName, isError: .error)
+        } else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
+        } else if emailTF.text!.isValidEmail == false {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
+        } else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
+        } else {
             Singleton.setHomeScreenView(userType: .serviceProvider )
         }
     }

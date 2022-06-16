@@ -39,7 +39,9 @@ class ForgotPasswordVC: UIViewController {
     
     //MARK: Hit API
     func hitForgotPasswordApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.forgetPassword, params: generatingParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .success)
@@ -58,11 +60,9 @@ class ForgotPasswordVC: UIViewController {
     //MARK: VALIDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: emailTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterEmail, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
         }else if emailTextField.text!.isValidEmail == false {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.validEmail , okButton: "Ok", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
         }else {
             hitForgotPasswordApi()
         }

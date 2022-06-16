@@ -52,7 +52,9 @@ class ChangePasswordVC: UIViewController {
     
     //MARK: Hit API
     func hitChangePasswordApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.changePassword, params: generatingParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .success)
@@ -71,14 +73,11 @@ class ChangePasswordVC: UIViewController {
     //MARK: VALIDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: oldPasswordTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterOldPassword, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterOldPassword, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: newPasswordTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterNewPassword, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterNewPassword, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: confirmPasswordTextField.text) == true {
-            showAlertMessage(title: AppAlertTitle.appName.rawValue, message: AppAlertMessage.enterConfirmPassword, okButton: "OK", controller: self) {
-            }
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterConfirmPassword, isError: .error)
         } else {
             hitChangePasswordApi()
         }

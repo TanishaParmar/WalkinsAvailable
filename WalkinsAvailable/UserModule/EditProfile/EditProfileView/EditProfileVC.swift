@@ -19,6 +19,12 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var camerButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+    
+    
+    var data: UserData?
+    var imagePicker: ImagePicker!
+    var pickerData: PickerData?
     
     
     //MARK: VC Life Cycle
@@ -35,10 +41,98 @@ class EditProfileVC: UIViewController {
     func configureUI() {
         userNameTextField.delegate = self
         emailTextField.delegate = self
+        setData()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.userNameView.addCornerBorderAndShadow(view: self.userNameView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.emailView.addCornerBorderAndShadow(view: self.emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.saveButton.addCornerRadius(view: self.saveButton, cornerRadius: 5.0)
         self.profileImageView.addCornerRadius(view: self.profileImageView, cornerRadius: self.profileImageView.bounds.height / 2)
+    }
+    
+    func setData() {
+        if let data = data {
+            self.userNameTextField.text = data.userName
+            self.emailTextField.text = data.email
+            let placeHolder = UIImage(named: "")
+            self.profileImageView.setImage(url: data.image, placeHolder: placeHolder)
+            self.setPickerData(image: self.profileImageView.image)
+        }
+        editScreen(isEditable: false)
+    }
+    
+    func editScreen(isEditable: Bool) {
+        if isEditable {
+            self.editButton.isHidden = true
+            self.camerButton.isUserInteractionEnabled = false
+            self.camerButton.isHidden = false
+            self.camerButton.isUserInteractionEnabled = true
+            self.userNameTextField.isUserInteractionEnabled = true
+            self.emailTextField.isUserInteractionEnabled = true
+            self.saveButton.isHidden = false
+            self.saveButton.isUserInteractionEnabled = true
+        } else {
+            self.editButton.isHidden = false
+            self.camerButton.isUserInteractionEnabled = true
+            self.camerButton.isHidden = true
+            self.camerButton.isUserInteractionEnabled = false
+            self.userNameTextField.isUserInteractionEnabled = false
+            self.emailTextField.isUserInteractionEnabled = false
+            self.saveButton.isHidden = true
+            self.saveButton.isUserInteractionEnabled = false
+        }
+    }
+    
+    func setPickerData(image: UIImage?) {
+        let jpegData = image?.jpegData(compressionQuality: 0.5)
+        self.pickerData = PickerData()
+        self.pickerData?.image = image
+        self.pickerData?.data = jpegData
+    }
+    
+    func generatingParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["userName"] = userNameTextField.text
+        params["email"] = emailTextField.text
+        return params
+    }
+    
+    //MARK: Hit Edit Profile API
+    func hitEditProfileApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.editProfile, params: generatingParameters(), profilePhoto: self.pickerData) { succeeded, response, data in
+            debugPrint("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    if let data = response.data {
+                        UserDefaultsCustom.saveUserData(userData: data)
+                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+                        self.navigationController?.popViewController(animated: true)
+//                        Singleton.setHomeScreenView(userType: .user)
+                    }
+                }
+//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+//                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+//                    self.navigationController?.popToRootViewController(animated: true)
+//                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+    
+    func validate() {
+        if ValidationManager.shared.isEmpty(text: userNameTextField.text) == true {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterUserName, isError: .error)
+        }else  if ValidationManager.shared.isEmpty(text: emailTextField.text) == true {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
+        }else if emailTextField.text!.isValidEmail == false {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
+        }else {
+            hitEditProfileApi()
+        }
     }
     
     
@@ -47,10 +141,16 @@ class EditProfileVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func cameraButtonAction(_ sender: Any) {
+    @IBAction func editButtonAction(_ sender: Any) {
+    editScreen(isEditable: true)
+    }
+    
+    @IBAction func cameraButtonAction(_ sender: UIButton) {
+        self.imagePicker.present(from: sender)
     }
     
     @IBAction func saveButtonAction(_ sender: Any) {
+        validate()
     }
     
     
@@ -70,6 +170,16 @@ extension EditProfileVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+}
+
+
+extension EditProfileVC: ImagePickerDelegate {
+
+    func didSelect(image: UIImage?) {
+        self.profileImageView.image = image
+        self.setPickerData(image: image)
     }
     
 }
