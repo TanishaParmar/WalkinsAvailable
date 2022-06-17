@@ -38,6 +38,7 @@ class API {
         static let changePassword         = "webservice/user/changePassword.php"
         static let contactUs              = "webservice/user/contactUs.php"
         static let editProfile            = "webservice/user/editProfile.php"
+        static let businessSignUp         = "webservice/user/businessSignUp.php"
         static let logOut                 = "webservice/user/logout.php"
         
     }

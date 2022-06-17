@@ -26,7 +26,11 @@ class SignUpBusinessProfile: UIViewController {
     @IBOutlet weak var passwordTf: UITextField!
     @IBOutlet weak var addressView: UIView!
     @IBOutlet weak var addressTF: UITextField!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var btnSave: UIButton!
+    
+    var pickerData: PickerData?
+    var imagePicker: ImagePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +40,15 @@ class SignUpBusinessProfile: UIViewController {
     
     //    MARK: STORYBOARD_UPDATE
         
-        func uiUpdate(){
+        func uiUpdate() {
             self.businessTF.delegate = self
             self.businessTypeTF.delegate = self
             self.emailTF.delegate = self
             self.passwordTf.delegate = self
             self.addressTF.delegate = self
             self.descriptionTextView.delegate = self
+            self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+            profileImageView.addCornerRadius(view: profileImageView, cornerRadius: profileImageView.frame.size.height / 2)
             businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
             businessTypeView.addCornerBorderAndShadow(view: businessTypeView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
             emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -50,6 +56,43 @@ class SignUpBusinessProfile: UIViewController {
             addressView.addCornerBorderAndShadow(view: addressView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
             descriptionView.addCornerBorderAndShadow(view: descriptionView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         }
+    
+    
+    func generatingParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["userId"] = ""
+        params["businessName"] = businessTF.text
+        params["email"] = emailTF.text
+        params["password"] = passwordTf.text
+        params["businessType"] = Int(businessTypeTF.text ?? "")
+        params["businessAddress"] = addressTF.text
+        params["businessDescription"] = descriptionTextView.text
+        params["latitude"] = "30.7110585"
+        params["longitude"] = "76.6913124"
+        debugPrint("params data ** \(params)")
+        return params
+    }
+    
+    //MARK: Hit Sign Up API
+    func hitBusinessSignUpApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.businessSignUp, params: generatingParameters(), profilePhoto: self.pickerData) { succeeded, response, data in
+            debugPrint("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                Singleton.shared.showErrorMessage(error: "Done", isError: .success)
+
+//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+//                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+//                    self.navigationController?.popToRootViewController(animated: true)
+//                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
         
     // MARK: VAILDATIONS
     func validate() {
@@ -68,7 +111,8 @@ class SignUpBusinessProfile: UIViewController {
         }else if ValidationManager.shared.isEmpty(text: descriptionTextView.text) == true{
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDescription, isError: .error)
         }else {
-            Singleton.setHomeScreenView(userType: .business)
+            hitBusinessSignUpApi()
+//            Singleton.setHomeScreenView(userType: .business)
         }
     }
     
@@ -79,7 +123,7 @@ class SignUpBusinessProfile: UIViewController {
     }
     
     @IBAction func uploadProfileActionBtn(_ sender: UIButton) {
-    
+        self.imagePicker.present(from: sender)
     }
     
     @IBAction func dropDownBtn(_ sender: UIButton) {
@@ -118,7 +162,6 @@ extension SignUpBusinessProfile: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
     
 }
 
@@ -129,6 +172,19 @@ extension SignUpBusinessProfile: UITextViewDelegate {
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         self.descriptionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+}
+
+
+extension SignUpBusinessProfile: ImagePickerDelegate {
+
+    func didSelect(image: UIImage?) {
+        self.profileImageView.image = image
+        let jpegData = image?.jpegData(compressionQuality: 0.5)
+        self.pickerData = PickerData()
+        self.pickerData?.image = image
+        self.pickerData?.data = jpegData
     }
     
 }

@@ -219,7 +219,7 @@ class HttpManager: HTTPURLResponse {
         
         if let profilePhoto = profilePhoto {
             body.append(("--\(boundary)\r\n" as String).data(using: String.Encoding.utf8, allowLossyConversion: true)!)
-            body.append("Content-Disposition: form-data; name=\"userImage\"; filename=\"\(profilePhoto.fileName ?? "fileName.jpg")\"\r\n" .data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+            body.append("Content-Disposition: form-data; name=\"image\"; filename=\"\(profilePhoto.fileName ?? "fileName.jpg")\"\r\n" .data(using: String.Encoding.utf8, allowLossyConversion: true)!)
             body.append("Content-Type: image/jpeg\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
             if let data1 = profilePhoto.image, let data = data1.jpegData(compressionQuality: 0.5) {
                 print("cover data \(data.count)")

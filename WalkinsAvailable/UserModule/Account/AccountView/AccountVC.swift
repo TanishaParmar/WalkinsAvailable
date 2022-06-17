@@ -233,8 +233,9 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 self.navigationController?.pushViewController(controller, animated: true)
             }
             else if indexPath.row == 5 {
-                let viewcontroller = ContactUsVC()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
+                let contactVC = ContactUsVC()
+                contactVC.data = self.data
+                self.navigationController?.pushViewController(contactVC, animated: true)
             } else if indexPath.row == 6 {
                 let viewcontroller = ComplaintsVC()
                 viewcontroller.userType = self.userType

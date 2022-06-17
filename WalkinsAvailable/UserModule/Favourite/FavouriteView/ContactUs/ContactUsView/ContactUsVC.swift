@@ -20,6 +20,8 @@ class ContactUsVC: UIViewController {
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     
+    var data: UserData?
+    
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +37,20 @@ class ContactUsVC: UIViewController {
         self.nameTextField.delegate = self
         self.emailTextField.delegate = self
         self.messageTextView.delegate = self
+        setUIData()
         self.nameView.addCornerBorderAndShadow(view: self.nameView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.emailView.addCornerBorderAndShadow(view: self.emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.messageView.addCornerBorderAndShadow(view: self.messageView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.saveButton.addCornerRadius(view: self.saveButton, cornerRadius: 5.0)
+    }
+    
+    func setUIData() {
+        if let data = data {
+            self.nameTextField.text = data.userName
+            self.emailTextField.text = data.email
+        }
+        self.nameTextField.isUserInteractionEnabled = false
+        self.emailTextField.isUserInteractionEnabled = false
     }
     
     
