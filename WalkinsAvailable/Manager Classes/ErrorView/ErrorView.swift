@@ -32,7 +32,7 @@ class ErrorView: UIView {
     
     
     override func awakeFromNib() {
-        errorMessage.textColor = .black
+        errorMessage.textColor = .white
         errorMessage.font = UIFont.systemFont(ofSize: 14)
 //        setCustom(.latoRegular, 14)
         
@@ -49,11 +49,11 @@ class ErrorView: UIView {
         self.effectView.isHidden = true
         switch isError {
         case .error:
-            self.backgroundColor = .red
+            self.backgroundColor = .errorColor
         case .success:
-            self.backgroundColor = .green
+            self.backgroundColor = .successColor
         case .message:
-            self.backgroundColor = .white
+            self.backgroundColor = .messageColor
         case .notification:
             self.effectView.isHidden = false
             self.backgroundColor = .clear
@@ -111,4 +111,23 @@ class ErrorView: UIView {
         })
     }
     
+}
+
+
+extension UIColor {
+    convenience public init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+        self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
+    }
+    
+    open class var errorColor:UIColor {
+        return UIColor.init(r: 226, g: 87, b: 76, a: 1)
+    }
+    
+    open class var successColor:UIColor {
+        return UIColor.init(r: 102, g: 208, b: 42, a: 1)
+    }
+    
+    open class var messageColor:UIColor {
+        return UIColor.init(r: 0, g: 0, b: 0, a: 0.9)
+    }
 }

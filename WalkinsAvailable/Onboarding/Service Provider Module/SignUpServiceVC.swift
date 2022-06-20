@@ -21,6 +21,11 @@ class SignUpServiceVC: UIViewController {
     @IBOutlet weak var passwordView: UIView!
     
     
+    var pickerData: PickerData?
+    var imagePicker: ImagePicker!
+    var userId: String = ""
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -31,10 +36,51 @@ class SignUpServiceVC: UIViewController {
         artistNameTF.delegate = self
         emailTF.delegate = self
         passwordTF.delegate = self
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        userNameImgView.addCornerRadius(view: userNameImgView, cornerRadius: userNameImgView.bounds.height / 2)
         artistView.addCornerBorderAndShadow(view: artistView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         passwordView.addCornerBorderAndShadow(view: passwordView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
     }
+    
+    func generatingParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["userId"] = userId
+        params["artistName"] = artistNameTF.text
+        params["email"] = emailTF.text
+        params["password"] = passwordTF.text
+//        params["latitude"] = "30.7110585"
+//        params["longitude"] = "76.6913124"
+        debugPrint("params data ** \(params)")
+        return params
+    }
+    
+    //MARK: Hit Sign Up API
+    func hitArtistSignUpApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.artistSignUp, params: generatingParameters(), profilePhoto: self.pickerData) { succeeded, response, data in
+            print("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+                    if self.userId == "" {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    } else {
+                        if let data = response.data {
+                            UserDefaultsCustom.saveUserData(userData: data)
+                            Singleton.setHomeScreenView(userType: .serviceProvider)
+                        }
+                    }
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+
     
     // MARK: VAILDATIONS
     func validate() {
@@ -47,7 +93,8 @@ class SignUpServiceVC: UIViewController {
         }else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         }else {
-            Singleton.setHomeScreenView(userType: .serviceProvider)
+            hitArtistSignUpApi()
+//            Singleton.setHomeScreenView(userType: .serviceProvider)
         }
     }
     
@@ -59,7 +106,7 @@ class SignUpServiceVC: UIViewController {
     }
     
     @IBAction func editProfileImgViewBtn(_ sender: UIButton) {
-        
+        self.imagePicker.present(from: sender)
     }
     
     
@@ -86,6 +133,17 @@ extension SignUpServiceVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+}
+
+extension SignUpServiceVC: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        self.userNameImgView.image = image
+        let jpegData = image?.jpegData(compressionQuality: 0.5)
+        self.pickerData = PickerData()
+        self.pickerData?.image = image
+        self.pickerData?.data = jpegData
     }
     
 }

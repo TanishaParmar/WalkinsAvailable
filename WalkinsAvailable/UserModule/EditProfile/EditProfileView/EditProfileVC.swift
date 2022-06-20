@@ -51,7 +51,7 @@ class EditProfileVC: UIViewController {
     
     func setData() {
         if let data = data {
-            self.userNameTextField.text = data.userName
+            self.userNameTextField.text = data.name
             self.emailTextField.text = data.email
             let placeHolder = UIImage(named: "")
             self.profileImageView.setImage(url: data.image, placeHolder: placeHolder)
@@ -91,7 +91,7 @@ class EditProfileVC: UIViewController {
     
     func generatingParameters() -> [String:Any] {
         var params : [String:Any] = [:]
-        params["userName"] = userNameTextField.text
+        params["name"] = userNameTextField.text
         params["email"] = emailTextField.text
         return params
     }

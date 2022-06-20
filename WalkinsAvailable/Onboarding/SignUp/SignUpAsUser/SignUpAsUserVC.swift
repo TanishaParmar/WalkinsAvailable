@@ -28,9 +28,9 @@ class SignUpAsUserVC: UIViewController {
     
     
     //MARK: Properties
-    var isUser:Bool?
     var pickerData: PickerData?
     var imagePicker: ImagePicker!
+    var userId: String = ""
     
     
     //MARK: VC Life Cycle
@@ -71,7 +71,14 @@ class SignUpAsUserVC: UIViewController {
             if succeeded {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
-                    self.navigationController?.popToRootViewController(animated: true)
+                    if self.userId == "" {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    } else {
+                        if let data = response.data {
+                            UserDefaultsCustom.saveUserData(userData: data)
+                            Singleton.setHomeScreenView(userType: .serviceProvider)
+                        }
+                    }
                 }
             } else {
                 if let msg = response["message"] as? String {

@@ -8,9 +8,9 @@
 import UIKit
 import IQKeyboardManagerSwift
 class SignUpBusinessProfile: UIViewController {
-
+    
     var isNAv:Bool?
-//    MARK: OUTLETS
+    //    MARK: OUTLETS
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var uploadProfileBtn: UIButton!
     @IBOutlet weak var descriptionView: UIView!
@@ -40,23 +40,23 @@ class SignUpBusinessProfile: UIViewController {
     }
     
     //    MARK: STORYBOARD_UPDATE
-        
-        func uiUpdate() {
-            self.businessTF.delegate = self
-            self.businessTypeTF.delegate = self
-            self.emailTF.delegate = self
-            self.passwordTf.delegate = self
-            self.addressTF.delegate = self
-            self.descriptionTextView.delegate = self
-            self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-            profileImageView.addCornerRadius(view: profileImageView, cornerRadius: profileImageView.frame.size.height / 2)
-            businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
-            businessTypeView.addCornerBorderAndShadow(view: businessTypeView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
-            emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
-            passwordView.addCornerBorderAndShadow(view: passwordView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
-            addressView.addCornerBorderAndShadow(view: addressView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
-            descriptionView.addCornerBorderAndShadow(view: descriptionView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
-        }
+    
+    func uiUpdate() {
+        self.businessTF.delegate = self
+        self.businessTypeTF.delegate = self
+        self.emailTF.delegate = self
+        self.passwordTf.delegate = self
+        self.addressTF.delegate = self
+        self.descriptionTextView.delegate = self
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        profileImageView.addCornerRadius(view: profileImageView, cornerRadius: profileImageView.frame.size.height / 2)
+        businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        businessTypeView.addCornerBorderAndShadow(view: businessTypeView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        passwordView.addCornerBorderAndShadow(view: passwordView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        addressView.addCornerBorderAndShadow(view: addressView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+        descriptionView.addCornerBorderAndShadow(view: descriptionView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+    }
     
     
     func generatingParameters() -> [String:Any] {
@@ -83,7 +83,14 @@ class SignUpBusinessProfile: UIViewController {
             if succeeded {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
-                    self.navigationController?.popToRootViewController(animated: true)
+                    if self.userId == "" {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    } else {
+                        if let data = response.data {
+                            UserDefaultsCustom.saveUserData(userData: data)
+                            Singleton.setHomeScreenView(userType: .business)
+                        }
+                    }
                 }
             } else {
                 if let msg = response["message"] as? String {
@@ -92,7 +99,7 @@ class SignUpBusinessProfile: UIViewController {
             }
         }
     }
-        
+    
     // MARK: VAILDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: businessTF.text) == true {
@@ -111,12 +118,12 @@ class SignUpBusinessProfile: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDescription, isError: .error)
         }else {
             hitBusinessSignUpApi()
-//            Singleton.setHomeScreenView(userType: .business)
+            //            Singleton.setHomeScreenView(userType: .business)
         }
     }
     
     
-
+    
     @IBAction func backBtn(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -133,7 +140,7 @@ class SignUpBusinessProfile: UIViewController {
         self.validate()
     }
     
-
+    
     
     
 }
@@ -177,7 +184,7 @@ extension SignUpBusinessProfile: UITextViewDelegate {
 
 
 extension SignUpBusinessProfile: ImagePickerDelegate {
-
+    
     func didSelect(image: UIImage?) {
         self.profileImageView.image = image
         let jpegData = image?.jpegData(compressionQuality: 0.5)

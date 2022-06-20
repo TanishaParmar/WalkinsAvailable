@@ -46,7 +46,7 @@ class ContactUsVC: UIViewController {
     
     func setUIData() {
         if let data = data {
-            self.nameTextField.text = data.userName
+            self.nameTextField.text = data.name
             self.emailTextField.text = data.email
         }
         self.nameTextField.isUserInteractionEnabled = false

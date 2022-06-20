@@ -59,6 +59,7 @@ class BusinessEditProfile: UIViewController {
         descriptionTF.delegate = self
         self.userImgView.layer.cornerRadius = userImgView.frame.height/2
         userImgView.clipsToBounds = true
+        setUIDate()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         businessTYpeView.addCornerBorderAndShadow(view: businessTYpeView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -96,11 +97,15 @@ class BusinessEditProfile: UIViewController {
     
     func setUIDate() {
         if let data = data {
-//            self.businessTF.text = data.userName
-//            self.businessTypeTF.text = data.email
-//            let placeHolder = UIImage(named: "")
-//            self.profileImageView.setImage(url: data.image, placeHolder: placeHolder)
-//            self.setPickerData(image: self.profileImageView.image)
+            self.businessTF.text = data.name
+            self.businessTypeTF.text = data.businessTypeId
+            self.emailTF.text = data.email
+            self.passwordTF.text = data.password
+            self.addressTF.text = data.businessAddress
+            self.descriptionTF.text = data.businessDescription
+            let placeHolder = UIImage(named: "")
+            self.userImgView.setImage(url: data.image, placeHolder: placeHolder)
+            self.setPickerData(image: self.userImgView.image)
         }
     }
 

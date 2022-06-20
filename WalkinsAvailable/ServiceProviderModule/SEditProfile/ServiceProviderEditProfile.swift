@@ -19,6 +19,12 @@ class ServiceProviderEditProfile: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    
+    var data: UserData?
+    var imagePicker: ImagePicker!
+    var pickerData: PickerData?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         uiUpdate()
@@ -37,6 +43,37 @@ class ServiceProviderEditProfile: UIViewController {
         descriptionTextView.addCornerBorderAndShadow(view: descriptionTextView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         saveBtn.addCornerRadius(view: saveBtn, cornerRadius: 5)
     }
+    
+    
+    func generatingParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["artistName"] = artistNameTF.text
+        params["email"] = emailTF.text
+        return params
+    }
+    
+    //MARK: Hit Edit Profile API
+    func hitEditProfileApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.editBusinessProfile, params: generatingParameters(), profilePhoto: self.pickerData) { succeeded, response, data in
+            print("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    if let data = response.data {
+                        UserDefaultsCustom.saveUserData(userData: data)
+                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+    
     
     // MARK: VAILDATIONS
     func validate() {

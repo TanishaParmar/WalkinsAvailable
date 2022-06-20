@@ -71,7 +71,7 @@ class AccountVC: UIViewController {
         if let data = UserDefaultsCustom.getUserData() {
             debugPrint("user data * \(data)")
             self.data = data
-            self.userNameLabel.text = self.data?.userName
+            self.userNameLabel.text = self.data?.name
             self.userEmailLabel.text = self.data?.email
             let imgUrl = self.data?.image
             let placeHolder = UIImage(named: "")
@@ -98,6 +98,58 @@ class AccountVC: UIViewController {
                     Singleton.setHomeScreenView(userType: .business)
 //                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
 //                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+    
+    
+    func generatingUserHomeParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["businessTypeId"] = "7"
+        params["search"] = "chamkaur"
+        params["userId"] = self.data?.userId
+        debugPrint("params data ** \(params)")
+        return params
+    }
+
+    //MARK: Hit User Home API
+    func hitUserHomeApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.businessBySearch, params: generatingArtistHomeParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    Singleton.setHomeScreenView(userType: .user)
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+    
+    
+    func generatingArtistHomeParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["artistId"] = self.data?.artistId
+        debugPrint("params data ** \(params)")
+        return params
+    }
+
+    //MARK: Hit Artist Home API
+    func hitArtistHomeApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.artistHomeProfile, params: generatingArtistHomeParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    Singleton.setHomeScreenView(userType: .business)
                 }
             } else {
                 if let msg = response["message"] as? String {
@@ -247,18 +299,25 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch userType {
         case .user:
-            if indexPath.row == 0{
+            if indexPath.row == 0 {
                 if let businessId = self.data?.businessId, businessId != "0" {
                     print("its work", businessId)
                     hitBusinessHomeApi()
                 } else {
                     let viewcontroller = SignUpBusinessProfile()
                     viewcontroller.userId = self.data?.userId ?? ""
-                    self.navigationController?.pushViewController(viewcontroller, animated: true)
+                    self.push(viewController: viewcontroller)
                 }
             }else if indexPath.row == 1 {
-                let controller = SignUpServiceProvider()
-                self.push(viewController: controller)
+                if let businessId = self.data?.artistId, businessId != "0" {
+                    print("its work", businessId)
+                    hitArtistHomeApi()
+                } else {
+                    let controller = SignUpServiceVC()
+                    controller.userId = self.data?.userId ?? ""
+                    self.push(viewController: controller)
+                }
+
             }else  if indexPath.row == 2 {
                 let controller = SetAvailbilityVC()
                 self.navigationController?.pushViewController(controller, animated: true)
@@ -294,11 +353,24 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
             break
         case .business:
             if indexPath.row == 0{
-                let viewcontroller = SignUpAsUserVC()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
+                if let userId = self.data?.userId, userId != "0" {
+                    print("its work", userId)
+                    hitUserHomeApi()
+                } else {
+                    let controller = SignUpServiceVC()
+                    self.push(viewController: controller)
+                }
             }else if indexPath.row == 1 {
-                let controller = SignUpServiceProvider()
-                self.push(viewController: controller)
+//                let controller = SignUpServiceProvider()
+//                self.push(viewController: controller)
+                if let artistId = self.data?.artistId, artistId != "0" {
+                    print("its work", artistId)
+                    hitArtistHomeApi()
+                } else {
+                    let controller = SignUpServiceVC()
+                    controller.userId = self.data?.userId ?? ""
+                    self.push(viewController: controller)
+                }
             }else  if indexPath.row == 2 {
                 let controller = SetAvailbilityVC()
                 self.navigationController?.pushViewController(controller, animated: true)
@@ -335,8 +407,17 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 let viewcontroller = SignUpAsUserVC()
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             }else if indexPath.row == 1 {
-                let controller = SignUpBusinessProfile()
-                self.push(viewController: controller)
+//                let controller = SignUpBusinessProfile()
+//                self.push(viewController: controller)
+                if let businessId = self.data?.businessId, businessId != "0" {
+                    print("its work", businessId)
+                    hitBusinessHomeApi()
+                } else {
+                    let viewcontroller = SignUpBusinessProfile()
+                    viewcontroller.userId = self.data?.userId ?? ""
+                    self.push(viewController: viewcontroller)
+                }
+
             }else  if indexPath.row == 2 {
                 let controller = SetAvailbilityVC()
                 self.navigationController?.pushViewController(controller, animated: true)
