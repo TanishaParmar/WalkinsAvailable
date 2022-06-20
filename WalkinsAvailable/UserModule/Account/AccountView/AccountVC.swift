@@ -80,7 +80,35 @@ class AccountVC: UIViewController {
         ActivityIndicator.sharedInstance.hideActivityIndicator()
     }
     
+    
+    func generatingBusinessHomeParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["businessId"] = self.data?.businessId
+        debugPrint("params data ** \(params)")
+        return params
+    }
 
+    //MARK: Hit Business Home API
+    func hitBusinessHomeApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.businessHomeDetail, params: generatingBusinessHomeParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    Singleton.setHomeScreenView(userType: .business)
+//                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+//                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+
+    
+    
     //MARK: Hit Logout API
     func hitLogOutApi() {
         ActivityIndicator.sharedInstance.showActivityIndicator()
@@ -110,8 +138,9 @@ class AccountVC: UIViewController {
             self.navigationController?.pushViewController(userEditVC, animated: true)
             break
         case .business:
-            let viewcontroller = BusinessEditProfile()
-            self.navigationController?.pushViewController(viewcontroller, animated: true)
+            let businessEditVC = BusinessEditProfile()
+            businessEditVC.data = self.data
+            self.navigationController?.pushViewController(businessEditVC, animated: true)
             break
         case .serviceProvider:
             let viewcontroller = ServiceProviderEditProfile()
@@ -219,8 +248,14 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
         switch userType {
         case .user:
             if indexPath.row == 0{
-                let viewcontroller = SignUpBusinessProfile()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
+                if let businessId = self.data?.businessId, businessId != "0" {
+                    print("its work", businessId)
+                    hitBusinessHomeApi()
+                } else {
+                    let viewcontroller = SignUpBusinessProfile()
+                    viewcontroller.userId = self.data?.userId ?? ""
+                    self.navigationController?.pushViewController(viewcontroller, animated: true)
+                }
             }else if indexPath.row == 1 {
                 let controller = SignUpServiceProvider()
                 self.push(viewController: controller)

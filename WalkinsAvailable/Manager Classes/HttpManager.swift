@@ -207,7 +207,7 @@ class HttpManager: HTTPURLResponse {
     
     static public func uploadingMultipleTask(_ url:String, params: [String:Any], profilePhoto: PickerData?, receivedResponse: @escaping(_ succeeded:Bool, _ response:[String:Any], _ data:Data?) -> ())
     {
-        debugPrint("api name is *** \(url) **** \(params)")
+        print("api name is *** \(url) **** \(params)")
         let boundary:NSString = "----WebKitFormBoundarycC4YiaUFwM44F6rT"
         let body:NSMutableData = NSMutableData()
         let paramsArray = params.keys
@@ -241,6 +241,7 @@ class HttpManager: HTTPURLResponse {
        
         if  let accessToken = UserDefaultsCustom.getUserData()?.userToken, accessToken.count > 0 {
             request.setValue(accessToken, forHTTPHeaderField: "Token")
+            print("accessToken** \(accessToken)")
         }
         let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
             if(response != nil) {

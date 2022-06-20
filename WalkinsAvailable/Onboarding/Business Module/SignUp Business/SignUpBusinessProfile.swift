@@ -31,6 +31,7 @@ class SignUpBusinessProfile: UIViewController {
     
     var pickerData: PickerData?
     var imagePicker: ImagePicker!
+    var userId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,7 @@ class SignUpBusinessProfile: UIViewController {
     
     func generatingParameters() -> [String:Any] {
         var params : [String:Any] = [:]
-        params["userId"] = ""
+        params["userId"] = userId
         params["businessName"] = businessTF.text
         params["email"] = emailTF.text
         params["password"] = passwordTf.text
@@ -77,15 +78,13 @@ class SignUpBusinessProfile: UIViewController {
     func hitBusinessSignUpApi() {
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.businessSignUp, params: generatingParameters(), profilePhoto: self.pickerData) { succeeded, response, data in
-            debugPrint("response data ** \(response)")
+            print("response data ** \(response)")
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                Singleton.shared.showErrorMessage(error: "Done", isError: .success)
-
-//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-//                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
-//                    self.navigationController?.popToRootViewController(animated: true)
-//                }
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)

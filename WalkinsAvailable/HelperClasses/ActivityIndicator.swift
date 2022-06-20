@@ -31,7 +31,7 @@ class ActivityIndicator: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         self.clipsToBounds = true
     }
 

@@ -28,19 +28,20 @@ class API {
     
     struct Name {
        //MARK: LOGIN AND SOCIAL LOGIN CONSTANT API
-        static let login                  = "webservice/user/logIn.php"
-        static let signUp                 = "webservice/user/userSignup.php"
-        static let googleLogIn            = "webservice/user/googleLogin.php"
-        static let appleLogIn             = "webservice/user/appleLogin.php"
-        static let facebookLogIn          = "webservice/user/facebookLogin.php"
-        static let instagramLogIn         = "webservice/user/instaLogin.php"
-        static let forgetPassword         = "webservice/user/forgetPassword.php"
-        static let changePassword         = "webservice/user/changePassword.php"
-        static let contactUs              = "webservice/user/contactUs.php"
-        static let editProfile            = "webservice/user/editProfile.php"
-        static let businessSignUp         = "webservice/user/businessSignUp.php"
-        static let logOut                 = "webservice/user/logout.php"
-        
+        static let login                      = "webservice/user/logIn.php"
+        static let signUp                     = "webservice/user/userSignup.php"
+        static let googleLogIn                = "webservice/user/googleLogin.php"
+        static let appleLogIn                 = "webservice/user/appleLogin.php"
+        static let facebookLogIn              = "webservice/user/facebookLogin.php"
+        static let instagramLogIn             = "webservice/user/instaLogin.php"
+        static let forgetPassword             = "webservice/user/forgetPassword.php"
+        static let changePassword             = "webservice/user/changePassword.php"
+        static let contactUs                  = "webservice/user/contactUs.php"
+        static let editProfile                = "webservice/user/editProfile.php"
+        static let businessSignUp             = "webservice/business/businessSignUp.php"
+        static let editBusinessProfile        = "webservice/business/editBusinessProfile.php"
+        static let businessHomeDetail         = "webservice/business/businessHomeDetail.php"
+        static let logOut                     = "webservice/user/logout.php"
     }
     
     struct keys {

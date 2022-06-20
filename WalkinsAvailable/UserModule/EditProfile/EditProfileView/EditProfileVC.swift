@@ -108,13 +108,8 @@ class EditProfileVC: UIViewController {
                         UserDefaultsCustom.saveUserData(userData: data)
                         Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
                         self.navigationController?.popViewController(animated: true)
-//                        Singleton.setHomeScreenView(userType: .user)
                     }
                 }
-//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-//                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
-//                    self.navigationController?.popToRootViewController(animated: true)
-//                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)

@@ -94,7 +94,7 @@ class ApiHandler {
     }
     
     static public func updateProfile(apiName: String, params: [String:Any], profilePhoto: PickerData? = nil, receivedResponse: @escaping (_ succeeded:Bool, _ response:[String:Any], _ data:Data?) -> ()) {
-        debugPrint("api name is *** \(apiName) **** \(params)")
+        print("api name is *** \(apiName) **** \(params)")
         if IJReachability.isConnectedToNetwork() == true {
             HttpManager.uploadingMultipleTask(apiName, params: params, profilePhoto: profilePhoto) { (isSucceeded, response, data) in
                

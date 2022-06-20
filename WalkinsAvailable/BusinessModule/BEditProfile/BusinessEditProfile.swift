@@ -32,6 +32,12 @@ class BusinessEditProfile: UIViewController {
     @IBOutlet weak var addressTF: UITextField!
     @IBOutlet weak var headerNameLbl: UILabel!
     
+    
+    var data: UserData?
+    var imagePicker: ImagePicker!
+    var pickerData: PickerData?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -44,7 +50,7 @@ class BusinessEditProfile: UIViewController {
     }
     
     //MARK: FUNCTIONS
-    func configureUI(){
+    func configureUI() {
         businessTF.delegate = self
         businessTypeTF.delegate = self
         emailTF.delegate = self
@@ -53,7 +59,7 @@ class BusinessEditProfile: UIViewController {
         descriptionTF.delegate = self
         self.userImgView.layer.cornerRadius = userImgView.frame.height/2
         userImgView.clipsToBounds = true
-        
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         businessTYpeView.addCornerBorderAndShadow(view: businessTYpeView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -62,7 +68,7 @@ class BusinessEditProfile: UIViewController {
         descriptionView.addCornerBorderAndShadow(view: descriptionView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
     }
     
-    func textFieldInterationEnable(){
+    func textFieldInterationEnable() {
         self.headerNameLbl.text = "Edit Business Profile"
         businessTF.isUserInteractionEnabled = true
         businessTypeTF.isUserInteractionEnabled = true
@@ -87,7 +93,58 @@ class BusinessEditProfile: UIViewController {
         self.dropdownImgView.isHidden = true
         self.imgUploadBtn.isHidden = true
     }
+    
+    func setUIDate() {
+        if let data = data {
+//            self.businessTF.text = data.userName
+//            self.businessTypeTF.text = data.email
+//            let placeHolder = UIImage(named: "")
+//            self.profileImageView.setImage(url: data.image, placeHolder: placeHolder)
+//            self.setPickerData(image: self.profileImageView.image)
+        }
+    }
 
+    func setPickerData(image: UIImage?) {
+        let jpegData = image?.jpegData(compressionQuality: 0.5)
+        self.pickerData = PickerData()
+        self.pickerData?.image = image
+        self.pickerData?.data = jpegData
+    }
+
+    
+    func generatingParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["businessName"] = businessTF.text
+        params["email"] = emailTF.text
+        params["password"] = passwordTF.text
+        params["businessType"] = Int(businessTypeTF.text ?? "")
+        params["businessAddress"] = addressTF.text
+        params["businessDescription"] = descriptionTF.text
+        return params
+    }
+    
+    //MARK: Hit Edit Profile API
+    func hitEditProfileApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.editBusinessProfile, params: generatingParameters(), profilePhoto: self.pickerData) { succeeded, response, data in
+            print("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+                    if let data = response.data {
+                        UserDefaultsCustom.saveUserData(userData: data)
+                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+    
     
     
     // MARK: VAILDATIONS
@@ -107,7 +164,8 @@ class BusinessEditProfile: UIViewController {
         }else if ValidationManager.shared.isEmpty(text: descriptionTF.text) == true{
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDescription, isError: .error)
         }else {
-            self.navigationController?.popViewController(animated: true)
+            hitEditProfileApi()
+//            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -124,7 +182,7 @@ class BusinessEditProfile: UIViewController {
     }
     
     @IBAction func imgUploadBtn(_ sender: UIButton) {
-        
+        self.imagePicker.present(from: sender)
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {
@@ -168,4 +226,12 @@ extension BusinessEditProfile: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         self.descriptionView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
+}
+
+extension BusinessEditProfile: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        self.userImgView.image = image
+        self.setPickerData(image: image)
+    }
+    
 }
