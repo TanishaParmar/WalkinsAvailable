@@ -64,7 +64,7 @@ class UserModel: Codable {
     var data: UserData?
 }
 
-class UserData: Codable{
+class UserData: Codable {
     
     var userId, tokenId, userToken, latitude: String?
     var longitude, deviceType, deviceToken, loginTime: String?
@@ -72,8 +72,9 @@ class UserData: Codable{
     var password, image, googleToken, facebookToken: String?
     var instaToken, appleToken, type, emailVerified: String?
     var verificationCode, created, updatedAt, isDisable: String?
-    
-    var businessAddress, businessTypeId, businessDescription: String? // 
+    var address, typeId, description: String?
+
+//    var businessAddress, businessTypeId, businessDescription: String? // 
 
 //      enum CodingKeys: String, CodingKey {
 //          case userID = "userId"
@@ -100,3 +101,5 @@ class UserData: Codable{
 //    var google_id:String?
 //    var status:String?
 }
+
+

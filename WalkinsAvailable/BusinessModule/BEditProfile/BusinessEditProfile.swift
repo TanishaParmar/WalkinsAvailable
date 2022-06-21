@@ -71,6 +71,8 @@ class BusinessEditProfile: UIViewController {
     
     func textFieldInterationEnable() {
         self.headerNameLbl.text = "Edit Business Profile"
+        editProfile.isHidden = true
+        editProfile.isUserInteractionEnabled = false
         businessTF.isUserInteractionEnabled = true
         businessTypeTF.isUserInteractionEnabled = true
         emailTF.isUserInteractionEnabled = true
@@ -82,8 +84,10 @@ class BusinessEditProfile: UIViewController {
         self.imgUploadBtn.isHidden = false
     }
     
-    func textFieldInterationDisable(){
+    func textFieldInterationDisable() {
         self.headerNameLbl.text = "Business Profile"
+        editProfile.isHidden = false
+        editProfile.isUserInteractionEnabled = true
         businessTF.isUserInteractionEnabled = false
         businessTypeTF.isUserInteractionEnabled = false
         emailTF.isUserInteractionEnabled = false
@@ -98,11 +102,11 @@ class BusinessEditProfile: UIViewController {
     func setUIDate() {
         if let data = data {
             self.businessTF.text = data.name
-            self.businessTypeTF.text = data.businessTypeId
+            self.businessTypeTF.text = data.typeId
             self.emailTF.text = data.email
             self.passwordTF.text = data.password
-            self.addressTF.text = data.businessAddress
-            self.descriptionTF.text = data.businessDescription
+            self.addressTF.text = data.address
+            self.descriptionTF.text = data.description
             let placeHolder = UIImage(named: "")
             self.userImgView.setImage(url: data.image, placeHolder: placeHolder)
             self.setPickerData(image: self.userImgView.image)

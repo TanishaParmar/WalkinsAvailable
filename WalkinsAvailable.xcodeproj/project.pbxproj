@@ -134,6 +134,7 @@
 		18EFEAB728214F57009ADBB4 /* AvailbilityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFEAB528214F57009ADBB4 /* AvailbilityVC.xib */; };
 		18EFEABB282150C4009ADBB4 /* AvailbilityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFEAB9282150C4009ADBB4 /* AvailbilityListCell.swift */; };
 		18EFEABC282150C4009ADBB4 /* AvailbilityListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFEABA282150C4009ADBB4 /* AvailbilityListCell.xib */; };
+		1F112BDD2861D00D0008FE19 /* ArtistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F112BDC2861D00D0008FE19 /* ArtistData.swift */; };
 		1F1CBA0127FC6E8F007D9244 /* FavouriteListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CB9FF27FC6E8F007D9244 /* FavouriteListTVC.swift */; };
 		1F1CBA0227FC6E8F007D9244 /* FavouriteListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CBA0027FC6E8F007D9244 /* FavouriteListTVC.xib */; };
 		1F3344E127FAE636000BB072 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F3344DB27FAE636000BB072 /* Poppins-Medium.ttf */; };
@@ -349,6 +350,7 @@
 		18EFEAB528214F57009ADBB4 /* AvailbilityVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailbilityVC.xib; sourceTree = "<group>"; };
 		18EFEAB9282150C4009ADBB4 /* AvailbilityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailbilityListCell.swift; sourceTree = "<group>"; };
 		18EFEABA282150C4009ADBB4 /* AvailbilityListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailbilityListCell.xib; sourceTree = "<group>"; };
+		1F112BDC2861D00D0008FE19 /* ArtistData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistData.swift; sourceTree = "<group>"; };
 		1F1CB9FF27FC6E8F007D9244 /* FavouriteListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListTVC.swift; sourceTree = "<group>"; };
 		1F1CBA0027FC6E8F007D9244 /* FavouriteListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteListTVC.xib; sourceTree = "<group>"; };
 		1F3344DB27FAE636000BB072 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
@@ -1589,6 +1591,7 @@
 				1F8F6545285712A20036593D /* UserDefaultsCustom.swift */,
 				1F8F655E28571CDD0036593D /* ImagePicker.swift */,
 				1F8F6560285729BA0036593D /* PushModel.swift */,
+				1F112BDC2861D00D0008FE19 /* ArtistData.swift */,
 			);
 			path = "Manager Classes";
 			sourceTree = "<group>";
@@ -1898,6 +1901,7 @@
 				1F3344E927FAF40D000BB072 /* UIView+Extension.swift in Sources */,
 				189FB2BE2819214200C1EC42 /* SignUpBusinessProfile.swift in Sources */,
 				1F8F655B285712A20036593D /* ApiHandler.swift in Sources */,
+				1F112BDD2861D00D0008FE19 /* ArtistData.swift in Sources */,
 				1F422EC827FC096F00877618 /* ForgotPasswordVC.swift in Sources */,
 				181C171F2823B799008E7C14 /* EventInviteListCell.swift in Sources */,
 				1F68261427FD74C700FFB4DA /* AccountListTVC.swift in Sources */,

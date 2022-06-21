@@ -94,8 +94,11 @@ class AccountVC: UIViewController {
         ApiHandler.updateProfile(apiName: API.Name.businessHomeDetail, params: generatingBusinessHomeParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    Singleton.setHomeScreenView(userType: .business)
+                if let response = DataDecoder.decodeData(data, type: BusinessDataResponseModel.self) {
+                    if let data = response.data?.businessDetails {
+                        UserDefaultsCustom.saveUserData(userData: data)
+                        Singleton.setHomeScreenView(userType: .business)
+                    }
 //                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
 //                    self.navigationController?.popToRootViewController(animated: true)
                 }
@@ -110,9 +113,10 @@ class AccountVC: UIViewController {
     
     func generatingUserHomeParameters() -> [String:Any] {
         var params : [String:Any] = [:]
-        params["businessTypeId"] = "7"
+        params["businessTypeId"] = ""
         params["search"] = "chamkaur"
         params["userId"] = self.data?.userId
+        params["userToken"] = self.data?.userToken
         debugPrint("params data ** \(params)")
         return params
     }
@@ -120,11 +124,14 @@ class AccountVC: UIViewController {
     //MARK: Hit User Home API
     func hitUserHomeApi() {
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        ApiHandler.updateProfile(apiName: API.Name.businessBySearch, params: generatingArtistHomeParameters()) { succeeded, response, data in
+        ApiHandler.updateProfile(apiName: API.Name.businessBySearch, params: generatingUserHomeParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    Singleton.setHomeScreenView(userType: .user)
+                if let response = DataDecoder.decodeData(data, type: UserDataResponseModel.self) {
+                    if let data = response.data?.userDetails {
+                        UserDefaultsCustom.saveUserData(userData: data)
+                        Singleton.setHomeScreenView(userType: .user)
+                    }
                 }
             } else {
                 if let msg = response["message"] as? String {
@@ -148,8 +155,11 @@ class AccountVC: UIViewController {
         ApiHandler.updateProfile(apiName: API.Name.artistHomeProfile, params: generatingArtistHomeParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    Singleton.setHomeScreenView(userType: .business)
+                if let response = DataDecoder.decodeData(data, type: ArtistDataResponseModel.self) {
+                    if let data = response.data?.artistDetails {
+                        UserDefaultsCustom.saveUserData(userData: data)
+                        Singleton.setHomeScreenView(userType: .serviceProvider)
+                    }
                 }
             } else {
                 if let msg = response["message"] as? String {
@@ -195,8 +205,9 @@ class AccountVC: UIViewController {
             self.navigationController?.pushViewController(businessEditVC, animated: true)
             break
         case .serviceProvider:
-            let viewcontroller = ServiceProviderEditProfile()
-            self.navigationController?.pushViewController(viewcontroller, animated: true)
+            let artistEditVC = ServiceProviderEditProfile()
+            artistEditVC.data = self.data
+            self.navigationController?.pushViewController(artistEditVC, animated: true)
             break
         default :
             print("its work")
@@ -309,8 +320,8 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     self.push(viewController: viewcontroller)
                 }
             }else if indexPath.row == 1 {
-                if let businessId = self.data?.artistId, businessId != "0" {
-                    print("its work", businessId)
+                if let artistId = self.data?.artistId, artistId != "0" {
+                    print("its work", artistId)
                     hitArtistHomeApi()
                 } else {
                     let controller = SignUpServiceVC()
@@ -404,8 +415,15 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
             break
         case .serviceProvider:
             if indexPath.row == 0{
-                let viewcontroller = SignUpAsUserVC()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
+                if let userId = self.data?.userId, userId != "0" {
+                    print("its work", userId)
+                    hitUserHomeApi()
+                } else {
+                    let controller = SignUpServiceVC()
+                    self.push(viewController: controller)
+                }
+//                let viewcontroller = SignUpAsUserVC()
+//                self.navigationController?.pushViewController(viewcontroller, animated: true)
             }else if indexPath.row == 1 {
 //                let controller = SignUpBusinessProfile()
 //                self.push(viewController: controller)
