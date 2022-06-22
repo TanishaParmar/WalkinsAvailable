@@ -135,6 +135,10 @@
 		18EFEABB282150C4009ADBB4 /* AvailbilityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFEAB9282150C4009ADBB4 /* AvailbilityListCell.swift */; };
 		18EFEABC282150C4009ADBB4 /* AvailbilityListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFEABA282150C4009ADBB4 /* AvailbilityListCell.xib */; };
 		1F112BDD2861D00D0008FE19 /* ArtistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F112BDC2861D00D0008FE19 /* ArtistData.swift */; };
+		1F18D6802862EF2400C1922A /* CustomDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F18D67B2862EF2400C1922A /* CustomDatePicker.xib */; };
+		1F18D6812862EF2400C1922A /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D67C2862EF2400C1922A /* CustomDatePicker.swift */; };
+		1F18D6822862EF2400C1922A /* CustomPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D67E2862EF2400C1922A /* CustomPickerController.swift */; };
+		1F18D6832862EF2400C1922A /* CustomPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F18D67F2862EF2400C1922A /* CustomPickerController.xib */; };
 		1F1CBA0127FC6E8F007D9244 /* FavouriteListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CB9FF27FC6E8F007D9244 /* FavouriteListTVC.swift */; };
 		1F1CBA0227FC6E8F007D9244 /* FavouriteListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CBA0027FC6E8F007D9244 /* FavouriteListTVC.xib */; };
 		1F3344E127FAE636000BB072 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F3344DB27FAE636000BB072 /* Poppins-Medium.ttf */; };
@@ -351,6 +355,10 @@
 		18EFEAB9282150C4009ADBB4 /* AvailbilityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailbilityListCell.swift; sourceTree = "<group>"; };
 		18EFEABA282150C4009ADBB4 /* AvailbilityListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailbilityListCell.xib; sourceTree = "<group>"; };
 		1F112BDC2861D00D0008FE19 /* ArtistData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistData.swift; sourceTree = "<group>"; };
+		1F18D67B2862EF2400C1922A /* CustomDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePicker.xib; sourceTree = "<group>"; };
+		1F18D67C2862EF2400C1922A /* CustomDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		1F18D67E2862EF2400C1922A /* CustomPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerController.swift; sourceTree = "<group>"; };
+		1F18D67F2862EF2400C1922A /* CustomPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPickerController.xib; sourceTree = "<group>"; };
 		1F1CB9FF27FC6E8F007D9244 /* FavouriteListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListTVC.swift; sourceTree = "<group>"; };
 		1F1CBA0027FC6E8F007D9244 /* FavouriteListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteListTVC.xib; sourceTree = "<group>"; };
 		1F3344DB27FAE636000BB072 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
@@ -1078,6 +1086,24 @@
 			path = AvailbilityView;
 			sourceTree = "<group>";
 		};
+		1F18D67A2862EF2400C1922A /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				1F18D67B2862EF2400C1922A /* CustomDatePicker.xib */,
+				1F18D67C2862EF2400C1922A /* CustomDatePicker.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		1F18D67D2862EF2400C1922A /* CustomPickerController */ = {
+			isa = PBXGroup;
+			children = (
+				1F18D67E2862EF2400C1922A /* CustomPickerController.swift */,
+				1F18D67F2862EF2400C1922A /* CustomPickerController.xib */,
+			);
+			path = CustomPickerController;
+			sourceTree = "<group>";
+		};
 		1F1CB9FE27FC6E23007D9244 /* FavouriteCellXib */ = {
 			isa = PBXGroup;
 			children = (
@@ -1229,6 +1255,8 @@
 		1F39249F27F84AAD000F08F5 /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				1F18D67D2862EF2400C1922A /* CustomPickerController */,
+				1F18D67A2862EF2400C1922A /* DatePicker */,
 				18697666281A698A00F208BD /* SGMapView */,
 				1F422EFB27FC4F8E00877618 /* ESTabController */,
 				1F3924A027F851DA000F08F5 /* AppHelperMethods.swift */,
@@ -1706,6 +1734,7 @@
 				189C2D83282B809C00AA3665 /* BusinessArtistTotalListCell.xib in Resources */,
 				1895B97F28200ED000842DD5 /* EventDetailVC.xib in Resources */,
 				18E6983328252F4100644838 /* EventHomeCollectionListcell.xib in Resources */,
+				1F18D6832862EF2400C1922A /* CustomPickerController.xib in Resources */,
 				18B4D444281BEE2A005C0816 /* AboutUsVC.xib in Resources */,
 				189C962F28227486004B99EF /* InviteGuestVC.xib in Resources */,
 				1F1CBA0227FC6E8F007D9244 /* FavouriteListTVC.xib in Resources */,
@@ -1763,6 +1792,7 @@
 				18E379A32823C40F0029C01A /* ShopsListCell.xib in Resources */,
 				18D620CB2824E7CA00BE9C95 /* BusinessComplaintDetailVC.xib in Resources */,
 				1F422EE827FC20C800877618 /* NotificationVC.xib in Resources */,
+				1F18D6802862EF2400C1922A /* CustomDatePicker.xib in Resources */,
 				1F422EDE27FC208000877618 /* FavouriteVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1873,6 +1903,7 @@
 				1F79106828098A5700102EA6 /* ComplaintsVC.swift in Sources */,
 				1F8F6557285712A20036593D /* ErrorView.swift in Sources */,
 				18B4D443281BEE2A005C0816 /* AboutUsVC.swift in Sources */,
+				1F18D6812862EF2400C1922A /* CustomDatePicker.swift in Sources */,
 				18697671281A69A700F208BD /* FBAnnotationCluster.swift in Sources */,
 				1895B978281FEB2B00842DD5 /* EventListCell.swift in Sources */,
 				1F422F1327FC4F8E00877618 /* ExampleIrregularityContentView.swift in Sources */,
@@ -1892,6 +1923,7 @@
 				1F8F6552285712A20036593D /* UserDefaultsCustom.swift in Sources */,
 				18B4D439281BD015005C0816 /* ArtistProfileVC.swift in Sources */,
 				189FB2C628192BAF00C1EC42 /* ValidationBase.swift in Sources */,
+				1F18D6822862EF2400C1922A /* CustomPickerController.swift in Sources */,
 				1F422F1927FC4F8E00877618 /* ESTabBarItemBadgeView.swift in Sources */,
 				1F3344ED27FAFF76000BB072 /* Constant.swift in Sources */,
 				1862D3D8282A81090013F492 /* SignUpServiceVC.swift in Sources */,
@@ -2115,7 +2147,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2152,7 +2184,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;

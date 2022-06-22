@@ -87,7 +87,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVi-U9-ovH">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pf" translatesAutoresizingMaskIntoConstraints="NO" id="v2r-vt-vqS">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="v2r-vt-vqS">
                                             <rect key="frame" x="142" y="30" width="130" height="130"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="130" id="Vda-Ni-X4P"/>
@@ -362,7 +362,7 @@
     <resources>
         <image name="back" width="25" height="41"/>
         <image name="camera" width="99" height="100"/>
-        <image name="pf" width="459" height="462"/>
+        <image name="placeHolder" width="271" height="273"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

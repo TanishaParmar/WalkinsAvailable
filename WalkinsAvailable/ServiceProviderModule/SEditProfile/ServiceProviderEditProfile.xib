@@ -23,11 +23,13 @@
                 <outlet property="artistView" destination="uKC-a3-gTg" id="W4T-6N-qeh"/>
                 <outlet property="backBtn" destination="Qmp-CU-nm8" id="V8V-rR-tcw"/>
                 <outlet property="descriptionTextView" destination="Dzo-iQ-Re8" id="ORa-48-Dfz"/>
+                <outlet property="editButton" destination="WXm-jw-hmf" id="gSq-Ny-ygO"/>
                 <outlet property="editProfileImgVw" destination="khA-vS-ceT" id="KK1-1O-0fe"/>
                 <outlet property="emailTF" destination="O7N-EE-2uH" id="v7s-JG-8DL"/>
                 <outlet property="emailView" destination="N2R-mz-vKT" id="E1h-tJ-Qep"/>
                 <outlet property="profilrImgView" destination="N2S-wI-sQp" id="Vhw-zY-X2y"/>
                 <outlet property="saveBtn" destination="o65-oN-AKI" id="DOa-or-IOm"/>
+                <outlet property="titleLabel" destination="1xZ-PE-6Ab" id="r9x-zu-SW2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -75,14 +77,29 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXm-jw-hmf">
+                                                    <rect key="frame" x="369" y="15" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="3Kd-Qv-IA8"/>
+                                                        <constraint firstAttribute="height" constant="30" id="dER-l3-huQ"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="highlighter" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="editButtonAction:" destination="-1" eventType="touchUpInside" id="z7G-DZ-ox6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="Qmp-CU-nm8" firstAttribute="centerY" secondItem="sUf-A1-gcr" secondAttribute="centerY" id="4PV-cU-Lqg"/>
+                                                <constraint firstItem="WXm-jw-hmf" firstAttribute="centerY" secondItem="Qmp-CU-nm8" secondAttribute="centerY" id="8fV-wd-jiu"/>
                                                 <constraint firstAttribute="height" constant="60" id="TAO-sK-SgG"/>
                                                 <constraint firstItem="1xZ-PE-6Ab" firstAttribute="leading" secondItem="Qmp-CU-nm8" secondAttribute="trailing" constant="10" id="Y8y-gN-7m3"/>
                                                 <constraint firstItem="Qmp-CU-nm8" firstAttribute="centerX" secondItem="sUf-A1-gcr" secondAttribute="centerX" id="oLi-EG-zcB"/>
                                                 <constraint firstItem="sUf-A1-gcr" firstAttribute="leading" secondItem="HDw-jx-1e2" secondAttribute="leading" constant="15" id="qDk-Bc-Trb"/>
+                                                <constraint firstAttribute="trailing" secondItem="WXm-jw-hmf" secondAttribute="trailing" constant="15" id="tb8-Vf-u2V"/>
                                                 <constraint firstItem="sUf-A1-gcr" firstAttribute="centerY" secondItem="HDw-jx-1e2" secondAttribute="centerY" id="uA0-NC-EWm"/>
                                                 <constraint firstItem="1xZ-PE-6Ab" firstAttribute="centerY" secondItem="Qmp-CU-nm8" secondAttribute="centerY" id="ugQ-dV-nim"/>
                                             </constraints>
@@ -90,7 +107,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePH-jg-V2U">
                                             <rect key="frame" x="0.0" y="70" width="414" height="140"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pf" translatesAutoresizingMaskIntoConstraints="NO" id="N2S-wI-sQp">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="N2S-wI-sQp">
                                                     <rect key="frame" x="147" y="10" width="120" height="120"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -343,7 +360,8 @@
         <image name="back" width="25" height="41"/>
         <image name="camera" width="99" height="100"/>
         <image name="email" width="51" height="39"/>
-        <image name="pf" width="459" height="462"/>
+        <image name="highlighter" catalog="system" width="128" height="119"/>
+        <image name="placeHolder" width="271" height="273"/>
         <image name="user12" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

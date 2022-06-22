@@ -10,6 +10,7 @@ import UIKit
 class ServiceProviderEditProfile: UIViewController {
 
     @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var profilrImgView: UIImageView!
     @IBOutlet weak var editProfileImgVw: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
@@ -18,6 +19,7 @@ class ServiceProviderEditProfile: UIViewController {
     @IBOutlet weak var artistNameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var editButton: UIButton!
     
     
     var imagePicker: ImagePicker!
@@ -52,9 +54,35 @@ class ServiceProviderEditProfile: UIViewController {
             self.artistNameTF.text = data.name
             self.emailTF.text = data.email
             self.descriptionTextView.text = data.description
-            let placeHolder = UIImage(named: "")
+            let placeHolder = UIImage(named: "placeHolder")
             self.profilrImgView.setImage(url: data.image, placeHolder: placeHolder)
             self.setPickerData(image: self.profilrImgView.image)
+        }
+        editScreen(isEditable: false)
+    }
+    
+    
+    func editScreen(isEditable: Bool) {
+        if isEditable {
+            self.titleLabel.text = "Edit Artist Profile"
+            self.editButton.isHidden = true
+            self.editButton.isUserInteractionEnabled = false
+            self.editProfileImgVw.isHidden = false
+            self.editProfileImgVw.isUserInteractionEnabled = true
+            self.artistNameTF.isUserInteractionEnabled = true
+            self.emailTF.isUserInteractionEnabled = true
+            self.saveBtn.isHidden = false
+            self.saveBtn.isUserInteractionEnabled = true
+        } else {
+            self.titleLabel.text = "Artist Profile"
+            self.editButton.isHidden = false
+            self.editButton.isUserInteractionEnabled = true
+            self.editProfileImgVw.isHidden = true
+            self.editProfileImgVw.isUserInteractionEnabled = false
+            self.artistNameTF.isUserInteractionEnabled = false
+            self.emailTF.isUserInteractionEnabled = false
+            self.saveBtn.isHidden = true
+            self.saveBtn.isUserInteractionEnabled = false
         }
     }
     
@@ -121,6 +149,10 @@ class ServiceProviderEditProfile: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func editButtonAction(_ sender: Any) {
+        editScreen(isEditable: true)
+    }
+    
     @IBAction func editProfileImgVw(_ sender: UIButton) {
         self.imagePicker.present(from: sender)
     }
@@ -167,8 +199,10 @@ extension ServiceProviderEditProfile: UITextViewDelegate {
 
 extension ServiceProviderEditProfile: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
-        self.profilrImgView.image = image
-        self.setPickerData(image: image)
+        if let image = image {
+            self.profilrImgView.image = image
+            self.setPickerData(image: image)
+        }
     }
     
 }

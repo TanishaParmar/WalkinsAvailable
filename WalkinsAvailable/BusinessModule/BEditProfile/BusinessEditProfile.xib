@@ -38,6 +38,7 @@
                 <outlet property="emailView" destination="dgf-if-Nx8" id="Zt8-kb-hR6"/>
                 <outlet property="headerNameLbl" destination="SX4-vA-RvD" id="OkV-KI-zGz"/>
                 <outlet property="imgUploadBtn" destination="nba-vm-e7X" id="6V6-bD-HPR"/>
+                <outlet property="passwordSuperView" destination="FOQ-Ys-rR5" id="tT1-Rn-TJX"/>
                 <outlet property="passwordTF" destination="TpX-Qu-0cO" id="maq-h6-GRr"/>
                 <outlet property="passwordView" destination="5SJ-GV-ska" id="Lrq-Bi-pzG"/>
                 <outlet property="saveBtn" destination="K0G-Jj-Ezr" id="cIG-IC-9l5"/>
@@ -105,7 +106,7 @@
                                                 <constraint firstItem="EvK-Yo-pcg" firstAttribute="leading" secondItem="CZl-ng-4wA" secondAttribute="leading" constant="10" id="zR5-Nz-FIp"/>
                                             </constraints>
                                         </view>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="eew-0M-buw">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="eew-0M-buw">
                                             <rect key="frame" x="137" y="70" width="140" height="140"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="140" id="BDG-bo-nuz"/>
@@ -546,7 +547,7 @@
         <image name="camera" width="99" height="100"/>
         <image name="down" width="25" height="15"/>
         <image name="highlighter" catalog="system" width="128" height="119"/>
-        <image name="image" width="290" height="180"/>
+        <image name="placeHolder" width="271" height="273"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

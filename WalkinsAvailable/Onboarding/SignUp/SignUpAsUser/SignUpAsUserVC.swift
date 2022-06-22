@@ -76,7 +76,7 @@ class SignUpAsUserVC: UIViewController {
                     } else {
                         if let data = response.data {
                             UserDefaultsCustom.saveUserData(userData: data)
-                            Singleton.setHomeScreenView(userType: .serviceProvider)
+                            Singleton.setHomeScreenView(userType: .user)
                         }
                     }
                 }
@@ -99,6 +99,8 @@ class SignUpAsUserVC: UIViewController {
         }else if ValidationManager.shared.isEmpty(text: passwordTextField.text) == true {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         }else if (self.profileImageView.image == nil) {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
+        }else if self.pickerData == nil {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
         }else {
             hitSignUpApi()
@@ -159,13 +161,13 @@ extension SignUpAsUserVC: UITextFieldDelegate {
 
 
 extension SignUpAsUserVC: ImagePickerDelegate {
-
     func didSelect(image: UIImage?) {
-        self.profileImageView.image = image
-        let jpegData = image?.jpegData(compressionQuality: 0.5)
-        self.pickerData = PickerData()
-        self.pickerData?.image = image
-        self.pickerData?.data = jpegData
+        if let image = image {
+            self.profileImageView.image = image
+            let jpegData = image.jpegData(compressionQuality: 0.5)
+            self.pickerData = PickerData()
+            self.pickerData?.image = image
+            self.pickerData?.data = jpegData
+        }
     }
-    
 }

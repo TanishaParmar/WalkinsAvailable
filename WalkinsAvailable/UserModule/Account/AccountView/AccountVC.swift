@@ -74,7 +74,7 @@ class AccountVC: UIViewController {
             self.userNameLabel.text = self.data?.name
             self.userEmailLabel.text = self.data?.email
             let imgUrl = self.data?.image
-            let placeHolder = UIImage(named: "")
+            let placeHolder = UIImage(named: "placeHolder")
             self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
         }
         ActivityIndicator.sharedInstance.hideActivityIndicator()
@@ -98,6 +98,7 @@ class AccountVC: UIViewController {
                     if let data = response.data?.businessDetails {
                         UserDefaultsCustom.saveUserData(userData: data)
                         Singleton.setHomeScreenView(userType: .business)
+                        UserDefaults.standard.set("business", forKey: "loginType")
                     }
 //                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
 //                    self.navigationController?.popToRootViewController(animated: true)
@@ -131,6 +132,7 @@ class AccountVC: UIViewController {
                     if let data = response.data?.userDetails {
                         UserDefaultsCustom.saveUserData(userData: data)
                         Singleton.setHomeScreenView(userType: .user)
+                        UserDefaults.standard.set("user", forKey: "loginType")
                     }
                 }
             } else {
@@ -159,6 +161,7 @@ class AccountVC: UIViewController {
                     if let data = response.data?.artistDetails {
                         UserDefaultsCustom.saveUserData(userData: data)
                         Singleton.setHomeScreenView(userType: .serviceProvider)
+                        UserDefaults.standard.set("serviceProvider", forKey: "loginType")
                     }
                 }
             } else {
@@ -245,24 +248,54 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
             cell.iconImageView.image = UIImage(named: userListArr[indexPath.row].1)
             if indexPath.row == 0{
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0, green: 0.8551515937, blue: 0.6841568947, alpha: 1)
+                if self.data?.businessId == "0" {
+                    cell.switchIcon.isOn = false
+                } else {
+                    cell.switchIcon.isOn = true
+                }
             }else if indexPath.row == 1{
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
+                if self.data?.artistId == "0" {
+                    cell.switchIcon.isOn = false
+                } else {
+                    cell.switchIcon.isOn = true
+                }
             }
         case .business:
             cell.titleLabel.text = businessListArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: businessListArr[indexPath.row].1)
             if indexPath.row == 0{
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.2428347766, green: 0.9325304627, blue: 0.4965850115, alpha: 1)
+                if self.data?.userId == "0" {
+                    cell.switchIcon.isOn = false
+                } else {
+                    cell.switchIcon.isOn = true
+                }
             }else if indexPath.row == 1{
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
+                if self.data?.artistId == "0" {
+                    cell.switchIcon.isOn = false
+                } else {
+                    cell.switchIcon.isOn = true
+                }
             }
         case .serviceProvider:
             cell.titleLabel.text = serviceProviderArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: serviceProviderArr[indexPath.row].1)
             if indexPath.row == 0{
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.2428347766, green: 0.9325304627, blue: 0.4965850115, alpha: 1)
+                if self.data?.userId == "0" {
+                    cell.switchIcon.isOn = false
+                } else {
+                    cell.switchIcon.isOn = true
+                }
             }else if indexPath.row == 1{
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
+                if self.data?.businessId == "0" {
+                    cell.switchIcon.isOn = false
+                } else {
+                    cell.switchIcon.isOn = true
+                }
             }
             
             break

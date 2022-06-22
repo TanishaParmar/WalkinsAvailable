@@ -14,6 +14,7 @@ class EditProfileVC: UIViewController {
     //MARK: Outlets
     @IBOutlet weak var userNameView: UIView!
     @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -53,7 +54,7 @@ class EditProfileVC: UIViewController {
         if let data = data {
             self.userNameTextField.text = data.name
             self.emailTextField.text = data.email
-            let placeHolder = UIImage(named: "")
+            let placeHolder = UIImage(named: "placeHolder")
             self.profileImageView.setImage(url: data.image, placeHolder: placeHolder)
             self.setPickerData(image: self.profileImageView.image)
         }
@@ -62,6 +63,7 @@ class EditProfileVC: UIViewController {
     
     func editScreen(isEditable: Bool) {
         if isEditable {
+            self.titleLabel.text = "Edit User Profile"
             self.editButton.isHidden = true
             self.camerButton.isUserInteractionEnabled = false
             self.camerButton.isHidden = false
@@ -71,6 +73,7 @@ class EditProfileVC: UIViewController {
             self.saveButton.isHidden = false
             self.saveButton.isUserInteractionEnabled = true
         } else {
+            self.titleLabel.text = "User Profile"
             self.editButton.isHidden = false
             self.camerButton.isUserInteractionEnabled = true
             self.camerButton.isHidden = true
@@ -173,8 +176,10 @@ extension EditProfileVC: UITextFieldDelegate {
 extension EditProfileVC: ImagePickerDelegate {
 
     func didSelect(image: UIImage?) {
-        self.profileImageView.image = image
-        self.setPickerData(image: image)
+        if let image = image {
+            self.profileImageView.image = image
+            self.setPickerData(image: image)
+        }
     }
     
 }

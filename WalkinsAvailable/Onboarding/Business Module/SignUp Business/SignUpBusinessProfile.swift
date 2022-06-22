@@ -32,6 +32,9 @@ class SignUpBusinessProfile: UIViewController {
     var pickerData: PickerData?
     var imagePicker: ImagePicker!
     var userId: String = ""
+    var businessTypeIndex: Int = -1
+    let values = ["auto","data","meta","carry"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +68,7 @@ class SignUpBusinessProfile: UIViewController {
         params["businessName"] = businessTF.text
         params["email"] = emailTF.text
         params["password"] = passwordTf.text
-        params["businessType"] = Int(businessTypeTF.text ?? "")
+        params["businessType"] = businessTypeIndex // Int(businessTypeTF.text ?? "")
         params["businessAddress"] = addressTF.text
         params["businessDescription"] = descriptionTextView.text
         params["latitude"] = "30.7110585"
@@ -89,6 +92,7 @@ class SignUpBusinessProfile: UIViewController {
                         if let data = response.data {
                             UserDefaultsCustom.saveUserData(userData: data)
                             Singleton.setHomeScreenView(userType: .business)
+                            UserDefaults.standard.set("business", forKey: "loginType")
                         }
                     }
                 }
@@ -98,6 +102,13 @@ class SignUpBusinessProfile: UIViewController {
                 }
             }
         }
+    }
+    
+    func actionType() {
+        let picker = CustomPickerController()
+        picker.selectedIndex = businessTypeIndex
+        picker.set(values, delegate: self, tag: 0)
+        self.present(picker, animated: false, completion: nil)
     }
     
     // MARK: VAILDATIONS
@@ -116,6 +127,8 @@ class SignUpBusinessProfile: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterAddress, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: descriptionTextView.text) == true{
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDescription, isError: .error)
+        }else if self.pickerData == nil {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
         }else {
             hitBusinessSignUpApi()
             //            Singleton.setHomeScreenView(userType: .business)
@@ -148,12 +161,28 @@ class SignUpBusinessProfile: UIViewController {
 
 //    MARK: TEXTFIELD DELEGATES
 extension SignUpBusinessProfile: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        businessTypeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        passwordView.layer.borderColor = textField == passwordTf ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//    }
+    
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         businessTypeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         passwordView.layer.borderColor = textField == passwordTf ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        switch textField {
+        case businessTypeTF:
+            self.actionType()
+            return false
+        default:
+            return true
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -186,11 +215,31 @@ extension SignUpBusinessProfile: UITextViewDelegate {
 extension SignUpBusinessProfile: ImagePickerDelegate {
     
     func didSelect(image: UIImage?) {
-        self.profileImageView.image = image
-        let jpegData = image?.jpegData(compressionQuality: 0.5)
-        self.pickerData = PickerData()
-        self.pickerData?.image = image
-        self.pickerData?.data = jpegData
+        if let image = image {
+            self.profileImageView.image = image
+            let jpegData = image.jpegData(compressionQuality: 0.5)
+            self.pickerData = PickerData()
+            self.pickerData?.image = image
+            self.pickerData?.data = jpegData
+        }
+    }
+    
+}
+
+
+extension SignUpBusinessProfile: CustomPickerControllerDelegate {
+    func didSelectPicker(_ value: String, _ index: Int, _ image: String?, _ tag: Int?, custom picker: CustomPickerController) {
+        print("values are ***** \(value) *** \(index) *** \(tag)  ****** \(image)")
+        if tag == 0 {
+            businessTypeTF.text = value
+            businessTypeIndex = index
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func cancel(picker: CustomPickerController, _ tag: Int) {
+        
     }
     
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public protocol ImagePickerDelegate: class {
+public protocol ImagePickerDelegate: NSObjectProtocol {
     func didSelect(image: UIImage?)
 }
 
@@ -20,7 +20,6 @@ open class ImagePicker: NSObject {
 
     public init(presentationController: UIViewController, delegate: ImagePickerDelegate) {
         self.pickerController = UIImagePickerController()
-
         super.init()
 
         self.presentationController = presentationController
@@ -36,7 +35,7 @@ open class ImagePicker: NSObject {
             return nil
         }
 
-        return UIAlertAction(title: title, style: .default) { [unowned self] _ in
+        return UIAlertAction(title: title, style: .default) { [self] _ in
             self.pickerController.sourceType = type
             self.presentationController?.present(self.pickerController, animated: true)
         }
@@ -48,15 +47,11 @@ open class ImagePicker: NSObject {
         if let action = self.action(for: .camera, title: "Take photo") {
             alertController.addAction(action)
         }
-        if let action = self.action(for: .savedPhotosAlbum, title: "Camera roll") {
-            alertController.addAction(action)
-        }
-        if let action = self.action(for: .photoLibrary, title: "Photo library") {
+        if let action = self.action(for: .savedPhotosAlbum, title: "Choose Photo") {
             alertController.addAction(action)
         }
 
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
         if UIDevice.current.userInterfaceIdiom == .pad {
             alertController.popoverPresentationController?.sourceView = sourceView
             alertController.popoverPresentationController?.sourceRect = sourceView.bounds
@@ -67,13 +62,15 @@ open class ImagePicker: NSObject {
     }
 
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
-        controller.dismiss(animated: true, completion: nil)
-
-        self.delegate?.didSelect(image: image)
+        controller.dismiss(animated: true, completion: {
+            DispatchQueue.main.async {
+                self.delegate?.didSelect(image: image)
+            }
+        })
     }
 }
 
-extension ImagePicker: UIImagePickerControllerDelegate {
+extension ImagePicker: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.pickerController(picker, didSelect: nil)
@@ -88,8 +85,4 @@ extension ImagePicker: UIImagePickerControllerDelegate {
 //        info[.]
         self.pickerController(picker, didSelect: image)
     }
-}
-
-extension ImagePicker: UINavigationControllerDelegate {
-
 }

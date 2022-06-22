@@ -7,6 +7,7 @@
 
 
 import UIKit
+import Kingfisher
 
 enum USER_TYPE {
     case user
@@ -55,12 +56,18 @@ class TabBarVC: ESTabBarController {
 //        self.setTabController()
     }
     
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        print("*********************viewWillLayoutSubviews")
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setTabController()
         self.tabBar.isHidden = false
         self.delegate = self
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,14 +77,14 @@ class TabBarVC: ESTabBarController {
         tabFrame.origin.y = self.view.frame.size.height - tabFrame.size.height
         self.tabBar.frame = tabFrame
         print("set ************** ")
-        addRedDotAtTabBarItemIndex(index: 0)
+//        addRedDotAtTabBarItemIndex(index: 0)
     }
     
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        super.tabBar(tabBar, didSelect: item)
-        addRedDotAtTabBarItemIndex(index: item.tag)
-    }
+//    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+////        super.tabBar(tabBar, didSelect: item)
+////        addRedDotAtTabBarItemIndex(index: item.tag)
+//    }
     
     func setTabController() {
         self.tabBar.backgroundColor = .white
@@ -96,12 +103,16 @@ class TabBarVC: ESTabBarController {
                 let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
             v3.tabBarItem = ESTabBarItem(ExampleIrregularityContentView(), title: nil, image: image, selectedImage: image)
             v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Notifications", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
-            let img = UIImage(named: "pff")?.withRenderingMode(.alwaysOriginal)
-            v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Account", image: img, selectedImage: img)
-//            v5.type = "1"
+            let img = UIImage(named: "placeHolder")?.withRenderingMode(.alwaysOriginal)
+
+            let tabItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Account", image: img, selectedImage: img)
+            tabItem.contentView?.imageView.layer.cornerRadius = 12
+            tabItem.contentView?.imageView.clipsToBounds = true
+            v5.tabBarItem = tabItem
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             self.selectedIndex = 2
+            self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem)
         case .business:
             let v1 = EventVC()
             let v2 = BusinessFavouriteVC()
@@ -114,13 +125,16 @@ class TabBarVC: ESTabBarController {
                 let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
             v3.tabBarItem = ESTabBarItem(ExampleIrregularityContentView(), title: nil, image: image, selectedImage: image)
             v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Notifications", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
-            let img = UIImage(named: "pff")?.withRenderingMode(.alwaysOriginal)
-            v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
-//            v5.type = "2"
+            let img = UIImage(named: "placeHolder")?.withRenderingMode(.alwaysOriginal)
+            
+            let tabItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
+            tabItem.contentView?.imageView.layer.cornerRadius = 12
+            tabItem.contentView?.imageView.clipsToBounds = true
+            v5.tabBarItem = tabItem
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             self.selectedIndex = 2
-
+            self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem)
         case .serviceProvider:
             let v1 = ServiceEventVC()
             let v2 = ChatListVC()
@@ -133,20 +147,44 @@ class TabBarVC: ESTabBarController {
                 let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
             v3.tabBarItem = ESTabBarItem(ExampleIrregularityContentView(), title: nil, image: image, selectedImage: image)
             v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Shops", image: UIImage(named: "shop"), selectedImage: UIImage(named: "shop"))
-            let img = UIImage(named: "pff")?.withRenderingMode(.alwaysOriginal)
-            v5.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
-//            v5.type = "3"
+            let img = UIImage(named: "placeHolder")?.withRenderingMode(.alwaysOriginal)
+            let tabItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Account", image: img, selectedImage: img)
+            tabItem.contentView?.imageView.layer.cornerRadius = 12
+            tabItem.contentView?.imageView.clipsToBounds = true
+            v5.tabBarItem = tabItem
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             self.selectedIndex = 2
-
+            self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem)
         }
         
         self.tabBar.items?.enumerated().forEach({ index, item in
             item.tag = index
         })
-        
     }
+    
+    func getImage(tabItem: ESTabBarItem) {
+        let urlString = UserDefaultsCustom.getUserData()?.image
+        if let urlst = urlString?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: urlst) {
+            UIImageView().kf.setImage(with: url, placeholder: nil, options: nil) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let img):
+                        print("image fetched")
+                        tabItem.contentView?.image = img.image
+                        tabItem.contentView?.selectedImage = img.image
+                        tabItem.contentView?.imageView.restorationIdentifier = urlString
+                    default:
+                        print("image not fetched")
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+    
     
     func addRedDotAtTabBarItemIndex(index: Int) {
         print("tag *** \(index)")

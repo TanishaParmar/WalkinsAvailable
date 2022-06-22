@@ -134,6 +134,7 @@ class LoginVC: UIViewController {
                     if let data = response.data {
                         UserDefaultsCustom.saveUserData(userData: data)
                         Singleton.setHomeScreenView(userType: .user)
+                        UserDefaults.standard.set("user", forKey: "loginType")
                     }
                 }
             } else {
@@ -155,6 +156,7 @@ class LoginVC: UIViewController {
                     if let data = response.data {
                         UserDefaultsCustom.saveUserData(userData: data)
                         Singleton.setHomeScreenView(userType: .user)
+                        UserDefaults.standard.set("user", forKey: "loginType")
                     }
                 }
             } else {
@@ -178,6 +180,7 @@ class LoginVC: UIViewController {
                     if let data = response.data {
                         UserDefaultsCustom.saveUserData(userData: data)
                         Singleton.setHomeScreenView(userType: .user)
+                        UserDefaults.standard.set("user", forKey: "loginType")
                     }
                 }
             } else {
@@ -209,6 +212,7 @@ class LoginVC: UIViewController {
                     if let data = response.data {
                         UserDefaultsCustom.saveUserData(userData: data)
                         Singleton.setHomeScreenView(userType: .user)
+                        UserDefaults.standard.set("user", forKey: "loginType")
                     }
                 }
             } else {
@@ -297,7 +301,7 @@ extension LoginVC: ASAuthorizationControllerDelegate {
             let appleUserFirstName = appleIDCredential.fullName?.givenName ?? ""
             let appleUserLastName = appleIDCredential.fullName?.familyName ?? ""
             let appleUserEmail = appleIDCredential.email ?? ""
-            let userName = appleUserFirstName + appleUserLastName
+            let userName = "\(appleUserFirstName) \(appleUserLastName)"
             //Write your code
             ActivityIndicator.sharedInstance.showActivityIndicator()
             hitAppleLogInApi(with: appleUserEmail, userName: userName, appleToken: appleId, appleImage: "")

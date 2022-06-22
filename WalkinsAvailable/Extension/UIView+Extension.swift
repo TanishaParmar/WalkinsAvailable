@@ -117,4 +117,17 @@ extension UIImageView {
             self.image = placeHolder
         }
     }
+    
+    func getImage(url: String?, complition: @escaping((UIImage?)->Void)) {
+        if let urlst = url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlst) {
+            self.kf.setImage(with: url, placeholder: nil, options: nil) { result in
+                switch result {
+                case .success(let img):
+                    complition(img.image)
+                default:
+                    complition(nil)
+                }
+            }
+        }
+    }
 }

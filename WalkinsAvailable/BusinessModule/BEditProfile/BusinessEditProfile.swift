@@ -19,6 +19,7 @@ class BusinessEditProfile: UIViewController {
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var descriptionTF: UITextView!
     @IBOutlet weak var businessView: UIView!
+    @IBOutlet weak var passwordSuperView: UIView!
     @IBOutlet weak var businessTF: UITextField!
     @IBOutlet weak var businessTYpeView: UIView!
     @IBOutlet weak var businessTypeTF: UITextField!
@@ -36,7 +37,8 @@ class BusinessEditProfile: UIViewController {
     var data: UserData?
     var imagePicker: ImagePicker!
     var pickerData: PickerData?
-
+    var businessTypeIndex: Int = -1
+    let values = ["auto","data","meta","carry"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +61,8 @@ class BusinessEditProfile: UIViewController {
         descriptionTF.delegate = self
         self.userImgView.layer.cornerRadius = userImgView.frame.height/2
         userImgView.clipsToBounds = true
-        setUIDate()
+        passwordSuperView.isHidden = true
+        setUIData()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         businessTYpeView.addCornerBorderAndShadow(view: businessTYpeView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -79,6 +82,7 @@ class BusinessEditProfile: UIViewController {
         passwordTF.isUserInteractionEnabled = true
         addressTF.isUserInteractionEnabled = true
         descriptionTF.isUserInteractionEnabled = true
+        saveBtn.isHidden = false
         self.dropdownBtn.isHidden = false
         self.dropdownImgView.isHidden = false
         self.imgUploadBtn.isHidden = false
@@ -94,20 +98,25 @@ class BusinessEditProfile: UIViewController {
         passwordTF.isUserInteractionEnabled = true
         addressTF.isUserInteractionEnabled = false
         descriptionTF.isUserInteractionEnabled = false
+        saveBtn.isHidden = true
         self.dropdownBtn.isHidden = true
         self.dropdownImgView.isHidden = true
         self.imgUploadBtn.isHidden = true
     }
     
-    func setUIDate() {
+    func setUIData() {
         if let data = data {
             self.businessTF.text = data.name
-            self.businessTypeTF.text = data.typeId
+//            self.businessTypeTF.text = data.typeId
+            if let typeId: Int = Int(data.typeId ?? "") {
+                businessTypeTF.text = values[typeId]
+                businessTypeIndex = typeId
+            }
             self.emailTF.text = data.email
             self.passwordTF.text = data.password
             self.addressTF.text = data.address
             self.descriptionTF.text = data.description
-            let placeHolder = UIImage(named: "")
+            let placeHolder = UIImage(named: "placeHolder")
             self.userImgView.setImage(url: data.image, placeHolder: placeHolder)
             self.setPickerData(image: self.userImgView.image)
         }
@@ -126,7 +135,7 @@ class BusinessEditProfile: UIViewController {
         params["businessName"] = businessTF.text
         params["email"] = emailTF.text
         params["password"] = passwordTF.text
-        params["businessType"] = Int(businessTypeTF.text ?? "")
+        params["businessType"] = businessTypeIndex // Int(businessTypeTF.text ?? "")
         params["businessAddress"] = addressTF.text
         params["businessDescription"] = descriptionTF.text
         return params
@@ -155,6 +164,13 @@ class BusinessEditProfile: UIViewController {
     }
     
     
+    func actionType() {
+        let picker = CustomPickerController()
+        picker.selectedIndex = businessTypeIndex
+        picker.set(values, delegate: self, tag: 0)
+        self.present(picker, animated: false, completion: nil)
+    }
+    
     
     // MARK: VAILDATIONS
     func validate() {
@@ -166,9 +182,11 @@ class BusinessEditProfile: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
         }else if emailTF.text!.isValidEmail == false {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
-        }else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
-            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
-        }else if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
+        }
+//        else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
+//            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
+//        }
+        else if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterAddress, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: descriptionTF.text) == true{
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDescription, isError: .error)
@@ -206,11 +224,32 @@ class BusinessEditProfile: UIViewController {
 //    MARK: TEXTFIELD DELEGATES
 extension BusinessEditProfile: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
+//        businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        businessTYpeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        passwordView.layer.borderColor = textField == passwordTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        switch textField {
+//        case businessTypeTF:
+//            self.actionType()
+//        default:
+//            break
+//        }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         businessTYpeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         passwordView.layer.borderColor = textField == passwordTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        switch textField {
+        case businessTypeTF:
+            self.actionType()
+            return false
+        default:
+            return true
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -239,8 +278,27 @@ extension BusinessEditProfile: UITextViewDelegate {
 
 extension BusinessEditProfile: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
-        self.userImgView.image = image
-        self.setPickerData(image: image)
+        if let image = image {
+            self.userImgView.image = image
+            self.setPickerData(image: image)
+        }
+    }
+    
+}
+
+extension BusinessEditProfile: CustomPickerControllerDelegate {
+    func didSelectPicker(_ value: String, _ index: Int, _ image: String?, _ tag: Int?, custom picker: CustomPickerController) {
+        print("values are ***** \(value) *** \(index) *** \(tag)  ****** \(image)")
+        if tag == 0 {
+            businessTypeTF.text = value
+            businessTypeIndex = index
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func cancel(picker: CustomPickerController, _ tag: Int) {
+        
     }
     
 }

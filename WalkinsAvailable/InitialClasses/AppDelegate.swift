@@ -65,6 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation]) {
+            return true
+        }
         if (GIDSignIn.sharedInstance().handle(url)) {
             return true
         } else if (ApplicationDelegate.shared.application(app, open: url, options: options)) {
@@ -86,6 +89,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
     
 //    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+//
+//        if ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation]) {
+//            return true
+//        }
+//
 //        if ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation) {
 //            return true
 //        }
@@ -95,6 +103,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        return false
 //    }
 
+
+    
 
     
     func appFonts() {

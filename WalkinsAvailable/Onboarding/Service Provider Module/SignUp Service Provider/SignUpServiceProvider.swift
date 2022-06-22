@@ -65,6 +65,7 @@ class SignUpServiceProvider: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         } else {
             Singleton.setHomeScreenView(userType: .serviceProvider )
+            UserDefaults.standard.set("serviceProvider", forKey: "loginType")
         }
     }
     

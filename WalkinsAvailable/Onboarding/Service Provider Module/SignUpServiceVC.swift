@@ -70,6 +70,7 @@ class SignUpServiceVC: UIViewController {
                         if let data = response.data {
                             UserDefaultsCustom.saveUserData(userData: data)
                             Singleton.setHomeScreenView(userType: .serviceProvider)
+                            UserDefaults.standard.set("serviceProvider", forKey: "loginType")
                         }
                     }
                 }
@@ -92,7 +93,9 @@ class SignUpServiceVC: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
-        }else {
+        } else if self.pickerData == nil {
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
+        } else {
             hitArtistSignUpApi()
 //            Singleton.setHomeScreenView(userType: .serviceProvider)
         }
@@ -139,11 +142,13 @@ extension SignUpServiceVC: UITextFieldDelegate {
 
 extension SignUpServiceVC: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
-        self.userNameImgView.image = image
-        let jpegData = image?.jpegData(compressionQuality: 0.5)
-        self.pickerData = PickerData()
-        self.pickerData?.image = image
-        self.pickerData?.data = jpegData
+        if let image = image {
+            self.userNameImgView.image = image
+            let jpegData = image.jpegData(compressionQuality: 0.5)
+            self.pickerData = PickerData()
+            self.pickerData?.image = image
+            self.pickerData?.data = jpegData
+        }
     }
     
 }

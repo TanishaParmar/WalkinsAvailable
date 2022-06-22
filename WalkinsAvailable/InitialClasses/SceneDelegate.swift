@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FacebookCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -23,17 +24,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Singleton.window = self.window
         let data = UserDefaultsCustom.getUserData()
         if let token = data?.userToken {
-            Singleton.setHomeScreenView(userType: .user)
+            if let type = UserDefaults.standard.string(forKey: "loginType") {
+                if type == "user" {
+                    Singleton.setHomeScreenView(userType: .user)
+                } else if type == "business" {
+                    Singleton.setHomeScreenView(userType: .business)
+                } else if type == "serviceProvider" {
+                    Singleton.setHomeScreenView(userType: .serviceProvider)
+                }
+            }
+//            Singleton.setHomeScreenView(userType: .user)
         } else {
             Singleton.setLoginScreenView()
         }
     }
 
-//    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-//        if let openURLContext = URLContexts.first {
-//            ApplicationDelegate.shared.application(UIApplication.shared, open: openURLContext.url, sourceApplication: openURLContext.options.sourceApplication, annotation: openURLContext.options.annotation)
-//        }
-//    }
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let contextUrl = URLContexts.first?.url else { return }
+                if ApplicationDelegate.shared.application(
+                        UIApplication.shared,
+                        open: contextUrl,
+                        sourceApplication: nil,
+                        annotation: [UIApplication.OpenURLOptionsKey.annotation]
+                ) {
+                    return
+                }
+    }
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
