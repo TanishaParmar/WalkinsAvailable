@@ -93,19 +93,22 @@ class AccountVC: UIViewController {
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.businessHomeDetail, params: generatingBusinessHomeParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
-            if succeeded {
-                if let response = DataDecoder.decodeData(data, type: BusinessDataResponseModel.self) {
-                    if let data = response.data?.businessDetails {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView(userType: .business)
-                        UserDefaults.standard.set("business", forKey: "loginType")
+            DispatchQueue.main.async {
+                if succeeded {
+                    if let response = DataDecoder.decodeData(data, type: BusinessDataResponseModel.self) {
+                        if let data = response.data?.businessDetails {
+                            UserDefaults.standard.set("business", forKey: "loginType")
+                            UserDefaultsCustom.saveUserData(userData: data)
+                            Singleton.setHomeScreenView()
+                        }
+                        //                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+                        //                    self.navigationController?.popToRootViewController(animated: true)
                     }
-//                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
-//                    self.navigationController?.popToRootViewController(animated: true)
                 }
-            } else {
-                if let msg = response["message"] as? String {
-                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                else {
+                    if let msg = response["message"] as? String {
+                        Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                    }
                 }
             }
         }
@@ -127,17 +130,19 @@ class AccountVC: UIViewController {
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.businessBySearch, params: generatingUserHomeParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
-            if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserDataResponseModel.self) {
-                    if let data = response.data?.userDetails {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView(userType: .user)
-                        UserDefaults.standard.set("user", forKey: "loginType")
+            DispatchQueue.main.async {
+                if succeeded {
+                    if let response = DataDecoder.decodeData(data, type: UserDataResponseModel.self) {
+                        if let data = response.data?.userDetails {
+                            UserDefaults.standard.set("user", forKey: "loginType")
+                            UserDefaultsCustom.saveUserData(userData: data)
+                            Singleton.setHomeScreenView()
+                        }
                     }
-                }
-            } else {
-                if let msg = response["message"] as? String {
-                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                } else {
+                    if let msg = response["message"] as? String {
+                        Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                    }
                 }
             }
         }
@@ -156,28 +161,44 @@ class AccountVC: UIViewController {
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.artistHomeProfile, params: generatingArtistHomeParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
-            if succeeded {
-                if let response = DataDecoder.decodeData(data, type: ArtistDataResponseModel.self) {
-                    if let data = response.data?.artistDetails {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView(userType: .serviceProvider)
-                        UserDefaults.standard.set("serviceProvider", forKey: "loginType")
+            DispatchQueue.main.async {
+                if succeeded {
+                    if let response = DataDecoder.decodeData(data, type: ArtistDataResponseModel.self) {
+                        if let data = response.data?.artistDetails {
+                            UserDefaults.standard.set("serviceProvider", forKey: "loginType")
+                            UserDefaultsCustom.saveUserData(userData: data)
+                            Singleton.setHomeScreenView()
+                        }
                     }
-                }
-            } else {
-                if let msg = response["message"] as? String {
-                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                } else {
+                    if let msg = response["message"] as? String {
+                        Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                    }
                 }
             }
         }
     }
 
     
+    func generatingLogOutParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        switch userType {
+        case .user:
+            params["loginRole"] = 1
+        case .business:
+            params["loginRole"] = 2
+        case .serviceProvider:
+            params["loginRole"] = 3
+        }
+        
+        debugPrint("params data ** \(params)")
+        return params
+    }
     
     //MARK: Hit Logout API
     func hitLogOutApi() {
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        ApiHandler.updateProfile(apiName: API.Name.logOut, params: [:]) { succeeded, response, data in
+        ApiHandler.updateProfile(apiName: API.Name.logOut, params: generatingLogOutParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 if let msg = response["message"] as? String {
@@ -435,10 +456,12 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
             }
             else if indexPath.row == 8{
                 self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
-                    let controller = UINavigationController(rootViewController: LoginVC())
-                   
-                    Singleton.window?.rootViewController = controller
-                    Singleton.window?.makeKeyAndVisible()
+                    self.hitLogOutApi()
+                    
+//                    let controller = UINavigationController(rootViewController: LoginVC())
+//
+//                    Singleton.window?.rootViewController = controller
+//                    Singleton.window?.makeKeyAndVisible()
 
                 },{
                     cancel in
@@ -489,10 +512,12 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 self.navigationController?.pushViewController(viewcontroller, animated: true)
             } else if indexPath.row == 7{
                 self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
-                    let controller = UINavigationController(rootViewController: LoginVC())
-                   
-                    Singleton.window?.rootViewController = controller
-                    Singleton.window?.makeKeyAndVisible()
+                    self.hitLogOutApi()
+                    
+//                    let controller = UINavigationController(rootViewController: LoginVC())
+//
+//                    Singleton.window?.rootViewController = controller
+//                    Singleton.window?.makeKeyAndVisible()
                 },{
                     cancel in
                     self.dismiss(animated: false, completion: nil)

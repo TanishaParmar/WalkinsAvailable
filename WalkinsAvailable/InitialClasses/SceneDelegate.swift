@@ -23,17 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: ws)
         Singleton.window = self.window
         let data = UserDefaultsCustom.getUserData()
-        if let token = data?.userToken {
-            if let type = UserDefaults.standard.string(forKey: "loginType") {
-                if type == "user" {
-                    Singleton.setHomeScreenView(userType: .user)
-                } else if type == "business" {
-                    Singleton.setHomeScreenView(userType: .business)
-                } else if type == "serviceProvider" {
-                    Singleton.setHomeScreenView(userType: .serviceProvider)
-                }
-            }
-//            Singleton.setHomeScreenView(userType: .user)
+        if let token = data?.userToken, token.count > 0 {
+            Singleton.setHomeScreenView()
         } else {
             Singleton.setLoginScreenView()
         }

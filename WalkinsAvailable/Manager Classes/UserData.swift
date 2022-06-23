@@ -72,7 +72,7 @@ class UserData: Codable {
     var password, image, googleToken, facebookToken: String?
     var instaToken, appleToken, type, emailVerified: String?
     var verificationCode, created, updatedAt, isDisable: String?
-    var address, typeId, description: String?
+    var address, typeId, description, loginRole : String?
 
 //    var businessAddress, businessTypeId, businessDescription: String? // 
 

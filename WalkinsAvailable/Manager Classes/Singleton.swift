@@ -48,6 +48,7 @@ class Singleton: NSObject {
         OperationQueue.main.cancelAllOperations()
         UserDefaults.standard.removeObject(forKey: UserDefaultsCustom.accessToken)
         UserDefaults.standard.removeObject(forKey: UserDefaultsCustom.userData)
+        UserDefaults.standard.removeObject(forKey: "loginType")
         NotificationCenter.default.removeObserver(self)
 //        self.gotoLogin()
         Self.setLoginScreenView()
@@ -194,7 +195,7 @@ class Singleton: NSObject {
 
 
     func setHomeView(window: UIWindow? = Singleton.window) {
-        let homeVC = TabBarVC(userType: .user)
+        let homeVC = TabBarVC()
         Singleton.homeTabController = homeVC
 //        let sideMenu:SWRevealViewController = UIStoryboard.rootController(identifier: "SWRevealViewController") as! SWRevealViewController
 //        let menu:MenuController = MenuController()
@@ -285,8 +286,8 @@ extension Singleton: ErrorDelegate {
 extension Singleton {
     
     
-    class func setHomeScreenView(userType: USER_TYPE) {
-        let viewController = TabBarVC(userType: userType)
+    class func setHomeScreenView() {
+        let viewController = TabBarVC()
         let nav = NavigationController(rootViewController: viewController)
         nav.isNavigationBarHidden = true
         Singleton.window?.rootViewController = nav

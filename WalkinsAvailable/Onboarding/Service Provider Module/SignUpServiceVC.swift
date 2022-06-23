@@ -69,7 +69,7 @@ class SignUpServiceVC: UIViewController {
                     } else {
                         if let data = response.data {
                             UserDefaultsCustom.saveUserData(userData: data)
-                            Singleton.setHomeScreenView(userType: .serviceProvider)
+                            Singleton.setHomeScreenView()
                             UserDefaults.standard.set("serviceProvider", forKey: "loginType")
                         }
                     }
@@ -97,7 +97,7 @@ class SignUpServiceVC: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
         } else {
             hitArtistSignUpApi()
-//            Singleton.setHomeScreenView(userType: .serviceProvider)
+//            Singleton.setHomeScreenView()
         }
     }
     

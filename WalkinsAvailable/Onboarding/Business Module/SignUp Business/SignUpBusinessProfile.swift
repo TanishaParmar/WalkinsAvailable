@@ -91,7 +91,7 @@ class SignUpBusinessProfile: UIViewController {
                     } else {
                         if let data = response.data {
                             UserDefaultsCustom.saveUserData(userData: data)
-                            Singleton.setHomeScreenView(userType: .business)
+                            Singleton.setHomeScreenView()
                             UserDefaults.standard.set("business", forKey: "loginType")
                         }
                     }
@@ -131,7 +131,7 @@ class SignUpBusinessProfile: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
         }else {
             hitBusinessSignUpApi()
-            //            Singleton.setHomeScreenView(userType: .business)
+            //            Singleton.setHomeScreenView()
         }
     }
     

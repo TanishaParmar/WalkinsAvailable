@@ -76,7 +76,7 @@ class SignUpAsUserVC: UIViewController {
                     } else {
                         if let data = response.data {
                             UserDefaultsCustom.saveUserData(userData: data)
-                            Singleton.setHomeScreenView(userType: .user)
+                            Singleton.setHomeScreenView()
                         }
                     }
                 }
@@ -104,7 +104,7 @@ class SignUpAsUserVC: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
         }else {
             hitSignUpApi()
-//            Singleton.setHomeScreenView(userType: .user)
+//            Singleton.setHomeScreenView()
         }
     }
     

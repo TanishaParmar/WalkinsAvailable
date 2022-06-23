@@ -133,7 +133,7 @@ class LoginVC: UIViewController {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     if let data = response.data {
                         UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView(userType: .user)
+                        Singleton.setHomeScreenView()
                         UserDefaults.standard.set("user", forKey: "loginType")
                     }
                 }
@@ -155,7 +155,7 @@ class LoginVC: UIViewController {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     if let data = response.data {
                         UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView(userType: .user)
+                        Singleton.setHomeScreenView()
                         UserDefaults.standard.set("user", forKey: "loginType")
                     }
                 }
@@ -179,7 +179,7 @@ class LoginVC: UIViewController {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     if let data = response.data {
                         UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView(userType: .user)
+                        Singleton.setHomeScreenView()
                         UserDefaults.standard.set("user", forKey: "loginType")
                     }
                 }
@@ -211,7 +211,7 @@ class LoginVC: UIViewController {
                 if let response = DataDecoder.decodeData(data, type: UserModel.self) {
                     if let data = response.data {
                         UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView(userType: .user)
+                        Singleton.setHomeScreenView()
                         UserDefaults.standard.set("user", forKey: "loginType")
                     }
                 }
@@ -234,14 +234,14 @@ class LoginVC: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         }else {
             hitLogInApi()
-            //            Singleton.setHomeScreenView(userType: .user)
+            //            Singleton.setHomeScreenView()
         }
     }
     
     //MARK: Actions
     @IBAction func logInButtonAction(_ sender: Any) {
                 validate()
-//        Singleton.setHomeScreenView(userType: .user)
+//        Singleton.setHomeScreenView()
     }
     
     @IBAction func forgotPasswordButtonAction(_ sender: Any) {

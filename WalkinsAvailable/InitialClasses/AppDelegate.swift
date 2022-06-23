@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let token = ""
         if token.count > 0 {
-            Singleton.setHomeScreenView(userType: .user)
+            Singleton.setHomeScreenView()
         } else {
             Singleton.setLoginScreenView()
         }

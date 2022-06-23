@@ -35,13 +35,11 @@ class TabBarVC: ESTabBarController {
         return [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10)]
     }
     var currentController: UIViewController?
-    var userType : USER_TYPE = .business
+    var userType : USER_TYPE = .user
 
     
-    init(userType: USER_TYPE) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.userType = userType
-        print(userType)
     }
     
     required init?(coder: NSCoder) {
@@ -53,7 +51,7 @@ class TabBarVC: ESTabBarController {
         super.viewDidLoad()
         self.tabBar.frame.size.height = 40
         tabBar.frame.origin.y = view.frame.height - 40
-//        self.setTabController()
+        self.setTabController()
     }
     
     
@@ -65,7 +63,7 @@ class TabBarVC: ESTabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setTabController()
+//        self.setTabController()
         self.tabBar.isHidden = false
         self.delegate = self
     }
@@ -86,7 +84,35 @@ class TabBarVC: ESTabBarController {
 ////        addRedDotAtTabBarItemIndex(index: item.tag)
 //    }
     
+    
+    func updateProfileImage() {
+        print("*********************updateProfileImage***")
+        if let lastitem = self.tabBar.items?.last as? ESTabBarItem {
+            let photo = UserDefaultsCustom.getUserData()?.image
+            print("*********************photo*** \(photo)")
+            if lastitem.contentView?.imageView.restorationIdentifier != photo {
+                self.getImage(tabItem: lastitem)
+            }
+        }
+    }
+    
+    
+    
     func setTabController() {
+//        let userData = UserDefaultsCustom.getUserData()?.loginRole
+        
+        if  let type = UserDefaults.standard.string(forKey: "loginType") {
+            if type == "user" {
+                self.userType = .user
+            } else if type == "business" {
+                self.userType = .business
+            } else if type == "serviceProvider" {
+                self.userType = .serviceProvider
+            } else {
+                self.userType = .user
+            }
+        }
+        
         self.tabBar.backgroundColor = .white
         self.tabBar.addCornerBorderAndShadow(view: self.tabBar, cornerRadius: 0, shadowColor: .lightGray, borderColor: .clear, borderWidth: 0.0)
         
@@ -141,7 +167,6 @@ class TabBarVC: ESTabBarController {
             let v3 = ServiceArtistProfileVC()
             let v4 = ServiceShopVC()
             let v5 = AccountVC()
-            
             v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Event", image: UIImage(named: "eventTab"), selectedImage: UIImage(named: "t"))
             v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Chat", image:UIImage(named: "chat"), selectedImage: UIImage(named: "chatSelected"))
                 let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
@@ -157,7 +182,6 @@ class TabBarVC: ESTabBarController {
             self.selectedIndex = 2
             self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem)
         }
-        
         self.tabBar.items?.enumerated().forEach({ index, item in
             item.tag = index
         })

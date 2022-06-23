@@ -64,7 +64,7 @@ class SignUpServiceProvider: UIViewController {
         } else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         } else {
-            Singleton.setHomeScreenView(userType: .serviceProvider )
+            Singleton.setHomeScreenView()
             UserDefaults.standard.set("serviceProvider", forKey: "loginType")
         }
     }

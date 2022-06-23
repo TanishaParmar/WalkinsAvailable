@@ -113,6 +113,10 @@ class ServiceProviderEditProfile: UIViewController {
                     if let data = response.data {
                         UserDefaultsCustom.saveUserData(userData: data)
                         Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+                        if let tabBar = self.tabBarController as? TabBarVC {
+                            print("tab bar is \(tabBar)")
+                            tabBar.updateProfileImage()
+                        }
                         self.navigationController?.popViewController(animated: true)
                     }
                 }
