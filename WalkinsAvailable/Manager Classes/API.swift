@@ -26,10 +26,11 @@ class API {
         case dataKey = "pic"
     }
 
-
+    
     //MARK: LOGIN AND SOCIAL LOGIN CONSTANT API
     struct Name {
         static let login                         = "webservice/user/logIn.php"
+        static let loginV1                       = "webservice/user/logIn1.php"
         static let signUp                        = "webservice/user/userSignup.php"
         static let googleLogIn                   = "webservice/user/googleLogin.php"
         static let appleLogIn                    = "webservice/user/appleLogin.php"
@@ -39,6 +40,7 @@ class API {
         static let changePassword                = "webservice/user/changePassword.php"
         static let contactUs                     = "webservice/user/contactUs.php"
         static let editProfile                   = "webservice/user/editProfile.php"
+        static let categoriesList                = "webservice/user/categoriesList.php"
         static let businessBySearch              = "webservice/user/businessBySearch.php"
         static let businessSignUp                = "webservice/business/businessSignUp.php"
         static let editBusinessProfile           = "webservice/business/editBusinessProfile.php"

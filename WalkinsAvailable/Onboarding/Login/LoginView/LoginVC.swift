@@ -130,13 +130,16 @@ class LoginVC: UIViewController {
         ApiHandler.updateProfile(apiName: API.Name.googleLogIn, params: generatingGoogleLogInParameters(dict: dict)) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    if let data = response.data {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView()
-                        UserDefaults.standard.set("user", forKey: "loginType")
-                    }
-                }
+                UserDefaultsCustom.saveLogInData(data: data)
+                Singleton.setHomeScreenView()
+
+//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+//                    if let data = response.data {
+//                        UserDefaultsCustom.saveUserData(userData: data)
+//                        Singleton.setHomeScreenView()
+//                        UserDefaults.standard.set("user", forKey: "loginType")
+//                    }
+//                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)
@@ -152,13 +155,17 @@ class LoginVC: UIViewController {
         ApiHandler.updateProfile(apiName: API.Name.appleLogIn, params: params) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    if let data = response.data {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView()
-                        UserDefaults.standard.set("user", forKey: "loginType")
-                    }
-                }
+                UserDefaultsCustom.saveLogInData(data: data)
+                Singleton.setHomeScreenView()
+                
+                
+//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+//                    if let data = response.data {
+//                        UserDefaultsCustom.saveUserData(userData: data)
+//                        Singleton.setHomeScreenView()
+//                        UserDefaults.standard.set("user", forKey: "loginType")
+//                    }
+//                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)
@@ -176,13 +183,17 @@ class LoginVC: UIViewController {
         ApiHandler.updateProfile(apiName: API.Name.facebookLogIn, params: params) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    if let data = response.data {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView()
-                        UserDefaults.standard.set("user", forKey: "loginType")
-                    }
-                }
+                UserDefaultsCustom.saveLogInData(data: data)
+                Singleton.setHomeScreenView()
+
+                
+//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+//                    if let data = response.data {
+//                        UserDefaultsCustom.saveUserData(userData: data)
+//                        Singleton.setHomeScreenView()
+//                        UserDefaults.standard.set("user", forKey: "loginType")
+//                    }
+//                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)
@@ -205,16 +216,26 @@ class LoginVC: UIViewController {
     //MARK: Hit API
     func hitLogInApi() {
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        ApiHandler.updateProfile(apiName: API.Name.login, params: generatingParameters()) { succeeded, response, data in
+        ApiHandler.updateProfile(apiName: API.Name.loginV1, params: generatingParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    if let data = response.data {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.setHomeScreenView()
-                        UserDefaults.standard.set("user", forKey: "loginType")
-                    }
-                }
+                UserDefaultsCustom.saveLogInData(data: data)
+                Singleton.setHomeScreenView()
+//                if let logInRole = UserDefaultsCustom.getLogInRole() {
+//                    switch logInRole {
+//                    case "1" : break
+//                    case "2" : break
+//                    case "3" : break
+//                    default: break
+//                    }
+//                }
+//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+//                    if let data = response.data {
+//                        UserDefaultsCustom.saveUserData(userData: data)
+//                        Singleton.setHomeScreenView()
+//                        UserDefaults.standard.set("user", forKey: "loginType")
+//                    }
+//                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)
@@ -273,6 +294,7 @@ class LoginVC: UIViewController {
     
 }
 
+//MARK: text field delegates
 extension LoginVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         emailTextFieldView.layer.borderColor = textField == emailTextField ? #colorLiteral(red: 0.9816923738, green: 0.7313466668, blue: 0.7748305202, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -290,6 +312,7 @@ extension LoginVC: UITextFieldDelegate {
     }
 }
 
+//MARK: apple login delegates
 extension LoginVC: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error.localizedDescription)

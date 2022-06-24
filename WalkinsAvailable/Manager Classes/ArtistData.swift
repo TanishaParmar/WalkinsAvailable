@@ -11,11 +11,11 @@ import Foundation
 class ArtistDataResponseModel: Codable {
     var code, status: Int?
     var message: String?
-    var data: ArtistData?
+    var data: ArtistHomeData?
 
 }
 
-class ArtistData: Codable {
+class ArtistHomeData: Codable {
     var artistImages: [ArtistImage]?
     var artistDetails: UserData?
 }
@@ -32,11 +32,11 @@ class ArtistImage: Codable {
 class BusinessDataResponseModel: Codable {
     var code, status: Int?
     var message: String?
-    var data: BusinessData?
+    var data: BusinessHomeData?
 
 }
 // MARK: - DataClass
-class BusinessData: Codable {
+class BusinessHomeData: Codable {
     var businessDetails: UserData?
 //    var artistsList: [ArtistsList]?
     var inviteEventDetail: [InviteEventDetail]?

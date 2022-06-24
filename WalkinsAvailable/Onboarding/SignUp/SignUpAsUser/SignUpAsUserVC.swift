@@ -74,10 +74,10 @@ class SignUpAsUserVC: UIViewController {
                     if self.userId == "" {
                         self.navigationController?.popToRootViewController(animated: true)
                     } else {
-                        if let data = response.data {
-                            UserDefaultsCustom.saveUserData(userData: data)
-                            Singleton.setHomeScreenView()
-                        }
+//                        if let data = response.data {
+//                            UserDefaultsCustom.saveUserData(userData: data)
+//                            Singleton.setHomeScreenView()
+//                        }
                     }
                 }
             } else {

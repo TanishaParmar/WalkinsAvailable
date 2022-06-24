@@ -29,8 +29,9 @@ class AccountVC: UIViewController {
     var serviceProviderArr: [(Account_Type, String)] = [(.switchAccountAsUser,"profileUser"),(.switchAccountAsBussiness,"pf1"),(.setAvailability,"pf9"),(.requestInvitesForShops,"shop8"),(.aboutUs,"pf3"),(.contactUs,"pf4"),(.changePassword,"pf6"),(.logout,"pf7")]
     
     
-    var userType : USER_TYPE = .business
-    var data: UserData?
+    var userType : USER_TYPE = .user
+//    var data: UserData?
+    var data: UserModel?
     
     //MARK: VC Life Cycle
     override func viewDidLoad() {
@@ -43,6 +44,8 @@ class AccountVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
         getUserData()
     }
+    
+    
     //MARK: Methods
     func configureUI() {
         accounttableView.dataSource = self
@@ -68,22 +71,60 @@ class AccountVC: UIViewController {
     
     func getUserData() {
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        if let data = UserDefaultsCustom.getUserData() {
-            debugPrint("user data * \(data)")
+        if let data = UserDefaultsCustom.getUserModel() {
             self.data = data
-            self.userNameLabel.text = self.data?.name
-            self.userEmailLabel.text = self.data?.email
-            let imgUrl = self.data?.image
-            let placeHolder = UIImage(named: "placeHolder")
-            self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
+            switch userType {
+            case .user:
+                if let userData = UserDefaultsCustom.getUserData() {
+                    debugPrint("user data * \(data)")
+                    self.userNameLabel.text = userData.userName
+                    self.userEmailLabel.text = userData.email
+                    let imgUrl = userData.image
+                    let placeHolder = UIImage(named: "placeHolder")
+                    self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
+                }
+            case .business:
+                if let businessData = UserDefaultsCustom.getBusinessData() {
+                    debugPrint("user data * \(data)")
+                    self.userNameLabel.text = businessData.businessName
+                    self.userEmailLabel.text = businessData.email
+                    let imgUrl = businessData.image
+                    let placeHolder = UIImage(named: "placeHolder")
+                    self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
+                }
+            case .serviceProvider:
+                if let data = UserDefaultsCustom.getArtistData() {
+                    debugPrint("user data * \(data)")
+                    self.userNameLabel.text = data.ownerName
+                    self.userEmailLabel.text = data.email
+                    let imgUrl = data.image
+                    let placeHolder = UIImage(named: "placeHolder")
+                    self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
+                }
+//            case .none:
+//                break
+            }
         }
+        
+        
+//        if let data = UserDefaultsCustom.getUserData() {
+//            debugPrint("user data * \(data)")
+//            self.data = data
+//            self.userNameLabel.text = self.data?.userName
+//            self.userEmailLabel.text = self.data?.email
+//            let imgUrl = self.data?.image
+//            let placeHolder = UIImage(named: "placeHolder")
+//            self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
+//        }
         ActivityIndicator.sharedInstance.hideActivityIndicator()
     }
     
     
     func generatingBusinessHomeParameters() -> [String:Any] {
         var params : [String:Any] = [:]
-        params["businessId"] = self.data?.businessId
+        if let businessData = self.data?.businessData {
+            params["businessId"] = businessData.businessId
+        }
         debugPrint("params data ** \(params)")
         return params
     }
@@ -117,10 +158,11 @@ class AccountVC: UIViewController {
     
     func generatingUserHomeParameters() -> [String:Any] {
         var params : [String:Any] = [:]
-        params["businessTypeId"] = ""
+        if let businessID = UserDefaultsCustom.getBusinessData()?.businessTypeId {
+            params["businessTypeId"] = businessID
+        }
         params["search"] = "chamkaur"
-        params["userId"] = self.data?.userId
-        params["userToken"] = self.data?.userToken
+        params["userToken"] = UserDefaultsCustom.getUserToken
         debugPrint("params data ** \(params)")
         return params
     }
@@ -151,7 +193,9 @@ class AccountVC: UIViewController {
     
     func generatingArtistHomeParameters() -> [String:Any] {
         var params : [String:Any] = [:]
-        params["artistId"] = self.data?.artistId
+        if let artistData = self.data?.artistData {
+            params["artistId"] = artistData.artistId
+        }
         debugPrint("params data ** \(params)")
         return params
     }
@@ -178,6 +222,17 @@ class AccountVC: UIViewController {
             }
         }
     }
+    
+    func saveUserData() {
+        switch userType {
+        case .user:
+            UserDefaultsCustom.saveUserLogin(loginType: "1")
+        case .business:
+            UserDefaultsCustom.saveUserLogin(loginType: "2")
+        case .serviceProvider:
+            UserDefaultsCustom.saveUserLogin(loginType: "3")
+        }
+    }
 
     
     func generatingLogOutParameters() -> [String:Any] {
@@ -189,6 +244,8 @@ class AccountVC: UIViewController {
             params["loginRole"] = 2
         case .serviceProvider:
             params["loginRole"] = 3
+//        case .none:
+//            break
         }
         
         debugPrint("params data ** \(params)")
@@ -201,6 +258,7 @@ class AccountVC: UIViewController {
         ApiHandler.updateProfile(apiName: API.Name.logOut, params: generatingLogOutParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
+                self.saveUserData()
                 if let msg = response["message"] as? String {
 //                    Singleton.shared.showErrorMessage(error: msg, isError: .success)
                     Singleton.shared.logoutFromDevice()
@@ -220,17 +278,17 @@ class AccountVC: UIViewController {
         switch userType {
         case .user:
             let userEditVC = EditProfileVC()
-            userEditVC.data = self.data
+            userEditVC.data = self.data?.userData
             self.navigationController?.pushViewController(userEditVC, animated: true)
             break
         case .business:
             let businessEditVC = BusinessEditProfile()
-            businessEditVC.data = self.data
+            businessEditVC.data = self.data?.businessData
             self.navigationController?.pushViewController(businessEditVC, animated: true)
             break
         case .serviceProvider:
             let artistEditVC = ServiceProviderEditProfile()
-            artistEditVC.data = self.data
+            artistEditVC.data = self.data?.artistData
             self.navigationController?.pushViewController(artistEditVC, animated: true)
             break
         default :
@@ -263,59 +321,59 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
             cell.switchIcon.isHidden = true
         }
         
-        switch userType{
+        switch userType {
         case .user:
             cell.titleLabel.text = userListArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: userListArr[indexPath.row].1)
-            if indexPath.row == 0{
+            if indexPath.row == 0 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0, green: 0.8551515937, blue: 0.6841568947, alpha: 1)
-                if self.data?.businessId == "0" {
-                    cell.switchIcon.isOn = false
-                } else {
+                if let businessData = UserDefaultsCustom.getBusinessData(), businessData.businessId != "0"  {
                     cell.switchIcon.isOn = true
+                } else {
+                    cell.switchIcon.isOn = false
                 }
-            }else if indexPath.row == 1{
+            } else if indexPath.row == 1 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
-                if self.data?.artistId == "0" {
-                    cell.switchIcon.isOn = false
-                } else {
+                if let artistData = UserDefaultsCustom.getArtistData(), artistData.artistId != "0"  {
                     cell.switchIcon.isOn = true
+                } else {
+                    cell.switchIcon.isOn = false
                 }
             }
         case .business:
             cell.titleLabel.text = businessListArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: businessListArr[indexPath.row].1)
-            if indexPath.row == 0{
+            if indexPath.row == 0 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.2428347766, green: 0.9325304627, blue: 0.4965850115, alpha: 1)
-                if self.data?.userId == "0" {
-                    cell.switchIcon.isOn = false
-                } else {
+                if let userData = UserDefaultsCustom.getUserData(), userData.userId != "0"  {
                     cell.switchIcon.isOn = true
+                } else {
+                    cell.switchIcon.isOn = false
                 }
-            }else if indexPath.row == 1{
+            } else if indexPath.row == 1 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
-                if self.data?.artistId == "0" {
-                    cell.switchIcon.isOn = false
-                } else {
+                if let artistData = UserDefaultsCustom.getArtistData(), artistData.artistId != "0"  {
                     cell.switchIcon.isOn = true
+                } else {
+                    cell.switchIcon.isOn = false
                 }
             }
         case .serviceProvider:
             cell.titleLabel.text = serviceProviderArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: serviceProviderArr[indexPath.row].1)
-            if indexPath.row == 0{
+            if indexPath.row == 0 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.2428347766, green: 0.9325304627, blue: 0.4965850115, alpha: 1)
-                if self.data?.userId == "0" {
-                    cell.switchIcon.isOn = false
-                } else {
+                if let userData = UserDefaultsCustom.getUserData(), userData.userId != "0"  {
                     cell.switchIcon.isOn = true
+                } else {
+                    cell.switchIcon.isOn = false
                 }
-            }else if indexPath.row == 1{
+            } else if indexPath.row == 1 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
-                if self.data?.businessId == "0" {
-                    cell.switchIcon.isOn = false
-                } else {
+                if let businessData = UserDefaultsCustom.getBusinessData(), businessData.businessId != "0"  {
                     cell.switchIcon.isOn = true
+                } else {
+                    cell.switchIcon.isOn = false
                 }
             }
             
@@ -355,179 +413,173 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 return 60
             }
             break
-        default:
-            break
+//        default:
+//            break
         }
         return 60
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch userType {
-        case .user:
-            if indexPath.row == 0 {
-                if let businessId = self.data?.businessId, businessId != "0" {
-                    print("its work", businessId)
-                    hitBusinessHomeApi()
-                } else {
-                    let viewcontroller = SignUpBusinessProfile()
-                    viewcontroller.userId = self.data?.userId ?? ""
-                    self.push(viewController: viewcontroller)
-                }
-            }else if indexPath.row == 1 {
-                if let artistId = self.data?.artistId, artistId != "0" {
-                    print("its work", artistId)
-                    hitArtistHomeApi()
-                } else {
-                    let controller = SignUpServiceVC()
-                    controller.userId = self.data?.userId ?? ""
-                    self.push(viewController: controller)
-                }
-
-            }else  if indexPath.row == 2 {
-                let controller = SetAvailbilityVC()
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-            else if indexPath.row == 4{
-                let controller = AboutUsVC()
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-            else if indexPath.row == 5 {
-                let contactVC = ContactUsVC()
-                contactVC.data = self.data
-                self.navigationController?.pushViewController(contactVC, animated: true)
-            } else if indexPath.row == 6 {
-                let viewcontroller = ComplaintsVC()
-                viewcontroller.userType = self.userType
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
-            } else if indexPath.row == 7 {
-                let viewcontroller = ChangePasswordVC()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
-            } else if indexPath.row == 8{
-                self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
-                    self.hitLogOutApi()
+        if let userId = UserDefaultsCustom.getUserData()?.userId {
+            switch userType {
+            case .user:
+                if indexPath.row == 0 {
+                    if let businessData = UserDefaultsCustom.getBusinessData(), businessData.businessId != "0"  {
+                        //                    print("its work", businessId)
+//                        hitBusinessHomeApi()
+                        UserDefaultsCustom.saveUserLogin(loginType: "2")
+                        Singleton.setHomeScreenView()
+                    } else {
+                        let viewcontroller = SignUpBusinessProfile()
+                        viewcontroller.userId = UserDefaultsCustom.getUserData()?.userId ?? ""
+                        self.push(viewController: viewcontroller)
+                    }
+                } else if indexPath.row == 1 {
+                    if let artistData = UserDefaultsCustom.getArtistData(), artistData.artistId != "0"  {
+                        //                    print("its work", artistId)
+//                        hitArtistHomeApi()
+                        UserDefaultsCustom.saveUserLogin(loginType: "3")
+                        Singleton.setHomeScreenView()
+                    } else {
+                        let controller = SignUpServiceVC()
+                        controller.userId = UserDefaultsCustom.getUserData()?.userId ?? ""
+                        self.push(viewController: controller)
+                    }
                     
-//                    let controller = UINavigationController(rootViewController: LoginVC())
-//                    Singleton.window?.rootViewController = controller
-//                    Singleton.window?.makeKeyAndVisible()
+                } else  if indexPath.row == 2 {
+                    let controller = SetAvailbilityVC()
+                    self.navigationController?.pushViewController(controller, animated: true)
+                } else if indexPath.row == 4{
+                    let controller = AboutUsVC()
+                    self.navigationController?.pushViewController(controller, animated: true)
+                } else if indexPath.row == 5 {
+                    let contactVC = ContactUsVC()
+                    contactVC.data = self.data
+                    self.navigationController?.pushViewController(contactVC, animated: true)
+                } else if indexPath.row == 6 {
+                    let viewcontroller = ComplaintsVC()
+                    viewcontroller.userType = self.userType
+                    self.navigationController?.pushViewController(viewcontroller, animated: true)
+                } else if indexPath.row == 7 {
+                    let viewcontroller = ChangePasswordVC()
+                    self.navigationController?.pushViewController(viewcontroller, animated: true)
+                } else if indexPath.row == 8{
+                    self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
+                        self.hitLogOutApi()
+                    },{
+                        cancel in
+                        self.dismiss(animated: false, completion: nil)
+                    }])
+                }
+                break
+            case .business:
+                if indexPath.row == 0{
+                    if let userData = UserDefaultsCustom.getUserData(), userData.userId != "0"  {
+                        //                    print("its work", userId)
+//                        hitUserHomeApi()
+                        UserDefaultsCustom.saveUserLogin(loginType: "1")
+                        Singleton.setHomeScreenView()
+                    } else {
+                        let controller = SignUpAsUserVC()
+                        self.push(viewController: controller)
+                    }
+                }else if indexPath.row == 1 {
+                    if let artistData = UserDefaultsCustom.getArtistData(), artistData.artistId != "0"  {
+                        //                    print("its work", artistId)
+//                        hitArtistHomeApi()
+                        UserDefaultsCustom.saveUserLogin(loginType: "3")
+                        Singleton.setHomeScreenView()
+                    } else {
+                        let controller = SignUpServiceVC()
+                        controller.userId = UserDefaultsCustom.getUserData()?.userId ?? ""
+                        self.push(viewController: controller)
+                    }
+                }else  if indexPath.row == 2 {
+                    let controller = SetAvailbilityVC()
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+                else if indexPath.row == 4{
+                    let controller = AboutUsVC()
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+                else if indexPath.row == 5 {
+                    let viewcontroller = ContactUsVC()
+                    self.navigationController?.pushViewController(viewcontroller, animated: true)
+                } else if indexPath.row == 6 {
+                    let viewcontroller = ComplaintsVC()
+                    self.navigationController?.pushViewController(viewcontroller, animated: true)
+                } else if indexPath.row == 7 {
+                    let viewcontroller = ChangePasswordVC()
+                    self.navigationController?.pushViewController(viewcontroller, animated: true)
+                }
+                else if indexPath.row == 8{
+                    self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
+                        self.hitLogOutApi()
+                    },{
+                        cancel in
+                        self.dismiss(animated: false, completion: nil)
+                    }])
+                }
+                break
+            case .serviceProvider:
+                if indexPath.row == 0{
+                    if let userData = UserDefaultsCustom.getUserData(), userData.userId != "0"  {
+                        //                    print("its work", userId)
+//                        hitUserHomeApi()
+                        UserDefaultsCustom.saveUserLogin(loginType: "1")
+                        Singleton.setHomeScreenView()
+                    } else {
+                        let controller = SignUpAsUserVC()
+                        self.push(viewController: controller)
+                    }
+                }else if indexPath.row == 1 {
+                    if let businessData = UserDefaultsCustom.getBusinessData(), businessData.businessId != "0"  {
+                        //                    print("its work", businessId)
+//                        hitBusinessHomeApi()
+                        UserDefaultsCustom.saveUserLogin(loginType: "2")
+                        Singleton.setHomeScreenView()
+                    } else {
+                        let viewcontroller = SignUpBusinessProfile()
+                        viewcontroller.userId = UserDefaultsCustom.getUserData()?.userId ?? ""
+                        self.push(viewController: viewcontroller)
+                    }
                     
-                },{
-                    cancel in
-                    self.dismiss(animated: false, completion: nil)
-                }])
-            }
-            break
-        case .business:
-            if indexPath.row == 0{
-                if let userId = self.data?.userId, userId != "0" {
-                    print("its work", userId)
-                    hitUserHomeApi()
-                } else {
-                    let controller = SignUpServiceVC()
-                    self.push(viewController: controller)
+                }else  if indexPath.row == 2 {
+                    let controller = SetAvailbilityVC()
+                    self.navigationController?.pushViewController(controller, animated: true)
                 }
-            }else if indexPath.row == 1 {
-//                let controller = SignUpServiceProvider()
-//                self.push(viewController: controller)
-                if let artistId = self.data?.artistId, artistId != "0" {
-                    print("its work", artistId)
-                    hitArtistHomeApi()
-                } else {
-                    let controller = SignUpServiceVC()
-                    controller.userId = self.data?.userId ?? ""
-                    self.push(viewController: controller)
+                else if indexPath.row == 3{
+                    let controller = InviteFromShopVC()
+                    self.navigationController?.pushViewController(controller, animated: true)
                 }
-            }else  if indexPath.row == 2 {
-                let controller = SetAvailbilityVC()
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-            else if indexPath.row == 4{
-                let controller = AboutUsVC()
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-            else if indexPath.row == 5 {
-                let viewcontroller = ContactUsVC()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
-            } else if indexPath.row == 6 {
-                let viewcontroller = ComplaintsVC()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
-            } else if indexPath.row == 7 {
-                let viewcontroller = ChangePasswordVC()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
-            }
-            else if indexPath.row == 8{
-                self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
-                    self.hitLogOutApi()
-                    
-//                    let controller = UINavigationController(rootViewController: LoginVC())
-//
-//                    Singleton.window?.rootViewController = controller
-//                    Singleton.window?.makeKeyAndVisible()
-
-                },{
-                    cancel in
-                    self.dismiss(animated: false, completion: nil)
-                }])
-            }
-            break
-        case .serviceProvider:
-            if indexPath.row == 0{
-                if let userId = self.data?.userId, userId != "0" {
-                    print("its work", userId)
-                    hitUserHomeApi()
-                } else {
-                    let controller = SignUpServiceVC()
-                    self.push(viewController: controller)
+                else if indexPath.row == 4{
+                    let controller = AboutUsVC()
+                    self.navigationController?.pushViewController(controller, animated: true)
                 }
-//                let viewcontroller = SignUpAsUserVC()
-//                self.navigationController?.pushViewController(viewcontroller, animated: true)
-            }else if indexPath.row == 1 {
-//                let controller = SignUpBusinessProfile()
-//                self.push(viewController: controller)
-                if let businessId = self.data?.businessId, businessId != "0" {
-                    print("its work", businessId)
-                    hitBusinessHomeApi()
-                } else {
-                    let viewcontroller = SignUpBusinessProfile()
-                    viewcontroller.userId = self.data?.userId ?? ""
-                    self.push(viewController: viewcontroller)
+                else if indexPath.row == 5 {
+                    let viewcontroller = ContactUsVC()
+                    self.navigationController?.pushViewController(viewcontroller, animated: true)
+                } else if indexPath.row == 6 {
+                    let viewcontroller = ChangePasswordVC()
+                    self.navigationController?.pushViewController(viewcontroller, animated: true)
+                } else if indexPath.row == 7{
+                    self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
+                        self.hitLogOutApi()
+                        
+                        //                    let controller = UINavigationController(rootViewController: LoginVC())
+                        //
+                        //                    Singleton.window?.rootViewController = controller
+                        //                    Singleton.window?.makeKeyAndVisible()
+                    },{
+                        cancel in
+                        self.dismiss(animated: false, completion: nil)
+                    }])
                 }
-
-            }else  if indexPath.row == 2 {
-                let controller = SetAvailbilityVC()
-                self.navigationController?.pushViewController(controller, animated: true)
+                break
+            default:
+                break
             }
-            else if indexPath.row == 3{
-                let controller = InviteFromShopVC()
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-            else if indexPath.row == 4{
-                let controller = AboutUsVC()
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-            else if indexPath.row == 5 {
-                let viewcontroller = ContactUsVC()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
-            } else if indexPath.row == 6 {
-                let viewcontroller = ChangePasswordVC()
-                self.navigationController?.pushViewController(viewcontroller, animated: true)
-            } else if indexPath.row == 7{
-                self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
-                    self.hitLogOutApi()
-                    
-//                    let controller = UINavigationController(rootViewController: LoginVC())
-//
-//                    Singleton.window?.rootViewController = controller
-//                    Singleton.window?.makeKeyAndVisible()
-                },{
-                    cancel in
-                    self.dismiss(animated: false, completion: nil)
-                }])
-            }
-            break
-        default:
-            break
         }
-        
     }
     
     

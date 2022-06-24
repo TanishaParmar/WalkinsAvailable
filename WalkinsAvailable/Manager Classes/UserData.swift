@@ -57,49 +57,68 @@ class ImageModel: NSObject {
 
 
 
+//class UserModel: Codable {
+//    var code: Int?
+//    var status: Int?
+//    var message: String?
+//    var data: UserData?
+//}
+//
+//class UserData: Codable {
+//
+//    var userId, tokenId, userToken, latitude: String?
+//    var longitude, deviceType, deviceToken, loginTime: String?
+//    var businessId, artistId, name, email: String?
+//    var password, image, googleToken, facebookToken: String?
+//    var instaToken, appleToken, type, emailVerified: String?
+//    var verificationCode, created, updatedAt, isDisable: String?
+//    var address, typeId, description, loginRole : String?
+//}
+
+
+
+
+
+
+// MARK: - UserModel
 class UserModel: Codable {
-    var code: Int?
-    var status: Int?
-    var message: String?
-    var data: UserData?
+    var code, status: Int?
+    var loginRole, userToken, email, message: String?
+//    var message: String?
+    var userData: UserData?
+    var businessData: BusinessData?
+    var artistData: ArtistData?
 }
 
+
+// MARK: - ArtistData
+class ArtistData: Codable {
+    var userId, artistId, businessId, ownerName, email: String?
+    var artistDescription: String?
+    var image: String?
+    var available, logInTime, emailVerified, created, updatedAt: String?
+}
+
+// MARK: - BusinessData
+class BusinessData: Codable {
+    var userId, businessId, artistId, businessName, email: String?
+    var businessTypeId: String?
+    var image: String?
+    var businessAddress, businessDescription, latitude, longitude: String?
+    var logInTime, emailVerified, verificationCode, created: String?
+    var updatedAt, disable: String?
+}
+
+
+// MARK: - UserData
 class UserData: Codable {
-    
     var userId, tokenId, userToken, latitude: String?
     var longitude, deviceType, deviceToken, loginTime: String?
-    var businessId, artistId, name, email: String?
-    var password, image, googleToken, facebookToken: String?
-    var instaToken, appleToken, type, emailVerified: String?
-    var verificationCode, created, updatedAt, isDisable: String?
-    var address, typeId, description, loginRole : String?
-
-//    var businessAddress, businessTypeId, businessDescription: String? // 
-
-//      enum CodingKeys: String, CodingKey {
-//          case userID = "userId"
-//          case tokenID = "tokenId"
-//          case userToken, latitude, longitude, deviceType, deviceToken, loginTime
-//          case businessID = "businessId"
-//          case artistID = "artistId"
-//          case userName, email, password, image, googleToken, facebookToken, instaToken, appleToken, type, emailVerified, verificationCode, created, updatedAt, isDisable
-//      }
-
-    
-    
-//    var userID, businessID, artistID, userName: String?
-//    var email, password, image, googleToken: String?
-//    var facebookToken, instaToken, appleToken, type: String?
-//    var emailVerified, verificationCode, created, updatedAt: String?
-//    var isDisable: String?
-//
-//    var auth_token:String?
-//    var device_type:String?
-//    var device_token:String?
-//    var facebook_id:String?
-//    var twitter_id:String?
-//    var google_id:String?
-//    var status:String?
+    var businessId, artistId, userName, email: String?
+    var password: String?
+    var image: String?
+    var googleToken, facebookToken, instaToken, appleToken: String?
+    var loginRole, type, emailVerified, verificationCode: String?
+    var created, updatedAt, isDisable: String?
 }
-
 

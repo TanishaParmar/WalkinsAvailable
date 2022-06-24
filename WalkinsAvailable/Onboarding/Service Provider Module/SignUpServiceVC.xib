@@ -28,6 +28,7 @@
                 <outlet property="editProfileImgVw" destination="BNR-lY-9e2" id="c76-wD-0SI"/>
                 <outlet property="emailTF" destination="ZQN-HK-DiD" id="bhI-7c-4Ls"/>
                 <outlet property="emailView" destination="hVA-fG-nTC" id="PBT-BT-7b2"/>
+                <outlet property="passwordSuperView" destination="D29-Xh-cEr" id="bD5-RM-Iaz"/>
                 <outlet property="passwordTF" destination="4do-7v-uGr" id="D58-D6-4q8"/>
                 <outlet property="passwordView" destination="lae-Yd-v5K" id="4r8-Ad-3Tc"/>
                 <outlet property="saveBtn" destination="ut9-jg-v2e" id="BrJ-FD-Lqw"/>

@@ -239,7 +239,7 @@ class HttpManager: HTTPURLResponse {
         request.timeoutInterval = 60
         request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
        
-        if  let accessToken = UserDefaultsCustom.getUserData()?.userToken, accessToken.count > 0 {
+        if  let accessToken = UserDefaultsCustom.getUserToken(), accessToken.count > 0 {
             request.setValue(accessToken, forHTTPHeaderField: "Token")
             print("accessToken** \(accessToken)")
         }

@@ -9,10 +9,11 @@
 import UIKit
 import Kingfisher
 
-enum USER_TYPE {
-    case user
-    case business
-    case serviceProvider
+enum USER_TYPE: String {
+    case user = "1"
+    case business = "2"
+    case serviceProvider = "3"
+//    case none = ""
 }
 
 enum Account_Type: String {
@@ -25,7 +26,7 @@ enum Account_Type: String {
     case contactUs = "Contact Us"
     case complaints = "Complaints"
     case changePassword = "Change Password"
-    case logout = "logout"
+    case logout = "Logout"
 }
 
 
@@ -64,7 +65,7 @@ class TabBarVC: ESTabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        self.setTabController()
-        self.tabBar.isHidden = false
+//        self.tabBar.isHidden = false
         self.delegate = self
     }
     
@@ -85,13 +86,13 @@ class TabBarVC: ESTabBarController {
 //    }
     
     
-    func updateProfileImage() {
+    func updateProfileImage(img: String) {
         print("*********************updateProfileImage***")
         if let lastitem = self.tabBar.items?.last as? ESTabBarItem {
             let photo = UserDefaultsCustom.getUserData()?.image
             print("*********************photo*** \(photo)")
             if lastitem.contentView?.imageView.restorationIdentifier != photo {
-                self.getImage(tabItem: lastitem)
+                self.getImage(tabItem: lastitem, imageString: "")
             }
         }
     }
@@ -99,20 +100,11 @@ class TabBarVC: ESTabBarController {
     
     
     func setTabController() {
-//        let userData = UserDefaultsCustom.getUserData()?.loginRole
-        
-        if  let type = UserDefaults.standard.string(forKey: "loginType") {
-            if type == "user" {
-                self.userType = .user
-            } else if type == "business" {
-                self.userType = .business
-            } else if type == "serviceProvider" {
-                self.userType = .serviceProvider
-            } else {
-                self.userType = .user
-            }
+        if let userId = UserDefaultsCustom.getUserData()?.userId {
+            self.userType = UserDefaultsCustom.getLoginRole(key: userId)
         }
-        
+//        self.userType = UserDefaultsCustom.getLogInRole()
+        print("user type is ****** \(self.userType)")
         self.tabBar.backgroundColor = .white
         self.tabBar.addCornerBorderAndShadow(view: self.tabBar, cornerRadius: 0, shadowColor: .lightGray, borderColor: .clear, borderWidth: 0.0)
         
@@ -138,7 +130,8 @@ class TabBarVC: ESTabBarController {
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             self.selectedIndex = 2
-            self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem)
+            let profileImg = UserDefaultsCustom.getUserData()?.image
+            self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem, imageString: profileImg)
         case .business:
             let v1 = EventVC()
             let v2 = BusinessFavouriteVC()
@@ -160,7 +153,8 @@ class TabBarVC: ESTabBarController {
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             self.selectedIndex = 2
-            self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem)
+            let profileImg = UserDefaultsCustom.getBusinessData()?.image
+            self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem, imageString: profileImg)
         case .serviceProvider:
             let v1 = ServiceEventVC()
             let v2 = ChatListVC()
@@ -180,15 +174,18 @@ class TabBarVC: ESTabBarController {
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             self.selectedIndex = 2
-            self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem)
+            let profileImg = UserDefaultsCustom.getArtistData()?.image
+            self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem, imageString: profileImg)
+//        case .none:
+//            break
         }
         self.tabBar.items?.enumerated().forEach({ index, item in
             item.tag = index
         })
     }
     
-    func getImage(tabItem: ESTabBarItem) {
-        let urlString = UserDefaultsCustom.getUserData()?.image
+    func getImage(tabItem: ESTabBarItem, imageString: String?) {
+        let urlString = imageString      // UserDefaultsCustom.getUserData()?.image
         if let urlst = urlString?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: urlst) {
             UIImageView().kf.setImage(with: url, placeholder: nil, options: nil) { result in

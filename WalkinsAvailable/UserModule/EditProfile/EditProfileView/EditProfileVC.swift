@@ -52,7 +52,7 @@ class EditProfileVC: UIViewController {
     
     func setData() {
         if let data = data {
-            self.userNameTextField.text = data.name
+            self.userNameTextField.text = data.userName
             self.emailTextField.text = data.email
             let placeHolder = UIImage(named: "placeHolder")
             self.profileImageView.setImage(url: data.image, placeHolder: placeHolder)
@@ -106,19 +106,23 @@ class EditProfileVC: UIViewController {
             debugPrint("response data ** \(response)")
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    if let data = response.data {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
-                        if let tabBar = self.tabBarController as? TabBarVC {
-                            print("tab bar is \(tabBar)")
-                            tabBar.updateProfileImage()
-                        }
-                        self.navigationController?.popViewController(animated: true)
-                        
-                        
-                    }
-                }
+                UserDefaultsCustom.saveLogInData(data: data)
+                Singleton.setHomeScreenView()
+
+                
+//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+////                    if let data = response.data {
+////                        UserDefaultsCustom.saveUserData(userData: data)
+////                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+////                        if let tabBar = self.tabBarController as? TabBarVC {
+////                            print("tab bar is \(tabBar)")
+////                            tabBar.updateProfileImage()
+////                        }
+////                        self.navigationController?.popViewController(animated: true)
+////
+////
+////                    }
+//                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)

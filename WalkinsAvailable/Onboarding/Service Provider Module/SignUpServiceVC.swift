@@ -17,6 +17,7 @@ class SignUpServiceVC: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var artistView: UIView!
+    @IBOutlet weak var passwordSuperView: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
     
@@ -37,6 +38,9 @@ class SignUpServiceVC: UIViewController {
         emailTF.delegate = self
         passwordTF.delegate = self
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        if userId != "" {
+            self.passwordSuperView.isHidden = true
+        }
         userNameImgView.addCornerRadius(view: userNameImgView, cornerRadius: userNameImgView.bounds.height / 2)
         artistView.addCornerBorderAndShadow(view: artistView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         emailView.addCornerBorderAndShadow(view: emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -67,11 +71,15 @@ class SignUpServiceVC: UIViewController {
                     if self.userId == "" {
                         self.navigationController?.popToRootViewController(animated: true)
                     } else {
-                        if let data = response.data {
-                            UserDefaultsCustom.saveUserData(userData: data)
-                            Singleton.setHomeScreenView()
-                            UserDefaults.standard.set("serviceProvider", forKey: "loginType")
-                        }
+                        UserDefaultsCustom.saveUserLogin(loginType: "3")
+                        UserDefaultsCustom.saveLogInData(data: data)
+                        Singleton.setHomeScreenView()
+
+//                        if let data = response.data {
+//                            UserDefaultsCustom.saveUserData(userData: data)
+//                            Singleton.setHomeScreenView()
+//                            UserDefaults.standard.set("serviceProvider", forKey: "loginType")
+//                        }
                     }
                 }
             } else {
@@ -87,14 +95,16 @@ class SignUpServiceVC: UIViewController {
     func validate() {
         if ValidationManager.shared.isEmpty(text: artistNameTF.text) == true {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterArtistName, isError: .error)
-        }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
+        } else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
-        }else if emailTF.text!.isValidEmail == false {
+        } else if emailTF.text!.isValidEmail == false {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
-        }else if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
-            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         } else if self.pickerData == nil {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
+        } else if userId == "" && ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
+//            if ValidationManager.shared.isEmpty(text: passwordTF.text) == true {
+                Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
+//            }
         } else {
             hitArtistSignUpApi()
 //            Singleton.setHomeScreenView()

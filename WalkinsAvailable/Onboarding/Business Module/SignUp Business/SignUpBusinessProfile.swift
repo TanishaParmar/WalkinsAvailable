@@ -22,6 +22,7 @@ class SignUpBusinessProfile: UIViewController {
     @IBOutlet weak var dropDownBtn: UIButton!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordSuperView: UIView!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordTf: UITextField!
     @IBOutlet weak var addressView: UIView!
@@ -52,6 +53,9 @@ class SignUpBusinessProfile: UIViewController {
         self.addressTF.delegate = self
         self.descriptionTextView.delegate = self
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        if userId != "" {
+            self.passwordSuperView.isHidden = true
+        }
         profileImageView.addCornerRadius(view: profileImageView, cornerRadius: profileImageView.frame.size.height / 2)
         businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         businessTypeView.addCornerBorderAndShadow(view: businessTypeView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -89,11 +93,14 @@ class SignUpBusinessProfile: UIViewController {
                     if self.userId == "" {
                         self.navigationController?.popToRootViewController(animated: true)
                     } else {
-                        if let data = response.data {
-                            UserDefaultsCustom.saveUserData(userData: data)
-                            Singleton.setHomeScreenView()
-                            UserDefaults.standard.set("business", forKey: "loginType")
-                        }
+                        UserDefaultsCustom.saveUserLogin(loginType: "2")
+                        UserDefaultsCustom.saveLogInData(data: data)
+                        Singleton.setHomeScreenView()
+//                        if let data = response.data {
+//                            UserDefaultsCustom.saveUserData(userData: data)
+//                            Singleton.setHomeScreenView()
+//                            UserDefaults.standard.set("business", forKey: "loginType")
+//                        }
                     }
                 }
             } else {
@@ -121,14 +128,16 @@ class SignUpBusinessProfile: UIViewController {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
         }else if emailTF.text!.isValidEmail == false {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
-        }else if ValidationManager.shared.isEmpty(text: passwordTf.text) == true {
-            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: addressTF.text) == true{
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterAddress, isError: .error)
         }else if ValidationManager.shared.isEmpty(text: descriptionTextView.text) == true{
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDescription, isError: .error)
         }else if self.pickerData == nil {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
+        }else if userId == "" && ValidationManager.shared.isEmpty(text: passwordTf.text) == true {
+//            if ValidationManager.shared.isEmpty(text: passwordTf.text) == true {
+                Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
+//            }
         }else {
             hitBusinessSignUpApi()
             //            Singleton.setHomeScreenView()
@@ -153,37 +162,39 @@ class SignUpBusinessProfile: UIViewController {
         self.validate()
     }
     
-    
-    
-    
 }
 
 
 //    MARK: TEXTFIELD DELEGATES
 extension SignUpBusinessProfile: UITextFieldDelegate {
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        businessTypeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        passwordView.layer.borderColor = textField == passwordTf ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//    }
-    
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.becomeFirstResponder()
         businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         businessTypeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         passwordView.layer.borderColor = textField == passwordTf ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        switch textField {
-        case businessTypeTF:
+        if textField == self.businessTypeTF {
+            self.businessTypeTF.resignFirstResponder()
             self.actionType()
-            return false
-        default:
-            return true
         }
     }
+    
+    
+//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//        businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        businessTypeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        passwordView.layer.borderColor = textField == passwordTf ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        switch textField {
+//        case businessTypeTF:
+//            self.actionType()
+//            return false
+//        default:
+//            return true
+//        }
+//    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         businessView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)

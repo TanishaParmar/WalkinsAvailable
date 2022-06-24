@@ -35,6 +35,7 @@
                 <outlet property="dropDownBtn" destination="Oll-gN-HXL" id="SVI-V0-nvk"/>
                 <outlet property="emailTF" destination="OXh-Xi-x5K" id="zZ8-Ql-fga"/>
                 <outlet property="emailView" destination="L2O-3X-Mzx" id="kVG-Dn-D6g"/>
+                <outlet property="passwordSuperView" destination="7a6-ps-QEn" id="aeF-XD-FO5"/>
                 <outlet property="passwordTf" destination="GZw-Mr-CAQ" id="6Wy-zL-1Fm"/>
                 <outlet property="passwordView" destination="cDL-Vt-k62" id="wK2-pX-N1h"/>
                 <outlet property="profileImageView" destination="BAl-kh-RJz" id="jje-NB-N8u"/>
@@ -178,7 +179,7 @@
                                                                     <color key="tintColor" red="0.98162025210000003" green="0.73529273269999995" blue="0.77881622309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                             <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

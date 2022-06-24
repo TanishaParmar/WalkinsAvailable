@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         sleep(2)
+        
+//        getCategoryListData()
         self.configureKeboard()
         LocationManager.shared.getLocation()
         // Override point for customization after application launch.
@@ -39,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             Singleton.setLoginScreenView()
         }
+        
+        
         
         FBSDKCoreKit.ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 
@@ -104,7 +108,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
 
 
-    
+    func getCategoryListData() {
+        ApiHandler.updateProfile(apiName: API.Name.categoriesList, params: [:]) { succeeded, response, data in
+            debugPrint("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                Singleton.shared.showErrorMessage(error: "success", isError: .success)
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
 
     
     func appFonts() {

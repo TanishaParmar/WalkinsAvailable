@@ -24,7 +24,7 @@ class ServiceProviderEditProfile: UIViewController {
     
     var imagePicker: ImagePicker!
     var pickerData: PickerData?
-    var data: UserData?
+    var data: ArtistData?
 
     
     override func viewDidLoad() {
@@ -51,9 +51,9 @@ class ServiceProviderEditProfile: UIViewController {
     
     func setUIData() {
         if let data = data {
-            self.artistNameTF.text = data.name
+            self.artistNameTF.text = data.ownerName
             self.emailTF.text = data.email
-            self.descriptionTextView.text = data.description
+            self.descriptionTextView.text = data.artistDescription
             let placeHolder = UIImage(named: "placeHolder")
             self.profilrImgView.setImage(url: data.image, placeHolder: placeHolder)
             self.setPickerData(image: self.profilrImgView.image)
@@ -109,17 +109,21 @@ class ServiceProviderEditProfile: UIViewController {
             print("response data ** \(response)")
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    if let data = response.data {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
-                        if let tabBar = self.tabBarController as? TabBarVC {
-                            print("tab bar is \(tabBar)")
-                            tabBar.updateProfileImage()
-                        }
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                }
+                UserDefaultsCustom.saveLogInData(data: data)
+                Singleton.setHomeScreenView()
+
+                
+//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+////                    if let data = response.data {
+////                        UserDefaultsCustom.saveUserData(userData: data)
+////                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+////                        if let tabBar = self.tabBarController as? TabBarVC {
+////                            print("tab bar is \(tabBar)")
+////                            tabBar.updateProfileImage()
+////                        }
+////                        self.navigationController?.popViewController(animated: true)
+////                    }
+//                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)

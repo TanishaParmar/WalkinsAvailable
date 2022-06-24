@@ -20,7 +20,7 @@ class ContactUsVC: UIViewController {
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     
-    var data: UserData?
+    var data: UserModel?
     
     //MARK: VC Life Cycle
     override func viewDidLoad() {
@@ -45,10 +45,22 @@ class ContactUsVC: UIViewController {
     }
     
     func setUIData() {
-        if let data = data {
-            self.nameTextField.text = data.name
-            self.emailTextField.text = data.email
-        }
+//        if let data = data {
+//            let logInRole = UserDefaultsCustom.getLoginRole(key: <#T##String#>)
+//            switch logInRole {
+//            case .user:
+//                self.nameTextField.text = data.userData?.userName
+//                self.emailTextField.text = data.userData?.email
+//            case .business:
+//                self.nameTextField.text = data.businessData?.businessName
+//                self.emailTextField.text = data.businessData?.email
+//            case .serviceProvider:
+//                self.nameTextField.text = data.artistData?.ownerName
+//                self.emailTextField.text = data.artistData?.email
+////            case .none:
+////                break
+//            }
+//        }
         self.nameTextField.isUserInteractionEnabled = false
         self.emailTextField.isUserInteractionEnabled = false
     }

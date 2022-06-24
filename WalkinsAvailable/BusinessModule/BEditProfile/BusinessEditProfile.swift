@@ -34,7 +34,7 @@ class BusinessEditProfile: UIViewController {
     @IBOutlet weak var headerNameLbl: UILabel!
     
     
-    var data: UserData?
+    var data: BusinessData?
     var imagePicker: ImagePicker!
     var pickerData: PickerData?
     var businessTypeIndex: Int = -1
@@ -106,16 +106,16 @@ class BusinessEditProfile: UIViewController {
     
     func setUIData() {
         if let data = data {
-            self.businessTF.text = data.name
-//            self.businessTypeTF.text = data.typeId
-            if let typeId: Int = Int(data.typeId ?? "") {
+            self.businessTF.text = data.businessName
+            //            self.businessTypeTF.text = data.typeId
+            if let typeId: Int = Int(UserDefaultsCustom.getBusinessData()?.businessTypeId ?? "") {
                 businessTypeTF.text = values[typeId]
                 businessTypeIndex = typeId
             }
             self.emailTF.text = data.email
-            self.passwordTF.text = data.password
-            self.addressTF.text = data.address
-            self.descriptionTF.text = data.description
+            //            self.passwordTF.text = data.password
+            self.addressTF.text = data.businessAddress
+            self.descriptionTF.text = data.businessDescription
             let placeHolder = UIImage(named: "placeHolder")
             self.userImgView.setImage(url: data.image, placeHolder: placeHolder)
             self.setPickerData(image: self.userImgView.image)
@@ -148,22 +148,29 @@ class BusinessEditProfile: UIViewController {
             print("response data ** \(response)")
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-                    if let data = response.data {
-                        UserDefaultsCustom.saveUserData(userData: data)
-                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
-                        if let tabBar = self.tabBarController as? TabBarVC {
-                            print("tab bar is \(tabBar)")
-                            tabBar.updateProfileImage()
-                        }
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                }
+                UserDefaultsCustom.saveLogInData(data: data)
+                Singleton.setHomeScreenView()
+
+//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
+//                    UserDefaultsCustom.saveLogInData(data: data)
+//                    Singleton.setHomeScreenView()
+//
+////                    if let data = response.data {
+////                        UserDefaultsCustom.saveUserData(userData: data)
+////                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
+////                        if let tabBar = self.tabBarController as? TabBarVC {
+////                            print("tab bar is \(tabBar)")
+////                            tabBar.updateProfileImage()
+////                        }
+////                        self.navigationController?.popViewController(animated: true)
+////                    }
+//                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)
                 }
             }
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
         }
     }
     

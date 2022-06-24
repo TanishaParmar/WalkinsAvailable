@@ -97,7 +97,6 @@ class ApiHandler {
         print("api name is *** \(apiName) **** \(params)")
         if IJReachability.isConnectedToNetwork() == true {
             HttpManager.uploadingMultipleTask(apiName, params: params, profilePhoto: profilePhoto) { (isSucceeded, response, data) in
-               
                 DispatchQueue.main.async {
                     print(response)
                     if(isSucceeded){

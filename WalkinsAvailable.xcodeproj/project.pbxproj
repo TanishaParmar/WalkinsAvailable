@@ -207,6 +207,7 @@
 		1F79106328097E2400102EA6 /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F79106128097E2400102EA6 /* ChangePasswordVC.xib */; };
 		1F79106828098A5700102EA6 /* ComplaintsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79106628098A5700102EA6 /* ComplaintsVC.swift */; };
 		1F79106928098A5700102EA6 /* ComplaintsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F79106728098A5700102EA6 /* ComplaintsVC.xib */; };
+		1F7C71D02865F9C0006633D4 /* SocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C71CF2865F9C0006633D4 /* SocialLogin.swift */; };
 		1F8F6543285708870036593D /* LogInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6542285708870036593D /* LogInModel.swift */; };
 		1F8F6552285712A20036593D /* UserDefaultsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6545285712A20036593D /* UserDefaultsCustom.swift */; };
 		1F8F6553285712A20036593D /* Socketton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6546285712A20036593D /* Socketton.swift */; };
@@ -430,6 +431,7 @@
 		1F79106128097E2400102EA6 /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
 		1F79106628098A5700102EA6 /* ComplaintsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintsVC.swift; sourceTree = "<group>"; };
 		1F79106728098A5700102EA6 /* ComplaintsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplaintsVC.xib; sourceTree = "<group>"; };
+		1F7C71CF2865F9C0006633D4 /* SocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin.swift; sourceTree = "<group>"; };
 		1F8F6542285708870036593D /* LogInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModel.swift; sourceTree = "<group>"; };
 		1F8F6545285712A20036593D /* UserDefaultsCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsCustom.swift; sourceTree = "<group>"; };
 		1F8F6546285712A20036593D /* Socketton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socketton.swift; sourceTree = "<group>"; };
@@ -1255,6 +1257,7 @@
 		1F39249F27F84AAD000F08F5 /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				1F7C71CE2865F9B0006633D4 /* SocialLogin */,
 				1F18D67D2862EF2400C1922A /* CustomPickerController */,
 				1F18D67A2862EF2400C1922A /* DatePicker */,
 				18697666281A698A00F208BD /* SGMapView */,
@@ -1595,6 +1598,14 @@
 				1F79106728098A5700102EA6 /* ComplaintsVC.xib */,
 			);
 			path = ComplaintsView;
+			sourceTree = "<group>";
+		};
+		1F7C71CE2865F9B0006633D4 /* SocialLogin */ = {
+			isa = PBXGroup;
+			children = (
+				1F7C71CF2865F9C0006633D4 /* SocialLogin.swift */,
+			);
+			path = SocialLogin;
 			sourceTree = "<group>";
 		};
 		1F8F6541285708740036593D /* Model */ = {
@@ -1965,6 +1976,7 @@
 				1F39248A27F84894000F08F5 /* SceneDelegate.swift in Sources */,
 				18E379CB2823E4310029C01A /* GalleryImagesCollectionView.swift in Sources */,
 				18697672281A69A700F208BD /* FBBoundingBox.swift in Sources */,
+				1F7C71D02865F9C0006633D4 /* SocialLogin.swift in Sources */,
 				18E6983228252F4100644838 /* EventHomeCollectionListcell.swift in Sources */,
 				18EFEAAB28213F25009ADBB4 /* BusinessNotificationVC.swift in Sources */,
 				1F3924AC27F85F44000F08F5 /* SignUpAsVC.swift in Sources */,
@@ -2145,9 +2157,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2158,6 +2170,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2182,9 +2195,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2195,6 +2208,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
