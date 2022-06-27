@@ -219,7 +219,7 @@
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="apple"/>
                                                                     <connections>
-                                                                        <action selector="appleLoginButtonAction:" destination="-1" eventType="touchUpInside" id="U8K-8K-uAz"/>
+                                                                        <action selector="appleLogIn:" destination="-1" eventType="touchUpInside" id="d9C-Xc-8qT"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -241,7 +241,7 @@
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="mail"/>
                                                                     <connections>
-                                                                        <action selector="emailLogInButtonAction:" destination="-1" eventType="touchUpInside" id="gIK-7c-jwd"/>
+                                                                        <action selector="googleLogin:" destination="-1" eventType="touchUpInside" id="iZA-Xg-PPG"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -263,7 +263,7 @@
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                     <state key="normal" image="fb"/>
                                                                     <connections>
-                                                                        <action selector="facebookLogInButtonAction:" destination="-1" eventType="touchUpInside" id="tqo-XC-mXd"/>
+                                                                        <action selector="facebookLogin:" destination="-1" eventType="touchUpInside" id="lgY-6L-f8z"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>

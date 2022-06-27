@@ -432,6 +432,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     } else {
                         let viewcontroller = SignUpBusinessProfile()
                         viewcontroller.userId = UserDefaultsCustom.getUserData()?.userId ?? ""
+                        viewcontroller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: viewcontroller)
                     }
                 } else if indexPath.row == 1 {
@@ -443,6 +444,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     } else {
                         let controller = SignUpServiceVC()
                         controller.userId = UserDefaultsCustom.getUserData()?.userId ?? ""
+                        controller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: controller)
                     }
                     
@@ -481,6 +483,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                         Singleton.setHomeScreenView()
                     } else {
                         let controller = SignUpAsUserVC()
+                        controller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: controller)
                     }
                 }else if indexPath.row == 1 {
@@ -492,6 +495,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     } else {
                         let controller = SignUpServiceVC()
                         controller.userId = UserDefaultsCustom.getUserData()?.userId ?? ""
+                        controller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: controller)
                     }
                 }else  if indexPath.row == 2 {
@@ -530,6 +534,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                         Singleton.setHomeScreenView()
                     } else {
                         let controller = SignUpAsUserVC()
+                        controller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: controller)
                     }
                 }else if indexPath.row == 1 {
@@ -541,6 +546,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     } else {
                         let viewcontroller = SignUpBusinessProfile()
                         viewcontroller.userId = UserDefaultsCustom.getUserData()?.userId ?? ""
+                        viewcontroller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: viewcontroller)
                     }
                     

@@ -7,7 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-class SignUpBusinessProfile: UIViewController {
+class SignUpBusinessProfile: SocialLoginVC {
     
     var isNAv:Bool?
     //    MARK: OUTLETS
@@ -33,15 +33,22 @@ class SignUpBusinessProfile: UIViewController {
     var pickerData: PickerData?
     var imagePicker: ImagePicker!
     var userId: String = ""
+    var emailId: String = ""
     var businessTypeIndex: Int = -1
-    let values = ["auto","data","meta","carry"]
+//    let values = ["auto","data","meta","carry"]
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.type = .business
         uiUpdate()
         self.tabBarController?.tabBar.isHidden = true
     }
+    
+//    override func observeSuccessGoogleLogin() {
+//        self.businessTF.text = 
+//    }
+    
     
     //    MARK: STORYBOARD_UPDATE
     
@@ -55,6 +62,8 @@ class SignUpBusinessProfile: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         if userId != "" {
             self.passwordSuperView.isHidden = true
+            self.emailTF.text = emailId
+            self.emailTF.isUserInteractionEnabled = false
         }
         profileImageView.addCornerRadius(view: profileImageView, cornerRadius: profileImageView.frame.size.height / 2)
         businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -113,7 +122,11 @@ class SignUpBusinessProfile: UIViewController {
     
     func actionType() {
         let picker = CustomPickerController()
-        picker.selectedIndex = businessTypeIndex
+//        picker.selectedIndex = businessTypeIndex
+        var values = [String]()
+        Singleton.shared.categoryList?.forEach({ categoryList in
+            values.append(categoryList.title ?? "")
+        })
         picker.set(values, delegate: self, tag: 0)
         self.present(picker, animated: false, completion: nil)
     }
@@ -243,7 +256,7 @@ extension SignUpBusinessProfile: CustomPickerControllerDelegate {
         print("values are ***** \(value) *** \(index) *** \(tag)  ****** \(image)")
         if tag == 0 {
             businessTypeTF.text = value
-            businessTypeIndex = index
+            businessTypeIndex = Int(Singleton.shared.categoryList?[index].businessTypeId ?? "") ?? 0
         }
         picker.dismiss(animated: true, completion: nil)
     }

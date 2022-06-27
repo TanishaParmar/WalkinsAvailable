@@ -14,6 +14,18 @@ enum USER_TYPE: String {
     case business = "2"
     case serviceProvider = "3"
 //    case none = ""
+    
+    var role: String {
+        switch self {
+        case .user:
+            return "1"
+        case .business:
+            return "2"
+        case .serviceProvider:
+            return "3"
+        }
+    }
+    
 }
 
 enum Account_Type: String {

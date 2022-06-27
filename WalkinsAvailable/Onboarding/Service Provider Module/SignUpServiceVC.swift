@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpServiceVC: UIViewController {
+class SignUpServiceVC: SocialLoginVC {
 
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var userNameImgView: UIImageView!
@@ -25,10 +25,12 @@ class SignUpServiceVC: UIViewController {
     var pickerData: PickerData?
     var imagePicker: ImagePicker!
     var userId: String = ""
+    var emailId: String = ""
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.type = .serviceProvider
         configureUI()
     }
     
@@ -40,6 +42,8 @@ class SignUpServiceVC: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         if userId != "" {
             self.passwordSuperView.isHidden = true
+            self.emailTF.text = emailId
+            self.emailTF.isUserInteractionEnabled = false
         }
         userNameImgView.addCornerRadius(view: userNameImgView, cornerRadius: userNameImgView.bounds.height / 2)
         artistView.addCornerBorderAndShadow(view: artistView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)

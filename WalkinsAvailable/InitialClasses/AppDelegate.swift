@@ -15,6 +15,7 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+//    var categoryList: [CategoryList]?
     
     private func configureKeboard() {
         IQKeyboardManager.shared.enable = true
@@ -26,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         sleep(2)
         
-//        getCategoryListData()
+        getCategoryListData()
         self.configureKeboard()
         LocationManager.shared.getLocation()
         // Override point for customization after application launch.
@@ -79,6 +80,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
+    
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Convert token to string
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print("device token string", deviceTokenString)
+//        Globals.defaults.set(deviceTokenString, forKey: DefaultKeys.deviceToken)
+    }
+    
 
     
 //    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
@@ -110,13 +120,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func getCategoryListData() {
         ApiHandler.updateProfile(apiName: API.Name.categoriesList, params: [:]) { succeeded, response, data in
-            debugPrint("response data ** \(response)")
+            print("response data ** \(response)")
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
-                Singleton.shared.showErrorMessage(error: "success", isError: .success)
+                if let response = DataDecoder.decodeData(data, type: CategoryListModel.self) {
+                    if let data = response.data {
+                        Singleton.shared.categoryList = data
+                    }
+                }
+//                Singleton.shared.showErrorMessage(error: "success", isError: .success)
             } else {
                 if let msg = response["message"] as? String {
-                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+//                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
                 }
             }
         }

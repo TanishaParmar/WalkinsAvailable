@@ -99,7 +99,7 @@ class ApiHandler {
             HttpManager.uploadingMultipleTask(apiName, params: params, profilePhoto: profilePhoto) { (isSucceeded, response, data) in
                 DispatchQueue.main.async {
                     print(response)
-                    if(isSucceeded){
+                    if(isSucceeded) {
                         if let status = response["status"] as? Int {
                             switch(status) {
                             case 1:

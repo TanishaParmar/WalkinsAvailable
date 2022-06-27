@@ -10,9 +10,9 @@ import GoogleSignIn
 import FBSDKCoreKit
 import FacebookLogin
 import AuthenticationServices
-import MapKit
 
-class LoginVC: UIViewController {
+
+class LoginVC: SocialLoginVC {
     
     //MARK: Outlets
     @IBOutlet weak var emailTextFieldView: UIView!
@@ -27,6 +27,11 @@ class LoginVC: UIViewController {
     @IBOutlet weak var instaButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
+    
+    
+    override func observeSuccessGoogleLogin() {
+//        Singleton.setHomeScreenView()
+    }
     
     
     
@@ -44,10 +49,10 @@ class LoginVC: UIViewController {
         self.emailTextFieldView.addCornerBorderAndShadow(view: self.emailTextFieldView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.passwordTextFieldView.addCornerBorderAndShadow(view: self.passwordTextFieldView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.logInButton.addCornerRadius(view: self.logInButton, cornerRadius: 5.0)
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        addObserver()
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        addObserver()
     }
-    
+    /*
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: .signInGoogleCompleted, object: nil)
     }
@@ -200,7 +205,7 @@ class LoginVC: UIViewController {
                 }
             }
         }
-    }
+    }*/
     
     
     func generatingParameters() -> [String:Any] {
@@ -216,7 +221,7 @@ class LoginVC: UIViewController {
     //MARK: Hit API
     func hitLogInApi() {
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        ApiHandler.updateProfile(apiName: API.Name.loginV1, params: generatingParameters()) { succeeded, response, data in
+        ApiHandler.updateProfile(apiName: API.Name.login, params: generatingParameters()) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 UserDefaultsCustom.saveLogInData(data: data)
@@ -277,15 +282,15 @@ class LoginVC: UIViewController {
     
     
     @IBAction func appleLoginButtonAction(_ sender: Any) {
-        actionAppleSignin()
+//        actionAppleSignin()
     }
     
     @IBAction func emailLogInButtonAction(_ sender: Any) {
-        GIDSignIn.sharedInstance()?.signIn()
+//        GIDSignIn.sharedInstance()?.signIn()
     }
     
     @IBAction func facebookLogInButtonAction(_ sender: Any) {
-        facebookLogIN()
+//        facebookLogIN()
     }
     
     @IBAction func instaLogInButtonAction(_ sender: Any) {
@@ -311,7 +316,7 @@ extension LoginVC: UITextFieldDelegate {
         return true
     }
 }
-
+/*
 //MARK: apple login delegates
 extension LoginVC: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
@@ -339,3 +344,4 @@ extension LoginVC: ASAuthorizationControllerPresentationContextProviding {
         return self.view.window!
     }
 }
+*/

@@ -145,7 +145,7 @@ DEPENDENCIES:
   - FacebookShare
   - Firebase/Analytics
   - Firebase/Crashlytics
-  - GoogleSignIn (~> 5.0)
+  - GoogleSignIn
   - GrowingTextView
   - IQKeyboardManagerSwift
   - Kingfisher
@@ -206,6 +206,6 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 5df1a0217136e80060aad19620d1f50de80e458d
+PODFILE CHECKSUM: 85a6c5414a8e4d105b29db54c61c3f5594e4e94f
 
 COCOAPODS: 1.11.2

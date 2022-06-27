@@ -25,6 +25,7 @@
                 <outlet property="logInWithFacebookButton" destination="6Ja-Qr-qJG" id="qp3-Xg-Vf9"/>
                 <outlet property="logInWithInstaButton" destination="Bs4-mR-RGN" id="fMM-i6-oC0"/>
                 <outlet property="logInWithMailButton" destination="puX-uS-7Es" id="7pO-X1-jDW"/>
+                <outlet property="passwordSuperView" destination="mYj-xv-HpF" id="1jG-RI-AEu"/>
                 <outlet property="passwordTextField" destination="W0t-2a-gFu" id="LRc-Wi-Br5"/>
                 <outlet property="passwordView" destination="ha2-Pg-8tk" id="J4X-Ci-qqn"/>
                 <outlet property="profileImageView" destination="bkN-uc-uB4" id="7Ks-Qg-Sme"/>
@@ -313,8 +314,8 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </stackView>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGP-BG-jaN">
-                                            <rect key="frame" x="0.0" y="650" width="414" height="0.0"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGP-BG-jaN">
+                                            <rect key="frame" x="0.0" y="650" width="414" height="130"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgb-xB-6En">
                                                     <rect key="frame" x="161" y="8" width="92" height="30"/>
@@ -338,9 +339,9 @@
                                                                         <constraint firstAttribute="width" secondItem="puX-uS-7Es" secondAttribute="height" id="qYQ-8z-vjQ"/>
                                                                     </constraints>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                    <state key="normal" image="mail"/>
+                                                                    <state key="normal" image="apple"/>
                                                                     <connections>
-                                                                        <action selector="logInWithEmailButtonAction:" destination="-1" eventType="touchUpInside" id="ZXw-92-fvA"/>
+                                                                        <action selector="appleLogIn:" destination="-1" eventType="touchUpInside" id="Zy2-CU-c87"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -360,9 +361,9 @@
                                                                         <constraint firstAttribute="height" constant="50" id="NRd-XB-wwz"/>
                                                                     </constraints>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                    <state key="normal" image="fb"/>
+                                                                    <state key="normal" image="mail"/>
                                                                     <connections>
-                                                                        <action selector="logInWithFacebookButtonAction:" destination="-1" eventType="touchUpInside" id="OyY-tn-Ywl"/>
+                                                                        <action selector="googleLogin:" destination="-1" eventType="touchUpInside" id="Euo-7n-67W"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -382,9 +383,9 @@
                                                                         <constraint firstAttribute="width" secondItem="Bs4-mR-RGN" secondAttribute="height" id="Tqq-1J-DvX"/>
                                                                     </constraints>
                                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                    <state key="normal" image="insta"/>
+                                                                    <state key="normal" image="fb"/>
                                                                     <connections>
-                                                                        <action selector="logInWithInstaButtonAction:" destination="-1" eventType="touchUpInside" id="Tg4-lN-sIq"/>
+                                                                        <action selector="facebookLogin:" destination="-1" eventType="touchUpInside" id="ngW-ar-Cmo"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -403,7 +404,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" id="52l-tH-Wci"/>
+                                                <constraint firstAttribute="height" constant="130" id="52l-tH-Wci"/>
                                                 <constraint firstAttribute="bottom" secondItem="F5z-jP-iX3" secondAttribute="bottom" constant="10" id="5jv-Al-f3L"/>
                                                 <constraint firstItem="F5z-jP-iX3" firstAttribute="top" secondItem="xgb-xB-6En" secondAttribute="bottom" constant="12" id="7n7-2P-IP2"/>
                                                 <constraint firstItem="xgb-xB-6En" firstAttribute="centerX" secondItem="lGP-BG-jaN" secondAttribute="centerX" id="bsI-E4-ahh"/>
@@ -473,11 +474,11 @@
         </view>
     </objects>
     <resources>
+        <image name="apple" width="101" height="102"/>
         <image name="back" width="25" height="41"/>
         <image name="camera" width="99" height="100"/>
         <image name="email" width="51" height="39"/>
         <image name="fb" width="170" height="169"/>
-        <image name="insta" width="170" height="168"/>
         <image name="lock" width="52" height="52"/>
         <image name="mail" width="170" height="169"/>
         <image name="placeHolder" width="271" height="273"/>

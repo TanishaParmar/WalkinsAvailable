@@ -9,7 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-class SignUpAsUserVC: UIViewController {
+class SignUpAsUserVC: SocialLoginVC {
 
     
     
@@ -17,6 +17,7 @@ class SignUpAsUserVC: UIViewController {
     @IBOutlet weak var userNameView: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var passwordSuperView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -31,12 +32,14 @@ class SignUpAsUserVC: UIViewController {
     var pickerData: PickerData?
     var imagePicker: ImagePicker!
     var userId: String = ""
+    var emailId: String = ""
     
     
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        self.type = .user
         self.tabBarController?.tabBar.isHidden = true
 
     }
@@ -46,12 +49,21 @@ class SignUpAsUserVC: UIViewController {
         userNameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        setUI()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.userNameView.addCornerBorderAndShadow(view: self.userNameView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.emailView.addCornerBorderAndShadow(view: self.emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.passwordView.addCornerBorderAndShadow(view: self.passwordView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.logInButton.addCornerRadius(view: self.logInButton, cornerRadius: 5.0)
         self.profileImageView.addCornerRadius(view: self.profileImageView, cornerRadius: self.profileImageView.bounds.height / 2)
+    }
+    
+    func setUI() {
+        if userId != "" {
+            self.passwordSuperView.isHidden = true
+            self.emailTextField.text = emailId
+            self.emailTextField.isUserInteractionEnabled = false
+        }
     }
     
     func generatingParameters() -> [String:Any] {

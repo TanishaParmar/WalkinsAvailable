@@ -135,6 +135,8 @@
 		18EFEABB282150C4009ADBB4 /* AvailbilityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFEAB9282150C4009ADBB4 /* AvailbilityListCell.swift */; };
 		18EFEABC282150C4009ADBB4 /* AvailbilityListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EFEABA282150C4009ADBB4 /* AvailbilityListCell.xib */; };
 		1F112BDD2861D00D0008FE19 /* ArtistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F112BDC2861D00D0008FE19 /* ArtistData.swift */; };
+		1F133041286991CB000688A6 /* GoogleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F133040286991CB000688A6 /* GoogleManager.swift */; };
+		1F1330442869D1FC000688A6 /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1330432869D1FC000688A6 /* CategoryListModel.swift */; };
 		1F18D6802862EF2400C1922A /* CustomDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F18D67B2862EF2400C1922A /* CustomDatePicker.xib */; };
 		1F18D6812862EF2400C1922A /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D67C2862EF2400C1922A /* CustomDatePicker.swift */; };
 		1F18D6822862EF2400C1922A /* CustomPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D67E2862EF2400C1922A /* CustomPickerController.swift */; };
@@ -356,6 +358,8 @@
 		18EFEAB9282150C4009ADBB4 /* AvailbilityListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailbilityListCell.swift; sourceTree = "<group>"; };
 		18EFEABA282150C4009ADBB4 /* AvailbilityListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvailbilityListCell.xib; sourceTree = "<group>"; };
 		1F112BDC2861D00D0008FE19 /* ArtistData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistData.swift; sourceTree = "<group>"; };
+		1F133040286991CB000688A6 /* GoogleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleManager.swift; sourceTree = "<group>"; };
+		1F1330432869D1FC000688A6 /* CategoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
 		1F18D67B2862EF2400C1922A /* CustomDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePicker.xib; sourceTree = "<group>"; };
 		1F18D67C2862EF2400C1922A /* CustomDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		1F18D67E2862EF2400C1922A /* CustomPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerController.swift; sourceTree = "<group>"; };
@@ -1088,6 +1092,14 @@
 			path = AvailbilityView;
 			sourceTree = "<group>";
 		};
+		1F1330422869D1E8000688A6 /* CategoryListModel */ = {
+			isa = PBXGroup;
+			children = (
+				1F1330432869D1FC000688A6 /* CategoryListModel.swift */,
+			);
+			path = CategoryListModel;
+			sourceTree = "<group>";
+		};
 		1F18D67A2862EF2400C1922A /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1403,6 +1415,7 @@
 		1F422EDF27FC208C00877618 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				1F1330422869D1E8000688A6 /* CategoryListModel */,
 				1F422EE027FC209B00877618 /* HomeVC.swift */,
 				1F422EE127FC209B00877618 /* HomeVC.xib */,
 			);
@@ -1631,6 +1644,7 @@
 				1F8F655E28571CDD0036593D /* ImagePicker.swift */,
 				1F8F6560285729BA0036593D /* PushModel.swift */,
 				1F112BDC2861D00D0008FE19 /* ArtistData.swift */,
+				1F133040286991CB000688A6 /* GoogleManager.swift */,
 			);
 			path = "Manager Classes";
 			sourceTree = "<group>";
@@ -1936,6 +1950,7 @@
 				189FB2C628192BAF00C1EC42 /* ValidationBase.swift in Sources */,
 				1F18D6822862EF2400C1922A /* CustomPickerController.swift in Sources */,
 				1F422F1927FC4F8E00877618 /* ESTabBarItemBadgeView.swift in Sources */,
+				1F133041286991CB000688A6 /* GoogleManager.swift in Sources */,
 				1F3344ED27FAFF76000BB072 /* Constant.swift in Sources */,
 				1862D3D8282A81090013F492 /* SignUpServiceVC.swift in Sources */,
 				18E379AB2823D42C0029C01A /* InviteFromShopVC.swift in Sources */,
@@ -1994,6 +2009,7 @@
 				18697677281A69B100F208BD /* SGMapView.swift in Sources */,
 				1F422F0F27FC4F8E00877618 /* ExampleAnimateTipsContentView.swift in Sources */,
 				189FB2C828192C6E00C1EC42 /* HelperMethod.swift in Sources */,
+				1F1330442869D1FC000688A6 /* CategoryListModel.swift in Sources */,
 				1F422EF927FC346300877618 /* HomeListCVC.swift in Sources */,
 				1F3924A627F8575D000F08F5 /* LoginVC.swift in Sources */,
 				185148A3282401FF00CB41A7 /* BusinessHomeHeaderView.swift in Sources */,

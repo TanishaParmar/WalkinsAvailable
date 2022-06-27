@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: ws)
         Singleton.window = self.window
-        let data = UserDefaultsCustom.getUserData()
-        if let token = data?.userToken, token.count > 0 {
+        let userToken = UserDefaultsCustom.getUserToken()
+        if let token = userToken, token.count > 0 {
             Singleton.setHomeScreenView()
         } else {
             Singleton.setLoginScreenView()
