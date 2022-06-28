@@ -24,7 +24,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Singleton.window = self.window
         let userToken = UserDefaultsCustom.getUserToken()
         if let token = userToken, token.count > 0 {
-            Singleton.setHomeScreenView()
+            if let userId = UserDefaultsCustom.getUserData()?.userId {
+                let logInRole = UserDefaultsCustom.getLoginRole(key: userId)
+                switch logInRole {
+                case .user:
+                    if let userData = UserDefaultsCustom.getUserData() {
+                        if userData.email == "" || userData.email == nil {
+                            Singleton.setUserEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
+                case .business:
+                    if let businessdata = UserDefaultsCustom.getBusinessData() {
+                        if businessdata.businessTypeId == "0" {
+                            Singleton.setBusinessEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
+                case .serviceProvider:
+                    if let artistdata = UserDefaultsCustom.getArtistData() {
+                        if artistdata.email == "" || artistdata.email == nil {
+                            Singleton.setArtistEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
+                }
+                
+                
+            }
+            
+            //            else {
+            //                Singleton.setHomeScreenView()
+            //            }
         } else {
             Singleton.setLoginScreenView()
         }

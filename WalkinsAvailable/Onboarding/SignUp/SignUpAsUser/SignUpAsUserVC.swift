@@ -10,7 +10,6 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class SignUpAsUserVC: SocialLoginVC {
-
     
     
     //MARK: Outlets
@@ -26,6 +25,8 @@ class SignUpAsUserVC: SocialLoginVC {
     @IBOutlet weak var logInWithMailButton: UIButton!
     @IBOutlet weak var logInWithFacebookButton: UIButton!
     @IBOutlet weak var logInWithInstaButton: UIButton!
+    @IBOutlet weak var socialLogInView: UIView!
+    @IBOutlet weak var socialLogInViewHeight: NSLayoutConstraint!
     
     
     //MARK: Properties
@@ -63,11 +64,14 @@ class SignUpAsUserVC: SocialLoginVC {
             self.passwordSuperView.isHidden = true
             self.emailTextField.text = emailId
             self.emailTextField.isUserInteractionEnabled = false
+            socialLogInView.isHidden = true
+            socialLogInViewHeight.constant = 0
         }
     }
     
     func generatingParameters() -> [String:Any] {
         var params : [String:Any] = [:]
+        params["userId"] = UserDefaultsCustom.getUserData()?.userId
         params["userName"] = userNameTextField.text
         params["email"] = emailTextField.text
         params["password"] = passwordTextField.text
@@ -86,6 +90,10 @@ class SignUpAsUserVC: SocialLoginVC {
                     if self.userId == "" {
                         self.navigationController?.popToRootViewController(animated: true)
                     } else {
+                        UserDefaultsCustom.saveUserLogin(loginType: "1")
+                        UserDefaultsCustom.saveLogInData(data: data)
+                        Singleton.setHomeScreenView()
+
 //                        if let data = response.data {
 //                            UserDefaultsCustom.saveUserData(userData: data)
 //                            Singleton.setHomeScreenView()
@@ -108,7 +116,7 @@ class SignUpAsUserVC: SocialLoginVC {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
         }else if emailTextField.text!.isValidEmail == false {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.validEmail, isError: .error)
-        }else if ValidationManager.shared.isEmpty(text: passwordTextField.text) == true {
+        }else if userId == "" && ValidationManager.shared.isEmpty(text: passwordTextField.text) == true {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterPassword, isError: .error)
         }else if (self.profileImageView.image == nil) {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.chooseImage, isError: .error)
@@ -127,7 +135,9 @@ class SignUpAsUserVC: SocialLoginVC {
     }
     
     @IBAction func imagePickerButtonAction(_ sender: UIButton) {
+        if self.imagePicker.checkCameraAccess() {
         self.imagePicker.present(from: sender)
+        }
     }
     
     

@@ -15,21 +15,26 @@ class ServiceProviderEditProfile: UIViewController {
     @IBOutlet weak var editProfileImgVw: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var artistView: UIView!
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var artistNameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var headerViewHeight: NSLayoutConstraint!
     
     
     var imagePicker: ImagePicker!
     var pickerData: PickerData?
     var data: ArtistData?
+    var isFromSocialLogin: Bool = false
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         uiUpdate()
+        setUI()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,6 +52,30 @@ class ServiceProviderEditProfile: UIViewController {
         artistView.addCornerBorderAndShadow(view: artistView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         descriptionTextView.addCornerBorderAndShadow(view: descriptionTextView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         saveBtn.addCornerRadius(view: saveBtn, cornerRadius: 5)
+    }
+    
+    func setUI() {
+        if isFromSocialLogin {
+            editScreen(isEditable: true)
+            headerView.isHidden = true
+            headerViewHeight.constant = 0
+            if let data = UserDefaultsCustom.getArtistData() {
+                artistNameTF.text = data.ownerName
+                emailTF.text = data.email
+                let placeHolder = UIImage(named: "placeHolder")
+                self.profilrImgView.setImage(url: data.image, placeHolder: placeHolder)
+                self.setPickerData(image: self.profilrImgView.image)
+                if emailTF.text == "" {
+                    emailTF.isUserInteractionEnabled = true
+                } else {
+                    emailTF.isUserInteractionEnabled = false
+                }
+            }
+        } else {
+            headerView.isHidden = false
+            headerViewHeight.constant = 50
+            editScreen(isEditable: false)
+        }
     }
     
     func setUIData() {
@@ -162,7 +191,9 @@ class ServiceProviderEditProfile: UIViewController {
     }
     
     @IBAction func editProfileImgVw(_ sender: UIButton) {
+        if self.imagePicker.checkCameraAccess() {
         self.imagePicker.present(from: sender)
+        } 
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {

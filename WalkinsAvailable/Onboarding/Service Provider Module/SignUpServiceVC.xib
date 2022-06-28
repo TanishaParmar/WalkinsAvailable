@@ -32,6 +32,8 @@
                 <outlet property="passwordTF" destination="4do-7v-uGr" id="D58-D6-4q8"/>
                 <outlet property="passwordView" destination="lae-Yd-v5K" id="4r8-Ad-3Tc"/>
                 <outlet property="saveBtn" destination="ut9-jg-v2e" id="BrJ-FD-Lqw"/>
+                <outlet property="socialLogInView" destination="ASh-RH-RG5" id="MaE-R3-CSp"/>
+                <outlet property="socialLogInViewHeight" destination="shB-xO-eIH" id="ppi-fC-yTA"/>
                 <outlet property="userNameImgView" destination="v2r-vt-vqS" id="s4W-XC-y8L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -96,9 +98,10 @@
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="xod-wG-HHa">
-                                            <rect key="frame" x="239" y="127" width="28" height="28"/>
+                                            <rect key="frame" x="235" y="123" width="32" height="32"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="xod-wG-HHa" secondAttribute="height" multiplier="1:1" id="dlH-hg-p60"/>
+                                                <constraint firstAttribute="width" constant="32" id="GJK-Jc-d9C"/>
+                                                <constraint firstAttribute="width" secondItem="xod-wG-HHa" secondAttribute="height" multiplier="1:1" id="pjv-lh-aFD"/>
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNR-lY-9e2">
@@ -399,7 +402,6 @@
                                         <constraint firstItem="ut9-jg-v2e" firstAttribute="width" secondItem="HoS-oZ-pgs" secondAttribute="width" id="C95-14-ids"/>
                                         <constraint firstItem="HoS-oZ-pgs" firstAttribute="leading" secondItem="lVi-U9-ovH" secondAttribute="leading" constant="20" id="LfX-kX-w3z"/>
                                         <constraint firstAttribute="trailing" secondItem="ASh-RH-RG5" secondAttribute="trailing" id="MdQ-YC-nQ0"/>
-                                        <constraint firstItem="xod-wG-HHa" firstAttribute="height" secondItem="lVi-U9-ovH" secondAttribute="height" multiplier="0.04" id="OUB-7E-r9d"/>
                                         <constraint firstItem="ASh-RH-RG5" firstAttribute="leading" secondItem="lVi-U9-ovH" secondAttribute="leading" id="RwY-mN-ncE"/>
                                         <constraint firstItem="HoS-oZ-pgs" firstAttribute="top" secondItem="v2r-vt-vqS" secondAttribute="bottom" constant="26" id="VLL-zY-dJT"/>
                                         <constraint firstAttribute="trailing" secondItem="HoS-oZ-pgs" secondAttribute="trailing" constant="20" id="XXr-VK-9h3"/>

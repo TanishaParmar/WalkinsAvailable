@@ -104,7 +104,7 @@ class SocialLoginVC: UIViewController {
         case .serviceProvider:
             params = ["artistName":fullName ?? "","email":email ?? "","image":profilePicture,"googleToken":userId ?? "","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
         }
-        debugPrint("params ****** \(params)")
+        print("params ****** \(params)")
         self.hitGoogleLogInApi(dict: params)
     }
     
@@ -126,21 +126,37 @@ class SocialLoginVC: UIViewController {
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 UserDefaultsCustom.saveLogInData(data: data)
+                UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
+
+
                 switch self.type {
                 case .business:
                     if let data = UserDefaultsCustom.getBusinessData() {
-                        if data.businessTypeId?.count ?? 0 > {
-                            UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
-                            Singleton.setHomeScreenView()
-                            self.observeSuccessGoogleLogin()
+                        if data.businessTypeId == "0" {
+//                            self.setHomeView(window: Singleton.window)
+                            Singleton.setBusinessEditScreenView()
                         } else {
-                            
+                            Singleton.setHomeScreenView()
                         }
                     } else {
                         
                     }
-                default:
-                    
+                case .user:
+                    if let userData = UserDefaultsCustom.getUserData() {
+                        if userData.email == "" || userData.email == nil {
+                            Singleton.setUserEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
+                case .serviceProvider, .user:
+                    if let artistData = UserDefaultsCustom.getArtistData() {
+                        if artistData.email == "" || artistData.email == nil {
+                            Singleton.setArtistEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
                 }
             } else {
                 if let msg = response["message"] as? String {
@@ -153,7 +169,7 @@ class SocialLoginVC: UIViewController {
     
 //    func setHomeView(window: UIWindow? = Singleton.window) {
 //        let homeVC = BusinessEditProfile()
-//        Singleton.homeTabController = homeVC
+////        Singleton.homeTabController = homeVC
 //        window?.rootViewController = homeVC
 //        window?.makeKeyAndVisible()
 //        Singleton.window = window
@@ -166,7 +182,7 @@ class SocialLoginVC: UIViewController {
     func hitAppleLogInApi(with email: String, userName: String,appleToken: String, appleImage: String) {
         var params: [String:Any] = [:]
         var apiName: String = ""
-
+        
         switch type {
         case .user:
             apiName = API.Name.appleLogIn
@@ -182,25 +198,60 @@ class SocialLoginVC: UIViewController {
             debugPrint("params ****** \(params)")
         }
         
-        
-        
-        
-        
         ApiHandler.updateProfile(apiName: apiName, params: params) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 UserDefaultsCustom.saveLogInData(data: data)
                 UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
-                Singleton.setHomeScreenView()
+
+                switch self.type {
+                case .business:
+                    if let data = UserDefaultsCustom.getBusinessData() {
+                        if data.businessTypeId == "0" {
+//                            self.setHomeView(window: Singleton.window)
+                            Singleton.setBusinessEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
+                case .user:
+                    if let userData = UserDefaultsCustom.getUserData() {
+                        if userData.email == "" || userData.email == nil {
+                            Singleton.setUserEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
+                case .serviceProvider:
+                    if let artistData = UserDefaultsCustom.getArtistData() {
+                        if artistData.email == "" || artistData.email == nil {
+                            Singleton.setArtistEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
+                }
                 
-                
-//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-//                    if let data = response.data {
-//                        UserDefaultsCustom.saveUserData(userData: data)
-//                        Singleton.setHomeScreenView()
-//                        UserDefaults.standard.set("user", forKey: "loginType")
+//                switch self.type {
+//                case .business:
+//                    if let data = UserDefaultsCustom.getBusinessData() {
+//                        if data.businessTypeId == "0" {
+////                            self.setHomeView(window: Singleton.window)
+//                            Singleton.setBusinessEditScreenView()
+//                        } else {
+//                            UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
+//                            Singleton.setHomeScreenView()
+//                        }
+//                    } else {
+//
 //                    }
+//                case .user, .serviceProvider:
+//                    UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
+//                    Singleton.setHomeScreenView()
 //                }
+                
+//                UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
+//                Singleton.setHomeScreenView()
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)
@@ -237,16 +288,56 @@ class SocialLoginVC: UIViewController {
             if succeeded {
                 UserDefaultsCustom.saveLogInData(data: data)
                 UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
-                Singleton.setHomeScreenView()
 
+                switch self.type {
+                case .business:
+                    if let data = UserDefaultsCustom.getBusinessData() {
+                        if data.businessTypeId == "0" {
+//                            self.setHomeView(window: Singleton.window)
+                            Singleton.setBusinessEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    } else {
+                        
+                    }
+                case .user:
+                    if let userData = UserDefaultsCustom.getUserData() {
+                        if userData.email == "" || userData.email == nil {
+                            Singleton.setUserEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
+                case .serviceProvider, .user:
+                    if let artistData = UserDefaultsCustom.getArtistData() {
+                        if artistData.email == "" || artistData.email == nil {
+                            Singleton.setArtistEditScreenView()
+                        } else {
+                            Singleton.setHomeScreenView()
+                        }
+                    }
+                }
                 
-//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-//                    if let data = response.data {
-//                        UserDefaultsCustom.saveUserData(userData: data)
-//                        Singleton.setHomeScreenView()
-//                        UserDefaults.standard.set("user", forKey: "loginType")
+//                switch self.type {
+//                case .business:
+//                    if let data = UserDefaultsCustom.getBusinessData() {
+//                        if data.businessTypeId == "0" {
+////                            self.setHomeView(window: Singleton.window)
+//                            Singleton.setBusinessEditScreenView()
+//                        } else {
+//                            UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
+//                            Singleton.setHomeScreenView()
+//                        }
+//                    } else {
+//
 //                    }
+//                case .user, .serviceProvider:
+//                    UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
+//                    Singleton.setHomeScreenView()
 //                }
+//                UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
+//                Singleton.setHomeScreenView()
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)

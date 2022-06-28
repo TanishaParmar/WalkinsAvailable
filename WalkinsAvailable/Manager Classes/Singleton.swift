@@ -287,8 +287,6 @@ extension Singleton: ErrorDelegate {
 
 
 extension Singleton {
-    
-    
     class func setHomeScreenView() {
         let viewController = TabBarVC()
         let nav = NavigationController(rootViewController: viewController)
@@ -304,7 +302,30 @@ extension Singleton {
         Singleton.window?.makeKeyAndVisible()
     }
     
-    
+    class func setBusinessEditScreenView() {
+        let homeVC = BusinessEditProfile()
+        //        Singleton.homeTabController = homeVC
+        homeVC.isFromSocialLogin = true
+        window?.rootViewController = homeVC
+        window?.makeKeyAndVisible()
+        Singleton.window = window
+    }
+    class func setUserEditScreenView() {
+        let homeVC = EditProfileVC()
+        //        Singleton.homeTabController = homeVC
+        homeVC.isFromSocialLogin = true
+        window?.rootViewController = homeVC
+        window?.makeKeyAndVisible()
+        Singleton.window = window
+    }
+    class func setArtistEditScreenView() {
+        let homeVC = ServiceProviderEditProfile()
+        //        Singleton.homeTabController = homeVC
+        homeVC.isFromSocialLogin = true
+        window?.rootViewController = homeVC
+        window?.makeKeyAndVisible()
+        Singleton.window = window
+    }
 }
 
 

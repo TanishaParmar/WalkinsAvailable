@@ -39,6 +39,8 @@
                 <outlet property="passwordTf" destination="GZw-Mr-CAQ" id="6Wy-zL-1Fm"/>
                 <outlet property="passwordView" destination="cDL-Vt-k62" id="wK2-pX-N1h"/>
                 <outlet property="profileImageView" destination="BAl-kh-RJz" id="jje-NB-N8u"/>
+                <outlet property="socialLogInView" destination="VH1-Ku-6Qx" id="hNQ-fo-0vh"/>
+                <outlet property="socialLogInViewHeight" destination="49C-q5-nVO" id="YDa-kD-t4I"/>
                 <outlet property="uploadProfileBtn" destination="l7l-fx-hJb" id="hFN-Bb-udh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -102,9 +104,10 @@
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="hgh-HT-brR">
-                                            <rect key="frame" x="221" y="109" width="46" height="46"/>
+                                            <rect key="frame" x="235" y="123" width="32" height="32"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="hgh-HT-brR" secondAttribute="height" multiplier="1:1" id="ZRk-F5-Lnu"/>
+                                                <constraint firstAttribute="width" secondItem="hgh-HT-brR" secondAttribute="height" multiplier="1:1" id="HXg-wD-0su"/>
+                                                <constraint firstAttribute="width" constant="32" id="Wu5-kZ-YFf"/>
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7l-fx-hJb">
@@ -134,7 +137,7 @@
                                                                     <color key="tintColor" red="0.98162025210000003" green="0.73529273269999995" blue="0.77881622309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                             <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,7 +182,7 @@
                                                                     <color key="tintColor" red="0.98162025210000003" green="0.73529273269999995" blue="0.77881622309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                             <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -255,7 +258,7 @@
                                                                     <color key="tintColor" red="0.98162025210000003" green="0.73529273269999995" blue="0.77881622309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                             <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -299,7 +302,7 @@
                                                                     <color key="tintColor" red="0.98162025210000003" green="0.73529273269999995" blue="0.77881622309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                             <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -352,7 +355,7 @@
                                                                     <color key="tintColor" red="0.98162025210000003" green="0.73529273269999995" blue="0.77881622309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                             <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -420,7 +423,7 @@
                                                             <color key="tintColor" red="0.98162025210000003" green="0.73529273269999995" blue="0.77881622309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Description"/>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
@@ -598,7 +601,6 @@
                                         <constraint firstItem="l7l-fx-hJb" firstAttribute="height" secondItem="BAl-kh-RJz" secondAttribute="height" id="blr-M2-qSH"/>
                                         <constraint firstAttribute="trailing" secondItem="W5F-f2-uww" secondAttribute="trailing" constant="20" id="gbw-b6-Jxz"/>
                                         <constraint firstItem="dFB-Xx-94q" firstAttribute="top" secondItem="W5F-f2-uww" secondAttribute="bottom" constant="13" id="gc0-jQ-f5v"/>
-                                        <constraint firstItem="hgh-HT-brR" firstAttribute="height" secondItem="3Oo-Ja-OHp" secondAttribute="height" multiplier="0.04" id="iV2-ip-1cr"/>
                                         <constraint firstItem="BAl-kh-RJz" firstAttribute="top" secondItem="3Oo-Ja-OHp" secondAttribute="top" constant="30" id="tIu-O5-ua2"/>
                                         <constraint firstItem="dFB-Xx-94q" firstAttribute="leading" secondItem="3Oo-Ja-OHp" secondAttribute="leading" constant="20" id="vDb-jm-fy3"/>
                                         <constraint firstItem="l7l-fx-hJb" firstAttribute="centerX" secondItem="BAl-kh-RJz" secondAttribute="centerX" id="xcK-pr-Obh"/>

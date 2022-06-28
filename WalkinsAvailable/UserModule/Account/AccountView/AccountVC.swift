@@ -308,77 +308,50 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
             return businessListArr.count
         case .serviceProvider:
             return serviceProviderArr.count
-        default:
-            2
         }
-        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountListTVC", for: indexPath) as! AccountListTVC
 //        cell.titleLabel.text = listArr[indexPath.row].0
-        if indexPath.row > 1 {
-            cell.switchIcon.isHidden = true
-        }
-        
+        cell.switchIcon.isHidden = indexPath.row > 1
         switch userType {
         case .user:
             cell.titleLabel.text = userListArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: userListArr[indexPath.row].1)
             if indexPath.row == 0 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0, green: 0.8551515937, blue: 0.6841568947, alpha: 1)
-                if let businessData = UserDefaultsCustom.getBusinessData(), businessData.businessId != "0"  {
-                    cell.switchIcon.isOn = true
-                } else {
-                    cell.switchIcon.isOn = false
-                }
+                let businessData = UserDefaultsCustom.getBusinessData()
+                cell.switchIcon.isOn = businessData?.businessId != "0" && (businessData?.businessId?.count ?? 0 > 0)
             } else if indexPath.row == 1 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
-                if let artistData = UserDefaultsCustom.getArtistData(), artistData.artistId != "0"  {
-                    cell.switchIcon.isOn = true
-                } else {
-                    cell.switchIcon.isOn = false
-                }
+                let artistData = UserDefaultsCustom.getArtistData()
+                cell.switchIcon.isOn = artistData?.artistId != "0" && (artistData?.artistId?.count ?? 0 > 0)
             }
         case .business:
             cell.titleLabel.text = businessListArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: businessListArr[indexPath.row].1)
             if indexPath.row == 0 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.2428347766, green: 0.9325304627, blue: 0.4965850115, alpha: 1)
-                if let userData = UserDefaultsCustom.getUserData(), userData.userId != "0"  {
-                    cell.switchIcon.isOn = true
-                } else {
-                    cell.switchIcon.isOn = false
-                }
+                let userData = UserDefaultsCustom.getUserData()
+                cell.switchIcon.isOn = (userData?.userName?.count ?? 0 > 0)
             } else if indexPath.row == 1 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
-                if let artistData = UserDefaultsCustom.getArtistData(), artistData.artistId != "0"  {
-                    cell.switchIcon.isOn = true
-                } else {
-                    cell.switchIcon.isOn = false
-                }
+                let artistData = UserDefaultsCustom.getArtistData()
+                cell.switchIcon.isOn = artistData?.artistId != "0" && (artistData?.artistId?.count ?? 0 > 0)
             }
         case .serviceProvider:
             cell.titleLabel.text = serviceProviderArr[indexPath.row].0.rawValue
             cell.iconImageView.image = UIImage(named: serviceProviderArr[indexPath.row].1)
             if indexPath.row == 0 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.2428347766, green: 0.9325304627, blue: 0.4965850115, alpha: 1)
-                if let userData = UserDefaultsCustom.getUserData(), userData.userId != "0"  {
-                    cell.switchIcon.isOn = true
-                } else {
-                    cell.switchIcon.isOn = false
-                }
+                let userData = UserDefaultsCustom.getUserData()
+                cell.switchIcon.isOn = (userData?.userName?.count ?? 0 > 0)
             } else if indexPath.row == 1 {
                 cell.switchIcon.onTintColor = #colorLiteral(red: 0.1782743335, green: 0.09970747679, blue: 0.8259038329, alpha: 1)
-                if let businessData = UserDefaultsCustom.getBusinessData(), businessData.businessId != "0"  {
-                    cell.switchIcon.isOn = true
-                } else {
-                    cell.switchIcon.isOn = false
-                }
+                let businessData = UserDefaultsCustom.getBusinessData()
+                cell.switchIcon.isOn = businessData?.businessId != "0" && (businessData?.businessId?.count ?? 0 > 0)
             }
-            
-            break
-        default:
             break
         }
         return cell
@@ -447,11 +420,10 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                         controller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: controller)
                     }
-                    
                 } else  if indexPath.row == 2 {
                     let controller = SetAvailbilityVC()
                     self.navigationController?.pushViewController(controller, animated: true)
-                } else if indexPath.row == 4{
+                } else if indexPath.row == 4 {
                     let controller = AboutUsVC()
                     self.navigationController?.pushViewController(controller, animated: true)
                 } else if indexPath.row == 5 {
@@ -465,7 +437,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 } else if indexPath.row == 7 {
                     let viewcontroller = ChangePasswordVC()
                     self.navigationController?.pushViewController(viewcontroller, animated: true)
-                } else if indexPath.row == 8{
+                } else if indexPath.row == 8 {
                     self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
                         self.hitLogOutApi()
                     },{
@@ -476,13 +448,14 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 break
             case .business:
                 if indexPath.row == 0{
-                    if let userData = UserDefaultsCustom.getUserData(), userData.userId != "0"  {
+                    if let userData = UserDefaultsCustom.getUserData(), (userData.userName?.count ?? 0 > 0)  { // userData.userId != "0"
                         //                    print("its work", userId)
 //                        hitUserHomeApi()
                         UserDefaultsCustom.saveUserLogin(loginType: "1")
                         Singleton.setHomeScreenView()
                     } else {
                         let controller = SignUpAsUserVC()
+                        controller.userId = self.userNameLabel.text ?? ""
                         controller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: controller)
                     }
@@ -527,13 +500,14 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                 break
             case .serviceProvider:
                 if indexPath.row == 0{
-                    if let userData = UserDefaultsCustom.getUserData(), userData.userId != "0"  {
+                    if let userData = UserDefaultsCustom.getUserData(), (userData.userName?.count ?? 0 > 0) { // userData.userId != "0"
                         //                    print("its work", userId)
 //                        hitUserHomeApi()
                         UserDefaultsCustom.saveUserLogin(loginType: "1")
                         Singleton.setHomeScreenView()
                     } else {
                         let controller = SignUpAsUserVC()
+                        controller.userId = self.userNameLabel.text ?? ""
                         controller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: controller)
                     }

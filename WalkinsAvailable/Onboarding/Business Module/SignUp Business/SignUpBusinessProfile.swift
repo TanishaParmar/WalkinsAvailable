@@ -26,9 +26,11 @@ class SignUpBusinessProfile: SocialLoginVC {
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordTf: UITextField!
     @IBOutlet weak var addressView: UIView!
+    @IBOutlet weak var socialLogInView: UIView!
     @IBOutlet weak var addressTF: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var socialLogInViewHeight: NSLayoutConstraint!
     
     var pickerData: PickerData?
     var imagePicker: ImagePicker!
@@ -43,6 +45,16 @@ class SignUpBusinessProfile: SocialLoginVC {
         self.type = .business
         uiUpdate()
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        IQKeyboardManager.shared.enable = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        IQKeyboardManager.shared.enable = true
     }
     
 //    override func observeSuccessGoogleLogin() {
@@ -64,6 +76,11 @@ class SignUpBusinessProfile: SocialLoginVC {
             self.passwordSuperView.isHidden = true
             self.emailTF.text = emailId
             self.emailTF.isUserInteractionEnabled = false
+            socialLogInView.isHidden = true
+            socialLogInViewHeight.constant = 0
+        }
+        if !(Singleton.shared.categoryList?.count ?? 0 > 0) {
+            getCategoryListData()
         }
         profileImageView.addCornerRadius(view: profileImageView, cornerRadius: profileImageView.frame.size.height / 2)
         businessView.addCornerBorderAndShadow(view: businessView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -72,6 +89,23 @@ class SignUpBusinessProfile: SocialLoginVC {
         passwordView.addCornerBorderAndShadow(view: passwordView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         addressView.addCornerBorderAndShadow(view: addressView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         descriptionView.addCornerBorderAndShadow(view: descriptionView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
+    }
+    
+    func getCategoryListData() {
+        ApiHandler.updateProfile(apiName: API.Name.categoriesList, params: [:]) { succeeded, response, data in
+            print("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: CategoryListModel.self) {
+                    if let data = response.data {
+                        Singleton.shared.categoryList = data
+                    }
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                }
+            }
+        }
     }
     
     
@@ -164,7 +198,9 @@ class SignUpBusinessProfile: SocialLoginVC {
     }
     
     @IBAction func uploadProfileActionBtn(_ sender: UIButton) {
+        if self.imagePicker.checkCameraAccess() {
         self.imagePicker.present(from: sender)
+        } 
     }
     
     @IBAction func dropDownBtn(_ sender: UIButton) {
@@ -180,34 +216,35 @@ class SignUpBusinessProfile: SocialLoginVC {
 
 //    MARK: TEXTFIELD DELEGATES
 extension SignUpBusinessProfile: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.becomeFirstResponder()
-        businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        businessTypeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        passwordView.layer.borderColor = textField == passwordTf ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        if textField == self.businessTypeTF {
-            self.businessTypeTF.resignFirstResponder()
-            self.actionType()
-        }
-    }
-    
-    
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textField.becomeFirstResponder()
 //        businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 //        businessTypeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 //        emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 //        passwordView.layer.borderColor = textField == passwordTf ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 //        addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        switch textField {
-//        case businessTypeTF:
+//        if textField == self.businessTypeTF {
+//            self.businessTypeTF.resignFirstResponder()
 //            self.actionType()
-//            return false
-//        default:
-//            return true
 //        }
 //    }
+    
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        businessView.layer.borderColor = textField == businessTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        businessTypeView.layer.borderColor = textField == businessTypeTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        emailView.layer.borderColor = textField == emailTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        passwordView.layer.borderColor = textField == passwordTf ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        switch textField {
+        case businessTypeTF:
+            self.view.endEditing(true)
+            self.actionType()
+            return false
+        default:
+            return true
+        }
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         businessView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -258,12 +295,15 @@ extension SignUpBusinessProfile: CustomPickerControllerDelegate {
             businessTypeTF.text = value
             businessTypeIndex = Int(Singleton.shared.categoryList?[index].businessTypeId ?? "") ?? 0
         }
+        businessTypeTF.resignFirstResponder()
+        self.view.endEditing(true)
         picker.dismiss(animated: true, completion: nil)
     }
     
     
     func cancel(picker: CustomPickerController, _ tag: Int) {
-        
+        businessTypeTF.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
 }

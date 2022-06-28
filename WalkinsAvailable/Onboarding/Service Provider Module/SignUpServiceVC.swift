@@ -20,6 +20,8 @@ class SignUpServiceVC: SocialLoginVC {
     @IBOutlet weak var passwordSuperView: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var socialLogInView: UIView!
+    @IBOutlet weak var socialLogInViewHeight: NSLayoutConstraint!
     
     
     var pickerData: PickerData?
@@ -44,6 +46,8 @@ class SignUpServiceVC: SocialLoginVC {
             self.passwordSuperView.isHidden = true
             self.emailTF.text = emailId
             self.emailTF.isUserInteractionEnabled = false
+            socialLogInView.isHidden = true
+            socialLogInViewHeight.constant = 0
         }
         userNameImgView.addCornerRadius(view: userNameImgView, cornerRadius: userNameImgView.bounds.height / 2)
         artistView.addCornerBorderAndShadow(view: artistView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -123,7 +127,9 @@ class SignUpServiceVC: SocialLoginVC {
     }
     
     @IBAction func editProfileImgViewBtn(_ sender: UIButton) {
+        if self.imagePicker.checkCameraAccess() {
         self.imagePicker.present(from: sender)
+        } 
     }
     
     

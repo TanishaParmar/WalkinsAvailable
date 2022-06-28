@@ -30,25 +30,35 @@ class BusinessEditProfile: UIViewController {
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var addressView: UIView!
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var addressTF: UITextField!
     @IBOutlet weak var headerNameLbl: UILabel!
+    @IBOutlet weak var headerViewHeight: NSLayoutConstraint!
     
     
     var data: BusinessData?
     var imagePicker: ImagePicker!
     var pickerData: PickerData?
     var businessTypeIndex: Int = -1
-    let values = ["auto","data","meta","carry"]
+    var isFromSocialLogin: Bool = false
+    
+//    let values = ["auto","data","meta","carry"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        textFieldInterationDisable()
+        setUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        IQKeyboardManager.shared.enable = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        IQKeyboardManager.shared.enable = true
     }
     
     //MARK: FUNCTIONS
@@ -72,13 +82,46 @@ class BusinessEditProfile: UIViewController {
         descriptionView.addCornerBorderAndShadow(view: descriptionView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
     }
     
+    func setUI() {
+        if !(Singleton.shared.categoryList?.count ?? 0 > 0) {
+            getCategoryListData()
+        }
+        if isFromSocialLogin {
+            textFieldInterationEnable()
+            headerView.isHidden = true
+            headerViewHeight.constant = 0
+            if let data = UserDefaultsCustom.getBusinessData() {
+                businessTF.text = data.businessName
+                emailTF.text = data.email
+                addressTF.text = data.businessAddress
+                descriptionTF.text = data.businessDescription
+                let placeHolder = UIImage(named: "placeHolder")
+                self.userImgView.setImage(url: data.image, placeHolder: placeHolder)
+                self.setPickerData(image: self.userImgView.image)
+                if emailTF.text == "" {
+                    emailTF.isUserInteractionEnabled = true
+                } else {
+                    emailTF.isUserInteractionEnabled = false
+                }
+            }
+        } else {
+            headerView.isHidden = false
+            headerViewHeight.constant = 50
+            textFieldInterationDisable()
+        }
+    }
+    
     func textFieldInterationEnable() {
         self.headerNameLbl.text = "Edit Business Profile"
         editProfile.isHidden = true
         editProfile.isUserInteractionEnabled = false
         businessTF.isUserInteractionEnabled = true
         businessTypeTF.isUserInteractionEnabled = true
-        emailTF.isUserInteractionEnabled = true
+        if emailTF.text == "" {
+            emailTF.isUserInteractionEnabled = true
+        } else {
+            emailTF.isUserInteractionEnabled = false
+        }
         passwordTF.isUserInteractionEnabled = true
         addressTF.isUserInteractionEnabled = true
         descriptionTF.isUserInteractionEnabled = true
@@ -108,10 +151,11 @@ class BusinessEditProfile: UIViewController {
         if let data = data {
             self.businessTF.text = data.businessName
             //            self.businessTypeTF.text = data.typeId
-            if let typeId: Int = Int(UserDefaultsCustom.getBusinessData()?.businessTypeId ?? "") {
-                businessTypeTF.text = values[typeId]
-                businessTypeIndex = typeId
-            }
+//            if let typeId: Int = Int(UserDefaultsCustom.getBusinessData()?.businessTypeId ?? "") {
+//                businessTypeTF.text = Singleton.shared.categoryList?[typeId].title // values[typeId]
+//                businessTypeIndex = typeId
+//            }
+
             self.emailTF.text = data.email
             //            self.passwordTF.text = data.password
             self.addressTF.text = data.businessAddress
@@ -149,6 +193,7 @@ class BusinessEditProfile: UIViewController {
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
                 UserDefaultsCustom.saveLogInData(data: data)
+//                UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
                 Singleton.setHomeScreenView()
 
 //                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
@@ -174,12 +219,34 @@ class BusinessEditProfile: UIViewController {
         }
     }
     
+    func getCategoryListData() {
+        ApiHandler.updateProfile(apiName: API.Name.categoriesList, params: [:]) { succeeded, response, data in
+            print("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: CategoryListModel.self) {
+                    if let data = response.data {
+                        Singleton.shared.categoryList = data
+                    }
+                }
+            } else {
+                if let msg = response["message"] as? String {
+                }
+            }
+        }
+    }
     
     func actionType() {
         let picker = CustomPickerController()
         picker.selectedIndex = businessTypeIndex
+        var values = [String]()
+        Singleton.shared.categoryList?.forEach({ categoryList in
+            values.append(categoryList.title ?? "")
+        })
         picker.set(values, delegate: self, tag: 0)
-        self.present(picker, animated: false, completion: nil)
+        self.present(picker, animated: true) {
+            self.view.endEditing(true)
+        }
     }
     
     
@@ -220,7 +287,9 @@ class BusinessEditProfile: UIViewController {
     }
     
     @IBAction func imgUploadBtn(_ sender: UIButton) {
+        if self.imagePicker.checkCameraAccess() {
         self.imagePicker.present(from: sender)
+        } 
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {
@@ -256,6 +325,8 @@ extension BusinessEditProfile: UITextFieldDelegate {
         addressView.layer.borderColor = textField == addressTF ?  #colorLiteral(red: 0.9816202521, green: 0.7352927327, blue: 0.7788162231, alpha: 1)  :  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         switch textField {
         case businessTypeTF:
+//            businessTypeTF.resignFirstResponder()
+            self.view.endEditing(true)
             self.actionType()
             return false
         default:
@@ -304,12 +375,15 @@ extension BusinessEditProfile: CustomPickerControllerDelegate {
             businessTypeTF.text = value
             businessTypeIndex = index
         }
+        businessTypeTF.resignFirstResponder()
+        self.view.endEditing(true)
         picker.dismiss(animated: true, completion: nil)
     }
     
     
     func cancel(picker: CustomPickerController, _ tag: Int) {
-        
+        businessTypeTF.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
 }

@@ -13,6 +13,7 @@ class EditProfileVC: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var userNameView: UIView!
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userNameTextField: UITextField!
@@ -21,17 +22,21 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var camerButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var headerViewHeight: NSLayoutConstraint!
     
     
     var data: UserData?
     var imagePicker: ImagePicker!
     var pickerData: PickerData?
+    var isFromSocialLogin: Bool = false
+
     
     
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        setUI()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,6 +53,30 @@ class EditProfileVC: UIViewController {
         self.emailView.addCornerBorderAndShadow(view: self.emailView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1.0)
         self.saveButton.addCornerRadius(view: self.saveButton, cornerRadius: 5.0)
         self.profileImageView.addCornerRadius(view: self.profileImageView, cornerRadius: self.profileImageView.bounds.height / 2)
+    }
+    
+    func setUI() {
+        if isFromSocialLogin {
+            editScreen(isEditable: true)
+            headerView.isHidden = true
+            headerViewHeight.constant = 0
+            if let data = UserDefaultsCustom.getUserData() {
+                userNameTextField.text = data.userName
+                emailTextField.text = data.email
+                let placeHolder = UIImage(named: "placeHolder")
+                self.profileImageView.setImage(url: data.image, placeHolder: placeHolder)
+                self.setPickerData(image: self.profileImageView.image)
+                if emailTextField.text == "" {
+                    emailTextField.isUserInteractionEnabled = true
+                } else {
+                    emailTextField.isUserInteractionEnabled = false
+                }
+            }
+        } else {
+            headerView.isHidden = false
+            headerViewHeight.constant = 50
+            editScreen(isEditable: false)
+        }
     }
     
     func setData() {
@@ -154,7 +183,9 @@ class EditProfileVC: UIViewController {
     }
     
     @IBAction func cameraButtonAction(_ sender: UIButton) {
+        if self.imagePicker.checkCameraAccess() {
         self.imagePicker.present(from: sender)
+        } 
     }
     
     @IBAction func saveButtonAction(_ sender: Any) {

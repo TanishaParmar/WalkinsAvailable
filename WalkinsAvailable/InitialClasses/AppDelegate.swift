@@ -138,6 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
+    
     func appFonts() {
         for family in UIFont.familyNames {
           let sName: String = family as String

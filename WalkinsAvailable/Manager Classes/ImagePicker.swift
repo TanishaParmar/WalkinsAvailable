@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFoundation
 import UIKit
 
 public protocol ImagePickerDelegate: NSObjectProtocol {
@@ -66,7 +67,51 @@ open class ImagePicker: NSObject {
             }
         })
     }
+    
+    public func checkCameraAccess() -> Bool {
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .denied:
+            print("Denied, request permission from settings")
+            Singleton.shared.showErrorMessage(error: "Camera access is denied", isError: .error)
+            return false
+//            presentCameraSettings()
+        case .restricted:
+            print("Restricted, device owner must approve")
+            return false
+        case .authorized:
+            print("Authorized, proceed")
+            return true
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { success in
+                if success {
+                    print("Permission granted, proceed")
+                } else {
+                    print("Permission denied")
+                }
+            }
+        }
+        return false
+    }
+
+    func presentCameraSettings() {
+        let alertController = UIAlertController(title: "Error",
+                                      message: "Camera access is denied",
+                                      preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: { _ in
+                    // Handle
+                })
+            }
+        })
+
+//        present(alertController, animated: true)
+    }
+    
 }
+
+
 
 extension ImagePicker: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
