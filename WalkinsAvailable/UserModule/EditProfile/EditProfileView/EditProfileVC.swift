@@ -57,7 +57,6 @@ class EditProfileVC: UIViewController {
     
     func setUI() {
         if isFromSocialLogin {
-            editScreen(isEditable: true)
             headerView.isHidden = true
             headerViewHeight.constant = 0
             if let data = UserDefaultsCustom.getUserData() {
@@ -66,12 +65,9 @@ class EditProfileVC: UIViewController {
                 let placeHolder = UIImage(named: "placeHolder")
                 self.profileImageView.setImage(url: data.image, placeHolder: placeHolder)
                 self.setPickerData(image: self.profileImageView.image)
-                if emailTextField.text == "" {
-                    emailTextField.isUserInteractionEnabled = true
-                } else {
-                    emailTextField.isUserInteractionEnabled = false
-                }
+                
             }
+            editScreen(isEditable: true)
         } else {
             headerView.isHidden = false
             headerViewHeight.constant = 50
@@ -98,9 +94,14 @@ class EditProfileVC: UIViewController {
             self.camerButton.isHidden = false
             self.camerButton.isUserInteractionEnabled = true
             self.userNameTextField.isUserInteractionEnabled = true
-            self.emailTextField.isUserInteractionEnabled = true
+//            self.emailTextField.isUserInteractionEnabled = true
             self.saveButton.isHidden = false
             self.saveButton.isUserInteractionEnabled = true
+            if emailTextField.text == "" {
+                emailTextField.isUserInteractionEnabled = true
+            } else {
+                emailTextField.isUserInteractionEnabled = false
+            }
         } else {
             self.titleLabel.text = "User Profile"
             self.editButton.isHidden = false
@@ -108,9 +109,14 @@ class EditProfileVC: UIViewController {
             self.camerButton.isHidden = true
             self.camerButton.isUserInteractionEnabled = false
             self.userNameTextField.isUserInteractionEnabled = false
-            self.emailTextField.isUserInteractionEnabled = false
+//            self.emailTextField.isUserInteractionEnabled = false
             self.saveButton.isHidden = true
             self.saveButton.isUserInteractionEnabled = false
+            if emailTextField.text == "" {
+                emailTextField.isUserInteractionEnabled = true
+            } else {
+                emailTextField.isUserInteractionEnabled = false
+            }
         }
     }
     

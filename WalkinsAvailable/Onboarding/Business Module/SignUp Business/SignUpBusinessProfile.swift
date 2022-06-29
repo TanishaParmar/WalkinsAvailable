@@ -37,8 +37,7 @@ class SignUpBusinessProfile: SocialLoginVC {
     var userId: String = ""
     var emailId: String = ""
     var businessTypeIndex: Int = -1
-//    let values = ["auto","data","meta","carry"]
-
+    var coordi: (latitude: Double, longitude: Double)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +55,7 @@ class SignUpBusinessProfile: SocialLoginVC {
         super.viewWillDisappear(animated)
         IQKeyboardManager.shared.enable = true
     }
+    
     
 //    override func observeSuccessGoogleLogin() {
 //        self.businessTF.text = 
@@ -118,8 +118,8 @@ class SignUpBusinessProfile: SocialLoginVC {
         params["businessType"] = businessTypeIndex // Int(businessTypeTF.text ?? "")
         params["businessAddress"] = addressTF.text
         params["businessDescription"] = descriptionTextView.text
-        params["latitude"] = "30.7110585"
-        params["longitude"] = "76.6913124"
+        params["latitude"] = coordi?.latitude // "30.7110585"
+        params["longitude"] = coordi?.longitude // "76.6913124"
         debugPrint("params data ** \(params)")
         return params
     }
@@ -152,6 +152,12 @@ class SignUpBusinessProfile: SocialLoginVC {
                 }
             }
         }
+    }
+    
+    func openLocationPicker() {
+        let locale = LocationPicker()
+        locale.delegate = self
+        self.present(locale, animated: true, completion: nil)
     }
     
     func actionType() {
@@ -214,6 +220,15 @@ class SignUpBusinessProfile: SocialLoginVC {
 }
 
 
+extension SignUpBusinessProfile: LocationPickerDelegate {
+    func locationDidSelect(locationItem: LocationItem) {
+        print("location picked******** \(locationItem.formattedAddressString)")
+        print("location picker coordinates ******** \(locationItem.coordinate?.latitude), \(locationItem.coordinate?.longitude)")
+        self.addressTF.text = locationItem.formattedAddressString
+        self.coordi = locationItem.coordinate
+    }
+}
+
 //    MARK: TEXTFIELD DELEGATES
 extension SignUpBusinessProfile: UITextFieldDelegate {
 //    func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -240,6 +255,10 @@ extension SignUpBusinessProfile: UITextFieldDelegate {
         case businessTypeTF:
             self.view.endEditing(true)
             self.actionType()
+            return false
+        case addressTF:
+            self.view.endEditing(true)
+            self.openLocationPicker()
             return false
         default:
             return true

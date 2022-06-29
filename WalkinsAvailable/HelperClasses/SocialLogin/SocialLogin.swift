@@ -98,11 +98,11 @@ class SocialLoginVC: UIViewController {
         var params : [String:Any] = [:]
         switch self.type {
         case .user:
-            params = ["userName":fullName ?? "","email":email ?? "","image":profilePicture,"googleToken":userId ?? "","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+            params = ["userName":fullName ?? "","email":email ?? "","image": profilePicture?.absoluteString ?? "" ,"googleToken":userId ?? "","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
         case .business:
-            params = ["businessName":fullName ?? "","email":email ?? "","image":profilePicture,"googleToken":userId ?? "","deviceType":"1"] as [String:Any]
+            params = ["businessName":fullName ?? "","email":email ?? "","image": profilePicture?.absoluteString ?? "" ,"googleToken":userId ?? "","deviceType":"1"] as [String:Any]
         case .serviceProvider:
-            params = ["artistName":fullName ?? "","email":email ?? "","image":profilePicture,"googleToken":userId ?? "","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+            params = ["artistName":fullName ?? "","email":email ?? "","image": profilePicture?.absoluteString ?? "" ,"googleToken":userId ?? "","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
         }
         print("params ****** \(params)")
         self.hitGoogleLogInApi(dict: params)
@@ -127,8 +127,7 @@ class SocialLoginVC: UIViewController {
             if succeeded {
                 UserDefaultsCustom.saveLogInData(data: data)
                 UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
-
-
+                
                 switch self.type {
                 case .business:
                     if let data = UserDefaultsCustom.getBusinessData() {

@@ -41,7 +41,8 @@ class BusinessEditProfile: UIViewController {
     var pickerData: PickerData?
     var businessTypeIndex: Int = -1
     var isFromSocialLogin: Bool = false
-    
+    var coordi: (latitude: Double, longitude: Double)?
+
 //    let values = ["auto","data","meta","carry"]
     
     override func viewDidLoad() {
@@ -155,11 +156,23 @@ class BusinessEditProfile: UIViewController {
 //                businessTypeTF.text = Singleton.shared.categoryList?[typeId].title // values[typeId]
 //                businessTypeIndex = typeId
 //            }
+            Singleton.shared.categoryList?.forEach({ categoryData in
+                if categoryData.businessTypeId == data.businessTypeId {
+                    businessTypeTF.text = categoryData.title
+                    businessTypeIndex = Int(data.businessTypeId ?? "") ?? 0
+                }
+            })
 
             self.emailTF.text = data.email
             //            self.passwordTF.text = data.password
             self.addressTF.text = data.businessAddress
             self.descriptionTF.text = data.businessDescription
+            if emailTF.text == "" {
+                emailTF.isUserInteractionEnabled = true
+            } else {
+                emailTF.isUserInteractionEnabled = false
+            }
+
             let placeHolder = UIImage(named: "placeHolder")
             self.userImgView.setImage(url: data.image, placeHolder: placeHolder)
             self.setPickerData(image: self.userImgView.image)
@@ -182,6 +195,8 @@ class BusinessEditProfile: UIViewController {
         params["businessType"] = businessTypeIndex // Int(businessTypeTF.text ?? "")
         params["businessAddress"] = addressTF.text
         params["businessDescription"] = descriptionTF.text
+        params["latitude"] = coordi?.latitude // "30.7110585"
+        params["longitude"] = coordi?.longitude // "76.6913124"
         return params
     }
     
@@ -234,6 +249,12 @@ class BusinessEditProfile: UIViewController {
                 }
             }
         }
+    }
+    
+    func openLocationPicker() {
+        let locale = LocationPicker()
+        locale.delegate = self
+        self.present(locale, animated: true, completion: nil)
     }
     
     func actionType() {
@@ -300,6 +321,16 @@ class BusinessEditProfile: UIViewController {
     
 }
 
+//    MARK: Location Picker DELEGATES
+extension BusinessEditProfile: LocationPickerDelegate {
+    func locationDidSelect(locationItem: LocationItem) {
+        print("location picked******** \(locationItem.formattedAddressString)")
+        print("location picker coordinates ******** \(locationItem.coordinate?.latitude), \(locationItem.coordinate?.longitude)")
+        self.addressTF.text = locationItem.formattedAddressString
+        self.coordi = locationItem.coordinate
+    }
+}
+
 
 //    MARK: TEXTFIELD DELEGATES
 extension BusinessEditProfile: UITextFieldDelegate {
@@ -328,6 +359,10 @@ extension BusinessEditProfile: UITextFieldDelegate {
 //            businessTypeTF.resignFirstResponder()
             self.view.endEditing(true)
             self.actionType()
+            return false
+        case addressTF:
+            self.view.endEditing(true)
+            self.openLocationPicker()
             return false
         default:
             return true
@@ -373,7 +408,7 @@ extension BusinessEditProfile: CustomPickerControllerDelegate {
         print("values are ***** \(value) *** \(index) *** \(tag)  ****** \(image)")
         if tag == 0 {
             businessTypeTF.text = value
-            businessTypeIndex = index
+            businessTypeIndex = Int(Singleton.shared.categoryList?[index].businessTypeId ?? "") ?? 0
         }
         businessTypeTF.resignFirstResponder()
         self.view.endEditing(true)

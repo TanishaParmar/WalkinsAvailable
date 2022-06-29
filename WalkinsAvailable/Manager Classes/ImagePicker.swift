@@ -72,7 +72,22 @@ open class ImagePicker: NSObject {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .denied:
             print("Denied, request permission from settings")
-            Singleton.shared.showErrorMessage(error: "Camera access is denied", isError: .error)
+            Singleton.shared.showErrorMessage(pushData: PushModel(json: ["title": "Unable to access the Camera. To enable access, go to Settings > Privacy > Camera and turn on Camera access for this app."]), isError: .error) { succes in
+                if succes == true {
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+                    if UIApplication.shared.canOpenURL(settingsUrl) {
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                                // Finished opening URL
+                            })
+                        } else {
+                            // Fallback on earlier versions
+                            UIApplication.shared.openURL(settingsUrl)
+                        }
+                    }
+                }
+            }
+            
             return false
 //            presentCameraSettings()
         case .restricted:
@@ -105,7 +120,6 @@ open class ImagePicker: NSObject {
                 })
             }
         })
-
 //        present(alertController, animated: true)
     }
     

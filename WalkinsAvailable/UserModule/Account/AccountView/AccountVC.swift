@@ -79,7 +79,7 @@ class AccountVC: UIViewController {
                     debugPrint("user data * \(data)")
                     self.userNameLabel.text = userData.userName
                     self.userEmailLabel.text = userData.email
-                    let imgUrl = userData.image
+                    let imgUrl = userData.image ?? ""
                     let placeHolder = UIImage(named: "placeHolder")
                     self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
                 }
@@ -88,7 +88,7 @@ class AccountVC: UIViewController {
                     debugPrint("user data * \(data)")
                     self.userNameLabel.text = businessData.businessName
                     self.userEmailLabel.text = businessData.email
-                    let imgUrl = businessData.image
+                    let imgUrl = businessData.image ?? ""
                     let placeHolder = UIImage(named: "placeHolder")
                     self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
                 }
@@ -97,7 +97,7 @@ class AccountVC: UIViewController {
                     debugPrint("user data * \(data)")
                     self.userNameLabel.text = data.ownerName
                     self.userEmailLabel.text = data.email
-                    let imgUrl = data.image
+                    let imgUrl = data.image ?? ""
                     let placeHolder = UIImage(named: "placeHolder")
                     self.accountProfileImgView.setImage(url: imgUrl, placeHolder: placeHolder)
                 }
@@ -105,7 +105,6 @@ class AccountVC: UIViewController {
 //                break
             }
         }
-        
         
 //        if let data = UserDefaultsCustom.getUserData() {
 //            debugPrint("user data * \(data)")

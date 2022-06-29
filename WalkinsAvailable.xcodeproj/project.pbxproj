@@ -153,6 +153,12 @@
 		1F3344ED27FAFF76000BB072 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3344EC27FAFF76000BB072 /* Constant.swift */; };
 		1F3344F127FB04BF000BB072 /* SignUpAsUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3344EF27FB04BF000BB072 /* SignUpAsUserVC.swift */; };
 		1F3344F227FB04BF000BB072 /* SignUpAsUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3344F027FB04BF000BB072 /* SignUpAsUserVC.xib */; };
+		1F361090286C3CC10017F8B8 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F361089286C3CC10017F8B8 /* LocationController.swift */; };
+		1F361091286C3CC10017F8B8 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36108A286C3CC10017F8B8 /* Protocol.swift */; };
+		1F361092286C3CC10017F8B8 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36108B286C3CC10017F8B8 /* Helpers.swift */; };
+		1F361093286C3CC10017F8B8 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36108C286C3CC10017F8B8 /* StyleKit.swift */; };
+		1F361094286C3CC10017F8B8 /* BottomResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36108D286C3CC10017F8B8 /* BottomResultView.swift */; };
+		1F361095286C3CC10017F8B8 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F36108E286C3CC10017F8B8 /* LocationCell.swift */; };
 		1F39248827F84894000F08F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39248727F84894000F08F5 /* AppDelegate.swift */; };
 		1F39248A27F84894000F08F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39248927F84894000F08F5 /* SceneDelegate.swift */; };
 		1F39248F27F84894000F08F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F39248D27F84894000F08F5 /* Main.storyboard */; };
@@ -376,6 +382,12 @@
 		1F3344EC27FAFF76000BB072 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		1F3344EF27FB04BF000BB072 /* SignUpAsUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAsUserVC.swift; sourceTree = "<group>"; };
 		1F3344F027FB04BF000BB072 /* SignUpAsUserVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpAsUserVC.xib; sourceTree = "<group>"; };
+		1F361089286C3CC10017F8B8 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		1F36108A286C3CC10017F8B8 /* Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		1F36108B286C3CC10017F8B8 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		1F36108C286C3CC10017F8B8 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
+		1F36108D286C3CC10017F8B8 /* BottomResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomResultView.swift; sourceTree = "<group>"; };
+		1F36108E286C3CC10017F8B8 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		1F39248427F84894000F08F5 /* WalkinsAvailable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalkinsAvailable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F39248727F84894000F08F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F39248927F84894000F08F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1178,6 +1190,19 @@
 			path = SignUpAsUser;
 			sourceTree = "<group>";
 		};
+		1F361088286C3CC10017F8B8 /* LocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				1F361089286C3CC10017F8B8 /* LocationController.swift */,
+				1F36108A286C3CC10017F8B8 /* Protocol.swift */,
+				1F36108B286C3CC10017F8B8 /* Helpers.swift */,
+				1F36108C286C3CC10017F8B8 /* StyleKit.swift */,
+				1F36108D286C3CC10017F8B8 /* BottomResultView.swift */,
+				1F36108E286C3CC10017F8B8 /* LocationCell.swift */,
+			);
+			path = LocationPicker;
+			sourceTree = "<group>";
+		};
 		1F39247B27F84894000F08F5 = {
 			isa = PBXGroup;
 			children = (
@@ -1371,6 +1396,7 @@
 			isa = PBXGroup;
 			children = (
 				1869768B281AAAA700F208BD /* LocationDetailView */,
+				1F361088286C3CC10017F8B8 /* LocationPicker */,
 				1869765D281A5D6300F208BD /* MapView */,
 				1F422EDF27FC208C00877618 /* HomeView */,
 			);
@@ -1928,10 +1954,13 @@
 				1F79106828098A5700102EA6 /* ComplaintsVC.swift in Sources */,
 				1F8F6557285712A20036593D /* ErrorView.swift in Sources */,
 				18B4D443281BEE2A005C0816 /* AboutUsVC.swift in Sources */,
+				1F361094286C3CC10017F8B8 /* BottomResultView.swift in Sources */,
 				1F18D6812862EF2400C1922A /* CustomDatePicker.swift in Sources */,
 				18697671281A69A700F208BD /* FBAnnotationCluster.swift in Sources */,
 				1895B978281FEB2B00842DD5 /* EventListCell.swift in Sources */,
+				1F361092286C3CC10017F8B8 /* Helpers.swift in Sources */,
 				1F422F1327FC4F8E00877618 /* ExampleIrregularityContentView.swift in Sources */,
+				1F361093286C3CC10017F8B8 /* StyleKit.swift in Sources */,
 				189C962E28227486004B99EF /* InviteGuestVC.swift in Sources */,
 				1895B97E28200ED000842DD5 /* EventDetailVC.swift in Sources */,
 				18162EB72818037D00D29D10 /* ComplaintsListCell.swift in Sources */,
@@ -1968,6 +1997,7 @@
 				18162EBE2818194300D29D10 /* ComplaintDetailCell.swift in Sources */,
 				1F8F6566285751DF0036593D /* SignUpAsUserModel.swift in Sources */,
 				18697675281A69A700F208BD /* FBQuadTreeNode.swift in Sources */,
+				1F361095286C3CC10017F8B8 /* LocationCell.swift in Sources */,
 				1F8F655A285712A20036593D /* Singleton.swift in Sources */,
 				18EFEAB628214F57009ADBB4 /* AvailbilityVC.swift in Sources */,
 				18697685281A6EB800F208BD /* LocationManager.swift in Sources */,
@@ -1976,12 +2006,14 @@
 				1F422F1B27FC4F8E00877618 /* ESTabBarItemContainer.swift in Sources */,
 				1F68262027FD811800FFB4DA /* ContactUsVC.swift in Sources */,
 				1F39248827F84894000F08F5 /* AppDelegate.swift in Sources */,
+				1F361091286C3CC10017F8B8 /* Protocol.swift in Sources */,
 				1F422F1827FC4F8E00877618 /* ESTabBarItem.swift in Sources */,
 				18E379A22823C40F0029C01A /* ShopsListCell.swift in Sources */,
 				1869767F281A6BD300F208BD /* AnimatingView.swift in Sources */,
 				18E379B02823D5230029C01A /* RequestInviteFromCell.swift in Sources */,
 				18E379CA2823E4310029C01A /* GalleryAlbumTableView.swift in Sources */,
 				18E698372825460B00644838 /* BusinessEventVC.swift in Sources */,
+				1F361090286C3CC10017F8B8 /* LocationController.swift in Sources */,
 				1F68260F27FD641E00FFB4DA /* NotificationListTVC.swift in Sources */,
 				189B7DBD28239413009AC87C /* AddArtistListCell.swift in Sources */,
 				1F8F655C285712A20036593D /* UserData.swift in Sources */,
@@ -2175,7 +2207,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2213,7 +2245,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;

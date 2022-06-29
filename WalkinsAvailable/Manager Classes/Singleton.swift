@@ -103,7 +103,7 @@ class Singleton: NSObject {
                     self.errorMessageView.statusIcon.isHidden = false
                     self.errorMessageView.layer.cornerRadius = 8
                     self.errorMessageView.clipsToBounds = true
-                    self.errorMessageView.statusIcon.image = #imageLiteral(resourceName: "eGameLogo")
+                    self.errorMessageView.statusIcon.image = #imageLiteral(resourceName: "camera")
                     self.errorMessageView.statusIcon.layer.cornerRadius = 3
                     self.errorMessageView.statusIcon.clipsToBounds = true
                     self.errorMessageView.delegate = self

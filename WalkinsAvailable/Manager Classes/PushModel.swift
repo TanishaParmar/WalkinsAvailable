@@ -47,6 +47,10 @@ extension PushModel {
             self.pushType = PUSH_TYPE(rawValue: pushType)
             print("push type int \(pushType)")
         }
+        if let title = json["title"] as? String {
+            self.title = title
+        }
+        
 //        else if let pushType = (json["pushType"] as? String)?.toInt {
 //            self.pushType = PUSH_TYPE(rawValue: pushType)
 //            print("push type string \(pushType)")
