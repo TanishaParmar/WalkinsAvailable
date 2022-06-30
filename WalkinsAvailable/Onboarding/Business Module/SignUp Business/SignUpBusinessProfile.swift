@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
+//import IQKeyboardManagerSwift
 class SignUpBusinessProfile: SocialLoginVC {
     
     var isNAv:Bool?
@@ -48,12 +48,12 @@ class SignUpBusinessProfile: SocialLoginVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        IQKeyboardManager.shared.enable = false
+//        IQKeyboardManager.shared.enable = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        IQKeyboardManager.shared.enable = true
+//        IQKeyboardManager.shared.enable = true
     }
     
     

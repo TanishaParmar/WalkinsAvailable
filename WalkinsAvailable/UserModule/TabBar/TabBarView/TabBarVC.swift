@@ -33,6 +33,7 @@ enum Account_Type: String {
     case switchAccountAsBussiness = " Switch account as business"
     case switchAccountAsServiceProvider = "Switch account as Service provider"
     case setAvailability = "Set Availability"
+    case pastEvents = "Past Events"
     case requestInvitesForShops = "Request invites for shops"
     case aboutUs = "About Us"
     case contactUs = "Contact Us"

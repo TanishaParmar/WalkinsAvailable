@@ -239,9 +239,9 @@ class HttpManager: HTTPURLResponse {
         request.timeoutInterval = 60
         request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
        
-        if  let accessToken = UserDefaultsCustom.getUserToken(), accessToken.count > 0 {
+        if let accessToken = UserDefaultsCustom.getUserToken(), accessToken.count > 0 {
             request.setValue(accessToken, forHTTPHeaderField: "Token")
-            print("accessToken** \(accessToken)")
+            print("access Token ** \(accessToken)")
         }
         let task = URLSession.shared.dataTask(with: request, completionHandler: {data, response, error -> Void in
             if(response != nil) {

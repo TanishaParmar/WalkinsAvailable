@@ -90,7 +90,7 @@
                                 <constraint firstItem="fna-GH-EfR" firstAttribute="leading" secondItem="J06-9c-ODI" secondAttribute="trailing" constant="20" id="raw-wO-puH"/>
                             </constraints>
                         </view>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhr-Gf-jJp">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhr-Gf-jJp">
                             <rect key="frame" x="0.0" y="50" width="414" height="768"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Oo-Ja-OHp">
@@ -624,7 +624,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="mhr-Gf-jJp" firstAttribute="top" secondItem="t2R-0m-VDx" secondAttribute="bottom" id="12K-pz-2hT"/>
-                        <constraint firstItem="3Oo-Ja-OHp" firstAttribute="height" secondItem="wZh-g3-LuB" secondAttribute="height" priority="750" id="IYS-Vm-Je0"/>
+                        <constraint firstItem="3Oo-Ja-OHp" firstAttribute="height" secondItem="wZh-g3-LuB" secondAttribute="height" priority="250" id="IYS-Vm-Je0"/>
                         <constraint firstItem="3Oo-Ja-OHp" firstAttribute="width" secondItem="wZh-g3-LuB" secondAttribute="width" id="Mod-Jc-g2j"/>
                         <constraint firstItem="t2R-0m-VDx" firstAttribute="leading" secondItem="wZh-g3-LuB" secondAttribute="leading" id="PMF-WC-Ygq"/>
                         <constraint firstAttribute="trailing" secondItem="t2R-0m-VDx" secondAttribute="trailing" id="ZRj-No-r3c"/>

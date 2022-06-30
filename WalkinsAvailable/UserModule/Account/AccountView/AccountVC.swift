@@ -25,8 +25,8 @@ class AccountVC: UIViewController {
     
 //    var listArr: [(String, String)] = [("Switch account as Business","pf1"),("Switch account as Service Provider","pf2"),("Set Availability","pf9"),("Request invite from shops","shop8"),("About us","pf3"),("Contact us","pf4"),("Complaints","pf5"),("Change Password","pf6"),("Logout","pf7")]
     var userListArr: [(Account_Type, String)] = [(.switchAccountAsBussiness,"pf1"),(.switchAccountAsServiceProvider,"pf2"),(.setAvailability,"pf9"),(.requestInvitesForShops,"shop8"),(.aboutUs,"pf3"),(.contactUs,"pf4"),(.complaints,"pf5"),(.changePassword,"pf6"),(.logout,"pf7")]
-    var businessListArr: [(Account_Type, String)] = [(.switchAccountAsUser,"profileUser"),(.switchAccountAsServiceProvider,"pf2"),(.setAvailability,"pf9"),(.requestInvitesForShops,"shop8"),(.aboutUs,"pf3"),(.contactUs,"pf4"),(.complaints,"pf5"),(.changePassword,"pf6"),(.logout,"pf7")]
-    var serviceProviderArr: [(Account_Type, String)] = [(.switchAccountAsUser,"profileUser"),(.switchAccountAsBussiness,"pf1"),(.setAvailability,"pf9"),(.requestInvitesForShops,"shop8"),(.aboutUs,"pf3"),(.contactUs,"pf4"),(.changePassword,"pf6"),(.logout,"pf7")]
+    var businessListArr: [(Account_Type, String)] = [(.switchAccountAsUser,"profileUser"),(.switchAccountAsServiceProvider,"pf2"),(.pastEvents,"pf9"),(.requestInvitesForShops,"shop8"),(.aboutUs,"pf3"),(.contactUs,"pf4"),(.complaints,"pf5"),(.changePassword,"pf6"),(.logout,"pf7")]
+    var serviceProviderArr: [(Account_Type, String)] = [(.switchAccountAsUser,"profileUser"),(.switchAccountAsBussiness,"pf1"),(.requestInvitesForShops,"shop8"),(.aboutUs,"pf3"),(.contactUs,"pf4"),(.changePassword,"pf6"),(.logout,"pf7")]
     
     
     var userType : USER_TYPE = .user
@@ -471,7 +471,8 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                         self.push(viewController: controller)
                     }
                 }else  if indexPath.row == 2 {
-                    let controller = SetAvailbilityVC()
+                    let controller = ServiceEventVC()
+                    controller.isFromSettings = true
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
                 else if indexPath.row == 4{
@@ -523,25 +524,22 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                         self.push(viewController: viewcontroller)
                     }
                     
-                }else  if indexPath.row == 2 {
-                    let controller = SetAvailbilityVC()
-                    self.navigationController?.pushViewController(controller, animated: true)
                 }
-                else if indexPath.row == 3{
+                else if indexPath.row == 2{
                     let controller = InviteFromShopVC()
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
-                else if indexPath.row == 4{
+                else if indexPath.row == 3{
                     let controller = AboutUsVC()
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
-                else if indexPath.row == 5 {
+                else if indexPath.row == 4 {
                     let viewcontroller = ContactUsVC()
                     self.navigationController?.pushViewController(viewcontroller, animated: true)
-                } else if indexPath.row == 6 {
+                } else if indexPath.row == 5 {
                     let viewcontroller = ChangePasswordVC()
                     self.navigationController?.pushViewController(viewcontroller, animated: true)
-                } else if indexPath.row == 7{
+                } else if indexPath.row == 6{
                     self.popActionAlert(title: AppAlertTitle.appName.rawValue, message: "Are you sure you want to logout ?", actionTitle: ["Yes","No"], actionStyle: [.default, .cancel], action: [{ ok in
                         self.hitLogOutApi()
                         

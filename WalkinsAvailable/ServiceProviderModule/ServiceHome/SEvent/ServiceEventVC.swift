@@ -8,11 +8,16 @@
 import UIKit
 
 class ServiceEventVC: UIViewController {
+    
+    @IBOutlet weak var ongoingAndPastDetailsView: UIView!
+    @IBOutlet weak var pastEventsView: UIView!
     @IBOutlet weak var ongoingBtn: UIButton!
     @IBOutlet weak var ongoingLbl: UILabel!
     @IBOutlet weak var pastBtn: UIButton!
     @IBOutlet weak var pastLbl: UILabel!
     @IBOutlet weak var ServiceEventListTableView: UITableView!
+    
+    var isFromSettings: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +42,13 @@ class ServiceEventVC: UIViewController {
         ServiceEventListTableView.delegate = self
         let nib = UINib(nibName: "EventListCell", bundle: nil)
         ServiceEventListTableView.register(nib, forCellReuseIdentifier: "EventListCell")
+        if isFromSettings {
+            pastEventsView.isHidden = false
+            ongoingAndPastDetailsView.isHidden = true
+        } else {
+            pastEventsView.isHidden = true
+            ongoingAndPastDetailsView.isHidden = false
+        }
         ongoingLbl.layer.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.7278997302, blue: 0.7423141599, alpha: 1)
         pastLbl.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
@@ -52,8 +64,14 @@ class ServiceEventVC: UIViewController {
             ongoingLbl.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             pastLbl.layer.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.7278997302, blue: 0.7423141599, alpha: 1)
         }
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
-extension ServiceEventVC : UITableViewDelegate, UITableViewDataSource{
+extension ServiceEventVC : UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         4
     }
@@ -74,10 +92,7 @@ extension ServiceEventVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = EventDetailVC()
         self.push(viewController: controller)
-
-        
     }
-    
     
 }
 

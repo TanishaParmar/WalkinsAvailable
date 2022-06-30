@@ -22,13 +22,13 @@ struct UserDefaultsCustom {
     static let eventFieldsModel = "EventFieldsModel"
     
     
-    static func getDeviceToken() -> String {
-        if let value = UserDefaults.standard.value(forKey: Self.deviceToken) as? String {
-            return value
-        } else {
-            return "auth_token"
-        }
-    }
+//    static func getDeviceToken() -> String {
+//        if let value = UserDefaults.standard.value(forKey: Self.deviceToken) as? String {
+//            return value
+//        } else {
+//            return "auth_token"
+//        }
+//    }
     
     static var firstTimeOpen: Bool {
         return UserDefaults.standard.value(forKey: "firstTimeOpen") == nil
@@ -108,6 +108,18 @@ struct UserDefaultsCustom {
         } else {
             return nil
         }
+    }
+    
+    static func saveDeviceToken(userToken:String) {
+        print("save Device Token  \(userToken)")
+        UserDefaults.standard.set(userToken, forKey: UserDefaultsCustom.deviceToken)
+    }
+    
+    static func getDeviceToken() -> String {
+        if let token = UserDefaults.standard.value(forKey: UserDefaultsCustom.deviceToken) as? String {
+            return token
+        }
+        return String()
     }
     
     static func saveUserLogin(loginType value: String) {
@@ -200,6 +212,8 @@ struct UserDefaultsCustom {
         }
         return nil
     }
+    
+    
     
 //    static func getUserId() -> String {
 //        if let data = UserDefaults.standard.value(forKey:UserDefaultsCustom.userData) as? Data {

@@ -86,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Convert token to string
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print("device token string", deviceTokenString)
+        UserDefaultsCustom.saveDeviceToken(userToken: deviceTokenString)
 //        Globals.defaults.set(deviceTokenString, forKey: DefaultKeys.deviceToken)
     }
     

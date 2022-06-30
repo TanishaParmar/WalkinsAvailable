@@ -36,6 +36,11 @@ class SignUpServiceVC: SocialLoginVC {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     //MARK: Methods
     func configureUI() {
         artistNameTF.delegate = self
