@@ -1848,7 +1848,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "60AF1C2E-531F-483D-B381-5CE5812B54AC"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WalkinsAvailable/Onboarding/SignUp/SignUpAsUser/SignUpAsUserVC.swift"

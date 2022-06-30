@@ -71,7 +71,7 @@ class SignUpAsUserVC: SocialLoginVC {
     
     func generatingParameters() -> [String:Any] {
         var params : [String:Any] = [:]
-        params["userId"] = UserDefaultsCustom.getUserData()?.userId
+        params["userId"] = userId //UserDefaultsCustom.getUserData()?.userId
         params["userName"] = userNameTextField.text
         params["email"] = emailTextField.text
         params["password"] = passwordTextField.text

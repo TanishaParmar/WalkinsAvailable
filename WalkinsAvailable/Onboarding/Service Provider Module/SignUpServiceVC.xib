@@ -117,7 +117,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9h-bF-wnO">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="75"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Provide Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYb-g6-CdV" customClass="ICSemiboldLabel" customModule="WalkinsAvailable" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Provider Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYb-g6-CdV" customClass="ICSemiboldLabel" customModule="WalkinsAvailable" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="18.5"/>
                                                             <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="13"/>
                                                             <nil key="textColor"/>
@@ -126,7 +126,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCb-wd-KVj">
                                                             <rect key="frame" x="0.0" y="35" width="374" height="40"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Service Provide Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4k3-nx-AQj">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Service Provider Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4k3-nx-AQj">
                                                                     <rect key="frame" x="10" y="7" width="354" height="21.5"/>
                                                                     <color key="tintColor" red="0.98162025210000003" green="0.73529273269999995" blue="0.77881622309999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

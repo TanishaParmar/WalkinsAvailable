@@ -454,7 +454,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                         Singleton.setHomeScreenView()
                     } else {
                         let controller = SignUpAsUserVC()
-                        controller.userId = self.userNameLabel.text ?? ""
+                        controller.userId = UserDefaultsCustom.getUserData()?.userId ?? "" //self.userNameLabel.text ?? ""
                         controller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: controller)
                     }
@@ -507,7 +507,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                         Singleton.setHomeScreenView()
                     } else {
                         let controller = SignUpAsUserVC()
-                        controller.userId = self.userNameLabel.text ?? ""
+                        controller.userId = UserDefaultsCustom.getUserData()?.userId ?? ""  //self.userNameLabel.text ?? ""
                         controller.emailId = self.userEmailLabel.text ?? ""
                         self.push(viewController: controller)
                     }
