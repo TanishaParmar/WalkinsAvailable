@@ -26,7 +26,7 @@ struct AppAlertMessage {
     static let enterEmail = "Please enter email."
     static let validEmail = "Please enter vaild email."
     static let enterPassword = "Please enter password."
-    static let enterArtistName = "Please enter artist name."
+    static let enterServiceProviderName = "Please enter service provider name."
     static let enterBusinessName = "Please enter business name."
     static let enterBusinessType = "Please enter business type."
     static let enterAddress = "Please enter address."
@@ -36,7 +36,11 @@ struct AppAlertMessage {
     static let enterOldPassword = "Please enter old password."
     static let enterNewPassword = "Please enter new password."
     static let enterConfirmPassword = "Please enter confirm password."
-
+    static let enterEventName = "Please enter event name."
+    static let enterStartTime = "Please select start time."
+    static let enterEndTime = "Please select end time."
+    static let enterDate = "Please select date."
+    static let chooseLocation = "Please choose location."
 }
 
 struct HEIGHT {

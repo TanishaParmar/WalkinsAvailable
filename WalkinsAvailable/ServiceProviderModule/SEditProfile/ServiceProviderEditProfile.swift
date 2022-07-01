@@ -165,7 +165,7 @@ class ServiceProviderEditProfile: UIViewController {
     // MARK: VAILDATIONS
     func validate() {
         if ValidationManager.shared.isEmpty(text: artistNameTF.text) == true {
-            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterArtistName, isError: .error)
+            Singleton.shared.showErrorMessage(error: AppAlertMessage.enterServiceProviderName, isError: .error)
         }else  if ValidationManager.shared.isEmpty(text: emailTF.text) == true {
             Singleton.shared.showErrorMessage(error: AppAlertMessage.enterEmail, isError: .error)
         }else if emailTF.text!.isValidEmail == false {

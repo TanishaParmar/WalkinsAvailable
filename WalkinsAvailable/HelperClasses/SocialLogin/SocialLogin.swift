@@ -13,6 +13,11 @@ import FacebookLogin
 import AuthenticationServices
 
 
+
+
+
+
+
 class SocialLoginVC: UIViewController {
     
     var type: USER_TYPE = .user
@@ -35,19 +40,13 @@ class SocialLoginVC: UIViewController {
         }
     }
     
-    
-    
-    
     @IBAction func facebookLogin(_ sender: UIButton) {
         facebookLogIN()
     }
     
-    
     @IBAction func appleLogIn(_ sender: UIButton) {
         actionAppleSignin()
     }
-    
-    
     
     func actionAppleSignin() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
@@ -94,34 +93,57 @@ class SocialLoginVC: UIViewController {
         }
     }
     
+//    func generatingGoogleLogInParameters(userId: String?, fullName: String?, email: String?, idToken: String?, profilePicture: URL?) {
+//        var params : [String:Any] = [:]
+//        switch self.type {
+//        case .user:
+//            params = ["userName":fullName ?? "","email":email ?? "","image": profilePicture?.absoluteString ?? "" ,"googleToken":userId ?? "","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+//        case .business:
+//            params = ["businessName":fullName ?? "","email":email ?? "","image": profilePicture?.absoluteString ?? "" ,"googleToken":userId ?? "","deviceType":"1"] as [String:Any]
+//        case .serviceProvider:
+//            params = ["artistName":fullName ?? "","email":email ?? "","image": profilePicture?.absoluteString ?? "" ,"googleToken":userId ?? "","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+//        }
+//        print("params ****** \(params)")
+//        self.hitGoogleLogInApi(dict: params)
+//    }
+    
+    
     func generatingGoogleLogInParameters(userId: String?, fullName: String?, email: String?, idToken: String?, profilePicture: URL?) {
         var params : [String:Any] = [:]
+        params["userName"] = fullName ?? ""
+        params["email"] = email ?? ""
+        params["image"] = profilePicture?.absoluteString ?? ""
+        params["googleToken"] = userId ?? ""
+        params["latitude"] = "30.7110585"
+        params["longitude"] = "76.6913124"
+        params["deviceType"] = "1"
+
         switch self.type {
         case .user:
-            params = ["userName":fullName ?? "","email":email ?? "","image": profilePicture?.absoluteString ?? "" ,"googleToken":userId ?? "","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+            params["role"] = "1"
         case .business:
-            params = ["businessName":fullName ?? "","email":email ?? "","image": profilePicture?.absoluteString ?? "" ,"googleToken":userId ?? "","deviceType":"1"] as [String:Any]
+            params["role"] = "2"
         case .serviceProvider:
-            params = ["artistName":fullName ?? "","email":email ?? "","image": profilePicture?.absoluteString ?? "" ,"googleToken":userId ?? "","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+            params["role"] = "3"
         }
         print("params ****** \(params)")
         self.hitGoogleLogInApi(dict: params)
     }
-    
+
     
     
     //MARK: Hit Google Log In API
     func hitGoogleLogInApi(dict: [String:Any]) {
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        var apiName: String = ""
-        switch type {
-        case .user:
-            apiName = API.Name.googleLogIn
-        case .business:
-            apiName = API.Name.businessGoogleLogIn
-        case .serviceProvider:
-            apiName = API.Name.artistGoogleLogIn
-        }
+        var apiName: String = API.Name.googleLogIn
+//        switch type {
+//        case .user:
+//            apiName = API.Name.googleLogIn
+//        case .business:
+//            apiName = API.Name.businessGoogleLogIn
+//        case .serviceProvider:
+//            apiName = API.Name.artistGoogleLogIn
+//        }
         ApiHandler.updateProfile(apiName: apiName, params: dict) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
@@ -180,22 +202,40 @@ class SocialLoginVC: UIViewController {
     //MARK: Hit Apple Log In API
     func hitAppleLogInApi(with email: String, userName: String,appleToken: String, appleImage: String) {
         var params: [String:Any] = [:]
-        var apiName: String = ""
+        var apiName: String = API.Name.appleLogIn
         
-        switch type {
+//        switch type {
+//        case .user:
+//            apiName = API.Name.appleLogIn
+//            params = ["userName":userName,"email":email,"image":appleImage,"appleToken":appleToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+//            debugPrint("params ****** \(params)")
+//        case .business:
+//            apiName = API.Name.businessAppleLogIn
+//            params = ["businessName":userName,"email":email,"image":appleImage,"businessType":"","businessAddress":"","businessDescription":"","appleToken":appleToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+//            debugPrint("params ****** \(params)")
+//        case .serviceProvider:
+//            apiName = API.Name.artistAppleLogIn
+//            params = ["artistName":userName,"email":email,"image":appleImage,"appleToken":appleToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+//            debugPrint("params ****** \(params)")
+//        }
+        
+        params["userName"] = userName
+        params["email"] = email
+        params["image"] = appleImage
+        params["appleToken"] = appleToken
+        params["latitude"] = "30.7110585"
+        params["longitude"] = "76.6913124"
+        params["deviceType"] = "1"
+
+        switch self.type {
         case .user:
-            apiName = API.Name.appleLogIn
-            params = ["userName":userName,"email":email,"image":appleImage,"appleToken":appleToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
-            debugPrint("params ****** \(params)")
+            params["role"] = "1"
         case .business:
-            apiName = API.Name.businessAppleLogIn
-            params = ["businessName":userName,"email":email,"image":appleImage,"businessType":"","businessAddress":"","businessDescription":"","appleToken":appleToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
-            debugPrint("params ****** \(params)")
+            params["role"] = "2"
         case .serviceProvider:
-            apiName = API.Name.artistAppleLogIn
-            params = ["artistName":userName,"email":email,"image":appleImage,"appleToken":appleToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
-            debugPrint("params ****** \(params)")
+            params["role"] = "3"
         }
+
         
         ApiHandler.updateProfile(apiName: apiName, params: params) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
@@ -264,22 +304,41 @@ class SocialLoginVC: UIViewController {
     func hitFacebookLogInApi(with email: String, userName: String,facebookToken: String, facebookImage: String) {
         ActivityIndicator.sharedInstance.showActivityIndicator()
         var params: [String:Any] = [:]
-        var apiName: String = ""
+        var apiName: String = API.Name.facebookLogIn
         
-        switch type {
+//        switch type {
+//        case .user:
+//            apiName = API.Name.facebookLogIn
+//            params = ["userName":userName,"email":email,"image":facebookImage,"facebookToken":facebookToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+//            debugPrint("params ****** \(params)")
+//        case .business:
+//            apiName = API.Name.businessFacebookLogIn
+//            params = ["businessName":userName,"email":email,"image":facebookImage,"facebookToken":facebookToken,"businessType":"","businessAddress":"","businessDescription":"","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+//            debugPrint("params ****** \(params)")
+//        case .serviceProvider:
+//            apiName = API.Name.artistFacebookLogIn
+//            params = ["artistName":userName,"email":email,"image":facebookImage,"facebookToken":facebookToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
+//            debugPrint("params ****** \(params)")
+//        }
+        
+        params["userName"] = userName
+        params["email"] = email
+        params["image"] = facebookImage
+        params["facebookToken"] = facebookToken
+        params["latitude"] = "30.7110585"
+        params["longitude"] = "76.6913124"
+        params["deviceType"] = "1"
+
+        switch self.type {
         case .user:
-            apiName = API.Name.facebookLogIn
-            params = ["userName":userName,"email":email,"image":facebookImage,"facebookToken":facebookToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
-            debugPrint("params ****** \(params)")
+            params["role"] = "1"
         case .business:
-            apiName = API.Name.businessFacebookLogIn
-            params = ["businessName":userName,"email":email,"image":facebookImage,"facebookToken":facebookToken,"businessType":"","businessAddress":"","businessDescription":"","latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
-            debugPrint("params ****** \(params)")
+            params["role"] = "2"
         case .serviceProvider:
-            apiName = API.Name.artistFacebookLogIn
-            params = ["artistName":userName,"email":email,"image":facebookImage,"facebookToken":facebookToken,"latitude":"30.7110585","longitude":"76.6913124","deviceType":"1"] as [String:Any]
-            debugPrint("params ****** \(params)")
+            params["role"] = "3"
         }
+
+
         
         
         ApiHandler.updateProfile(apiName: apiName, params: params) { succeeded, response, data in
@@ -287,7 +346,6 @@ class SocialLoginVC: UIViewController {
             if succeeded {
                 UserDefaultsCustom.saveLogInData(data: data)
                 UserDefaultsCustom.saveUserLogin(loginType: self.type.role)
-
                 switch self.type {
                 case .business:
                     if let data = UserDefaultsCustom.getBusinessData() {

@@ -143,6 +143,7 @@
 		1F18D6832862EF2400C1922A /* CustomPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F18D67F2862EF2400C1922A /* CustomPickerController.xib */; };
 		1F1CBA0127FC6E8F007D9244 /* FavouriteListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CB9FF27FC6E8F007D9244 /* FavouriteListTVC.swift */; };
 		1F1CBA0227FC6E8F007D9244 /* FavouriteListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CBA0027FC6E8F007D9244 /* FavouriteListTVC.xib */; };
+		1F255925286ED37300804515 /* EventListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F255924286ED37300804515 /* EventListModel.swift */; };
 		1F3344E127FAE636000BB072 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F3344DB27FAE636000BB072 /* Poppins-Medium.ttf */; };
 		1F3344E227FAE636000BB072 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F3344DC27FAE636000BB072 /* Poppins-Black.ttf */; };
 		1F3344E327FAE636000BB072 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F3344DD27FAE636000BB072 /* Poppins-ExtraBold.ttf */; };
@@ -372,6 +373,7 @@
 		1F18D67F2862EF2400C1922A /* CustomPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPickerController.xib; sourceTree = "<group>"; };
 		1F1CB9FF27FC6E8F007D9244 /* FavouriteListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteListTVC.swift; sourceTree = "<group>"; };
 		1F1CBA0027FC6E8F007D9244 /* FavouriteListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteListTVC.xib; sourceTree = "<group>"; };
+		1F255924286ED37300804515 /* EventListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListModel.swift; sourceTree = "<group>"; };
 		1F3344DB27FAE636000BB072 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		1F3344DC27FAE636000BB072 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		1F3344DD27FAE636000BB072 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 		1895B97B28200E8E00842DD5 /* EventView */ = {
 			isa = PBXGroup;
 			children = (
+				1F255923286ED34E00804515 /* EventsListModel */,
 				1895B971281FD14D00842DD5 /* EventVC.swift */,
 				1895B972281FD14D00842DD5 /* EventVC.xib */,
 			);
@@ -1115,8 +1118,8 @@
 		1F18D67A2862EF2400C1922A /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				1F18D67B2862EF2400C1922A /* CustomDatePicker.xib */,
 				1F18D67C2862EF2400C1922A /* CustomDatePicker.swift */,
+				1F18D67B2862EF2400C1922A /* CustomDatePicker.xib */,
 			);
 			path = DatePicker;
 			sourceTree = "<group>";
@@ -1137,6 +1140,14 @@
 				1F1CBA0027FC6E8F007D9244 /* FavouriteListTVC.xib */,
 			);
 			path = FavouriteCellXib;
+			sourceTree = "<group>";
+		};
+		1F255923286ED34E00804515 /* EventsListModel */ = {
+			isa = PBXGroup;
+			children = (
+				1F255924286ED37300804515 /* EventListModel.swift */,
+			);
+			path = EventsListModel;
 			sourceTree = "<group>";
 		};
 		1F3344D927FAE5D9000BB072 /* Resources */ = {
@@ -1928,6 +1939,7 @@
 				189FB2CA28192CFA00C1EC42 /* AppAlert.swift in Sources */,
 				18EFEAB12821483D009ADBB4 /* SetAvailbilityVC.swift in Sources */,
 				1F422F1527FC4F8E00877618 /* ESTabBarController.swift in Sources */,
+				1F255925286ED37300804515 /* EventListModel.swift in Sources */,
 				181C171A2823B680008E7C14 /* ArtistEventInvitedVC.swift in Sources */,
 				18697673281A69A700F208BD /* FBAnnotationClusterView.swift in Sources */,
 				1F422F1227FC4F8E00877618 /* ExampleTipsContentView.swift in Sources */,

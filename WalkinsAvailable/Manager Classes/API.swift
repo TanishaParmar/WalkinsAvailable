@@ -29,8 +29,8 @@ class API {
     
     //MARK: LOGIN AND SOCIAL LOGIN CONSTANT API
     struct Name {
+        // User Flow Api's
         static let login                         = "webservice/user/logIn.php"
-//        static let loginV1                       = "webservice/user/logIn1.php"
         static let signUp                        = "webservice/user/userSignup.php"
         static let instagramLogIn                = "webservice/user/instaLogin.php"
         static let forgetPassword                = "webservice/user/forgetPassword.php"
@@ -42,19 +42,27 @@ class API {
         static let googleLogIn                   = "webservice/user/googleLogin.php"
         static let appleLogIn                    = "webservice/user/appleLogin.php"
         static let facebookLogIn                 = "webservice/user/facebookLogin.php"
+        static let logOut                        = "webservice/user/logout.php"
+        
+        
+        // Buisness Flow Api's
         static let businessGoogleLogIn           = "webservice/business/googleLogin.php"
         static let businessAppleLogIn            = "webservice/business/appleLogin.php"
         static let businessFacebookLogIn         = "webservice/business/facebookLogin.php"
-        static let artistGoogleLogIn             = "webservice/artist/googleLogin.php"
-        static let artistAppleLogIn              = "webservice/artist/appleLogin.php"
-        static let artistFacebookLogIn           = "webservice/artist/facebookLogin.php"
         static let businessSignUp                = "webservice/business/businessSignUp.php"
         static let editBusinessProfile           = "webservice/business/editBusinessProfile.php"
         static let businessHomeDetail            = "webservice/business/businessHomeDetail.php"
+        static let ongoingPastMycreateEvent      = "webservice/business/ongoingPastMycreateEvent.php"
+        static let addEvent                      = "webservice/business/addEvent.php"
+        
+        
+        // Artist Flow Api's
+        static let artistGoogleLogIn             = "webservice/artist/googleLogin.php"
+        static let artistAppleLogIn              = "webservice/artist/appleLogin.php"
+        static let artistFacebookLogIn           = "webservice/artist/facebookLogin.php"
         static let artistSignUp                  = "webservice/artist/artistSignUp.php"
         static let artistHomeProfile             = "webservice/artist/artistHomeProfile.php"
         static let editArtistProfile             = "webservice/artist/editArtistProfile.php"
-        static let logOut                        = "webservice/user/logout.php"
     }
 
     
