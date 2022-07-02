@@ -112,7 +112,9 @@ class EventVC: UIViewController {
     }
     
 }
-extension EventVC : UITableViewDelegate, UITableViewDataSource{
+
+extension EventVC : UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.eventsList.count
     }
@@ -133,6 +135,7 @@ extension EventVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = EventDetailVC()
+        controller.eventId = self.eventsList[indexPath.row].eventId
         self.push(viewController: controller)
     }
     

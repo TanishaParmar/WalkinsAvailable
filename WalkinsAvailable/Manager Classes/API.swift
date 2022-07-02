@@ -54,7 +54,8 @@ class API {
         static let businessHomeDetail            = "webservice/business/businessHomeDetail.php"
         static let ongoingPastMycreateEvent      = "webservice/business/ongoingPastMycreateEvent.php"
         static let addEvent                      = "webservice/business/addEvent.php"
-        
+        static let eventDetails                  = "webservice/business/eventDetails.php"
+
         
         // Artist Flow Api's
         static let artistGoogleLogIn             = "webservice/artist/googleLogin.php"

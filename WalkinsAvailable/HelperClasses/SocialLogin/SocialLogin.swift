@@ -235,7 +235,7 @@ class SocialLoginVC: UIViewController {
         case .serviceProvider:
             params["role"] = "3"
         }
-
+        print(params)
         
         ApiHandler.updateProfile(apiName: apiName, params: params) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()

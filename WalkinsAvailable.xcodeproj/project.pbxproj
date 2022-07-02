@@ -233,6 +233,7 @@
 		1F8F655F28571CDD0036593D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F655E28571CDD0036593D /* ImagePicker.swift */; };
 		1F8F6561285729BA0036593D /* PushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6560285729BA0036593D /* PushModel.swift */; };
 		1F8F6566285751DF0036593D /* SignUpAsUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6565285751DF0036593D /* SignUpAsUserModel.swift */; };
+		1F9B00F4287023B6008A4FE1 /* EventDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B00F3287023B6008A4FE1 /* EventDetailModel.swift */; };
 		B2A379552B5F9D1E1AD4AC52 /* Pods_WalkinsAvailable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8167BD75B3727D6B7E2CDE44 /* Pods_WalkinsAvailable.framework */; };
 /* End PBXBuildFile section */
 
@@ -466,6 +467,7 @@
 		1F8F655E28571CDD0036593D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1F8F6560285729BA0036593D /* PushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushModel.swift; sourceTree = "<group>"; };
 		1F8F6565285751DF0036593D /* SignUpAsUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAsUserModel.swift; sourceTree = "<group>"; };
+		1F9B00F3287023B6008A4FE1 /* EventDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailModel.swift; sourceTree = "<group>"; };
 		62FEC1905C4F5ABD6AF712CC /* Pods-WalkinsAvailable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkinsAvailable.release.xcconfig"; path = "Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable.release.xcconfig"; sourceTree = "<group>"; };
 		8167BD75B3727D6B7E2CDE44 /* Pods_WalkinsAvailable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkinsAvailable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5123D836EA82DD3B54591CD /* Pods-WalkinsAvailable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkinsAvailable.debug.xcconfig"; path = "Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable.debug.xcconfig"; sourceTree = "<group>"; };
@@ -673,6 +675,7 @@
 		1895B97A28200E8300842DD5 /* EventDetail */ = {
 			isa = PBXGroup;
 			children = (
+				1F9B00F2287023A1008A4FE1 /* EventDetailModel */,
 				1895B97C28200ED000842DD5 /* EventDetailVC.swift */,
 				1895B97D28200ED000842DD5 /* EventDetailVC.xib */,
 			);
@@ -1705,6 +1708,14 @@
 			path = SignUpAsUserModel;
 			sourceTree = "<group>";
 		};
+		1F9B00F2287023A1008A4FE1 /* EventDetailModel */ = {
+			isa = PBXGroup;
+			children = (
+				1F9B00F3287023B6008A4FE1 /* EventDetailModel.swift */,
+			);
+			path = EventDetailModel;
+			sourceTree = "<group>";
+		};
 		7FEED01CAA115568416D77E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2022,6 +2033,7 @@
 				1F422F1827FC4F8E00877618 /* ESTabBarItem.swift in Sources */,
 				18E379A22823C40F0029C01A /* ShopsListCell.swift in Sources */,
 				1869767F281A6BD300F208BD /* AnimatingView.swift in Sources */,
+				1F9B00F4287023B6008A4FE1 /* EventDetailModel.swift in Sources */,
 				18E379B02823D5230029C01A /* RequestInviteFromCell.swift in Sources */,
 				18E379CA2823E4310029C01A /* GalleryAlbumTableView.swift in Sources */,
 				18E698372825460B00644838 /* BusinessEventVC.swift in Sources */,

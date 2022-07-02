@@ -1,22 +1,21 @@
 //
-//  EventListModel.swift
+//  EventDetailModel.swift
 //  WalkinsAvailable
 //
-//  Created by MyMac on 7/1/22.
+//  Created by MyMac on 7/2/22.
 //
 
 import Foundation
 
-
-class EventListModel : Codable {
+class EventDetailModel : Codable {
     var code : Int?
     var status : Int?
     var message : String?
-    var data : [EventsList]?
+    var data : EventDetail?
 }
 
 
-class EventsList : Codable {
+class EventDetail : Codable {
     var eventId : String?
     var businessId : String?
     var eventName : String?
