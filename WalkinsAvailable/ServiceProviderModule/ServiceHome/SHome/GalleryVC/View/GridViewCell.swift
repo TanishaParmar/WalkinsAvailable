@@ -22,7 +22,7 @@ class GridViewCell: UICollectionViewCell {
     }()
     lazy var overLayer: UIView = {
         let view = UIView()
-//        view.backgroundColor = UIColor(r: 140, g: 202, b: 60, a: 0.7)
+        //        view.backgroundColor = UIColor(r: 140, g: 202, b: 60, a: 0.7)
         return view
     }()
     
@@ -41,14 +41,14 @@ class GridViewCell: UICollectionViewCell {
     
     lazy var videoPlayerButton: UIButton = {
         let btn = UIButton(type: .custom)
-//        btn.setImage(#imageLiteral(resourceName: "highlighter"), for: .normal)
+        //        btn.setImage(#imageLiteral(resourceName: "highlighter"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(videoPlayAction(_:)), for: .touchUpInside)
         return btn
     }()
     
     var asset: PHAsset?
-//    var media: Banner?
+    //    var media: Banner?
     var representedAssetIdentifier: String!
     var is_selected: Bool = false {
         didSet {
@@ -67,7 +67,7 @@ class GridViewCell: UICollectionViewCell {
         super.layoutSubviews()
         setImageView()
         setSelectionImageView()
-//        cornerRadius = 4.0
+        //        cornerRadius = 4.0
     }
     
     private func setImageView() {
@@ -93,7 +93,6 @@ class GridViewCell: UICollectionViewCell {
         addSubview(videoPlayerButton)
         videoPlayerButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         videoPlayerButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
     }
     
     public func setPHAsset(_ asset: PHAsset, imageManager: PHCachingImageManager, seletedIds: [String]) {
@@ -101,25 +100,25 @@ class GridViewCell: UICollectionViewCell {
         self.representedAssetIdentifier = asset.localIdentifier
         
         
-//        let option = PHImageRequestOptions()
-//        option.isSynchronous = false
-//        option.isNetworkAccessAllowed = true
-//        option.resizeMode = .exact
-//        option.deliveryMode = .highQualityFormat
-//
-//        let option = PHImageRequestOptions()
-//        option.isSynchronous = false
-//        option.isNetworkAccessAllowed = false
-//        option.resizeMode = .exact
-//        option.deliveryMode = .opportunistic
-//        option.version = .original
+        //        let option = PHImageRequestOptions()
+        //        option.isSynchronous = false
+        //        option.isNetworkAccessAllowed = true
+        //        option.resizeMode = .exact
+        //        option.deliveryMode = .highQualityFormat
+        //
+        //        let option = PHImageRequestOptions()
+        //        option.isSynchronous = false
+        //        option.isNetworkAccessAllowed = false
+        //        option.resizeMode = .exact
+        //        option.deliveryMode = .opportunistic
+        //        option.version = .original
         
-//        imageManager.requestImageData(for: asset, options: option) { data, value, orientation, dict in
-//            if self.representedAssetIdentifier == asset.localIdentifier,
-//                let data = data {
-//                self.thumbnailImage = UIImage(data: data)
-//            }
-//        }
+        //        imageManager.requestImageData(for: asset, options: option) { data, value, orientation, dict in
+        //            if self.representedAssetIdentifier == asset.localIdentifier,
+        //                let data = data {
+        //                self.thumbnailImage = UIImage(data: data)
+        //            }
+        //        }
         
         imageManager.requestImage(for: asset, targetSize: self.frame.size, contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
             if self.representedAssetIdentifier == asset.localIdentifier {
@@ -127,7 +126,7 @@ class GridViewCell: UICollectionViewCell {
             }
         })
         
-      
+        
         switch asset.mediaType {
         case .image: self.videoPlayerButton.isHidden = true
         case .video: self.videoPlayerButton.isHidden = false
@@ -136,7 +135,7 @@ class GridViewCell: UICollectionViewCell {
         
         self.is_selected = seletedIds.contains(self.representedAssetIdentifier)
         
-//        print("\(representedAssetIdentifier)  *** \(seletedIds.contains(self.representedAssetIdentifier))  ----   \(seletedIds)")
+        //        print("\(representedAssetIdentifier)  *** \(seletedIds.contains(self.representedAssetIdentifier))  ----   \(seletedIds)")
         
     }
     
@@ -144,7 +143,7 @@ class GridViewCell: UICollectionViewCell {
         if let asset = self.asset {
             let resources = PHAssetResource.assetResources(for: asset)
             if let resource = resources.first,
-                  let unsignedInt64 = resource.value(forKey: "fileSize") as? CLong {
+               let unsignedInt64 = resource.value(forKey: "fileSize") as? CLong {
                 return UInt64(unsignedInt64)
             } else {
                 return 0
@@ -165,14 +164,14 @@ class GridViewCell: UICollectionViewCell {
     }
     
     @objc func videoPlayAction(_ button: UIButton) {
-//        if let vc = self.getParentViewController() {
-//            if let asset = self.asset {
-//                self.playVideo(view: vc, asset: asset)
-//            }
-//            if let media = self.media {
-//                vc.playVideo(url: media.url)
-//            }
-//        }
+        //        if let vc = self.getParentViewController() {
+        //            if let asset = self.asset {
+        //                self.playVideo(view: vc, asset: asset)
+        //            }
+        //            if let media = self.media {
+        //                vc.playVideo(url: media.url)
+        //            }
+        //        }
     }
     
     func playVideo(view: UIViewController, asset: PHAsset) {
@@ -192,26 +191,26 @@ class GridViewCell: UICollectionViewCell {
     }
     
     
-//    func setMedia(_ data: Banner?) {
-//        self.media = data
-//        self.imageView.setUserImage(data?.url)
-//        self.videoPlayerButton.isHidden = data?.url?.isImageType == true
-//    }
+    //    func setMedia(_ data: Banner?) {
+    //        self.media = data
+    //        self.imageView.setUserImage(data?.url)
+    //        self.videoPlayerButton.isHidden = data?.url?.isImageType == true
+    //    }
     
 }
 
 
 extension PHAsset {
     
-//    var isGifType: Bool {
-//        let resources = PHAssetResource.assetResources(for: self)
-//        for resource in resources {
-//             if resource.uniformTypeIdentifier == (kUTTypeGIF as String) {
-//                 return true
-//             }
-//        }
-//        return false
-//    }
+    //    var isGifType: Bool {
+    //        let resources = PHAssetResource.assetResources(for: self)
+    //        for resource in resources {
+    //             if resource.uniformTypeIdentifier == (kUTTypeGIF as String) {
+    //                 return true
+    //             }
+    //        }
+    //        return false
+    //    }
     
     
 }

@@ -122,7 +122,6 @@ extension GalleryImagesCollectionView : UICollectionViewDelegateFlowLayout {
 }
 
 extension GalleryImagesCollectionView: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isCameraOption, indexPath.item == 0 {
             galleryDelegate?.galleryOpenCamera()

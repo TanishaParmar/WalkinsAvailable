@@ -32,9 +32,11 @@ extension BusinessHomeVC: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessHomeListCell", for: indexPath) as! BusinessHomeListCell
         cell.btnSeeAll.tag = indexPath.row
@@ -50,27 +52,29 @@ extension BusinessHomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
          return 220
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = (Bundle.main.loadNibNamed("BusinessHomeHeaderView", owner: self, options: nil)![0] as? BusinessHomeHeaderView)
         view?.collectionArtistListView.dataSource = self
         view?.collectionArtistListView.delegate = self
         view?.headerView()
-        view?.editProfileBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-
+//        view?.editProfileBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return view
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 250
     }
+    
     @objc func btnSeeAllAction(sender : UIButton) {
         let controller = BusinessEventVC()
         self.push(viewController: controller)
     }
     
-    @objc func buttonAction(sender : UIButton) {
-        let controller = BusinessEditProfile()
-        self.push(viewController: controller)
-    }
+//    @objc func buttonAction(sender : UIButton) {
+//        let controller = BusinessEditProfile()
+//        self.push(viewController: controller)
+//    }
     
 }
 

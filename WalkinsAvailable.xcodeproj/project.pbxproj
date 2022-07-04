@@ -202,6 +202,7 @@
 		1F422F1927FC4F8E00877618 /* ESTabBarItemBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0A27FC4F8E00877618 /* ESTabBarItemBadgeView.swift */; };
 		1F422F1A27FC4F8E00877618 /* ESTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0B27FC4F8E00877618 /* ESTabBar.swift */; };
 		1F422F1B27FC4F8E00877618 /* ESTabBarItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0C27FC4F8E00877618 /* ESTabBarItemContainer.swift */; };
+		1F5D98832872B23700A07A1A /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5D98822872B23700A07A1A /* UIApplication+Extension.swift */; };
 		1F61ABF9285B454900A8F826 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F61ABF8285B454900A8F826 /* ActivityIndicator.swift */; };
 		1F68260F27FD641E00FFB4DA /* NotificationListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68260D27FD641E00FFB4DA /* NotificationListTVC.swift */; };
 		1F68261027FD641E00FFB4DA /* NotificationListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68260E27FD641E00FFB4DA /* NotificationListTVC.xib */; };
@@ -435,6 +436,7 @@
 		1F422F0A27FC4F8E00877618 /* ESTabBarItemBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBarItemBadgeView.swift; sourceTree = "<group>"; };
 		1F422F0B27FC4F8E00877618 /* ESTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBar.swift; sourceTree = "<group>"; };
 		1F422F0C27FC4F8E00877618 /* ESTabBarItemContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBarItemContainer.swift; sourceTree = "<group>"; };
+		1F5D98822872B23700A07A1A /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		1F61ABF7285B02DA00A8F826 /* WalkinsAvailable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WalkinsAvailable.entitlements; sourceTree = "<group>"; };
 		1F61ABF8285B454900A8F826 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1F68260D27FD641E00FFB4DA /* NotificationListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListTVC.swift; sourceTree = "<group>"; };
@@ -990,12 +992,12 @@
 			isa = PBXGroup;
 			children = (
 				18E379C02823E4310029C01A /* GridCameraViewCell.swift */,
-				18E379C12823E4310029C01A /* GalleryVC.xib */,
 				18E379C22823E4310029C01A /* GalleryAlbumTableView.swift */,
 				18E379C32823E4310029C01A /* GalleryImagesCollectionView.swift */,
 				18E379C42823E4310029C01A /* GridViewCell.swift */,
 				18E379C52823E4310029C01A /* FeedGalleryCollectionView.swift */,
 				18E379C62823E4310029C01A /* GalleryVC.swift */,
+				18E379C12823E4310029C01A /* GalleryVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1183,6 +1185,7 @@
 				189FB2C528192BAF00C1EC42 /* ValidationBase.swift */,
 				1F3344E827FAF40D000BB072 /* UIView+Extension.swift */,
 				1895B96A281FC81000842DD5 /* NSLayoutContraint+Custom.swift */,
+				1F5D98822872B23700A07A1A /* UIApplication+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1964,6 +1967,7 @@
 				18B4D433281BAEA7005C0816 /* ComplaintViewVC.swift in Sources */,
 				1F68261A27FD7DDD00FFB4DA /* EditProfileVC.swift in Sources */,
 				18697689281A722200F208BD /* UIViewController+Custom.swift in Sources */,
+				1F5D98832872B23700A07A1A /* UIApplication+Extension.swift in Sources */,
 				189FB2CD2819384700C1EC42 /* SignUpServiceProvider.swift in Sources */,
 				18C5B96728211B6300876BAE /* BusinessFavouriteList.swift in Sources */,
 				1F422EE727FC20C800877618 /* NotificationVC.swift in Sources */,
@@ -2231,7 +2235,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2269,7 +2273,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;

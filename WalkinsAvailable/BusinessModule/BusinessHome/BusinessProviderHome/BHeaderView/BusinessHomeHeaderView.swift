@@ -18,8 +18,13 @@ class BusinessHomeHeaderView: UIView {
     class var view: BusinessHomeHeaderView {
         return UINib(nibName: "BusinessHomeHeaderView", bundle: nil).instantiate(withOwner: nil).first as! BusinessHomeHeaderView
     }
+    
     @IBAction func editProfileBtn(_ sender: UIButton) {
-        
+        let businessEditVC = BusinessEditProfile()
+        businessEditVC.data = UserDefaultsCustom.getBusinessData()
+        if let topVC = UIApplication.getTopViewController() {
+            topVC.navigationController?.pushViewController(businessEditVC, animated: true)
+        }
     }
     
     

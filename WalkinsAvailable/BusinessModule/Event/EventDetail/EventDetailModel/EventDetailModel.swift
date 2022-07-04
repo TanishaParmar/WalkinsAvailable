@@ -31,3 +31,10 @@ class EventDetail : Codable {
     var image : String?
     var isFav : String?
 }
+
+// MARK: - FavUnFavModel
+class FavUnFavModel: Codable {
+    var code, status: Int?
+    var message: String?
+    var isFav: String?
+}

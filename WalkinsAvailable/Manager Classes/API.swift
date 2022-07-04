@@ -42,6 +42,7 @@ class API {
         static let googleLogIn                   = "webservice/user/googleLogin.php"
         static let appleLogIn                    = "webservice/user/appleLogin.php"
         static let facebookLogIn                 = "webservice/user/facebookLogin.php"
+        static let favUnfavEvent                 = "webservice/user/favUnfavEvent.php"
         static let logOut                        = "webservice/user/logout.php"
         
         

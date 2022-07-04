@@ -67,13 +67,46 @@ class EventDetailVC: UIViewController {
         }
     }
     
-    @IBAction func favUnFavButtonAction(_ sender: Any) {
-        favUnFavBtn.isSelected = !favUnFavBtn.isSelected
-        if favUnFavBtn.isSelected {
-            
-        } else {
-            
+    
+    //MARK: Hit Fav Unfav API
+    func hitFavUnFavApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.favUnfavEvent, params: generatingFavnFavParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: FavUnFavModel.self) {
+                    if let isFav = response.isFav {
+                        self.favUnFavBtn.isSelected = isFav == "1"
+                    }
+                }
+                print(response)
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
         }
+    }
+    
+    
+    func generatingFavnFavParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["eventId"] = self.eventDetail?.eventId
+        params["role"] = "2"
+        print(params)
+        return params
+    }
+    
+    
+    @IBAction func favUnFavButtonAction(_ sender: Any) {
+        hitFavUnFavApi()
+        
+//        favUnFavBtn.isSelected = !favUnFavBtn.isSelected
+//        if favUnFavBtn.isSelected {
+//
+//        } else {
+//
+//        }
     }
     
     @IBAction func backAction(_ sender: UIButton) {

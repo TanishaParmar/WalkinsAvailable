@@ -30,6 +30,7 @@ class ServiceArtistProfileVC: UIViewController {
         let nib = UINib(nibName: "ArtistListImgCell", bundle: nil)
         self.collectionImgView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
@@ -37,6 +38,14 @@ class ServiceArtistProfileVC: UIViewController {
 
     
 //    MARK: BUTTON ACTIONS
+    @IBAction func editProfileButtonAction(_ sender: Any) {
+        let artistEditVC = ServiceProviderEditProfile()
+        artistEditVC.data = UserDefaultsCustom.getArtistData()
+        self.navigationController?.pushViewController(artistEditVC, animated: true)
+
+    }
+    
+    
     @IBAction func notificationBtn(_ sender: UIButton) {
      let controller = ServiceNotificationVC()
         self.push(viewController: controller)
@@ -49,7 +58,9 @@ class ServiceArtistProfileVC: UIViewController {
     
     @IBAction func addImageBtn(_ sender: UIButton) {
     let controller = GalleryVC()
-        self.push(viewController: controller)
+        controller.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(controller, animated: true, completion: nil)
+//        self.push(viewController: controller)
     }
     
     @IBAction func setAvailabilityBtn(_ sender: UIButton) {

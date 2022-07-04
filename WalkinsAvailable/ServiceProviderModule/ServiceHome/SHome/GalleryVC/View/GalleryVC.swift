@@ -91,7 +91,10 @@ class GalleryVC: UIViewController {
     }
     
     @IBAction func doneBtn(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+//        static public func uploadImage(apiName:String, dataArray:[PickerData]?,  imageKey:[String], params: [String : Any]?, isImage:Bool = true, receivedResponse: @escaping (_ succeeded:Bool, _ response:[String:Any], _ data:Data?) -> ()) {
+
+        self.dismiss(animated: true, completion: nil)
+//        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -115,6 +118,10 @@ class GalleryVC: UIViewController {
                 self.tableBackgroundView.isHidden = true
             }
         }
+    }
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func dismissAction(_ sender: UIButton) {
