@@ -204,14 +204,14 @@
                                                                             <color key="tintColor" red="0.99917906519999999" green="0.036998674269999997" blue="0.52341252569999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                                     <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </textField>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal" translatesAutoresizingMaskIntoConstraints="NO" id="IbU-EQ-9eA">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ti" translatesAutoresizingMaskIntoConstraints="NO" id="IbU-EQ-9eA">
                                                                             <rect key="frame" x="144" y="6" width="24" height="24"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="24" id="CDV-aJ-60T"/>
@@ -264,7 +264,7 @@
                                                                             <color key="tintColor" red="0.99917906519999999" green="0.036998674269999997" blue="0.52341252569999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                                     <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -316,11 +316,11 @@
                                                             <rect key="frame" x="0.0" y="35" width="366" height="40"/>
                                                             <subviews>
                                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxK-ty-EKD">
-                                                                    <rect key="frame" x="10" y="9.5" width="346" height="21.5"/>
+                                                                    <rect key="frame" x="10" y="9" width="312" height="22"/>
                                                                     <color key="tintColor" red="0.99917906519999999" green="0.036998674269999997" blue="0.52341252569999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES"/>
+                                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                             <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -330,12 +330,21 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </textField>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal" translatesAutoresizingMaskIntoConstraints="NO" id="I5S-0p-gxi">
+                                                                    <rect key="frame" x="332" y="8" width="24" height="24"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="24" id="TzK-Fd-6QS"/>
+                                                                        <constraint firstAttribute="width" constant="24" id="hkc-iJ-sj2"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="xxK-ty-EKD" firstAttribute="leading" secondItem="IyT-l9-f9h" secondAttribute="leading" constant="10" id="Cea-e1-lEH"/>
                                                                 <constraint firstItem="xxK-ty-EKD" firstAttribute="centerY" secondItem="IyT-l9-f9h" secondAttribute="centerY" id="GhZ-6l-DIw"/>
                                                                 <constraint firstAttribute="height" constant="40" id="L7b-Se-nbK"/>
-                                                                <constraint firstAttribute="trailing" secondItem="xxK-ty-EKD" secondAttribute="trailing" constant="10" id="jkw-Ej-wjH"/>
+                                                                <constraint firstItem="I5S-0p-gxi" firstAttribute="leading" secondItem="xxK-ty-EKD" secondAttribute="trailing" constant="10" id="f1e-8b-0vJ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="I5S-0p-gxi" secondAttribute="trailing" constant="10" id="grY-Rv-HOb"/>
+                                                                <constraint firstItem="xxK-ty-EKD" firstAttribute="centerY" secondItem="I5S-0p-gxi" secondAttribute="centerY" id="h4A-kr-0Qv"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -510,6 +519,7 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
+                                        <constraint firstItem="nfb-E8-U91" firstAttribute="top" secondItem="xxK-ty-EKD" secondAttribute="bottom" constant="309" id="3de-y0-ur2"/>
                                         <constraint firstAttribute="bottom" secondItem="nfb-E8-U91" secondAttribute="bottom" constant="34" id="7le-Lz-dWg"/>
                                         <constraint firstItem="kLB-yU-NbD" firstAttribute="top" secondItem="nfb-E8-U91" secondAttribute="bottom" constant="22" id="BQr-8X-Iln"/>
                                         <constraint firstItem="nfb-E8-U91" firstAttribute="width" secondItem="TdN-Y3-S8e" secondAttribute="width" id="Bqv-wc-JF3"/>

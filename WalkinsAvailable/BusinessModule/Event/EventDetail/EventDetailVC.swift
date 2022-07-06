@@ -100,13 +100,6 @@ class EventDetailVC: UIViewController {
     
     @IBAction func favUnFavButtonAction(_ sender: Any) {
         hitFavUnFavApi()
-        
-//        favUnFavBtn.isSelected = !favUnFavBtn.isSelected
-//        if favUnFavBtn.isSelected {
-//
-//        } else {
-//
-//        }
     }
     
     @IBAction func backAction(_ sender: UIButton) {
@@ -114,7 +107,14 @@ class EventDetailVC: UIViewController {
     }
     
     @IBAction func getDirectionBtn(_ sender: UIButton) {
-        
+        let current = LocationManager.shared.currentLocation?.coordinate
+        let source = "saddr=\(current?.latitude ?? 0.0),\(current?.longitude ?? 0.0)&"
+        let destination = "daddr=\(self.eventDetail?.latitude ?? ""),\(self.eventDetail?.longitude ?? "")"
+//        let destination = "daddr=\(30.7421),\(76.8188)"
+        if let path = URL(string: "maps://?\(source)\(destination)") {
+            print(path)
+            UIApplication.shared.open(path, options: [:], completionHandler: nil)
+        }
     }
 
 }

@@ -164,7 +164,7 @@ class SocialLoginVC: UIViewController {
                     }
                 case .user:
                     if let userData = UserDefaultsCustom.getUserData() {
-                        if userData.email == "" || userData.email == nil {
+                        if (userData.email == "" || userData.email == nil) || (userData.userName == "" || userData.userName == nil) {
                             Singleton.setUserEditScreenView()
                         } else {
                             Singleton.setHomeScreenView()

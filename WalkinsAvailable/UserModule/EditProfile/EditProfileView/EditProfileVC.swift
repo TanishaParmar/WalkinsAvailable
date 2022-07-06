@@ -64,8 +64,9 @@ class EditProfileVC: UIViewController {
                 emailTextField.text = data.email
                 let placeHolder = UIImage(named: "placeHolder")
                 self.profileImageView.setImage(url: data.image, placeHolder: placeHolder)
-                self.setPickerData(image: self.profileImageView.image)
-                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.setPickerData(image: self.profileImageView.image)
+                }
             }
             editScreen(isEditable: true)
         } else {

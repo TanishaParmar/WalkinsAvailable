@@ -48,7 +48,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xL1-R5-KM9">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="903.5"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img5" translatesAutoresizingMaskIntoConstraints="NO" id="cct-x3-VdV">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eventPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="cct-x3-VdV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="350" id="8rk-4g-9Ut"/>
@@ -306,9 +306,9 @@
     </objects>
     <resources>
         <image name="Wback" width="31" height="51"/>
+        <image name="eventPlaceHolder" width="561" height="242"/>
         <image name="favFilled" width="44" height="38"/>
         <image name="hrt" width="58" height="52"/>
-        <image name="img5" width="283" height="178"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

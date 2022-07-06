@@ -27,17 +27,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="anI-5g-iyt">
-                        <rect key="frame" x="15" y="14.5" width="100" height="55"/>
+                        <rect key="frame" x="15" y="10.5" width="85" height="55"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="55" id="SbD-R9-Ngc"/>
-                            <constraint firstAttribute="width" constant="100" id="iIy-bu-ENX"/>
+                            <constraint firstAttribute="width" constant="85" id="iIy-bu-ENX"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JqI-sV-Wg2">
-                        <rect key="frame" x="135" y="10" width="215" height="64"/>
+                        <rect key="frame" x="120" y="10" width="230" height="56"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC5-o8-zUb">
-                                <rect key="frame" x="0.0" y="0.0" width="215" height="27"/>
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="rdD-RG-MIs"/>
                                 </constraints>
@@ -45,16 +45,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum text  layers  with dummy text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-f1-YD8">
-                                <rect key="frame" x="0.0" y="27" width="215" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum text  layers  with dummy text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-f1-YD8">
+                                <rect key="frame" x="0.0" y="27" width="230" height="29"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X30-Ke-7NO">
-                        <rect key="frame" x="135" y="81" width="215" height="1"/>
+                        <rect key="frame" x="120" y="81" width="230" height="1"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Kye-dN-nOS"/>
@@ -66,14 +67,13 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="X30-Ke-7NO" firstAttribute="top" secondItem="JqI-sV-Wg2" secondAttribute="bottom" constant="15" id="1DY-zo-rqa"/>
                     <constraint firstAttribute="bottom" secondItem="X30-Ke-7NO" secondAttribute="bottom" constant="2" id="4xR-78-fmN"/>
-                    <constraint firstAttribute="bottom" secondItem="JqI-sV-Wg2" secondAttribute="bottom" constant="10" id="DWN-Tl-Hv3"/>
                     <constraint firstItem="X30-Ke-7NO" firstAttribute="leading" secondItem="JqI-sV-Wg2" secondAttribute="leading" id="Dl0-MM-mVb"/>
                     <constraint firstItem="JqI-sV-Wg2" firstAttribute="leading" secondItem="anI-5g-iyt" secondAttribute="trailing" constant="20" id="LUH-gA-MjR"/>
                     <constraint firstItem="anI-5g-iyt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="NJd-ct-zXG"/>
                     <constraint firstAttribute="trailing" secondItem="JqI-sV-Wg2" secondAttribute="trailing" constant="10" id="bEh-C1-BkQ"/>
                     <constraint firstItem="JqI-sV-Wg2" firstAttribute="centerY" secondItem="anI-5g-iyt" secondAttribute="centerY" id="nkm-Rj-NY3"/>
-                    <constraint firstItem="anI-5g-iyt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qBT-ke-pt0"/>
                     <constraint firstItem="JqI-sV-Wg2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="rRg-1X-9mK"/>
                     <constraint firstItem="X30-Ke-7NO" firstAttribute="trailing" secondItem="JqI-sV-Wg2" secondAttribute="trailing" id="tyE-FT-QeE"/>
                 </constraints>
@@ -84,7 +84,7 @@
                 <outlet property="imgCell" destination="anI-5g-iyt" id="Fhc-e6-Nq8"/>
                 <outlet property="nameLbl" destination="XC5-o8-zUb" id="LYC-7G-3G0"/>
             </connections>
-            <point key="canvasLocation" x="166.66666666666669" y="141.29464285714286"/>
+            <point key="canvasLocation" x="-119" y="103"/>
         </tableViewCell>
     </objects>
     <resources>

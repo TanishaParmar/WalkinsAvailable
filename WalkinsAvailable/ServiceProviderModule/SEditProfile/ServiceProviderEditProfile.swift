@@ -64,7 +64,9 @@ class ServiceProviderEditProfile: UIViewController {
                 emailTF.text = data.email
                 let placeHolder = UIImage(named: "placeHolder")
                 self.profilrImgView.setImage(url: data.image, placeHolder: placeHolder)
-                self.setPickerData(image: self.profilrImgView.image)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.setPickerData(image: self.profilrImgView.image)
+                }
                 if emailTF.text == "" {
                     emailTF.isUserInteractionEnabled = true
                 } else {

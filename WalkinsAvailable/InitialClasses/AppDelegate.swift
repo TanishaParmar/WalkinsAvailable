@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         getCategoryListData()
         self.configureKeboard()
-        LocationManager.shared.getLocation()
         // Override point for customization after application launch.
 //        appFonts()
         
@@ -43,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Singleton.setLoginScreenView()
         }
         
-        
+        LocationManager.shared.getLocation()
         
         FBSDKCoreKit.ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 

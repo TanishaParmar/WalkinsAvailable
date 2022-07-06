@@ -21,17 +21,17 @@ class EventVC: UIViewController {
     
     
     var eventsList: [EventsList] = [EventsList]()
-    
+    var type: String = "2"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        hitEventsApi(type: "2")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        hitEventsApi()
     }
     
     //    MARK: Methods
@@ -65,7 +65,7 @@ class EventVC: UIViewController {
     
     
     // hit events api
-    func hitEventsApi(type: String) {
+    func hitEventsApi() {
         self.eventsList.removeAll()
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.ongoingPastMycreateEvent, params: ["type":type]) { succeeded, response, data in
@@ -98,17 +98,20 @@ class EventVC: UIViewController {
     
     @IBAction func ongoingBtn(_ sender: UIButton) {
        onGoingUpdate()
-        hitEventsApi(type: "2")
+        type = "2"
+        hitEventsApi()
     }
     
     @IBAction func pastBtn(_ sender: UIButton) {
         pastUpdate()
-        hitEventsApi(type: "3")
+        type = "3"
+        hitEventsApi()
     }
     
     @IBAction func myCreateBtn(_ sender: UIButton) {
         myCreateUpdate()
-        hitEventsApi(type: "4")
+        type = "4"
+        hitEventsApi()
     }
     
 }

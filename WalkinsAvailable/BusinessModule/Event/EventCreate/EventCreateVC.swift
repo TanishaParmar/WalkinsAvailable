@@ -57,6 +57,7 @@ class EventCreateVC: UIViewController {
         locationTF.delegate = self
         descriptionTextView.delegate = self
         eventUploadImgView.addCornerRadius(view: eventUploadImgView, cornerRadius: 10.0)
+//        eventUploadImgView.addDashedBorder()
         eventNameView.addCornerBorderAndShadow(view: eventNameView, cornerRadius: 5, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         starttimeView.addCornerBorderAndShadow(view: starttimeView, cornerRadius: 5, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         endTimeView.addCornerBorderAndShadow(view: endTimeView, cornerRadius: 5, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -73,21 +74,48 @@ class EventCreateVC: UIViewController {
         self.pickerData?.data = jpegData
     }
     
+    func checkStartTime() {
+        let date = convertStringToDate(time: startTimeTF.text ?? "")
+        print(date)
+    }
+    
+    func convertStringToDate(time: String?) -> Date? {
+        let formatter = DateFormatter()
+        // initially set the format based on your datepicker date / server String
+        formatter.dateFormat = "dd-MMM-yyyy" //"yyyy-MM-dd HH:mm:ss"
+
+        let myString = formatter.string(from: Date()) // string purpose I add here
+        // convert your string to date
+        
+        formatter.dateFormat = "dd-MMM-yyyy hh:mm a"
+        let yourDate = formatter.date(from: "\(myString) \(time ?? "")")
+        //then again set the date format whhich type of output you need
+        
+        return yourDate
+    }
+    
     func openStartTimePicker() {
         let timePicker = CustomDatePicker()
-        timePicker.set(nil, self, 0, .time, "hh:mm", nil, nil)
+        let selected = convertStringToDate(time: startTimeTF.text)
+        let end = convertStringToDate(time: endTimeTF.text)
+        timePicker.set(selected, self, 0, .time, "hh:mm a", end, nil)
         self.present(timePicker, animated: false, completion: nil)
     }
     
     func openEndTimePicker() {
+        checkStartTime()
         let timePicker = CustomDatePicker()
-        timePicker.set(nil, self, 1, .time, "hh:mm", nil, nil)
+        let selected = convertStringToDate(time: endTimeTF.text)
+        let strat = convertStringToDate(time: startTimeTF.text)
+        timePicker.set(selected, self, 1, .time, "hh:mm a", nil, strat)
         self.present(timePicker, animated: false, completion: nil)
     }
     
     func openDatePicker() {
         let datePicker = CustomDatePicker()
-        datePicker.set(nil, self, 2, .date, "YYYY-mm-dd", nil, nil)
+        let todaysDate = Date()
+        datePicker.set(nil, self, 2, .date, "YYYY-mm-dd", nil, todaysDate)
+//        datePicker.set(nil, self, 2, .date, "YYYY-mm-dd", nil, nil)
         self.present(datePicker, animated: false, completion: nil)
     }
 
@@ -95,6 +123,7 @@ class EventCreateVC: UIViewController {
     func openLocationPicker() {
         let locale = LocationPicker()
         locale.delegate = self
+        locale.modalPresentationStyle = .overFullScreen
         self.present(locale, animated: true, completion: nil)
     }
     
@@ -189,8 +218,8 @@ extension EventCreateVC: LocationPickerDelegate {
     func locationDidSelect(locationItem: LocationItem) {
         print("location picked******** \(locationItem.formattedAddressString)")
         print("location picker coordinates ******** \(locationItem.coordinate?.latitude), \(locationItem.coordinate?.longitude)")
-        self.locationTF.text = locationItem.formattedAddressString
-        self.coordi = locationItem.coordinate
+            self.locationTF.text = locationItem.formattedAddressString
+            self.coordi = locationItem.coordinate
     }
 }
 

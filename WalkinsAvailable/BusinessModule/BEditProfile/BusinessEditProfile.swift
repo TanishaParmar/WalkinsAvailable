@@ -98,7 +98,9 @@ class BusinessEditProfile: UIViewController {
                 descriptionTF.text = data.businessDescription
                 let placeHolder = UIImage(named: "placeHolder")
                 self.userImgView.setImage(url: data.image, placeHolder: placeHolder)
-                self.setPickerData(image: self.userImgView.image)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.setPickerData(image: self.userImgView.image)
+                }
                 if emailTF.text == "" {
                     emailTF.isUserInteractionEnabled = true
                 } else {
