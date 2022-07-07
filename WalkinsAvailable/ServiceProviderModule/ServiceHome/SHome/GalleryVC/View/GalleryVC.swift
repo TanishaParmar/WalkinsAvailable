@@ -44,21 +44,9 @@ class GalleryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.assetIdentifiers = self.assetIdentifiers
-        collectionView.isCameraOption = isCameraOption
-        collectionView.galleryDelegate = self
-        
-        tableView.galleryDelegate = self
-        tableBackgroundView.isHidden = true
-        
-//        scrollView.isScrollEnabled = false
-        
-        let height = tableView.frame.height
-        self.tableView.transform = .init(translationX: 0, y: -height)
-        collectionView.setImageCollection(type: pickerType)
-        
+        cameraAccess()
     }
+    
 
     override func viewDidDisappear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
@@ -69,32 +57,54 @@ class GalleryVC: UIViewController {
         setGalleryPermission()
         collectionView.maxSelection = self.maxSelection
         self.tabBarController?.tabBar.isHidden = true
-
+    }
+    
+    func cameraAccess() {
+        collectionView.assetIdentifiers = self.assetIdentifiers
+        collectionView.isCameraOption = isCameraOption
+        collectionView.galleryDelegate = self
+        tableView.galleryDelegate = self
+        tableBackgroundView.isHidden = true
+//        scrollView.isScrollEnabled = false
+        let height = tableView.frame.height
+        self.tableView.transform = .init(translationX: 0, y: -height)
+        collectionView.setImageCollection(type: pickerType)
     }
     
     private func setGalleryPermission() {
-        
-        PHPhotoLibrary.requestAuthorization({ (newStatus) in
-            if (newStatus == PHAuthorizationStatus.authorized) {
-            } else {
-//                let model = PushModel(json: ["title": CameraErrors.galleryPermissionRejected.message])
-//                Singleton.shared.showErrorMessage(pushData: model, isError: .error) { model in
-//                    DispatchQueue.main.async {
-//                        print("tap on error message")
-//                        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
-//                            UIApplication.shared.open(settingsURL)
-//                        }
-//                    }
-//                }
-            }
-        })
+        let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        switch photoAuthorizationStatus {
+        case .authorized:
+            self.cameraAccess()
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({
+                (newStatus) in
+                DispatchQueue.main.async {
+                    if newStatus ==  PHAuthorizationStatus.authorized {
+//                        self.present(imagePickerController, animated: true, completion: nil)
+                        self.cameraAccess()
+                    }else{
+                        print("User denied")
+                    }
+                }})
+            break
+        case .restricted:
+            print("restricted")
+            break
+        case .denied:
+            print("denied")
+            break
+        case .limited:
+            break
+        @unknown default:
+            break
+        }
     }
     
     @IBAction func doneBtn(_ sender: UIButton) {
-//        static public func uploadImage(apiName:String, dataArray:[PickerData]?,  imageKey:[String], params: [String : Any]?, isImage:Bool = true, receivedResponse: @escaping (_ succeeded:Bool, _ response:[String:Any], _ data:Data?) -> ()) {
-
-        self.dismiss(animated: true, completion: nil)
-//        self.navigationController?.popViewController(animated: true)
+//        let images = collectionView.images.map({$0.0})
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     

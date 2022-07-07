@@ -66,8 +66,10 @@ class SignUpServiceVC: SocialLoginVC {
         params["artistName"] = artistNameTF.text
         params["email"] = emailTF.text
         params["password"] = passwordTF.text
-//        params["latitude"] = "30.7110585"
-//        params["longitude"] = "76.6913124"
+        params["latitude"] = "30.7110585"
+        params["longitude"] = "76.6913124"
+        params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
+        params["deviceType"] = "1"
         debugPrint("params data ** \(params)")
         return params
     }

@@ -9,6 +9,7 @@ import UIKit
 import GoogleSignIn
 import FBSDKCoreKit
 import FacebookLogin
+import UserNotifications
 import IQKeyboardManagerSwift
 
 @main
@@ -41,7 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             Singleton.setLoginScreenView()
         }
-        
+//        registerForPushNotifications()
+        configureNotification(application: application)
         LocationManager.shared.getLocation()
         
         FBSDKCoreKit.ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -81,41 +83,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        // Convert token to string
-        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        print("device token string", deviceTokenString)
-        UserDefaultsCustom.saveDeviceToken(userToken: deviceTokenString)
-//        Globals.defaults.set(deviceTokenString, forKey: DefaultKeys.deviceToken)
+    func configureNotification(application: UIApplication) {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.delegate = self
+            center.requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in
+                DispatchQueue.main.async {
+                    application.registerForRemoteNotifications()
+                }
+            }
+        }else{
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
+        }
+        UIApplication.shared.registerForRemoteNotifications()
     }
-    
-
-    
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
-////        return GIDSignIn.sharedInstance().handle(url)
-//        if let isFBOpenUrl = SDKApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation) {
-//            return true
-//        }
-//        if let isGoogleOpenUrl = GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation) {
-//            return true
-//        }
-//        return false
-//    }
-    
-//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-//
-//        if ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation]) {
-//            return true
-//        }
-//
-//        if ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation) {
-//            return true
-//        }
-//        if GIDSignIn.sharedInstance().handle(url) { // GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation) {
-//            return true
-//        }
-//        return false
-//    }
 
 
     func getCategoryListData() {
@@ -179,5 +160,51 @@ extension Notification.Name {
     /// Notification when user successfully sign in using Google
     static var signInGoogleCompleted: Notification.Name {
         return .init(rawValue: #function)
+    }
+}
+
+
+
+
+//MARK:- Push notifications method(s)
+extension AppDelegate: UNUserNotificationCenterDelegate{
+   
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(response.notification.request.content.userInfo)
+        completionHandler()
+    }
+    
+    
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Convert token to string
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print("device token string", deviceTokenString)
+        UserDefaultsCustom.saveDeviceToken(userToken: deviceTokenString)
+        //        Globals.defaults.set(deviceTokenString, forKey: DefaultKeys.deviceToken)
+    }
+
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("APNs registration failed: \(error)")
+    }
+  
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let userDict = userInfo as! [String:Any]
+        print("received", userDict)
+        if application.applicationState == .inactive{
+
+        }else{
+            print("not invoked cause its in foreground")
+        }
+        completionHandler(.newData)
+    }
+        
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.sound,.alert, .badge])
     }
 }

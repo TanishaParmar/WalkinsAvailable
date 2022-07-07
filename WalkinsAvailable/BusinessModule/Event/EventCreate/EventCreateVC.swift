@@ -47,6 +47,7 @@ class EventCreateVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+
     
     //MARK: FUNCTIONS
     func configureUI() {
@@ -58,6 +59,7 @@ class EventCreateVC: UIViewController {
         descriptionTextView.delegate = self
         eventUploadImgView.addCornerRadius(view: eventUploadImgView, cornerRadius: 10.0)
 //        eventUploadImgView.addDashedBorder()
+//        eventUploadImgView.addLineDashedStroke(pattern: [2, 2, 2, 2], radius: 16, color: UIColor.red.cgColor)
         eventNameView.addCornerBorderAndShadow(view: eventNameView, cornerRadius: 5, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         starttimeView.addCornerBorderAndShadow(view: starttimeView, cornerRadius: 5, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         endTimeView.addCornerBorderAndShadow(view: endTimeView, cornerRadius: 5, shadowColor: .clear, borderColor: .black, borderWidth: 1)
@@ -74,40 +76,31 @@ class EventCreateVC: UIViewController {
         self.pickerData?.data = jpegData
     }
     
-    func checkStartTime() {
-        let date = convertStringToDate(time: startTimeTF.text ?? "")
-        print(date)
-    }
-    
-    func convertStringToDate(time: String?) -> Date? {
+    func convertStringToDate(myString: String?, time: String?) -> Date? {
         let formatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
-        formatter.dateFormat = "dd-MMM-yyyy" //"yyyy-MM-dd HH:mm:ss"
-
-        let myString = formatter.string(from: Date()) // string purpose I add here
-        // convert your string to date
-        
-        formatter.dateFormat = "dd-MMM-yyyy hh:mm a"
-        let yourDate = formatter.date(from: "\(myString) \(time ?? "")")
-        //then again set the date format whhich type of output you need
-        
+        formatter.dateFormat = "yyyy-MM-dd hh:mm a"
+        let yourDate = formatter.date(from: "\(myString ?? "") \(time ?? "")")
         return yourDate
     }
     
     func openStartTimePicker() {
         let timePicker = CustomDatePicker()
-        let selected = convertStringToDate(time: startTimeTF.text)
-        let end = convertStringToDate(time: endTimeTF.text)
-        timePicker.set(selected, self, 0, .time, "hh:mm a", end, nil)
+        let select_date = startTimeTF.text?.count ?? 0 > 0 ? startTimeTF.text! : "00:01 am"
+        let selected = convertStringToDate(myString: dateTF.text, time: select_date)
+        var end = convertStringToDate(myString: dateTF.text, time: endTimeTF.text)
+        if dateTF.text?.count ?? 0 > 0, end != nil {
+            end = Calendar.current.date(byAdding: .minute, value: -15, to: end!)
+        }
+        timePicker.set(selected, self, 0, .time, "hh:mm a", end, Date())
         self.present(timePicker, animated: false, completion: nil)
     }
     
     func openEndTimePicker() {
-        checkStartTime()
         let timePicker = CustomDatePicker()
-        let selected = convertStringToDate(time: endTimeTF.text)
-        let strat = convertStringToDate(time: startTimeTF.text)
-        timePicker.set(selected, self, 1, .time, "hh:mm a", nil, strat)
+        let selected = convertStringToDate(myString: dateTF.text, time: endTimeTF.text)
+        let start = convertStringToDate(myString: dateTF.text, time: startTimeTF.text)!
+        let date = Calendar.current.date(byAdding: .minute, value: 15, to: start)
+        timePicker.set(selected, self, 1, .time, "hh:mm a", nil, date)
         self.present(timePicker, animated: false, completion: nil)
     }
     
@@ -115,7 +108,6 @@ class EventCreateVC: UIViewController {
         let datePicker = CustomDatePicker()
         let todaysDate = Date()
         datePicker.set(nil, self, 2, .date, "YYYY-mm-dd", nil, todaysDate)
-//        datePicker.set(nil, self, 2, .date, "YYYY-mm-dd", nil, nil)
         self.present(datePicker, animated: false, completion: nil)
     }
 
@@ -236,10 +228,21 @@ extension EventCreateVC: UITextFieldDelegate {
         switch textField {
         case startTimeTF:
             self.view.endEditing(true)
+            if ValidationManager.shared.isEmpty(text: dateTF.text) == true {
+                Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDate, isError: .error)
+                return false
+            }
             self.openStartTimePicker()
             return false
         case endTimeTF:
             self.view.endEditing(true)
+            if ValidationManager.shared.isEmpty(text: startTimeTF.text) == true {
+                Singleton.shared.showErrorMessage(error: AppAlertMessage.enterStartTime, isError: .error)
+                return false
+            }else if ValidationManager.shared.isEmpty(text: dateTF.text) == true{
+                Singleton.shared.showErrorMessage(error: AppAlertMessage.enterDate, isError: .error)
+                return false
+            }
             self.openEndTimePicker()
             return false
         case dateTF:

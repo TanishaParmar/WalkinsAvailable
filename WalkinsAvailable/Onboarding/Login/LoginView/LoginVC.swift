@@ -215,6 +215,7 @@ class LoginVC: SocialLoginVC {
         params["latitude"] = "30.7110585"
         params["longitude"] = "76.6913124"
         params["deviceType"] = "1"
+        params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
         return params
     }
     

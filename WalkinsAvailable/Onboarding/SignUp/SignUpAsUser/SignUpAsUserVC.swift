@@ -75,6 +75,10 @@ class SignUpAsUserVC: SocialLoginVC {
         params["userName"] = userNameTextField.text
         params["email"] = emailTextField.text
         params["password"] = passwordTextField.text
+        params["latitude"] = "30.7110585"
+        params["longitude"] = "76.6913124"
+        params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
+        params["deviceType"] = "1"
         return params
     }
     

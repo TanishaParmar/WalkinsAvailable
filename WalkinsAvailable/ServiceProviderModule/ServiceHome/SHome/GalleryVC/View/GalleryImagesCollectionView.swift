@@ -105,7 +105,6 @@ extension GalleryImagesCollectionView : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
         if let cell = cell as? GridViewCell {
             let item = isCameraOption ? indexPath.item-1 : indexPath.item
             let asset = fetchResult.object(at: item)
@@ -148,7 +147,6 @@ extension GalleryImagesCollectionView: UICollectionViewDelegate {
                 }
                 self.images.removeAll()
                 self.assetIdentifiers.removeAll()
-                
                 if let cell = collectionView.cellForItem(at: indexPath) as? GridViewCell,
                    let asset = cell.asset {
                     self.images.append((asset, indexPath))
@@ -157,7 +155,6 @@ extension GalleryImagesCollectionView: UICollectionViewDelegate {
                 }
                 self.reloadItems(at: indexs)
             } else {
-                
                 if assetIdentifiers.contains(asset.localIdentifier) {
                     assetIdentifiers  = assetIdentifiers.filter({$0 != asset.localIdentifier})
                     self.images.removeAll(where: {$0.1 == indexPath})
@@ -165,10 +162,11 @@ extension GalleryImagesCollectionView: UICollectionViewDelegate {
                     if assetIdentifiers.count < maxSelection {
                         assetIdentifiers.append(asset.localIdentifier)
                         self.images.append((asset, indexPath))
+                    } else {
+                        Singleton.shared.showErrorMessage(error: "Max images limit exceeded.", isError: .notification)
                     }
                 }
                 self.reloadItems(at: [indexPath])
-                
             }
         }
     }

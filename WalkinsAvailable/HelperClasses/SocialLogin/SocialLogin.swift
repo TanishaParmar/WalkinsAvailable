@@ -117,6 +117,7 @@ class SocialLoginVC: UIViewController {
         params["latitude"] = "30.7110585"
         params["longitude"] = "76.6913124"
         params["deviceType"] = "1"
+        params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
 
         switch self.type {
         case .user:
@@ -126,6 +127,7 @@ class SocialLoginVC: UIViewController {
         case .serviceProvider:
             params["role"] = "3"
         }
+        
         print("params ****** \(params)")
         self.hitGoogleLogInApi(dict: params)
     }
@@ -226,6 +228,7 @@ class SocialLoginVC: UIViewController {
         params["latitude"] = "30.7110585"
         params["longitude"] = "76.6913124"
         params["deviceType"] = "1"
+        params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
 
         switch self.type {
         case .user:
@@ -328,6 +331,7 @@ class SocialLoginVC: UIViewController {
         params["latitude"] = "30.7110585"
         params["longitude"] = "76.6913124"
         params["deviceType"] = "1"
+        params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
 
         switch self.type {
         case .user:

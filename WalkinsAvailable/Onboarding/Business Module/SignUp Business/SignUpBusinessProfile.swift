@@ -120,6 +120,9 @@ class SignUpBusinessProfile: SocialLoginVC {
         params["businessDescription"] = descriptionTextView.text
         params["latitude"] = coordi?.latitude // "30.7110585"
         params["longitude"] = coordi?.longitude // "76.6913124"
+        params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
+        params["deviceType"] = "1"
+
         debugPrint("params data ** \(params)")
         return params
     }
