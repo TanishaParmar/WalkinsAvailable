@@ -15,6 +15,14 @@ class BusinessHomeHeaderView: UIView {
     @IBOutlet weak var collectionArtistListView: UICollectionView!
     @IBOutlet weak var editProfileBtn: UIButton!
     
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var lineLabel: UILabel!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var seeAllButton: UIButton!
+    
+    
+    
+    
     class var view: BusinessHomeHeaderView {
         return UINib(nibName: "BusinessHomeHeaderView", bundle: nil).instantiate(withOwner: nil).first as! BusinessHomeHeaderView
     }
@@ -34,6 +42,21 @@ class BusinessHomeHeaderView: UIView {
         let nib = UINib(nibName: "BusinessArtistListCell", bundle: nil)
         self.collectionArtistListView.register(nib, forCellWithReuseIdentifier: "BusinessArtistListCell")
     }
-
+    
+    @IBAction func seeAllButtonAction(_ sender: Any) {
+        let controller = BusinessEventVC()
+        if let topVC = UIApplication.getTopViewController() {
+            topVC.push(viewController: controller)
+        }
+    }
+    
+    
+    @IBAction func addButtonAction(_ sender: Any) {
+        let controller = AddArtistListVC()
+        if let topVC = UIApplication.getTopViewController() {
+            topVC.push(viewController: controller)
+        }
+    }
+    
 }
 

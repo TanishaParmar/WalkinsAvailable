@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ArtistListImgCell: UICollectionViewCell {
 
@@ -15,6 +16,11 @@ class ArtistListImgCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setUI(artistImages: ArtistImages) {
+        let placeHolder = UIImage(named: "placeHolder")
+        self.imgCell.setImage(url: artistImages.image, placeHolder: placeHolder)
     }
 
 }

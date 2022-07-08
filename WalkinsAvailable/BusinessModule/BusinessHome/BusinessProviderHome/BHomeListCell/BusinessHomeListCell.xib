@@ -1,67 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Poppins-Medium.ttf">
-            <string>Poppins-Medium</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="220" id="KGk-i7-Jjw" customClass="BusinessHomeListCell" customModule="WalkinsAvailable" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="450" height="226"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="164" id="KGk-i7-Jjw" customClass="BusinessHomeListCell" customModule="WalkinsAvailable" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="170"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="450" height="226"/>
+                <rect key="frame" x="0.0" y="0.0" width="450" height="170"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdA-tE-IsG">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="226"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="170"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aa0-2g-7PS">
-                                <rect key="frame" x="10" y="10" width="121" height="26"/>
-                                <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bef-xt-jgd">
-                                <rect key="frame" x="400" y="8.5" width="40" height="29"/>
-                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="See all"/>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hF5-LV-NA2">
-                                <rect key="frame" x="10" y="46" width="430" height="170"/>
+                                <rect key="frame" x="0.0" y="5" width="450" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="170" id="Tyb-oS-R34"/>
+                                    <constraint firstAttribute="height" constant="160" id="Tyb-oS-R34"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z2x-tT-Lor">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="hF5-LV-NA2" secondAttribute="bottom" constant="10" id="355-Ck-ZO3"/>
-                            <constraint firstItem="Aa0-2g-7PS" firstAttribute="leading" secondItem="cdA-tE-IsG" secondAttribute="leading" constant="10" id="8mV-Ee-N4s"/>
-                            <constraint firstAttribute="trailing" secondItem="hF5-LV-NA2" secondAttribute="trailing" constant="10" id="HrI-Et-jN5"/>
-                            <constraint firstItem="Bef-xt-jgd" firstAttribute="centerY" secondItem="Aa0-2g-7PS" secondAttribute="centerY" id="Ka7-1P-ExU"/>
-                            <constraint firstAttribute="trailing" secondItem="Bef-xt-jgd" secondAttribute="trailing" constant="10" id="NST-Hq-06K"/>
-                            <constraint firstItem="hF5-LV-NA2" firstAttribute="leading" secondItem="cdA-tE-IsG" secondAttribute="leading" constant="10" id="ZXI-0z-qhI"/>
-                            <constraint firstItem="hF5-LV-NA2" firstAttribute="top" secondItem="Aa0-2g-7PS" secondAttribute="bottom" constant="10" id="vDU-Nr-abe"/>
-                            <constraint firstItem="Aa0-2g-7PS" firstAttribute="top" secondItem="cdA-tE-IsG" secondAttribute="top" constant="10" id="zCJ-9M-N9K"/>
+                            <constraint firstAttribute="trailing" secondItem="hF5-LV-NA2" secondAttribute="trailing" id="HrI-Et-jN5"/>
+                            <constraint firstItem="hF5-LV-NA2" firstAttribute="top" secondItem="cdA-tE-IsG" secondAttribute="top" constant="5" id="NuN-aK-GBD"/>
+                            <constraint firstItem="hF5-LV-NA2" firstAttribute="leading" secondItem="cdA-tE-IsG" secondAttribute="leading" id="ZXI-0z-qhI"/>
+                            <constraint firstAttribute="bottom" secondItem="hF5-LV-NA2" secondAttribute="bottom" constant="5" id="h4c-Sx-ave"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -76,11 +54,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="btnSeeAll" destination="Bef-xt-jgd" id="mOQ-eC-Y4X"/>
                 <outlet property="eventCollectionView" destination="hF5-LV-NA2" id="P76-GD-1Hy"/>
-                <outlet property="headerLbl" destination="Aa0-2g-7PS" id="1eV-zz-wZQ"/>
             </connections>
-            <point key="canvasLocation" x="233.33333333333334" y="182.14285714285714"/>
+            <point key="canvasLocation" x="384.05797101449281" y="162.72321428571428"/>
         </tableViewCell>
     </objects>
 </document>

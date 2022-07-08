@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BusinessHomerHeaderView" customModule="WalkinsAvailable" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="625" height="152"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DF5-bp-3BX">
+                    <rect key="frame" x="0.0" y="10" width="625" height="100"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5ar" translatesAutoresizingMaskIntoConstraints="NO" id="rQh-62-H51">
+                            <rect key="frame" x="24" y="15" width="70" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="cXY-v1-GJY"/>
+                                <constraint firstAttribute="height" constant="70" id="ibE-cK-RlS"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lady Skybark-Becca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v80-YS-lj9">
+                            <rect key="frame" x="114" y="30" width="189.5" height="25.5"/>
+                            <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ladyskybar_1524@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-sc-S7z">
+                            <rect key="frame" x="114" y="63" width="491" height="20"/>
+                            <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-ZV-nIA">
+                            <rect key="frame" x="24" y="15" width="70" height="70"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <connections>
+                                <action selector="editProfileButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="GeI-Vi-DWd"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="5sa-JX-lmf"/>
+                        <constraint firstItem="DCB-sc-S7z" firstAttribute="leading" secondItem="v80-YS-lj9" secondAttribute="leading" id="aJh-rH-hN7"/>
+                        <constraint firstItem="fFn-ZV-nIA" firstAttribute="bottom" secondItem="rQh-62-H51" secondAttribute="bottom" id="eLL-Bn-86h"/>
+                        <constraint firstItem="v80-YS-lj9" firstAttribute="leading" secondItem="rQh-62-H51" secondAttribute="trailing" constant="20" id="h4g-nC-iom"/>
+                        <constraint firstItem="rQh-62-H51" firstAttribute="leading" secondItem="DF5-bp-3BX" secondAttribute="leading" constant="24" id="hZb-eg-CIA"/>
+                        <constraint firstItem="fFn-ZV-nIA" firstAttribute="top" secondItem="rQh-62-H51" secondAttribute="top" id="lKx-xz-H5Z"/>
+                        <constraint firstAttribute="trailing" secondItem="DCB-sc-S7z" secondAttribute="trailing" constant="20" id="nZ6-H9-uAC"/>
+                        <constraint firstItem="fFn-ZV-nIA" firstAttribute="trailing" secondItem="rQh-62-H51" secondAttribute="trailing" id="neq-70-tbe"/>
+                        <constraint firstItem="fFn-ZV-nIA" firstAttribute="leading" secondItem="rQh-62-H51" secondAttribute="leading" id="uWX-LW-Gg6"/>
+                        <constraint firstItem="v80-YS-lj9" firstAttribute="top" secondItem="DF5-bp-3BX" secondAttribute="top" constant="30" id="xVm-Je-jsH"/>
+                        <constraint firstItem="DCB-sc-S7z" firstAttribute="top" secondItem="v80-YS-lj9" secondAttribute="bottom" constant="7.5" id="y07-9W-Wee"/>
+                        <constraint firstItem="rQh-62-H51" firstAttribute="centerY" secondItem="DF5-bp-3BX" secondAttribute="centerY" id="yAh-pF-PQp"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DF5-bp-3BX" secondAttribute="trailing" id="C5N-VD-31H"/>
+                <constraint firstItem="DF5-bp-3BX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="cCn-Er-ZLo"/>
+                <constraint firstItem="DF5-bp-3BX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="sVN-1N-sVP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addressLabel" destination="DCB-sc-S7z" id="EaK-NK-hDh"/>
+                <outlet property="businessName" destination="v80-YS-lj9" id="I8J-4g-afR"/>
+                <outlet property="editProfileButton" destination="fFn-ZV-nIA" id="4CS-6s-SOY"/>
+                <outlet property="profileImageView" destination="rQh-62-H51" id="hMr-LK-ezc"/>
+            </connections>
+            <point key="canvasLocation" x="-2.1739130434782612" y="23.4375"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="5ar" width="357" height="359"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -21,6 +21,7 @@ import AuthenticationServices
 class SocialLoginVC: UIViewController {
     
     var type: USER_TYPE = .user
+    let current = LocationManager.shared.currentLocation?.coordinate
     
     func observeSuccessGoogleLogin() {
     }
@@ -109,13 +110,14 @@ class SocialLoginVC: UIViewController {
     
     
     func generatingGoogleLogInParameters(userId: String?, fullName: String?, email: String?, idToken: String?, profilePicture: URL?) {
+        
         var params : [String:Any] = [:]
         params["userName"] = fullName ?? ""
         params["email"] = email ?? ""
         params["image"] = profilePicture?.absoluteString ?? ""
         params["googleToken"] = userId ?? ""
-        params["latitude"] = "30.7110585"
-        params["longitude"] = "76.6913124"
+        params["latitude"] = current?.latitude // "30.7110585"
+        params["longitude"] = current?.longitude //"76.6913124"
         params["deviceType"] = "1"
         params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
 
@@ -225,8 +227,8 @@ class SocialLoginVC: UIViewController {
         params["email"] = email
         params["image"] = appleImage
         params["appleToken"] = appleToken
-        params["latitude"] = "30.7110585"
-        params["longitude"] = "76.6913124"
+        params["latitude"] = current?.latitude// "30.7110585"
+        params["longitude"] = current?.longitude // "76.6913124"
         params["deviceType"] = "1"
         params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
 
@@ -328,8 +330,8 @@ class SocialLoginVC: UIViewController {
         params["email"] = email
         params["image"] = facebookImage
         params["facebookToken"] = facebookToken
-        params["latitude"] = "30.7110585"
-        params["longitude"] = "76.6913124"
+        params["latitude"] = current?.latitude // "30.7110585"
+        params["longitude"] = current?.longitude // "76.6913124"
         params["deviceType"] = "1"
         params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
 

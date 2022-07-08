@@ -70,13 +70,14 @@ class SignUpAsUserVC: SocialLoginVC {
     }
     
     func generatingParameters() -> [String:Any] {
+        let current = LocationManager.shared.currentLocation?.coordinate
         var params : [String:Any] = [:]
         params["userId"] = userId //UserDefaultsCustom.getUserData()?.userId
         params["userName"] = userNameTextField.text
         params["email"] = emailTextField.text
         params["password"] = passwordTextField.text
-        params["latitude"] = "30.7110585"
-        params["longitude"] = "76.6913124"
+        params["latitude"] = current?.latitude // "30.7110585"
+        params["longitude"] = current?.longitude // "76.6913124"
         params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
         params["deviceType"] = "1"
         return params

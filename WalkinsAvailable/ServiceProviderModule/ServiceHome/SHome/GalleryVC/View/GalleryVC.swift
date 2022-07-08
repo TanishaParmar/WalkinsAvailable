@@ -30,7 +30,7 @@ class GalleryVC: UIViewController {
     lazy var isCameraOption: Bool = false
     weak var delegate: GalleryVCDelegate?
     lazy var maxSelection: Int = 10
-    var pickerType: ImagePickerControllerType = .both
+    var pickerType: ImagePickerControllerType = .image
     
     init(isCameraOption: Bool = false, delegate: GalleryVCDelegate? = nil) {
         super.init(nibName: nil, bundle: nil)
@@ -101,10 +101,33 @@ class GalleryVC: UIViewController {
         }
     }
     
+    func selectedImages() {
+        let assets = self.collectionView.images.map({$0.0})
+        print("assets count are \(assets.count) \(delegate == nil)")
+        if assets.first?.mediaType == .video , let asset = assets.first  {
+            let options: PHVideoRequestOptions = PHVideoRequestOptions()
+            options.version = .original
+            PHImageManager.default().requestAVAsset(forVideo: asset, options: options, resultHandler: {(vidAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+//                DispatchQueue.main.async {
+//                    if let urlAsset = vidAsset as? AVURLAsset {
+//                        let localVideoUrl: URL = urlAsset.url as URL
+//                        let vc = VideoTrimmerVC(url: localVideoUrl, delegate: self)
+//                        vc.assetId = asset.localIdentifier
+//                        self.present(vc, true)
+//                    } else {
+//
+//                    }
+//                }
+            })
+        } else {
+            self.delegate?.galleryController(self, didselect: assets, assetIds: self.collectionView.assetIdentifiers)
+        }
+    }
+    
     @IBAction func doneBtn(_ sender: UIButton) {
-//        let images = collectionView.images.map({$0.0})
+        selectedImages()
 //        self.dismiss(animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
     }
     
     

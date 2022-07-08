@@ -65,6 +65,8 @@ class API {
         static let artistSignUp                  = "webservice/artist/artistSignUp.php"
         static let artistHomeProfile             = "webservice/artist/artistHomeProfile.php"
         static let editArtistProfile             = "webservice/artist/editArtistProfile.php"
+        static let addImage                      = "webservice/artist/addImage.php"
+        
     }
 
     

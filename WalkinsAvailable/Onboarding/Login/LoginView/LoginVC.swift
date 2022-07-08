@@ -210,10 +210,11 @@ class LoginVC: SocialLoginVC {
     
     func generatingParameters() -> [String:Any] {
         var params : [String:Any] = [:]
+        let current = LocationManager.shared.currentLocation?.coordinate
         params["email"] = emailTextField.text
         params["password"] = passwordTextField.text
-        params["latitude"] = "30.7110585"
-        params["longitude"] = "76.6913124"
+        params["latitude"] = current?.latitude // "30.7110585"
+        params["longitude"] = current?.longitude // "76.6913124"
         params["deviceType"] = "1"
         params["deviceToken"] = UserDefaultsCustom.getDeviceToken()
         return params

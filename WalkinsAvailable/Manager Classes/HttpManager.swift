@@ -134,25 +134,25 @@ class HttpManager: HTTPURLResponse {
         }
         if(isImage) {
             dataArray?.enumerated().forEach({ (index, data) in
-//                body.append(("--\(boundary)\r\n" as String).data(using: String.Encoding.utf8, allowLossyConversion: true)!)
-//                body.append("Content-Disposition: form-data; name=\"uploads[\(index)]\"; filename=\"\(data.fileName?.lowercased() ?? "file_name.jpg")\"\r\n" .data(using: String.Encoding.utf8, allowLossyConversion: true)!)
-//                body.append("Content-Type: image/jpeg\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+                body.append(("--\(boundary)\r\n" as String).data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+                body.append("Content-Disposition: form-data; name=\"image[\(index)]\"; filename=\"\(data.fileName?.lowercased() ?? "file_name.jpg")\"\r\n" .data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+                body.append("Content-Type: image/jpeg\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
                 
-//                if data.type == .image {
-//                    if let data1 = data.image?.jpegData(compressionQuality: 0.5) {
-//                        body.append(data1)
-//                    } else
-//                    if let data1 = data.data {
-//                        body.append(data1)
-//                    }
-//                } else {
-//                    if let data1 = data.data {
-//                        body.append(data1)
-//                        print("video image uploaded \(data1.count)")
-//                    }
-//                }
-//                body.append("\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
-//                print("Multipart:- ******** \(data.fileName) ********* \(data.data?.count) **** \(imageKey)")
+                if data.type == .image {
+                    if let data1 = data.image?.jpegData(compressionQuality: 0.5) {
+                        body.append(data1)
+                    } else
+                    if let data1 = data.data {
+                        body.append(data1)
+                    }
+                } else {
+                    if let data1 = data.data {
+                        body.append(data1)
+                        print("video image uploaded \(data1.count)")
+                    }
+                }
+                body.append("\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+                print("Multipart:- ******** \(data.fileName) ********* \(data.data?.count) **** \(imageKey)")
 //                if data.type == .video {
 //                    body.append(("--\(boundary)\r\n" as String).data(using: String.Encoding.utf8, allowLossyConversion: true)!)
 //                    body.append("Content-Disposition: form-data; name=\"video_thumbnail\"; filename=\"\("thumb_file_name.jpg")\"\r\n" .data(using: String.Encoding.utf8, allowLossyConversion: true)!)
@@ -177,6 +177,7 @@ class HttpManager: HTTPURLResponse {
        
         if  let accessToken = UserDefaultsCustom.getUserData()?.userToken, accessToken.count > 0 {
             request.setValue(accessToken, forHTTPHeaderField: "Token")
+            print("access Token ** \(accessToken)")
         }
         let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
             if(response != nil) {
