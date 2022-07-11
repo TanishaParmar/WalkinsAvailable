@@ -13,16 +13,24 @@ class EventHomeCollectionListcell: UICollectionViewCell {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var eventView: UIView!
     
+    var eventsData: InviteEventDetail?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.eventView.layer.borderColor = UIColor.gray.cgColor
-//        self.eventView.layer.borderWidth = 1
-//        self.eventView.layer.cornerRadius = 4
-//        self.eventView.layer.shadowColor = UIColor.gray.cgColor
-//        self.eventView.layer.shadowOpacity = 0.3
-//        self.eventView.layer.shadowOffset = CGSize.zero
-//        self.eventView.layer.shadowRadius = 6
         self.eventView.addCornerBorderAndShadow(view: self.eventView, cornerRadius: 4, shadowColor: .lightGray, borderColor: .lightGray, borderWidth:  1.0)
     }
+    
+    
+    func setUI(eventsData: InviteEventDetail?) {
+        self.eventsData = eventsData
+        if let eventsData = eventsData?.eventDetail {
+            self.eventname.text = eventsData.eventName
+            self.descriptionLbl.text = eventsData.description
+            let placeHolder = UIImage(named: "placeHolder")
+            self.imgCell.setImage(url: eventsData.image, placeHolder: placeHolder)
+
+        }
+    }
+    
 
 }

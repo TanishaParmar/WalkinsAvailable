@@ -56,6 +56,8 @@ class API {
         static let ongoingPastMycreateEvent      = "webservice/business/ongoingPastMycreateEvent.php"
         static let addEvent                      = "webservice/business/addEvent.php"
         static let eventDetails                  = "webservice/business/eventDetails.php"
+        static let addArtist                     = "webservice/business/addArtist.php"
+        static let artistBySearch                = "webservice/business/artistBySearch.php"
 
         
         // Artist Flow Api's
@@ -90,6 +92,8 @@ class API {
     
     
     struct statusCodes {
+        static let FAILURE     = 0
+        static let SUCCESS     = 1
         static let INVALID_ACCESS_TOKEN     = 2
         static let BAD_REQUEST              = 400
         static let UNAUTHORIZED_ACCESS      = 401

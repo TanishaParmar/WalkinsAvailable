@@ -14,6 +14,7 @@ class BusinessArtistTotalListCell: UITableViewCell {
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var artistAvailabilitySwitch: UISwitch!
     
+    var artistData: ArtistData?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +31,13 @@ class BusinessArtistTotalListCell: UITableViewCell {
     func setUI() {
         imgSuperView.addCornerBorderAndShadow(view: imgSuperView, cornerRadius: imgSuperView.bounds.height / 2, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         artistImageView.addCornerRadius(view: artistImageView, cornerRadius: artistImageView.bounds.height / 2)
+    }
+    
+    func updateUIElements(artistData: ArtistData?) {
+        self.artistData = artistData
+        self.artistName.text = self.artistData?.ownerName
+        let placeHolder = UIImage(named: "placeHolder")
+        self.artistImageView.setImage(url: self.artistData?.image, placeHolder: placeHolder)
     }
     
     

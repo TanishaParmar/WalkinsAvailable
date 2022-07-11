@@ -57,33 +57,14 @@ class ImageModel: NSObject {
 
 
 
-//class UserModel: Codable {
-//    var code: Int?
-//    var status: Int?
-//    var message: String?
-//    var data: UserData?
-//}
-//
-//class UserData: Codable {
-//
-//    var userId, tokenId, userToken, latitude: String?
-//    var longitude, deviceType, deviceToken, loginTime: String?
-//    var businessId, artistId, name, email: String?
-//    var password, image, googleToken, facebookToken: String?
-//    var instaToken, appleToken, type, emailVerified: String?
-//    var verificationCode, created, updatedAt, isDisable: String?
-//    var address, typeId, description, loginRole : String?
-//}
-
-
-
-
-
 
 // MARK: - UserModel
 class UserModel: Codable {
     var code, status: Int?
-    var loginRole, userToken, email, message: String?
+    var loginRole: String?
+    var userToken: String?
+    var email: String?
+    var message: String?
 //    var message: String?
     var userData: UserData?
     var businessData: BusinessData?
@@ -93,32 +74,77 @@ class UserModel: Codable {
 
 // MARK: - ArtistData
 class ArtistData: Codable {
-    var userId, artistId, businessId, ownerName, email: String?
+    var userId: String?
+    var artistId: String?
+    var businessId: String?
+    var ownerName: String?
+    var email: String?
     var artistDescription: String?
     var image: String?
-    var available, logInTime, emailVerified, created, updatedAt: String?
+    var available: String?
+    var logInTime: String?
+    var emailVerified: String?
+    var created: String?
+    var updatedAt: String?
+    var isAvialable : String?
 }
 
 // MARK: - BusinessData
 class BusinessData: Codable {
-    var userId, businessId, artistId, businessName, email: String?
+    var userId: String?
+    var businessId: String?
+    var artistId: String?
+    var businessName: String?
+    var email: String?
     var businessTypeId: String?
     var image: String?
-    var businessAddress, businessDescription, latitude, longitude: String?
-    var logInTime, emailVerified, verificationCode, created: String?
-    var updatedAt, disable: String?
+    var businessAddress: String?
+    var businessDescription: String?
+    var latitude: String?
+    var longitude: String?
+    var logInTime: String?
+    var emailVerified: String?
+    var verificationCode: String?
+    var created: String?
+    var updatedAt: String?
+    var disable: String?
+    
+
+    var name : String?
+    var userToken : String?
+    var typeId : String?
+    var address : String?
+    var description : String?
+
 }
 
 
 // MARK: - UserData
 class UserData: Codable {
-    var userId, tokenId, userToken, latitude: String?
-    var longitude, deviceType, deviceToken, loginTime: String?
-    var businessId, artistId, userName, email: String?
+    var userId: String?
+    var tokenId: String?
+    var userToken: String?
+    var latitude: String?
+    var longitude: String?
+    var deviceType: String?
+    var deviceToken: String?
+    var loginTime: String?
+    var businessId: String?
+    var artistId: String?
+    var userName: String?
+    var email: String?
     var password: String?
     var image: String?
-    var googleToken, facebookToken, instaToken, appleToken: String?
-    var loginRole, type, emailVerified, verificationCode: String?
-    var created, updatedAt, isDisable: String?
+    var googleToken: String?
+    var facebookToken: String?
+    var instaToken: String?
+    var appleToken: String?
+    var loginRole: String?
+    var type: String?
+    var emailVerified: String?
+    var verificationCode: String?
+    var created: String?
+    var updatedAt: String?
+    var isDisable: String?
 }
 

@@ -137,9 +137,9 @@ class AccountVC: UIViewController {
                 if succeeded {
                     if let response = DataDecoder.decodeData(data, type: BusinessDataResponseModel.self) {
                         if let data = response.data?.businessDetails {
-                            UserDefaults.standard.set("business", forKey: "loginType")
-                            UserDefaultsCustom.saveUserData(userData: data)
-                            Singleton.setHomeScreenView()
+//                            UserDefaults.standard.set("business", forKey: "loginType")
+//                            UserDefaultsCustom.saveUserData(userData: data)
+//                            Singleton.setHomeScreenView()
                         }
                         //                    Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
                         //                    self.navigationController?.popToRootViewController(animated: true)
@@ -173,13 +173,13 @@ class AccountVC: UIViewController {
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             DispatchQueue.main.async {
                 if succeeded {
-                    if let response = DataDecoder.decodeData(data, type: UserDataResponseModel.self) {
-                        if let data = response.data?.userDetails {
-                            UserDefaults.standard.set("user", forKey: "loginType")
-                            UserDefaultsCustom.saveUserData(userData: data)
-                            Singleton.setHomeScreenView()
-                        }
-                    }
+//                    if let response = DataDecoder.decodeData(data, type: UserDataResponseModel.self) {
+//                        if let data = response.data?.userDetails {
+//                            UserDefaults.standard.set("user", forKey: "loginType")
+//                            UserDefaultsCustom.saveUserData(userData: data)
+//                            Singleton.setHomeScreenView()
+//                        }
+//                    }
                 } else {
                     if let msg = response["message"] as? String {
                         Singleton.shared.showErrorMessage(error: msg, isError: .error)

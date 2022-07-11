@@ -13,6 +13,8 @@ class BusinessHomeListCell: UITableViewCell {
     @IBOutlet weak var btnSeeAll: UIButton!
     @IBOutlet weak var eventCollectionView: UICollectionView!
     
+    var eventsData: [InviteEventDetail]?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         eventCollectionView.delegate = self
@@ -27,22 +29,26 @@ class BusinessHomeListCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setUIElements(eventsData: [InviteEventDetail]?) {
+        self.eventsData = eventsData
+        self.eventCollectionView.reloadData()
+    }
+    
 }
 extension BusinessHomeListCell : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return 4
+        return self.eventsData?.count ?? 0
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
-    UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //      let padding: CGFloat =  collectionImgView.frame.size.width
         let collectionViewSize = (eventCollectionView.frame.size.width / 1.7) - 2
       return CGSize(width: collectionViewSize, height: 145)
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventHomeCollectionListcell", for: indexPath) as! EventHomeCollectionListcell
+        cell.setUI(eventsData: self.eventsData?[indexPath.row])
         return cell
     }
-    
-    
-    
 }

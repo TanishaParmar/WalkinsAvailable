@@ -41,8 +41,7 @@ class ServiceArtistProfileVC: UIViewController {
     }
     
     
-    
-    //MARK: Hit Edit Profile API
+    //MARK: Hit Artist Profile Home API
     func hitArtistProfileHomeApi() {
         ActivityIndicator.sharedInstance.showActivityIndicator()
         ApiHandler.updateProfile(apiName: API.Name.artistHomeProfile, params: [:]) { succeeded, response, data in

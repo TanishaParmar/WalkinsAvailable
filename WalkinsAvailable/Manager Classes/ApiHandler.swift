@@ -98,11 +98,24 @@ class ApiHandler {
         if IJReachability.isConnectedToNetwork() == true {
             HttpManager.uploadingMultipleTask(apiName, params: params, profilePhoto: profilePhoto) { (isSucceeded, response, data) in
                 DispatchQueue.main.async {
-                    print(response)
+                    print("api's response is *****", response)
                     if(isSucceeded) {
                         if let status = response["status"] as? Int {
                             switch(status) {
-                            case 1:
+                            case API.statusCodes.FAILURE:
+                                if let code = response["code"] as? Int,
+                                    code == 400 {
+                                    receivedResponse(true, response, data)
+                                } else {
+                                    if let message = response["message"] as? String {
+                                        receivedResponse(false, ["statusCode":status, "message":message], nil)
+                                    } else {
+                                        receivedResponse(false, ["statusCode":status, "message":AlertMessage.SERVER_NOT_RESPONDING], nil)
+                                    }
+                                }
+                            case API.statusCodes.SUCCESS:
+                                receivedResponse(true, response, data)
+                            case API.statusCodes.BAD_REQUEST:
                                 receivedResponse(true, response, data)
                             case API.statusCodes.INVALID_ACCESS_TOKEN:
                                 Singleton.shared.showErrorMessage(error: AlertMessage.INVALID_ACCESS_TOKEN, isError: .error)
