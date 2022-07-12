@@ -51,4 +51,14 @@ extension BusinessHomeListCell : UICollectionViewDelegate,UICollectionViewDataSo
         cell.setUI(eventsData: self.eventsData?[indexPath.row])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = EventDetailVC()
+        controller.eventId = self.eventsData?[indexPath.row].eventId
+        controller.isFromEventList = false
+        if let topVC = UIApplication.getTopViewController() {
+            topVC.push(viewController: controller)
+        }
+    }
+    
 }

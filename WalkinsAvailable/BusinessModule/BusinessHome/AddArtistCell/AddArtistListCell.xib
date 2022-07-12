@@ -65,13 +65,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cto-ZC-T3P">
+                                <rect key="frame" x="251" y="10.5" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dj8-Tu-bzy" firstAttribute="leading" secondItem="0iI-Ub-33T" secondAttribute="trailing" constant="12" id="2eQ-pn-ld2"/>
                             <constraint firstAttribute="trailing" secondItem="NQ4-JC-2mV" secondAttribute="trailing" constant="20" id="9LS-MN-aQf"/>
+                            <constraint firstItem="cto-ZC-T3P" firstAttribute="centerY" secondItem="0iI-Ub-33T" secondAttribute="centerY" id="B5s-MP-BZh"/>
                             <constraint firstAttribute="trailing" secondItem="y3u-JJ-EfX" secondAttribute="trailing" id="CZM-zk-ZMx"/>
                             <constraint firstItem="y3u-JJ-EfX" firstAttribute="top" secondItem="0iI-Ub-33T" secondAttribute="bottom" constant="5" id="KWT-2E-oDf"/>
+                            <constraint firstAttribute="trailing" secondItem="cto-ZC-T3P" secondAttribute="trailing" constant="20" id="Lgi-6W-UAp"/>
                             <constraint firstItem="y3u-JJ-EfX" firstAttribute="leading" secondItem="0iI-Ub-33T" secondAttribute="leading" id="NEh-Yu-cxD"/>
                             <constraint firstItem="NQ4-JC-2mV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dj8-Tu-bzy" secondAttribute="trailing" constant="10" id="Ohw-hr-EyY"/>
                             <constraint firstItem="0iI-Ub-33T" firstAttribute="leading" secondItem="V2m-Rv-xh1" secondAttribute="leading" constant="15" id="PEb-Yf-5XZ"/>
@@ -92,6 +97,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addBtn" destination="NQ4-JC-2mV" id="pU3-4R-2kg"/>
+                <outlet property="artistAvailabilitySwitch" destination="cto-ZC-T3P" id="tFZ-lH-M4W"/>
                 <outlet property="artistImgCell" destination="0iI-Ub-33T" id="Dk3-cC-eLz"/>
                 <outlet property="nameLbl" destination="dj8-Tu-bzy" id="mNm-oQ-h6A"/>
             </connections>

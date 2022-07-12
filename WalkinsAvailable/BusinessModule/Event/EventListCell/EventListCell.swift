@@ -15,6 +15,8 @@ class EventListCell: UITableViewCell {
     @IBOutlet weak var descriptionLbl: UILabel!
     
     var eventData: EventsList?
+    var eventList: EventDetail?
+
 
     
     override func awakeFromNib() {
@@ -30,10 +32,17 @@ class EventListCell: UITableViewCell {
         let placeHolder = UIImage(named: "placeHolder")
         self.imgCell.setImage(url: self.eventData?.image, placeHolder: placeHolder)
     }
+    
+    func setEventDetail(eventList: EventDetail?) {
+        self.eventList = eventList
+        nameLbl.text = self.eventList?.eventName
+        descriptionLbl.text = self.eventList?.description
+        let placeHolder = UIImage(named: "placeHolder")
+        self.imgCell.setImage(url: self.eventList?.image, placeHolder: placeHolder)
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

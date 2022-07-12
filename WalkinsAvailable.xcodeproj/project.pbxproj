@@ -147,6 +147,12 @@
 		1F2539E4287C329B0074960C /* UITableView+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2539E3287C329B0074960C /* UITableView+Custom.swift */; };
 		1F2539E7287C3FFD0074960C /* BusinessDataResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2539E6287C3FFD0074960C /* BusinessDataResponseModel.swift */; };
 		1F255925286ED37300804515 /* EventListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F255924286ED37300804515 /* EventListModel.swift */; };
+		1F25F970287D4A1C0035E765 /* ArtistListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25F96E287D4A1C0035E765 /* ArtistListingVC.swift */; };
+		1F25F971287D4A1C0035E765 /* ArtistListingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F25F96F287D4A1C0035E765 /* ArtistListingVC.xib */; };
+		1F25F975287D61DD0035E765 /* ArtistDetailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25F973287D61DD0035E765 /* ArtistDetailedVC.swift */; };
+		1F25F976287D61DD0035E765 /* ArtistDetailedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F25F974287D61DD0035E765 /* ArtistDetailedVC.xib */; };
+		1F25F97A287D80370035E765 /* DeleteArtistPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25F978287D80370035E765 /* DeleteArtistPopUpVC.swift */; };
+		1F25F97B287D80370035E765 /* DeleteArtistPopUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F25F979287D80370035E765 /* DeleteArtistPopUpVC.xib */; };
 		1F277FBE287800B8003875CA /* PickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F277FBD287800B8003875CA /* PickerData.swift */; };
 		1F277FC328780743003875CA /* ArtistDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F277FC228780743003875CA /* ArtistDetailsModel.swift */; };
 		1F277FC72878374F003875CA /* BusinessHomerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F277FC62878374F003875CA /* BusinessHomerHeaderView.swift */; };
@@ -388,6 +394,12 @@
 		1F2539E3287C329B0074960C /* UITableView+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Custom.swift"; sourceTree = "<group>"; };
 		1F2539E6287C3FFD0074960C /* BusinessDataResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDataResponseModel.swift; sourceTree = "<group>"; };
 		1F255924286ED37300804515 /* EventListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListModel.swift; sourceTree = "<group>"; };
+		1F25F96E287D4A1C0035E765 /* ArtistListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListingVC.swift; sourceTree = "<group>"; };
+		1F25F96F287D4A1C0035E765 /* ArtistListingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistListingVC.xib; sourceTree = "<group>"; };
+		1F25F973287D61DD0035E765 /* ArtistDetailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailedVC.swift; sourceTree = "<group>"; };
+		1F25F974287D61DD0035E765 /* ArtistDetailedVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistDetailedVC.xib; sourceTree = "<group>"; };
+		1F25F978287D80370035E765 /* DeleteArtistPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteArtistPopUpVC.swift; sourceTree = "<group>"; };
+		1F25F979287D80370035E765 /* DeleteArtistPopUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteArtistPopUpVC.xib; sourceTree = "<group>"; };
 		1F277FBD287800B8003875CA /* PickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerData.swift; sourceTree = "<group>"; };
 		1F277FC228780743003875CA /* ArtistDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetailsModel.swift; sourceTree = "<group>"; };
 		1F277FC62878374F003875CA /* BusinessHomerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomerHeaderView.swift; sourceTree = "<group>"; };
@@ -745,8 +757,11 @@
 			isa = PBXGroup;
 			children = (
 				181C170E28239BFF008E7C14 /* BusinessProviderHome */,
+				1F25F96D287D49FA0035E765 /* ArtistListing */,
 				189B7DBA282393DE009AC87C /* AddArtistCell */,
 				189B7DB528239285009AC87C /* AddArtistList */,
+				1F25F972287D61B40035E765 /* ArtistDetailedController */,
+				1F25F977287D80150035E765 /* DeleteArtistPopup */,
 			);
 			path = BusinessHome;
 			sourceTree = "<group>";
@@ -1190,6 +1205,33 @@
 				1F255924286ED37300804515 /* EventListModel.swift */,
 			);
 			path = EventsListModel;
+			sourceTree = "<group>";
+		};
+		1F25F96D287D49FA0035E765 /* ArtistListing */ = {
+			isa = PBXGroup;
+			children = (
+				1F25F96E287D4A1C0035E765 /* ArtistListingVC.swift */,
+				1F25F96F287D4A1C0035E765 /* ArtistListingVC.xib */,
+			);
+			path = ArtistListing;
+			sourceTree = "<group>";
+		};
+		1F25F972287D61B40035E765 /* ArtistDetailedController */ = {
+			isa = PBXGroup;
+			children = (
+				1F25F973287D61DD0035E765 /* ArtistDetailedVC.swift */,
+				1F25F974287D61DD0035E765 /* ArtistDetailedVC.xib */,
+			);
+			path = ArtistDetailedController;
+			sourceTree = "<group>";
+		};
+		1F25F977287D80150035E765 /* DeleteArtistPopup */ = {
+			isa = PBXGroup;
+			children = (
+				1F25F978287D80370035E765 /* DeleteArtistPopUpVC.swift */,
+				1F25F979287D80370035E765 /* DeleteArtistPopUpVC.xib */,
+			);
+			path = DeleteArtistPopup;
 			sourceTree = "<group>";
 		};
 		1F277FC028780718003875CA /* ServiceArtistProfile */ = {
@@ -1892,6 +1934,7 @@
 				18D620CF2824F0A600BE9C95 /* BusinessComplaintdetailCell.xib in Resources */,
 				1F3344E227FAE636000BB072 /* Poppins-Black.ttf in Resources */,
 				189C2D83282B809C00AA3665 /* BusinessArtistTotalListCell.xib in Resources */,
+				1F25F971287D4A1C0035E765 /* ArtistListingVC.xib in Resources */,
 				1895B97F28200ED000842DD5 /* EventDetailVC.xib in Resources */,
 				18E6983328252F4100644838 /* EventHomeCollectionListcell.xib in Resources */,
 				1F18D6832862EF2400C1922A /* CustomPickerController.xib in Resources */,
@@ -1944,7 +1987,9 @@
 				18B6521428250EF6000F8E02 /* BusinessArtistListCell.xib in Resources */,
 				1F79106328097E2400102EA6 /* ChangePasswordVC.xib in Resources */,
 				1F422EF327FC25A600877618 /* ChatListTVC.xib in Resources */,
+				1F25F97B287D80370035E765 /* DeleteArtistPopUpVC.xib in Resources */,
 				1F39248F27F84894000F08F5 /* Main.storyboard in Resources */,
+				1F25F976287D61DD0035E765 /* ArtistDetailedVC.xib in Resources */,
 				1F79106928098A5700102EA6 /* ComplaintsVC.xib in Resources */,
 				185148A52824020C00CB41A7 /* BusinessHomeHeaderView.xib in Resources */,
 				1F3924AD27F85F44000F08F5 /* SignUpAsVC.xib in Resources */,
@@ -2082,6 +2127,8 @@
 				18697664281A68A800F208BD /* MapController.swift in Sources */,
 				189C961B2822598D004B99EF /* ServiceArtistProfileVC.swift in Sources */,
 				18E379C82823E4310029C01A /* GridCameraViewCell.swift in Sources */,
+				1F25F970287D4A1C0035E765 /* ArtistListingVC.swift in Sources */,
+				1F25F97A287D80370035E765 /* DeleteArtistPopUpVC.swift in Sources */,
 				189C2D82282B809C00AA3665 /* BusinessArtistTotalListCell.swift in Sources */,
 				1895B964281FC05A00842DD5 /* ChatCell.swift in Sources */,
 				1F422EE227FC209B00877618 /* HomeVC.swift in Sources */,
@@ -2143,6 +2190,7 @@
 				18E6983228252F4100644838 /* EventHomeCollectionListcell.swift in Sources */,
 				18EFEAAB28213F25009ADBB4 /* BusinessNotificationVC.swift in Sources */,
 				1F3924AC27F85F44000F08F5 /* SignUpAsVC.swift in Sources */,
+				1F25F975287D61DD0035E765 /* ArtistDetailedVC.swift in Sources */,
 				1F422EDD27FC208000877618 /* FavouriteVC.swift in Sources */,
 				1F422ECE27FC155B00877618 /* TabBarVC.swift in Sources */,
 				1F422EF227FC25A600877618 /* ChatListTVC.swift in Sources */,
@@ -2327,7 +2375,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2365,7 +2413,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;

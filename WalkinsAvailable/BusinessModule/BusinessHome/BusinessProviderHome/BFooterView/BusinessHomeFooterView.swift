@@ -9,16 +9,23 @@ import UIKit
 
 class BusinessHomeFooterView: UIView {
     
-    @IBOutlet weak var seeMoreLabel: UILabel!
+    
+    @IBOutlet weak var seeAllButton: UIButton!
     
     
-   //̬
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    var artistData: [ArtistData]?
 
+   
+    func updateUIElements(artistData: [ArtistData]?) {
+        self.artistData = artistData
+    }
+    
+
+    @IBAction func seeAllButtonAction(_ sender: Any) {
+        let controller = ArtistListingVC()
+        controller.artistData = self.artistData
+        if let topVC = UIApplication.getTopViewController() {
+            topVC.push(viewController: controller)
+        }
+    }
 }

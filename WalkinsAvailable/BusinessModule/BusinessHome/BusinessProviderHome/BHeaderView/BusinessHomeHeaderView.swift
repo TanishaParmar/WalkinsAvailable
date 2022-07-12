@@ -20,7 +20,7 @@ class BusinessHomeHeaderView: UIView {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var seeAllButton: UIButton!
     
-    
+    var eventsData: [InviteEventDetail]?
     
     
     class var view: BusinessHomeHeaderView {
@@ -43,8 +43,13 @@ class BusinessHomeHeaderView: UIView {
         self.collectionArtistListView.register(nib, forCellWithReuseIdentifier: "BusinessArtistListCell")
     }
     
+    func updateUIElements(eventsData: [InviteEventDetail]?) {
+        self.eventsData = eventsData
+    }
+    
     @IBAction func seeAllButtonAction(_ sender: Any) {
         let controller = BusinessEventVC()
+        controller.eventsData = self.eventsData
         if let topVC = UIApplication.getTopViewController() {
             topVC.push(viewController: controller)
         }

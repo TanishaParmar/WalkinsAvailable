@@ -58,6 +58,7 @@ class API {
         static let eventDetails                  = "webservice/business/eventDetails.php"
         static let addArtist                     = "webservice/business/addArtist.php"
         static let artistBySearch                = "webservice/business/artistBySearch.php"
+        static let viewArtistDetail              = "webservice/business/viewArtistDetail.php"
 
         
         // Artist Flow Api's
@@ -68,7 +69,8 @@ class API {
         static let artistHomeProfile             = "webservice/artist/artistHomeProfile.php"
         static let editArtistProfile             = "webservice/artist/editArtistProfile.php"
         static let addImage                      = "webservice/artist/addImage.php"
-        
+        static let removeArtistImages            = "webservice/artist/removeArtistImages.php"
+
     }
 
     

@@ -119,6 +119,7 @@ extension ServiceEventVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = EventDetailVC()
+        controller.isFromEventList = true
         controller.eventId = self.eventsList[indexPath.row].eventId
         self.push(viewController: controller)
     }

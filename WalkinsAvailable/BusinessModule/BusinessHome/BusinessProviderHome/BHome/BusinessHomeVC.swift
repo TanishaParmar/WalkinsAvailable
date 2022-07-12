@@ -78,7 +78,7 @@ extension BusinessHomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return self.businessHomeData.artistsList?.count ?? 0
+            return self.businessHomeData.artistsList?.count ?? 0 < 4 ? self.businessHomeData.artistsList?.count ?? 0 : 4
         case 1:
             return self.businessHomeData.inviteEventDetail?.count ?? 0 > 0 ? 1 : 0
         case 2:
@@ -98,8 +98,9 @@ extension BusinessHomeVC: UITableViewDataSource, UITableViewDelegate {
             return cell
         case 1,2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessHomeListCell", for: indexPath) as! BusinessHomeListCell
-            let eventsData = self.businessHomeData.inviteEventDetail
-            cell.setUIElements(eventsData: eventsData)
+            let inviteEventDetail = self.businessHomeData.inviteEventDetail
+            let nearByEvent = self.businessHomeData.nearByEvent
+            cell.setUIElements(eventsData: indexPath.section == 1 ? inviteEventDetail : nearByEvent)
             return cell
         default:
             return UITableViewCell()
@@ -124,6 +125,10 @@ extension BusinessHomeVC: UITableViewDataSource, UITableViewDelegate {
             view?.seeAllButton.isUserInteractionEnabled = true
             view?.addButton.isHidden = true
             view?.addButton.isUserInteractionEnabled = false
+            let inviteEventDetail = self.businessHomeData.inviteEventDetail
+            let nearByEvent = self.businessHomeData.nearByEvent
+//            cell.setUIElements(eventsData: indexPath.section == 1 ? inviteEventDetail : nearByEvent)
+            view?.updateUIElements(eventsData: section == 1 ? inviteEventDetail : nearByEvent)
             view?.headerLabel.text = section == 1 ? "Invite Event" : "Near by events"
             return view
         default:
@@ -137,12 +142,24 @@ extension BusinessHomeVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = (Bundle.main.loadNibNamed("BusinessHomeFooterView", owner: self, options: nil)![0] as? BusinessHomeFooterView)
-
+        let artistData = self.businessHomeData.artistsList
+        view?.updateUIElements(artistData: artistData)
         return view
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return (self.businessHomeData.artistsList?.count ?? 0 > 4 && section == 0) ? 50 : 0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("did select called.")
+        let controller = ArtistDetailedVC()
+//        controller.artistData = self.artistData
+        controller.artistId = self.businessHomeData.artistsList?[indexPath.row].artistId
+        if indexPath.section == 0 {
+            self.push(viewController: controller)
+        }
+
     }
     
     @objc func btnSeeAllAction(sender : UIButton) {

@@ -45,8 +45,8 @@
                                         <action selector="backBtn:" destination="-1" eventType="touchUpInside" id="Eog-Rf-YqL"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjT-yT-nds">
-                                    <rect key="frame" x="62" y="14" width="80.5" height="22.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Service Provider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjT-yT-nds">
+                                    <rect key="frame" x="62" y="14" width="168" height="22.5"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>

@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class ServiceArtistProfileVC: UIViewController {
+class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
 
 //    var imgArr:[String] = ["1ar","2ar","1ar","3ar","4ar","5ar","ghar","2ar","ghar","2ar","uu","uyyu","wqw","wwe","yyt","3ar","4ar","5ar","ghar","2ar"]
     
@@ -23,6 +23,7 @@ class ServiceArtistProfileVC: UIViewController {
     @IBOutlet weak var setAvailabilityBtn: UIButton!
     
     var imgArr: [ArtistImages] = [ArtistImages]()
+    var selectedIndex: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class ServiceArtistProfileVC: UIViewController {
         artistImgView.clipsToBounds = true
         collectionImgView.delegate = self
         collectionImgView.dataSource = self
+        setupLongGestureRecognizerOnCollection()
         let nib = UINib(nibName: "ArtistListImgCell", bundle: nil)
         self.collectionImgView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
     }
@@ -64,6 +66,30 @@ class ServiceArtistProfileVC: UIViewController {
             }
         }
     }
+
+    private func setupLongGestureRecognizerOnCollection() {
+        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        longPressedGesture.minimumPressDuration = 0.5
+        longPressedGesture.delegate = self
+        longPressedGesture.delaysTouchesBegan = true
+        collectionImgView.addGestureRecognizer(longPressedGesture)
+//        collectionView?.addGestureRecognizer(longPressedGesture)
+    }
+    
+    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        if (gestureRecognizer.state != .began) {
+            return
+        }
+
+        let p = gestureRecognizer.location(in: collectionImgView)
+
+        if let indexPath = collectionImgView?.indexPathForItem(at: p) {
+            print("Long press at item: \(indexPath.row)")
+            self.selectedIndex = indexPath.row
+            self.collectionImgView.reloadData()
+        }
+    }
+
 
 
     
@@ -114,7 +140,15 @@ extension ServiceArtistProfileVC: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistListImgCell", for: indexPath) as! ArtistListImgCell
-        cell.setUI(artistImages: imgArr[indexPath.row])
+        cell.setUI(artistImages: imgArr[indexPath.row], delegate: self)
+        cell.deleteButton.isHidden = self.selectedIndex == indexPath.row ? false : true
+        cell.deleteButton.isUserInteractionEnabled = selectedIndex == indexPath.row ? true : false
+        cell.imgCell.alpha = selectedIndex == indexPath.row ? 0.5 : 1.0
+//        if selectedIndex == indexPath.row {
+//            cell.deleteButton.isHidden
+//        } else {
+//
+//        }
         return cell
     }
 
@@ -153,4 +187,36 @@ extension ServiceArtistProfileVC: GalleryVCDelegate {
     }
     
     
+}
+
+
+extension ServiceArtistProfileVC: ArtistListImgCellDelegate {
+    func deleteImage(imageId: String?) {
+        if imageId == "" {
+            self.selectedIndex = -1
+            self.collectionImgView.reloadData()
+        } else {
+            ActivityIndicator.sharedInstance.showActivityIndicator()
+            ApiHandler.updateProfile(apiName: API.Name.removeArtistImages, params: ["artistImageIds": imageId ?? ""]) { succeeded, response, data in
+                //            debugPrint("response data ** \(response)")
+                ActivityIndicator.sharedInstance.hideActivityIndicator()
+                if succeeded {
+                    if let response = DataDecoder.decodeData(data, type: ArtistDetailsModel.self) {
+                        self.artistNameLbl.text = response.data?.ownerName
+                        let placeHolder = UIImage(named: "placeHolder")
+                        self.artistImgView.setImage(url: response.data?.image, placeHolder: placeHolder)
+                        if let data = response.data?.artistImages {
+                            self.selectedIndex = -1
+                            self.imgArr = data
+                            self.collectionImgView.reloadData()
+                        }
+                    }
+                } else {
+                    if let msg = response["message"] as? String {
+                        Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,12 +21,27 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Gl-uS-1YA">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img3" translatesAutoresizingMaskIntoConstraints="NO" id="qOU-Iz-9vg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="qOU-Iz-9vg">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOT-mN-7NL">
+                                <rect key="frame" x="55" y="5" width="20" height="20"/>
+                                <color key="backgroundColor" red="0.93611890080000004" green="0.066982679069999995" blue="0.067399561410000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dOT-mN-7NL" secondAttribute="height" multiplier="1:1" id="aul-vX-eRn"/>
+                                    <constraint firstAttribute="height" constant="20" id="fKR-Wc-sGB"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                <state key="normal" image="cancel_notes.png"/>
+                                <connections>
+                                    <action selector="deleteButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="qqF-yC-Dpa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="dOT-mN-7NL" firstAttribute="top" secondItem="6Gl-uS-1YA" secondAttribute="top" constant="5" id="1EI-tX-kqz"/>
+                            <constraint firstAttribute="trailing" secondItem="dOT-mN-7NL" secondAttribute="trailing" constant="5" id="3ku-D6-Qky"/>
                             <constraint firstItem="qOU-Iz-9vg" firstAttribute="leading" secondItem="6Gl-uS-1YA" secondAttribute="leading" id="Ua6-nH-5kB"/>
                             <constraint firstItem="qOU-Iz-9vg" firstAttribute="top" secondItem="6Gl-uS-1YA" secondAttribute="top" id="W1q-2K-qes"/>
                             <constraint firstAttribute="trailing" secondItem="qOU-Iz-9vg" secondAttribute="trailing" id="d4O-Eb-c1z"/>
@@ -44,13 +59,15 @@
             </constraints>
             <size key="customSize" width="80" height="77"/>
             <connections>
+                <outlet property="deleteButton" destination="dOT-mN-7NL" id="eOH-zg-cpi"/>
                 <outlet property="imgCell" destination="qOU-Iz-9vg" id="2aJ-be-nji"/>
             </connections>
             <point key="canvasLocation" x="153.62318840579712" y="91.40625"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="img3" width="202" height="250"/>
+        <image name="cancel_notes.png" width="14" height="14"/>
+        <image name="placeHolder" width="271" height="273"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

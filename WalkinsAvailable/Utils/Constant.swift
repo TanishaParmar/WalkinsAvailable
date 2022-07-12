@@ -41,6 +41,9 @@ struct AppAlertMessage {
     static let enterEndTime = "Please select end time."
     static let enterDate = "Please select date."
     static let chooseLocation = "Please choose location."
+    static let deleteImage = "Are you sure you want to remove this image ?"
+    static let deleteServiceProvider = "Are you sure you want to remove this service provider ?"
+
 }
 
 struct HEIGHT {

@@ -119,7 +119,7 @@ struct UserDefaultsCustom {
         if let token = UserDefaults.standard.value(forKey: UserDefaultsCustom.deviceToken) as? String {
             return token
         }
-        return String()
+        return UserDefaultsCustom.deviceToken
     }
     
     static func saveUserLogin(loginType value: String) {

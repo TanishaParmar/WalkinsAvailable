@@ -15,11 +15,15 @@ protocol AddArtistListCellDelegate {
 class AddArtistListCell: UITableViewCell {
 
     @IBOutlet weak var artistImgCell: UIImageView!
+    @IBOutlet weak var artistAvailabilitySwitch: UISwitch!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var nameLbl: UILabel!
     
     var searchArtistData: SearchArtistData?
     var delegate: AddArtistListCellDelegate?
+    var artistData: ArtistData?
+
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +37,8 @@ class AddArtistListCell: UITableViewCell {
         self.searchArtistData = searchArtistData
         self.delegate = delegate
         
+        self.artistAvailabilitySwitch.isHidden = true
+        self.artistAvailabilitySwitch.isUserInteractionEnabled = false
         self.nameLbl.text = searchArtistData.ownerName
         switch searchArtistData.isJoin {
         case "0": self.addBtn.setTitle("Add", for: .normal)
@@ -42,10 +48,18 @@ class AddArtistListCell: UITableViewCell {
         let placeHolder = UIImage(named: "placeHolder")
         self.artistImgCell.setImage(url: searchArtistData.image, placeHolder: placeHolder)
     }
+    
+    func setArtistData(artistData: ArtistData?) {
+        self.artistData = artistData
+        self.addBtn.isHidden = true
+        self.addBtn.isUserInteractionEnabled = false
+        self.nameLbl.text = self.artistData?.ownerName
+        let placeHolder = UIImage(named: "placeHolder")
+        self.artistImgCell.setImage(url: self.artistData?.image, placeHolder: placeHolder)
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

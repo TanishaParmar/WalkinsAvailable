@@ -26,7 +26,7 @@ class EventHomeCollectionListcell: UICollectionViewCell {
         if let eventsData = eventsData?.eventDetail {
             self.eventname.text = eventsData.eventName
             self.descriptionLbl.text = eventsData.description
-            let placeHolder = UIImage(named: "placeHolder")
+            let placeHolder = UIImage(named: "eventPlaceHolder")
             self.imgCell.setImage(url: eventsData.image, placeHolder: placeHolder)
 
         }

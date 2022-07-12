@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,18 +23,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhm-J3-CX7">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See All " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqP-2A-NPD">
-                            <rect key="frame" x="179" y="14.5" width="56.5" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dda-8W-OhE">
+                            <rect key="frame" x="175.5" y="15.5" width="63" height="19"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="See All">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="seeAllButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="zjd-Na-OjJ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="dda-8W-OhE" firstAttribute="centerX" secondItem="fhm-J3-CX7" secondAttribute="centerX" id="Ge0-zi-h8H"/>
+                        <constraint firstItem="dda-8W-OhE" firstAttribute="centerY" secondItem="fhm-J3-CX7" secondAttribute="centerY" id="VUO-5L-QeB"/>
                         <constraint firstAttribute="height" constant="50" id="YZX-wB-nMh"/>
-                        <constraint firstItem="NqP-2A-NPD" firstAttribute="centerX" secondItem="fhm-J3-CX7" secondAttribute="centerX" id="ZW7-Td-OdU"/>
-                        <constraint firstItem="NqP-2A-NPD" firstAttribute="centerY" secondItem="fhm-J3-CX7" secondAttribute="centerY" id="qRq-Xi-8fL"/>
                     </constraints>
                 </view>
             </subviews>
@@ -42,7 +53,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="seeMoreLabel" destination="NqP-2A-NPD" id="Ffg-15-dqE"/>
+                <outlet property="seeAllButton" destination="dda-8W-OhE" id="zlf-R1-f5Y"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="-129.57589285714286"/>
         </view>

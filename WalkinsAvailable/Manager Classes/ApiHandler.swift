@@ -104,7 +104,7 @@ class ApiHandler {
                             switch(status) {
                             case API.statusCodes.FAILURE:
                                 if let code = response["code"] as? Int,
-                                    code == 400 {
+                                    code == 400, response["data"] != nil {
                                     receivedResponse(true, response, data)
                                 } else {
                                     if let message = response["message"] as? String {

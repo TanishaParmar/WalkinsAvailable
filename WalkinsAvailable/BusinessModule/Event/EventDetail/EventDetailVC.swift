@@ -14,18 +14,26 @@ class EventDetailVC: UIViewController {
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var getDirectionBtn: UIButton!
     @IBOutlet weak var favUnFavBtn: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var rejectButton: UIButton!
+    @IBOutlet weak var acceptRejectSuperView: UIView!
+    @IBOutlet weak var acceptView: UIView!
+    @IBOutlet weak var rejectView: UIView!
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var dateTimeLbl: UILabel!
     @IBOutlet weak var detailLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var eventMapView: MKMapView!
+    @IBOutlet weak var acceptRejectSuperViewHeight: NSLayoutConstraint!
     
     var eventId: String?
     var eventDetail: EventDetail?
+    var isFromEventList: Bool = false
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         hitEventDetailApi()
 
     }
@@ -35,6 +43,10 @@ class EventDetailVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    func configureUI() {
+        self.acceptView.addCornerRadius(view: self.acceptView, cornerRadius: 10.0)
+        self.rejectView.addCornerRadius(view: self.rejectView, cornerRadius: 10.0)
+    }
     
     func setUIElements() {
         self.eventNameLabel.text = self.eventDetail?.eventName
@@ -42,8 +54,12 @@ class EventDetailVC: UIViewController {
         self.locationLbl.text = self.eventDetail?.eventLocation
         self.dateTimeLbl.text = "\(self.eventDetail?.eventDate ?? ""), \(self.eventDetail?.startTime ?? "") - \(self.eventDetail?.endTime ?? "")"
         self.favUnFavBtn.isSelected = self.eventDetail?.isFav == "1" 
-        let placeHolder = UIImage(named: "placeHolder")
+        let placeHolder = UIImage(named: "eventPlaceHolder")
         self.eventImageView.setImage(url: self.eventDetail?.image, placeHolder: placeHolder)
+        if isFromEventList {
+            acceptRejectSuperView.isHidden = true
+            acceptRejectSuperViewHeight.constant = 0
+        }
     }
     
     //MARK: Hit Event Detail API
@@ -116,5 +132,11 @@ class EventDetailVC: UIViewController {
             UIApplication.shared.open(path, options: [:], completionHandler: nil)
         }
     }
-
+    
+    @IBAction func acceptButtonAction(_ sender: Any) {
+    }
+    
+    @IBAction func rejectButtonACtion(_ sender: Any) {
+    }
+    
 }

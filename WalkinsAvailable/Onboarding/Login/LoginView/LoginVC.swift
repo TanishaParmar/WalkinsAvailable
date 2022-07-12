@@ -228,21 +228,6 @@ class LoginVC: SocialLoginVC {
             if succeeded {
                 UserDefaultsCustom.saveLogInData(data: data)
                 Singleton.setHomeScreenView()
-//                if let logInRole = UserDefaultsCustom.getLogInRole() {
-//                    switch logInRole {
-//                    case "1" : break
-//                    case "2" : break
-//                    case "3" : break
-//                    default: break
-//                    }
-//                }
-//                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-//                    if let data = response.data {
-//                        UserDefaultsCustom.saveUserData(userData: data)
-//                        Singleton.setHomeScreenView()
-//                        UserDefaults.standard.set("user", forKey: "loginType")
-//                    }
-//                }
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)
