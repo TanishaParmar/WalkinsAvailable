@@ -17,7 +17,6 @@ class AddArtistListVC: UIViewController {
     
     var timer: Timer?
     var searchArtistData: [SearchArtistData] = [SearchArtistData]()
-    var filteredArtistData: [SearchArtistData] = [SearchArtistData]()
     var pageNo:Int = 0
     var isDataCompleted: Bool = false
     var isFetchingData: Bool = false
@@ -55,18 +54,22 @@ class AddArtistListVC: UIViewController {
             if succeeded {
                 if let response = DataDecoder.decodeData(data, type: SearchArtistResponse.self) {
                     if let data = response.data {
-                        self.isDataCompleted = data.count < 20
-                        self.pageNo = self.pageNo + 1
-                        self.filteredArtistData.append(contentsOf: data)
-                        self.addArtistListTableView.reloadData()
-                    } else {
-                        if self.filteredArtistData.count > 0 {
+                        if data.count > 0 {
+                            self.isDataCompleted = data.count < 20
+                            self.pageNo = self.pageNo + 1
+                            self.searchArtistData.append(contentsOf: data)
                             self.addArtistListTableView.backgroundView = nil
+                            self.addArtistListTableView.reloadData()
+                            
                         } else {
-                            self.addArtistListTableView.setBackgroundView(message: "No data found.")
+                            if self.searchArtistData.count > 0 {
+                                self.addArtistListTableView.backgroundView = nil
+                            } else {
+                                self.addArtistListTableView.setBackgroundView(message: "No data found.")
+                            }
+                            self.isDataCompleted = true
+                            self.addArtistListTableView.reloadData()
                         }
-                        self.isDataCompleted = true
-                        self.addArtistListTableView.reloadData()
                     }
                 }
             } else {
@@ -86,17 +89,17 @@ class AddArtistListVC: UIViewController {
 //    MARK: UITableView Delegate & DataSource
 extension AddArtistListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.filteredArtistData.count
+        return self.searchArtistData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddArtistListCell", for: indexPath) as! AddArtistListCell
-        cell.setUI(searchArtistData: self.filteredArtistData[indexPath.row], delegate: self)
+        cell.setUI(searchArtistData: self.searchArtistData[indexPath.row], delegate: self)
         return cell
     }
         
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard (self.filteredArtistData.count-1) == indexPath.row else { return }
+        guard (self.searchArtistData.count-1) == indexPath.row else { return }
         self.hitSearchArtistApi(searchText: self.addArtistSearchBar.text ?? "")
     }
 }
@@ -127,8 +130,8 @@ extension AddArtistListVC: UISearchBarDelegate {
             self.timer?.invalidate()
             self.timer = nil
             
-            if self.filteredArtistData.count > 0 {
-                self.filteredArtistData.removeAll()
+            if self.searchArtistData.count > 0 {
+                self.searchArtistData.removeAll()
                 self.addArtistListTableView.reloadData()
             }
         }

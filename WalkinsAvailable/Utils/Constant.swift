@@ -16,7 +16,6 @@ struct Color {
 enum AppAlertTitle : String {
     case appName = "WALK-INS AVAILABLE"
     case connectionError = "Connection Error"
-
 }
 
 

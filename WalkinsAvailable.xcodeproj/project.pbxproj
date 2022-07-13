@@ -249,6 +249,7 @@
 		1F8F655F28571CDD0036593D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F655E28571CDD0036593D /* ImagePicker.swift */; };
 		1F8F6561285729BA0036593D /* PushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6560285729BA0036593D /* PushModel.swift */; };
 		1F8F6566285751DF0036593D /* SignUpAsUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6565285751DF0036593D /* SignUpAsUserModel.swift */; };
+		1F93C68C287EE57800E1830A /* ServiceProviderNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93C68B287EE57800E1830A /* ServiceProviderNotificationResponse.swift */; };
 		1F9B00F4287023B6008A4FE1 /* EventDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B00F3287023B6008A4FE1 /* EventDetailModel.swift */; };
 		B2A379552B5F9D1E1AD4AC52 /* Pods_WalkinsAvailable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8167BD75B3727D6B7E2CDE44 /* Pods_WalkinsAvailable.framework */; };
 /* End PBXBuildFile section */
@@ -499,6 +500,7 @@
 		1F8F655E28571CDD0036593D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		1F8F6560285729BA0036593D /* PushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushModel.swift; sourceTree = "<group>"; };
 		1F8F6565285751DF0036593D /* SignUpAsUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAsUserModel.swift; sourceTree = "<group>"; };
+		1F93C68B287EE57800E1830A /* ServiceProviderNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderNotificationResponse.swift; sourceTree = "<group>"; };
 		1F9B00F3287023B6008A4FE1 /* EventDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailModel.swift; sourceTree = "<group>"; };
 		62FEC1905C4F5ABD6AF712CC /* Pods-WalkinsAvailable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkinsAvailable.release.xcconfig"; path = "Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable.release.xcconfig"; sourceTree = "<group>"; };
 		8167BD75B3727D6B7E2CDE44 /* Pods_WalkinsAvailable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkinsAvailable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -953,6 +955,7 @@
 		18E379952823BFF40029C01A /* SNotification */ = {
 			isa = PBXGroup;
 			children = (
+				1F93C68A287EE55A00E1830A /* ServiceProviderNotificationModel */,
 				18E379962823C0160029C01A /* ServiceNotificationVC.swift */,
 				18E379972823C0160029C01A /* ServiceNotificationVC.xib */,
 			);
@@ -1836,6 +1839,14 @@
 			path = SignUpAsUserModel;
 			sourceTree = "<group>";
 		};
+		1F93C68A287EE55A00E1830A /* ServiceProviderNotificationModel */ = {
+			isa = PBXGroup;
+			children = (
+				1F93C68B287EE57800E1830A /* ServiceProviderNotificationResponse.swift */,
+			);
+			path = ServiceProviderNotificationModel;
+			sourceTree = "<group>";
+		};
 		1F9B00F2287023A1008A4FE1 /* EventDetailModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -2114,6 +2125,7 @@
 				1F361094286C3CC10017F8B8 /* BottomResultView.swift in Sources */,
 				1F18D6812862EF2400C1922A /* CustomDatePicker.swift in Sources */,
 				18697671281A69A700F208BD /* FBAnnotationCluster.swift in Sources */,
+				1F93C68C287EE57800E1830A /* ServiceProviderNotificationResponse.swift in Sources */,
 				1895B978281FEB2B00842DD5 /* EventListCell.swift in Sources */,
 				1F361092286C3CC10017F8B8 /* Helpers.swift in Sources */,
 				1F422F1327FC4F8E00877618 /* ExampleIrregularityContentView.swift in Sources */,

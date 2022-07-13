@@ -73,8 +73,8 @@ class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
         longPressedGesture.delegate = self
         longPressedGesture.delaysTouchesBegan = true
         collectionImgView.addGestureRecognizer(longPressedGesture)
-//        collectionView?.addGestureRecognizer(longPressedGesture)
     }
+    
     
     @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
         if (gestureRecognizer.state != .began) {
@@ -82,7 +82,6 @@ class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
         }
 
         let p = gestureRecognizer.location(in: collectionImgView)
-
         if let indexPath = collectionImgView?.indexPathForItem(at: p) {
             print("Long press at item: \(indexPath.row)")
             self.selectedIndex = indexPath.row
@@ -209,6 +208,11 @@ extension ServiceArtistProfileVC: ArtistListImgCellDelegate {
                             self.selectedIndex = -1
                             self.imgArr = data
                             self.collectionImgView.reloadData()
+                        } else {
+                            self.selectedIndex = -1
+                            self.imgArr.removeAll()
+                            self.collectionImgView.reloadData()
+
                         }
                     }
                 } else {

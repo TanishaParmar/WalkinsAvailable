@@ -62,7 +62,7 @@
                                 <constraint firstAttribute="width" constant="24" id="rRs-00-1wF"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="nt"/>
+                            <state key="normal" image="deleteArtist"/>
                             <connections>
                                 <action selector="removeArtistButtonAction:" destination="-1" eventType="touchUpInside" id="dNu-uB-4it"/>
                             </connections>
@@ -218,7 +218,7 @@
     </objects>
     <resources>
         <image name="back" width="25" height="41"/>
-        <image name="nt" width="20" height="20"/>
+        <image name="deleteArtist" width="32" height="32"/>
         <image name="placeHolder" width="271" height="273"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

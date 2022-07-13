@@ -168,18 +168,15 @@ extension Notification.Name {
 
 //MARK:- Push notifications method(s)
 extension AppDelegate: UNUserNotificationCenterDelegate{
-   
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print(response.notification.request.content.userInfo)
+        print(print("didReceive response"), response.notification.request.content.userInfo)
         completionHandler()
     }
-    
-    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // Convert token to string
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        print("device token string", deviceTokenString)
+        print("device token string ***", deviceTokenString)
         UserDefaultsCustom.saveDeviceToken(userToken: deviceTokenString)
         //        Globals.defaults.set(deviceTokenString, forKey: DefaultKeys.deviceToken)
     }
@@ -191,6 +188,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
   
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("didReceiveRemoteNotification")
         let userDict = userInfo as! [String:Any]
         print("received", userDict)
         if application.applicationState == .inactive{
@@ -205,6 +203,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("willPresent notification")
         completionHandler([.sound,.alert, .badge])
     }
 }
