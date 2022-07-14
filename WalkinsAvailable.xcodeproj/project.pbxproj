@@ -228,6 +228,8 @@
 		1F68262027FD811800FFB4DA /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68261E27FD811800FFB4DA /* ContactUsVC.swift */; };
 		1F68262127FD811800FFB4DA /* ContactUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F68261F27FD811800FFB4DA /* ContactUsVC.xib */; };
 		1F6F99F5285A08100011BD63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F6F99F4285A08100011BD63 /* GoogleService-Info.plist */; };
+		1F7157B628801CEA00582212 /* ServiceShopDetailedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7157B428801CEA00582212 /* ServiceShopDetailedVC.swift */; };
+		1F7157B728801CEA00582212 /* ServiceShopDetailedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F7157B528801CEA00582212 /* ServiceShopDetailedVC.xib */; };
 		1F79106228097E2400102EA6 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79106028097E2400102EA6 /* ChangePasswordVC.swift */; };
 		1F79106328097E2400102EA6 /* ChangePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F79106128097E2400102EA6 /* ChangePasswordVC.xib */; };
 		1F79106828098A5700102EA6 /* ComplaintsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79106628098A5700102EA6 /* ComplaintsVC.swift */; };
@@ -479,6 +481,8 @@
 		1F68261E27FD811800FFB4DA /* ContactUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
 		1F68261F27FD811800FFB4DA /* ContactUsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactUsVC.xib; sourceTree = "<group>"; };
 		1F6F99F4285A08100011BD63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1F7157B428801CEA00582212 /* ServiceShopDetailedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceShopDetailedVC.swift; sourceTree = "<group>"; };
+		1F7157B528801CEA00582212 /* ServiceShopDetailedVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceShopDetailedVC.xib; sourceTree = "<group>"; };
 		1F79106028097E2400102EA6 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		1F79106128097E2400102EA6 /* ChangePasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordVC.xib; sourceTree = "<group>"; };
 		1F79106628098A5700102EA6 /* ComplaintsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintsVC.swift; sourceTree = "<group>"; };
@@ -965,6 +969,7 @@
 		18E3799A2823C3060029C01A /* SShops */ = {
 			isa = PBXGroup;
 			children = (
+				1F7157B328801CCA00582212 /* ServiceShopDetailedVC */,
 				18E3799F2823C3F70029C01A /* SShopsListCell */,
 				18E3799B2823C31E0029C01A /* ServiceShopVC.swift */,
 				18E3799C2823C31E0029C01A /* ServiceShopVC.xib */,
@@ -1749,6 +1754,15 @@
 			path = ContactUsView;
 			sourceTree = "<group>";
 		};
+		1F7157B328801CCA00582212 /* ServiceShopDetailedVC */ = {
+			isa = PBXGroup;
+			children = (
+				1F7157B428801CEA00582212 /* ServiceShopDetailedVC.swift */,
+				1F7157B528801CEA00582212 /* ServiceShopDetailedVC.xib */,
+			);
+			path = ServiceShopDetailedVC;
+			sourceTree = "<group>";
+		};
 		1F79105E28097DDF00102EA6 /* ChangePassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -1998,6 +2012,7 @@
 				18B6521428250EF6000F8E02 /* BusinessArtistListCell.xib in Resources */,
 				1F79106328097E2400102EA6 /* ChangePasswordVC.xib in Resources */,
 				1F422EF327FC25A600877618 /* ChatListTVC.xib in Resources */,
+				1F7157B728801CEA00582212 /* ServiceShopDetailedVC.xib in Resources */,
 				1F25F97B287D80370035E765 /* DeleteArtistPopUpVC.xib in Resources */,
 				1F39248F27F84894000F08F5 /* Main.storyboard in Resources */,
 				1F25F976287D61DD0035E765 /* ArtistDetailedVC.xib in Resources */,
@@ -2158,6 +2173,7 @@
 				1F3344F127FB04BF000BB072 /* SignUpAsUserVC.swift in Sources */,
 				1F422F1A27FC4F8E00877618 /* ESTabBar.swift in Sources */,
 				1F3344E927FAF40D000BB072 /* UIView+Extension.swift in Sources */,
+				1F7157B628801CEA00582212 /* ServiceShopDetailedVC.swift in Sources */,
 				189FB2BE2819214200C1EC42 /* SignUpBusinessProfile.swift in Sources */,
 				1F8F655B285712A20036593D /* ApiHandler.swift in Sources */,
 				1F112BDD2861D00D0008FE19 /* ArtistData.swift in Sources */,
@@ -2387,7 +2403,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2425,7 +2441,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;

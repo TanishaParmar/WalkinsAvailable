@@ -23,23 +23,35 @@ class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var setAvailabilityBtn: UIButton!
     
     var imgArr: [ArtistImages] = [ArtistImages]()
+    var isPushNotify: Bool = false
     var selectedIndex: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        artistImgView.layer.cornerRadius = 4
-        artistImgView.clipsToBounds = true
-        collectionImgView.delegate = self
-        collectionImgView.dataSource = self
-        setupLongGestureRecognizerOnCollection()
-        let nib = UINib(nibName: "ArtistListImgCell", bundle: nil)
-        self.collectionImgView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
+        configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         hitArtistProfileHomeApi()
+    }
+    
+    func configureUI() {
+        artistImgView.addCornerRadius(view: artistImgView, cornerRadius: 4.0)
+        collectionImgView.delegate = self
+        collectionImgView.dataSource = self
+        setupLongGestureRecognizerOnCollection()
+        let nib = UINib(nibName: "ArtistListImgCell", bundle: nil)
+        self.collectionImgView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
+        if isPushNotify {
+            pushRedirect()
+        }
+    }
+    
+    func pushRedirect() {
+        let notificationVC = ServiceNotificationVC()
+        self.push(viewController: notificationVC)
     }
     
     

@@ -31,8 +31,10 @@ class BusinessNotificationVC: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("disappear")
+        self.serviceProviderNotificationData.removeAll()
         self.isDataCompleted = false
         self.isFetchingData = false
+        self.pageNo = 0
     }
     
     //MARK: Methods
@@ -42,6 +44,7 @@ class BusinessNotificationVC: UIViewController {
         notificationTblView.rowHeight = UITableView.automaticDimension
         let nib = UINib(nibName: "NotificationListTVC", bundle: nil)
         notificationTblView.register(nib, forCellReuseIdentifier: "NotificationListTVC")
+        self.notificationTblView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 50, right: 0)
     }
     
     func generatingParameters() -> [String:Any] {
@@ -70,7 +73,6 @@ class BusinessNotificationVC: UIViewController {
                                 self.serviceProviderNotificationData.append(contentsOf: data)
                                 self.notificationTblView.backgroundView = nil
                                 self.notificationTblView.reloadData()
-
                             } else {
                                 if self.serviceProviderNotificationData.count > 0 {
                                     self.notificationTblView.backgroundView = nil
@@ -129,18 +131,6 @@ extension BusinessNotificationVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationListTVC", for: indexPath) as! NotificationListTVC
         cell.setUIElements(serviceProviderNotificationData: self.serviceProviderNotificationData[indexPath.row], delegate: self)
-//            if indexPath.row == 2{
-//                cell.statusView.isHidden = false
-//                cell.authorLbl.isHidden = false
-//                cell.statusheightConstraint.constant = 30
-//                cell.authorheighConstraint.constant = 20
-//            }else{
-//
-//            cell.statusView.isHidden = true
-//            cell.authorLbl.isHidden = true
-//            cell.statusheightConstraint.constant = 0
-//            cell.authorheighConstraint.constant = 0
-//        }
         return cell
     }
     

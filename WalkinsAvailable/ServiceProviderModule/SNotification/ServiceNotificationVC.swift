@@ -39,6 +39,7 @@ class ServiceNotificationVC: UIViewController {
         notificationListtableView.rowHeight = UITableView.automaticDimension
         let nib = UINib(nibName: "NotificationListTVC", bundle: nil)
         notificationListtableView.register(nib, forCellReuseIdentifier: "NotificationListTVC")
+        self.notificationListtableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 50, right: 0)
     }
     
     func generatingParameters() -> [String:Any] {

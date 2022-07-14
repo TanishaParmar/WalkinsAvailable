@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             Singleton.setLoginScreenView()
         }
+        
 //        registerForPushNotifications()
         configureNotification(application: application)
         LocationManager.shared.getLocation()
@@ -130,6 +131,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
         }
     }
+    
+    
+    func handleNotificationRedirection(data: [String : Any]) {
+        var logInRole: USER_TYPE = .user
+        if let userId = UserDefaultsCustom.getUserData()?.userId {
+            logInRole = UserDefaultsCustom.getLoginRole(key: userId)
+            print("logIn Role", logInRole)
+        }
+        let notificationType = data["notificationType"] as? String ?? ""
+        if notificationType == "1" || notificationType == "2" || notificationType == "3" {
+            switch logInRole {
+            case .user:
+                break
+            case .business:
+                let rootVc = TabBarVC()
+                rootVc.selectedIndex = 3
+                let nav =  UINavigationController(rootViewController: rootVc)
+                nav.isNavigationBarHidden = true
+                
+                if #available(iOS 13.0, *) {
+                    if let scene = UIApplication.shared.connectedScenes.first {
+                        let windowScene = (scene as? UIWindowScene)
+                        print(">>> windowScene: \(windowScene)")
+                        let window: UIWindow = UIWindow(frame: (windowScene?.coordinateSpace.bounds)!)
+                        window.windowScene = windowScene //Make sure to do this
+                        window.rootViewController = nav
+                        window.makeKeyAndVisible()
+                        self.window = window
+                    }
+                } else {
+                    self.window?.rootViewController = nav
+                    self.window?.makeKeyAndVisible()
+                }
+                break
+            case .serviceProvider:
+                let rootVc = TabBarVC()
+                    rootVc.selectedIndex = 2
+
+                let nav =  UINavigationController()
+                nav.viewControllers = [rootVc, ServiceNotificationVC()]
+                nav.isNavigationBarHidden = true
+
+                if #available(iOS 13.0, *){
+                    if let scene = UIApplication.shared.connectedScenes.first {
+                        let windowScene = (scene as? UIWindowScene)
+                        print(">>> windowScene: \(windowScene)")
+                        let window: UIWindow = UIWindow(frame: (windowScene?.coordinateSpace.bounds)!)
+                        window.windowScene = windowScene //Make sure to do this
+                        window.rootViewController = nav
+                        window.makeKeyAndVisible()
+                        self.window = window
+                    }
+                } else {
+                    self.window?.rootViewController = nav
+                    self.window?.makeKeyAndVisible()
+                }
+
+            }
+        }
+        print(data)
+    }
 
 
 }
@@ -170,6 +232,14 @@ extension Notification.Name {
 extension AppDelegate: UNUserNotificationCenterDelegate{
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(print("didReceive response"), response.notification.request.content.userInfo)
+        
+        let userInfo = response.notification.request.content.userInfo
+        if let aps = userInfo["aps"] as? [String: Any] {
+            if let notifyData = aps["data"] as? [String:Any] {
+                handleNotificationRedirection(data: notifyData)
+            }
+        }
+        
         completionHandler()
     }
     

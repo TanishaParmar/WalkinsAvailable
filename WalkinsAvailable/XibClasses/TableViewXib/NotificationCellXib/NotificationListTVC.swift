@@ -50,18 +50,19 @@ class NotificationListTVC: UITableViewCell {
         self.serviceProviderNotificationData = serviceProviderNotificationData
         if serviceProviderNotificationData.notificationType == "1" || serviceProviderNotificationData.notificationType == "2" {
             self.statusView.isHidden = false
-            self.authorLbl.isHidden = false
+//            self.authorLbl.isHidden = false
             self.statusheightConstraint.constant = 30
-            self.authorheighConstraint.constant = 20
+//            self.authorheighConstraint.constant = 20
         } else {
             self.statusView.isHidden = true
-            self.authorLbl.isHidden = true
+//            self.authorLbl.isHidden = true
             self.statusheightConstraint.constant = -10
-            self.authorheighConstraint.constant = -10
+//            self.authorheighConstraint.constant = -10
         }
         self.authorLbl.text = self.serviceProviderNotificationData?.title
         self.descriptionLbl.text = self.serviceProviderNotificationData?.description
-//        self.dateLbl.text = self.serviceProviderNotificationData?.
+        let date = String().convertTimeStampToString(timeStamp: self.serviceProviderNotificationData?.created ?? "", format: "dd MMMM YYYY")
+        self.dateLbl.text = date
         let placeHolder = UIImage(named: "w")
         self.imgCell.setImage(url: self.serviceProviderNotificationData?.image, placeHolder: placeHolder)
     }

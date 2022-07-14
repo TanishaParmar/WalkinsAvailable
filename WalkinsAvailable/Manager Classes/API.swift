@@ -74,6 +74,8 @@ class API {
         static let removeArtistImages                  = "webservice/artist/removeArtistImages.php"
         static let businessSearch                      = "webservice/artist/businessSearch.php"
         static let businessRequest                     = "webservice/artist/businessRequest.php"
+        static let associatedBusiness                  = "webservice/artist/associatedBusiness.php"
+
         
     }
 

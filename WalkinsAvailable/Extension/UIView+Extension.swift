@@ -142,6 +142,16 @@ extension String{
         return boundingBox
     }
     
+    func convertTimeStampToString(timeStamp: String, format: String) -> String {
+//        let date = Date(timeIntervalSince1970: timeStamp as? Double ?? 0.0)
+        let date = Date(timeIntervalSince1970: TimeInterval(timeStamp) ?? 0.0)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.timeZone = .current
+        let localDate = dateFormatter.string(from: date)
+        return localDate
+    }
+    
 }
 
 extension UIImageView {

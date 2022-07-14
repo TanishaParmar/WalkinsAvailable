@@ -61,4 +61,13 @@ class SearchBusinessData : Codable {
     var disable : String?
     var isJoin : String?
     var businessAvailability : String?
+    
+}
+
+
+class AssociatedBusinessResponseModel: Codable {
+    var code : Int?
+    var status : Int?
+    var message : String?
+    var data : [SearchBusinessData]?
 }
