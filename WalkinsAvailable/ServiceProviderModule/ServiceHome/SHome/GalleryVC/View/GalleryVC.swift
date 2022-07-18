@@ -22,6 +22,7 @@ class GalleryVC: UIViewController {
     @IBOutlet weak var tableView: GalleryAlbumTableView!
     @IBOutlet weak var collectionView: GalleryImagesCollectionView!
     @IBOutlet weak var selectAlbumButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableBackgroundView: UIView!
     
@@ -104,27 +105,33 @@ class GalleryVC: UIViewController {
     func selectedImages() {
         let assets = self.collectionView.images.map({$0.0})
         print("assets count are \(assets.count) \(delegate == nil)")
-        if assets.first?.mediaType == .video , let asset = assets.first  {
-            let options: PHVideoRequestOptions = PHVideoRequestOptions()
-            options.version = .original
-            PHImageManager.default().requestAVAsset(forVideo: asset, options: options, resultHandler: {(vidAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
-//                DispatchQueue.main.async {
-//                    if let urlAsset = vidAsset as? AVURLAsset {
-//                        let localVideoUrl: URL = urlAsset.url as URL
-//                        let vc = VideoTrimmerVC(url: localVideoUrl, delegate: self)
-//                        vc.assetId = asset.localIdentifier
-//                        self.present(vc, true)
-//                    } else {
-//
-//                    }
-//                }
-            })
+        if assets.count > 0 {
+            if assets.first?.mediaType == .video , let asset = assets.first  {
+                let options: PHVideoRequestOptions = PHVideoRequestOptions()
+                options.version = .original
+                PHImageManager.default().requestAVAsset(forVideo: asset, options: options, resultHandler: {(vidAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                    //                DispatchQueue.main.async {
+                    //                    if let urlAsset = vidAsset as? AVURLAsset {
+                    //                        let localVideoUrl: URL = urlAsset.url as URL
+                    //                        let vc = VideoTrimmerVC(url: localVideoUrl, delegate: self)
+                    //                        vc.assetId = asset.localIdentifier
+                    //                        self.present(vc, true)
+                    //                    } else {
+                    //
+                    //                    }
+                    //                }
+                })
+            } else {
+                self.delegate?.galleryController(self, didselect: assets, assetIds: self.collectionView.assetIdentifiers)
+            }
         } else {
-            self.delegate?.galleryController(self, didselect: assets, assetIds: self.collectionView.assetIdentifiers)
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            Singleton.shared.showErrorMessage(error: "Please select at least one image.", isError: .error)
         }
     }
     
     @IBAction func doneBtn(_ sender: UIButton) {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
         selectedImages()
 //        self.dismiss(animated: true, completion: nil)
 //        self.navigationController?.popViewController(animated: true)

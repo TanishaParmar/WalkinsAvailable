@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sleep(2)
         
         getCategoryListData()
+        getNotificationBadgeCountData()
         self.configureKeboard()
         // Override point for customization after application launch.
 //        appFonts()
@@ -49,11 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKCoreKit.ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 
-        
         GIDSignIn.sharedInstance().clientID = "169642617507-d96ffhvh2f5u00912gdjki9gie8638kk.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().restorePreviousSignIn()
-        
         return true
     }
 
@@ -110,10 +109,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         Singleton.shared.categoryList = data
                     }
                 }
-//                Singleton.shared.showErrorMessage(error: "success", isError: .success)
             } else {
                 if let msg = response["message"] as? String {
-//                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+
+    
+    func getNotificationBadgeCountData() {
+        var role = ""
+        if let userId = UserDefaultsCustom.getUserData()?.userId {
+            role = UserDefaultsCustom.getUserType(id: userId)?.role ?? ""
+        }
+        ApiHandler.updateProfile(apiName: API.Name.getNotificationBadgeCount, params: ["role": role]) { succeeded, response, data in
+            print("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let badgeCount = response["badgeCount"] as? String {
+//                    Singleton.shared.notificationBadgeCount = badgeCount
+                    Singleton.shared.notificationBadgeCount = "2"
+                }
+            } else {
+                if let msg = response["message"] as? String {
                 }
             }
         }

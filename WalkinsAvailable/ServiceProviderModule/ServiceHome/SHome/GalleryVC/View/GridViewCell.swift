@@ -29,7 +29,7 @@ class GridViewCell: UICollectionViewCell {
     lazy var selectionImageView: UIView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
-        img.image = #imageLiteral(resourceName: "plus")
+        img.image = #imageLiteral(resourceName: "check")
         img.translatesAutoresizingMaskIntoConstraints = false
         return img
     }()

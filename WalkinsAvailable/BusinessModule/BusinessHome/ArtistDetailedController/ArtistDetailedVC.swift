@@ -84,6 +84,15 @@ class ArtistDetailedVC: UIViewController {
             }
         }
     }
+    
+    
+    func getImages() -> [String] {
+        if self.artistDetail.artistImages?.count ?? 0 > 0 {
+            return (self.artistDetail.artistImages?.map({$0.image ?? ""}))!
+        }
+        return [String]()
+    }
+    
 
     
     @IBAction func removeArtistButtonAction(_ sender: Any) {
@@ -121,7 +130,8 @@ extension ArtistDetailedVC: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistListImgCell", for: indexPath) as! ArtistListImgCell
-        cell.setUI(artistImages: self.artistDetail.artistImages?[indexPath.row], delegate: nil)
+        cell.imgCell.setImageView(urls: getImages(), placeholder: UIImage(), item: indexPath.item, controller: self)
+//        cell.setUI(artistImages: self.artistDetail.artistImages?[indexPath.row], delegate: nil)
         return cell
     }
 

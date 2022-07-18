@@ -22,6 +22,7 @@ class Singleton: NSObject {
     
     static var window: UIWindow?
     static var coins:Int? = 0
+    var notificationBadgeCount: String?
     var categoryList: [CategoryList]?
 
 //    static var userProfileData:UserProfileData?

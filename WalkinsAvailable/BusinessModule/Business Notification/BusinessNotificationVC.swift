@@ -109,9 +109,12 @@ class BusinessNotificationVC: UIViewController {
                     if let msg = response["message"] as? String {
                         Singleton.shared.showErrorMessage(error: msg, isError: .success)
                     }
-                    print("before", self.serviceProviderNotificationData.count)
                     self.serviceProviderNotificationData.removeAll(where: { $0.notificationId == serviceProviderNotificationData?.notificationId })
-                    print("after", self.serviceProviderNotificationData.count)
+                    if self.serviceProviderNotificationData.count > 0 {
+                        self.notificationTblView.backgroundView = nil
+                    } else {
+                        self.notificationTblView.setBackgroundView(message: "No data found.")
+                    }
                     self.notificationTblView.reloadData()
                 } else {
                     if let msg = response["message"] as? String {

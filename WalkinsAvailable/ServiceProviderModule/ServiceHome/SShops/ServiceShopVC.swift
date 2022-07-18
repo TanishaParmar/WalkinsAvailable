@@ -26,6 +26,16 @@ class ServiceShopVC: UIViewController {
         super.viewWillAppear(animated)
         hitAssociatedBusinessApi()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("disappear")
+        self.associatedBusinessData.removeAll()
+        self.isDataCompleted = false
+        self.isFetchingData = false
+        self.pageNo = 0
+    }
+
 
     //MARK: Methods
     func configureUI() {
@@ -34,6 +44,7 @@ class ServiceShopVC: UIViewController {
         shopListTableView.rowHeight = UITableView.automaticDimension
         let nib = UINib(nibName: "ShopsListCell", bundle: nil)
         shopListTableView.register(nib, forCellReuseIdentifier: "ShopsListCell")
+        self.shopListTableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 50, right: 0)
     }
     
     func generatingParameters() -> [String:Any] {

@@ -34,19 +34,19 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9B-kv-Qfz">
-                                    <rect key="frame" x="16" y="10" width="30" height="30"/>
+                                    <rect key="frame" x="5" y="7.5" width="35" height="35"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="TfW-ZT-7aH"/>
-                                        <constraint firstAttribute="height" constant="30" id="r6d-oK-l3e"/>
+                                        <constraint firstAttribute="width" secondItem="B9B-kv-Qfz" secondAttribute="height" multiplier="1:1" id="23c-W3-juL"/>
+                                        <constraint firstAttribute="height" constant="35" id="r6d-oK-l3e"/>
                                     </constraints>
-                                    <inset key="imageEdgeInsets" minX="10" minY="6" maxX="10" maxY="6"/>
+                                    <inset key="imageEdgeInsets" minX="12" minY="10" maxX="12" maxY="8"/>
                                     <state key="normal" image="back"/>
                                     <connections>
                                         <action selector="backBtn:" destination="-1" eventType="touchUpInside" id="Eog-Rf-YqL"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Service Provider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjT-yT-nds">
-                                    <rect key="frame" x="62" y="14" width="168" height="22.5"/>
+                                    <rect key="frame" x="50" y="14" width="168" height="22.5"/>
                                     <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -55,20 +55,20 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="KjT-yT-nds" firstAttribute="centerY" secondItem="B9B-kv-Qfz" secondAttribute="centerY" id="KtK-CE-f0B"/>
-                                <constraint firstItem="B9B-kv-Qfz" firstAttribute="leading" secondItem="cRY-af-6ll" secondAttribute="leading" constant="16" id="NRK-xm-YU4"/>
+                                <constraint firstItem="B9B-kv-Qfz" firstAttribute="leading" secondItem="cRY-af-6ll" secondAttribute="leading" constant="5" id="NRK-xm-YU4"/>
                                 <constraint firstItem="B9B-kv-Qfz" firstAttribute="centerY" secondItem="cRY-af-6ll" secondAttribute="centerY" id="P9n-6u-Kkm"/>
                                 <constraint firstAttribute="height" constant="50" id="XkG-XH-4xj"/>
-                                <constraint firstItem="KjT-yT-nds" firstAttribute="leading" secondItem="B9B-kv-Qfz" secondAttribute="trailing" constant="16" id="urG-mp-H6V"/>
+                                <constraint firstItem="KjT-yT-nds" firstAttribute="leading" secondItem="B9B-kv-Qfz" secondAttribute="trailing" constant="10" id="urG-mp-H6V"/>
                             </constraints>
                         </view>
-                        <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Artist" translatesAutoresizingMaskIntoConstraints="NO" id="clF-R6-EGD">
-                            <rect key="frame" x="0.0" y="50" width="414" height="50"/>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Service Provider" translatesAutoresizingMaskIntoConstraints="NO" id="clF-R6-EGD">
+                            <rect key="frame" x="5" y="50" width="404" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Fum-0c-mxY"/>
                             </constraints>
                             <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                         </searchBar>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zLd-BQ-FFX">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zLd-BQ-FFX">
                             <rect key="frame" x="0.0" y="100" width="414" height="718"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
@@ -81,8 +81,8 @@
                         <constraint firstAttribute="bottom" secondItem="zLd-BQ-FFX" secondAttribute="bottom" id="Rex-be-X85"/>
                         <constraint firstItem="zLd-BQ-FFX" firstAttribute="leading" secondItem="ier-Za-Das" secondAttribute="leading" id="aZh-xi-gzw"/>
                         <constraint firstAttribute="trailing" secondItem="zLd-BQ-FFX" secondAttribute="trailing" id="cPX-It-Gor"/>
-                        <constraint firstItem="clF-R6-EGD" firstAttribute="leading" secondItem="ier-Za-Das" secondAttribute="leading" id="eBL-md-fG0"/>
-                        <constraint firstAttribute="trailing" secondItem="clF-R6-EGD" secondAttribute="trailing" id="hi2-ND-ph9"/>
+                        <constraint firstItem="clF-R6-EGD" firstAttribute="leading" secondItem="ier-Za-Das" secondAttribute="leading" constant="5" id="eBL-md-fG0"/>
+                        <constraint firstAttribute="trailing" secondItem="clF-R6-EGD" secondAttribute="trailing" constant="5" id="hi2-ND-ph9"/>
                         <constraint firstItem="clF-R6-EGD" firstAttribute="top" secondItem="cRY-af-6ll" secondAttribute="bottom" id="m46-rJ-WaI"/>
                         <constraint firstAttribute="trailing" secondItem="cRY-af-6ll" secondAttribute="trailing" id="rBD-Kd-txz"/>
                     </constraints>

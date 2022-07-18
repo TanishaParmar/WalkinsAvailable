@@ -31,7 +31,7 @@ enum USER_TYPE: String {
 enum Account_Type: String {
     case switchAccountAsUser = "Switch account as user"
     case switchAccountAsBussiness = " Switch account as business"
-    case switchAccountAsServiceProvider = "Switch account as Service provider"
+    case switchAccountAsServiceProvider = "Switch account as Service Provider"
     case setAvailability = "Set Availability"
     case pastEvents = "Past Events"
     case requestInvitesForShops = "Request invites for shops"
@@ -166,6 +166,13 @@ class TabBarVC: ESTabBarController {
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             self.selectedIndex = 2
+            if let tabItems = self.tabBar.items {
+                let tabItem = tabItems[3]
+//                tabItem.badgeColor = (Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0") ? UIColor.green : UIColor.red
+                if !(Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) {
+                    tabItem.badgeValue = ""
+                }
+            }
             let profileImg = UserDefaultsCustom.getBusinessData()?.image
             self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem, imageString: profileImg)
         case .serviceProvider:

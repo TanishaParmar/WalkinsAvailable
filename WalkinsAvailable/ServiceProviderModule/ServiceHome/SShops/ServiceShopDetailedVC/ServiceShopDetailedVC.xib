@@ -28,6 +28,8 @@
                 <outlet property="businessNameLabel" destination="lch-gw-7h4" id="uGk-pf-31P"/>
                 <outlet property="deleteBusinessButton" destination="jOy-tJ-oS7" id="QVJ-hc-X0U"/>
                 <outlet property="manuallyButton" destination="5Hp-h5-3gK" id="WMe-da-1Gn"/>
+                <outlet property="saveButton" destination="7jn-hd-aq1" id="Om5-R2-7E3"/>
+                <outlet property="saveButtonView" destination="E77-Rk-lPP" id="gpk-1r-PuY"/>
                 <outlet property="setAvailabilitySwitch" destination="Lg0-tm-7oI" id="CEB-N0-RDM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weeklyButton" destination="1uz-88-epe" id="BpA-um-a36"/>
@@ -114,7 +116,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3s-jq-Aqp">
-                                    <rect key="frame" x="100" y="40" width="304" height="59"/>
+                                    <rect key="frame" x="100" y="35" width="304" height="59"/>
                                     <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It wa</string>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,7 +133,7 @@
                                 <constraint firstItem="f3s-jq-Aqp" firstAttribute="leading" secondItem="iW2-YT-zkd" secondAttribute="trailing" constant="10" id="Pih-dZ-XYT"/>
                                 <constraint firstItem="iW2-YT-zkd" firstAttribute="centerY" secondItem="XRH-Sw-Mjd" secondAttribute="centerY" id="QES-zC-XpH"/>
                                 <constraint firstAttribute="trailing" secondItem="f3s-jq-Aqp" secondAttribute="trailing" constant="10" id="S29-9P-IBF"/>
-                                <constraint firstItem="f3s-jq-Aqp" firstAttribute="top" secondItem="lch-gw-7h4" secondAttribute="bottom" constant="10" id="See-hO-T7V"/>
+                                <constraint firstItem="f3s-jq-Aqp" firstAttribute="top" secondItem="lch-gw-7h4" secondAttribute="bottom" constant="5" id="See-hO-T7V"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwS-7x-ryR">
@@ -146,7 +148,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4R-Ym-aLc">
-                            <rect key="frame" x="0.0" y="184" width="414" height="200"/>
+                            <rect key="frame" x="0.0" y="184" width="414" height="160"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Availability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nbd-kW-Cdc">
                                     <rect key="frame" x="20" y="10" width="126.5" height="24"/>
@@ -238,18 +240,47 @@
                                 <constraint firstAttribute="trailing" secondItem="K0Y-uz-P5A" secondAttribute="trailing" constant="10" id="Pce-ad-93G"/>
                                 <constraint firstItem="K0Y-uz-P5A" firstAttribute="top" secondItem="Nbd-kW-Cdc" secondAttribute="bottom" constant="5" id="Pmf-u4-6mt"/>
                                 <constraint firstItem="K0Y-uz-P5A" firstAttribute="leading" secondItem="g4R-Ym-aLc" secondAttribute="leading" constant="10" id="Tqd-4A-ErU"/>
-                                <constraint firstAttribute="height" constant="200" id="jEG-4V-HNy"/>
+                                <constraint firstAttribute="height" constant="160" id="jEG-4V-HNy"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E77-Rk-lPP">
+                            <rect key="frame" x="25" y="374" width="364" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jn-hd-aq1">
+                                    <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
+                                    <color key="backgroundColor" red="0.97782820459999997" green="0.72796261309999999" blue="0.74222213029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Save">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="saveButtonAction:" destination="-1" eventType="touchUpInside" id="df4-MA-p2s"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="7jn-hd-aq1" firstAttribute="leading" secondItem="E77-Rk-lPP" secondAttribute="leading" id="0dT-dr-ADW"/>
+                                <constraint firstAttribute="height" constant="50" id="BYP-tg-iP7"/>
+                                <constraint firstAttribute="trailing" secondItem="7jn-hd-aq1" secondAttribute="trailing" id="Bjo-Cy-1EZ"/>
+                                <constraint firstAttribute="bottom" secondItem="7jn-hd-aq1" secondAttribute="bottom" id="I8U-n3-YoE"/>
+                                <constraint firstItem="7jn-hd-aq1" firstAttribute="top" secondItem="E77-Rk-lPP" secondAttribute="top" id="W54-bK-tAR"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="XRH-Sw-Mjd" firstAttribute="top" secondItem="6uS-m2-z2L" secondAttribute="bottom" constant="10" id="20w-fa-C52"/>
+                        <constraint firstItem="E77-Rk-lPP" firstAttribute="top" secondItem="g4R-Ym-aLc" secondAttribute="bottom" constant="30" id="61H-WG-4Fh"/>
                         <constraint firstAttribute="trailing" secondItem="XRH-Sw-Mjd" secondAttribute="trailing" id="63N-Pa-Zqk"/>
+                        <constraint firstItem="E77-Rk-lPP" firstAttribute="leading" secondItem="d35-ha-0ce" secondAttribute="leading" constant="25" id="CNt-dP-c3f"/>
                         <constraint firstAttribute="trailing" secondItem="LwS-7x-ryR" secondAttribute="trailing" id="EFH-0P-dBb"/>
                         <constraint firstItem="LwS-7x-ryR" firstAttribute="leading" secondItem="d35-ha-0ce" secondAttribute="leading" constant="20" id="FdH-cq-5ZB"/>
+                        <constraint firstItem="E77-Rk-lPP" firstAttribute="centerX" secondItem="g4R-Ym-aLc" secondAttribute="centerX" id="GN1-7o-Im9"/>
                         <constraint firstAttribute="trailing" secondItem="xRL-ZQ-isW" secondAttribute="trailing" id="NQ5-Rt-vnF"/>
                         <constraint firstItem="g4R-Ym-aLc" firstAttribute="top" secondItem="LwS-7x-ryR" secondAttribute="bottom" constant="10" id="Tfp-WF-Zpw"/>
+                        <constraint firstAttribute="trailing" secondItem="E77-Rk-lPP" secondAttribute="trailing" constant="25" id="UJr-mO-OwW"/>
                         <constraint firstItem="xRL-ZQ-isW" firstAttribute="top" secondItem="d35-ha-0ce" secondAttribute="top" id="XDS-Yg-R0t"/>
                         <constraint firstAttribute="trailing" secondItem="6uS-m2-z2L" secondAttribute="trailing" id="ZBm-7d-wQl"/>
                         <constraint firstItem="XRH-Sw-Mjd" firstAttribute="leading" secondItem="d35-ha-0ce" secondAttribute="leading" id="aIL-0f-wIE"/>

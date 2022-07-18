@@ -27,6 +27,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GalleryVC" customModule="WalkinsAvailable" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="6Me-qg-jf0" id="PFp-f1-pl3"/>
+                <outlet property="doneButton" destination="bmO-4Z-lAM" id="ArI-Z7-t34"/>
                 <outlet property="scrollView" destination="ITN-Kg-xCQ" id="Dyf-vr-PVE"/>
                 <outlet property="selectAlbumButton" destination="dq1-ox-0Vm" id="YdT-1v-8pE"/>
                 <outlet property="tableBackgroundView" destination="IYn-se-M80" id="QSA-7M-Ndq"/>

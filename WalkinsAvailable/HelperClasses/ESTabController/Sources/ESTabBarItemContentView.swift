@@ -243,6 +243,7 @@ open class ESTabBarItemContentView: UIView {
                                                   y: 0,//(h - s) / 2.0,
                                                   width: s,
                                                   height: s)
+                    titleLabel.center.x = imageView.center.x
                 } else {
                     imageView.frame = CGRect.init(x: (w - s) / 2.0,
                                                   y: 3,//(h - s) / 2.0 - 6.0,
@@ -253,7 +254,7 @@ open class ESTabBarItemContentView: UIView {
                                                    y: imageView.frame.maxY + 3, //h - titleLabel.bounds.size.height + 2.0,
                                                    width: titleLabel.bounds.size.width,
                                                    height: titleLabel.bounds.size.height)
-                    
+                    titleLabel.center.x = imageView.center.x
                 }
             } else if !imageView.isHidden { ///// (w - s) ///   (h - s)
                 imageView.frame = CGRect.init(x: (w) / 2.0,
@@ -290,6 +291,7 @@ open class ESTabBarItemContentView: UIView {
                                               y: (h - imageView.bounds.size.height) / 2.0 - 6.0,
                                               width: imageView.bounds.size.width,
                                               height: imageView.bounds.size.height)
+                titleLabel.center.x = imageView.center.x
             } else if !imageView.isHidden {
                 imageView.sizeToFit()
                 imageView.center = CGPoint.init(x: w / 2.0, y: h / 2.0)

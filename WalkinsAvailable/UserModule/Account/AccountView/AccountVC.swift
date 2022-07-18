@@ -54,6 +54,7 @@ class AccountVC: UIViewController {
         self.accountProfileImgView.clipsToBounds = true
         let nib = UINib(nibName: "AccountListTVC", bundle: nil)
         accounttableView.register(nib, forCellReuseIdentifier: "AccountListTVC")
+        self.accounttableView.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 50, right: 0)
         switch userType {
         case .user:
             self.userProfielbl.text = "User Profile"
@@ -62,7 +63,7 @@ class AccountVC: UIViewController {
             self.userProfielbl.text = "Business Profile"
             break
         case .serviceProvider:
-            self.userProfielbl.text = "Artist Profile"
+            self.userProfielbl.text = "Service Provider Profile"
             break
         default:
             print("Its Type")

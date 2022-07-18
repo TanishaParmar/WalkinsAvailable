@@ -41,7 +41,8 @@ struct AppAlertMessage {
     static let enterDate = "Please select date."
     static let chooseLocation = "Please choose location."
     static let deleteImage = "Are you sure you want to remove this image ?"
-    static let deleteServiceProvider = "Are you sure you want to remove this service provider ?"
+    static let deleteServiceProvider = "Are you sure you want to remove this Service Provider ?"
+    static let deleteBusinessShop = "Are you sure you want to leave this job ?"
 
 }
 

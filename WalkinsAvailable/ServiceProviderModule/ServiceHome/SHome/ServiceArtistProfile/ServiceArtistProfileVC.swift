@@ -17,13 +17,13 @@ class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var artistNameLbl: UILabel!
     @IBOutlet weak var artistStatusButton: UISwitch!
     @IBOutlet weak var artistDescriptionLbl: UILabel!
+    @IBOutlet weak var badgeLabel: UILabel!
     @IBOutlet weak var notificationBtn: UIButton!
     @IBOutlet weak var addArtistBtn: UIButton!
     @IBOutlet weak var addImageBtn: UIButton!
     @IBOutlet weak var setAvailabilityBtn: UIButton!
     
     var imgArr: [ArtistImages] = [ArtistImages]()
-    var isPushNotify: Bool = false
     var selectedIndex: Int = -1
     
     override func viewDidLoad() {
@@ -34,24 +34,28 @@ class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        selectedIndex = -1
         hitArtistProfileHomeApi()
     }
     
     func configureUI() {
-        artistImgView.addCornerRadius(view: artistImgView, cornerRadius: 4.0)
         collectionImgView.delegate = self
         collectionImgView.dataSource = self
         setupLongGestureRecognizerOnCollection()
         let nib = UINib(nibName: "ArtistListImgCell", bundle: nil)
         self.collectionImgView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
-        if isPushNotify {
-            pushRedirect()
-        }
+        artistImgView.addCornerRadius(view: artistImgView, cornerRadius: 4.0)
+        badgeLabel.addCornerRadius(view: badgeLabel, cornerRadius: badgeLabel.bounds.height / 2)
+        badgeLabel.isHidden = (Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) ? true : false
     }
     
     func pushRedirect() {
         let notificationVC = ServiceNotificationVC()
         self.push(viewController: notificationVC)
+    }
+    
+    func getImages() -> [String] {
+        self.imgArr.map({$0.image ?? ""})
     }
     
     
@@ -92,7 +96,6 @@ class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
         if (gestureRecognizer.state != .began) {
             return
         }
-
         let p = gestureRecognizer.location(in: collectionImgView)
         if let indexPath = collectionImgView?.indexPathForItem(at: p) {
             print("Long press at item: \(indexPath.row)")
@@ -151,10 +154,14 @@ extension ServiceArtistProfileVC: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistListImgCell", for: indexPath) as! ArtistListImgCell
-        cell.setUI(artistImages: imgArr[indexPath.row], delegate: self)
+//        cell.setUI(artistImages: imgArr[indexPath.row], delegate: self)
+        
+        cell.imgCell.setImageView(urls: getImages(), placeholder: UIImage(), item: indexPath.item, controller: self)
+        cell.delegate = self
+        cell.artistImages = imgArr[indexPath.row]
         cell.deleteButton.isHidden = self.selectedIndex == indexPath.row ? false : true
         cell.deleteButton.isUserInteractionEnabled = selectedIndex == indexPath.row ? true : false
-        cell.imgCell.alpha = selectedIndex == indexPath.row ? 0.5 : 1.0
+//        cell.imgCell.alpha = selectedIndex == indexPath.row ? 0.5 : 1.0
 //        if selectedIndex == indexPath.row {
 //            cell.deleteButton.isHidden
 //        } else {
@@ -164,10 +171,11 @@ extension ServiceArtistProfileVC: UICollectionViewDelegate, UICollectionViewData
     }
 
 
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
-    UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      let collectionViewSize = (collectionImgView.frame.size.width - 6) / 3
-      return CGSize(width: collectionViewSize, height: collectionViewSize)
+                        UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewSize = (collectionImgView.frame.size.width - 6) / 3
+        return CGSize(width: collectionViewSize, height: collectionViewSize)
     }
 
 }
@@ -177,7 +185,7 @@ extension ServiceArtistProfileVC: GalleryVCDelegate {
     func galleryController(_ gallery: GalleryVC, didselect items: [PHAsset], assetIds: [String]) {
         let images = items.map({PickerData.init(asset: $0)})
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            ActivityIndicator.sharedInstance.showActivityIndicator()
+//            ActivityIndicator.sharedInstance.showActivityIndicator()
             ApiHandler.uploadImage(apiName: API.Name.addImage, dataArray: images, imageKey: assetIds, params: [:]) { succeeded, response, data in
                 ActivityIndicator.sharedInstance.hideActivityIndicator()
                 if succeeded {
@@ -203,7 +211,7 @@ extension ServiceArtistProfileVC: GalleryVCDelegate {
 
 extension ServiceArtistProfileVC: ArtistListImgCellDelegate {
     func deleteImage(imageId: String?) {
-        if imageId == "" {
+        if imageId == "" || imageId == nil {
             self.selectedIndex = -1
             self.collectionImgView.reloadData()
         } else {

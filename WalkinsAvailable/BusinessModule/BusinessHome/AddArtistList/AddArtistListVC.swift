@@ -65,7 +65,7 @@ class AddArtistListVC: UIViewController {
                             if self.searchArtistData.count > 0 {
                                 self.addArtistListTableView.backgroundView = nil
                             } else {
-                                self.addArtistListTableView.setBackgroundView(message: "No data found.")
+                                self.addArtistListTableView.setBackgroundView(message: "No Service Provider found.")
                             }
                             self.isDataCompleted = true
                             self.addArtistListTableView.reloadData()
@@ -102,6 +102,7 @@ extension AddArtistListVC : UITableViewDelegate, UITableViewDataSource {
         guard (self.searchArtistData.count-1) == indexPath.row else { return }
         self.hitSearchArtistApi(searchText: self.addArtistSearchBar.text ?? "")
     }
+    
 }
 
 //MARK: AddArtistListCellDelegate

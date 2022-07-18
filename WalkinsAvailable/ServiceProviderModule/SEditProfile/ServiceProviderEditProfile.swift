@@ -52,6 +52,7 @@ class ServiceProviderEditProfile: UIViewController {
         artistView.addCornerBorderAndShadow(view: artistView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         descriptionTextView.addCornerBorderAndShadow(view: descriptionTextView, cornerRadius: 5.0, shadowColor: .clear, borderColor: .black, borderWidth: 1)
         saveBtn.addCornerRadius(view: saveBtn, cornerRadius: 5)
+        
     }
     
     func setUI() {
@@ -142,10 +143,9 @@ class ServiceProviderEditProfile: UIViewController {
             if succeeded {
                 UserDefaultsCustom.saveLogInData(data: data)
                 Singleton.setHomeScreenView()
-
                 
 //                if let response = DataDecoder.decodeData(data, type: UserModel.self) {
-////                    if let data = response.data {
+////                    if let data = response.data  {
 ////                        UserDefaultsCustom.saveUserData(userData: data)
 ////                        Singleton.shared.showErrorMessage(error: response.message ?? "", isError: .success)
 ////                        if let tabBar = self.tabBarController as? TabBarVC {
@@ -155,6 +155,7 @@ class ServiceProviderEditProfile: UIViewController {
 ////                        self.navigationController?.popViewController(animated: true)
 ////                    }
 //                }
+                
             } else {
                 if let msg = response["message"] as? String {
                     Singleton.shared.showErrorMessage(error: msg, isError: .error)

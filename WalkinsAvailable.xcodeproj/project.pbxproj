@@ -217,6 +217,20 @@
 		1F422F1927FC4F8E00877618 /* ESTabBarItemBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0A27FC4F8E00877618 /* ESTabBarItemBadgeView.swift */; };
 		1F422F1A27FC4F8E00877618 /* ESTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0B27FC4F8E00877618 /* ESTabBar.swift */; };
 		1F422F1B27FC4F8E00877618 /* ESTabBarItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F422F0C27FC4F8E00877618 /* ESTabBarItemContainer.swift */; };
+		1F4CB089288539CD00C3AD2C /* ArtistImagesGalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB087288539CD00C3AD2C /* ArtistImagesGalleryVC.swift */; };
+		1F4CB08A288539CD00C3AD2C /* ArtistImagesGalleryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4CB088288539CD00C3AD2C /* ArtistImagesGalleryVC.xib */; };
+		1F4CB0992885402B00C3AD2C /* SimpleImageDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB08F2885402A00C3AD2C /* SimpleImageDatasource.swift */; };
+		1F4CB09A2885402B00C3AD2C /* ImageCarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0902885402A00C3AD2C /* ImageCarouselViewController.swift */; };
+		1F4CB09B2885402B00C3AD2C /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0912885402A00C3AD2C /* ImageItem.swift */; };
+		1F4CB09C2885402B00C3AD2C /* UIView_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0922885402A00C3AD2C /* UIView_Extensions.swift */; };
+		1F4CB09D2885402B00C3AD2C /* UIImageView_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0932885402A00C3AD2C /* UIImageView_Extensions.swift */; };
+		1F4CB09E2885402B00C3AD2C /* ImageViewerTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0942885402A00C3AD2C /* ImageViewerTheme.swift */; };
+		1F4CB09F2885402B00C3AD2C /* UINavigationBar_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0952885402A00C3AD2C /* UINavigationBar_Extensions.swift */; };
+		1F4CB0A02885402B00C3AD2C /* ImageViewerTransitionPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0962885402A00C3AD2C /* ImageViewerTransitionPresentationManager.swift */; };
+		1F4CB0A12885402B00C3AD2C /* ImageViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0972885402B00C3AD2C /* ImageViewerController.swift */; };
+		1F4CB0A22885402B00C3AD2C /* ImageViewerOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0982885402B00C3AD2C /* ImageViewerOption.swift */; };
+		1F4CB0A4288540E400C3AD2C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4CB0A3288540E400C3AD2C /* UIImageView+Extension.swift */; };
+		1F4CB0A6288574E400C3AD2C /* Grafiteg free.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F4CB0A5288574E400C3AD2C /* Grafiteg free.otf */; };
 		1F5D98832872B23700A07A1A /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5D98822872B23700A07A1A /* UIApplication+Extension.swift */; };
 		1F61ABF9285B454900A8F826 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F61ABF8285B454900A8F826 /* ActivityIndicator.swift */; };
 		1F68260F27FD641E00FFB4DA /* NotificationListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68260D27FD641E00FFB4DA /* NotificationListTVC.swift */; };
@@ -469,6 +483,20 @@
 		1F422F0A27FC4F8E00877618 /* ESTabBarItemBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBarItemBadgeView.swift; sourceTree = "<group>"; };
 		1F422F0B27FC4F8E00877618 /* ESTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBar.swift; sourceTree = "<group>"; };
 		1F422F0C27FC4F8E00877618 /* ESTabBarItemContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ESTabBarItemContainer.swift; sourceTree = "<group>"; };
+		1F4CB087288539CD00C3AD2C /* ArtistImagesGalleryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImagesGalleryVC.swift; sourceTree = "<group>"; };
+		1F4CB088288539CD00C3AD2C /* ArtistImagesGalleryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistImagesGalleryVC.xib; sourceTree = "<group>"; };
+		1F4CB08F2885402A00C3AD2C /* SimpleImageDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleImageDatasource.swift; sourceTree = "<group>"; };
+		1F4CB0902885402A00C3AD2C /* ImageCarouselViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCarouselViewController.swift; sourceTree = "<group>"; };
+		1F4CB0912885402A00C3AD2C /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
+		1F4CB0922885402A00C3AD2C /* UIView_Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_Extensions.swift; sourceTree = "<group>"; };
+		1F4CB0932885402A00C3AD2C /* UIImageView_Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView_Extensions.swift; sourceTree = "<group>"; };
+		1F4CB0942885402A00C3AD2C /* ImageViewerTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerTheme.swift; sourceTree = "<group>"; };
+		1F4CB0952885402A00C3AD2C /* UINavigationBar_Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBar_Extensions.swift; sourceTree = "<group>"; };
+		1F4CB0962885402A00C3AD2C /* ImageViewerTransitionPresentationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerTransitionPresentationManager.swift; sourceTree = "<group>"; };
+		1F4CB0972885402B00C3AD2C /* ImageViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerController.swift; sourceTree = "<group>"; };
+		1F4CB0982885402B00C3AD2C /* ImageViewerOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerOption.swift; sourceTree = "<group>"; };
+		1F4CB0A3288540E400C3AD2C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		1F4CB0A5288574E400C3AD2C /* Grafiteg free.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Grafiteg free.otf"; sourceTree = "<group>"; };
 		1F5D98822872B23700A07A1A /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		1F61ABF7285B02DA00A8F826 /* WalkinsAvailable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WalkinsAvailable.entitlements; sourceTree = "<group>"; };
 		1F61ABF8285B454900A8F826 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -1245,6 +1273,7 @@
 		1F277FC028780718003875CA /* ServiceArtistProfile */ = {
 			isa = PBXGroup;
 			children = (
+				1F4CB086288539AB00C3AD2C /* ArtistImagesGalleryView */,
 				1F277FC128780725003875CA /* ArtistDetailModel */,
 				189C96192822598D004B99EF /* ServiceArtistProfileVC.swift */,
 				189C961A2822598D004B99EF /* ServiceArtistProfileVC.xib */,
@@ -1297,6 +1326,7 @@
 		1F3344DA27FAE5E8000BB072 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				1F4CB0A5288574E400C3AD2C /* Grafiteg free.otf */,
 				1F3344DC27FAE636000BB072 /* Poppins-Black.ttf */,
 				1F3344DE27FAE636000BB072 /* Poppins-Bold.ttf */,
 				1F3344DD27FAE636000BB072 /* Poppins-ExtraBold.ttf */,
@@ -1702,6 +1732,41 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		1F4CB086288539AB00C3AD2C /* ArtistImagesGalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				1F4CB087288539CD00C3AD2C /* ArtistImagesGalleryVC.swift */,
+				1F4CB088288539CD00C3AD2C /* ArtistImagesGalleryVC.xib */,
+			);
+			path = ArtistImagesGalleryView;
+			sourceTree = "<group>";
+		};
+		1F4CB08D2885400300C3AD2C /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				1F4CB08E2885401400C3AD2C /* Sources */,
+				1F4CB0A3288540E400C3AD2C /* UIImageView+Extension.swift */,
+			);
+			path = ImageViewer;
+			sourceTree = "<group>";
+		};
+		1F4CB08E2885401400C3AD2C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1F4CB0902885402A00C3AD2C /* ImageCarouselViewController.swift */,
+				1F4CB0912885402A00C3AD2C /* ImageItem.swift */,
+				1F4CB0972885402B00C3AD2C /* ImageViewerController.swift */,
+				1F4CB0982885402B00C3AD2C /* ImageViewerOption.swift */,
+				1F4CB0942885402A00C3AD2C /* ImageViewerTheme.swift */,
+				1F4CB0962885402A00C3AD2C /* ImageViewerTransitionPresentationManager.swift */,
+				1F4CB08F2885402A00C3AD2C /* SimpleImageDatasource.swift */,
+				1F4CB0932885402A00C3AD2C /* UIImageView_Extensions.swift */,
+				1F4CB0952885402A00C3AD2C /* UINavigationBar_Extensions.swift */,
+				1F4CB0922885402A00C3AD2C /* UIView_Extensions.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		1F68260C27FD640100FFB4DA /* NotificationCellXib */ = {
 			isa = PBXGroup;
 			children = (
@@ -1817,6 +1882,7 @@
 		1F8F65442857127B0036593D /* Manager Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1F4CB08D2885400300C3AD2C /* ImageViewer */,
 				1F8F654C285712A20036593D /* API.swift */,
 				1F8F654F285712A20036593D /* ApiHandler.swift */,
 				1F8F6547285712A20036593D /* ErrorView */,
@@ -1999,7 +2065,9 @@
 				18E3799E2823C31E0029C01A /* ServiceShopVC.xib in Resources */,
 				18E379992823C0160029C01A /* ServiceNotificationVC.xib in Resources */,
 				18B4D434281BAEA7005C0816 /* ComplaintViewVC.xib in Resources */,
+				1F4CB08A288539CD00C3AD2C /* ArtistImagesGalleryVC.xib in Resources */,
 				1869768F281AAAD100F208BD /* LocationDetailVC.xib in Resources */,
+				1F4CB0A6288574E400C3AD2C /* Grafiteg free.otf in Resources */,
 				18697665281A68A800F208BD /* MapController.xib in Resources */,
 				1895B979281FEB2B00842DD5 /* EventListCell.xib in Resources */,
 				1F422EE327FC209B00877618 /* HomeVC.xib in Resources */,
@@ -2109,13 +2177,17 @@
 				189FB2CA28192CFA00C1EC42 /* AppAlert.swift in Sources */,
 				18EFEAB12821483D009ADBB4 /* SetAvailbilityVC.swift in Sources */,
 				1F422F1527FC4F8E00877618 /* ESTabBarController.swift in Sources */,
+				1F4CB0992885402B00C3AD2C /* SimpleImageDatasource.swift in Sources */,
 				1F255925286ED37300804515 /* EventListModel.swift in Sources */,
+				1F4CB0A02885402B00C3AD2C /* ImageViewerTransitionPresentationManager.swift in Sources */,
 				181C171A2823B680008E7C14 /* ArtistEventInvitedVC.swift in Sources */,
 				18697673281A69A700F208BD /* FBAnnotationClusterView.swift in Sources */,
 				1F422F1227FC4F8E00877618 /* ExampleTipsContentView.swift in Sources */,
 				1862D3DC282A87E70013F492 /* ServiceProviderEditProfile.swift in Sources */,
 				1869766F281A69A700F208BD /* FBClusteringManager.swift in Sources */,
 				1895B967281FC05A00842DD5 /* SingleChatController.swift in Sources */,
+				1F4CB0A12885402B00C3AD2C /* ImageViewerController.swift in Sources */,
+				1F4CB09D2885402B00C3AD2C /* UIImageView_Extensions.swift in Sources */,
 				1F422ED927FC206500877618 /* ChatListVC.swift in Sources */,
 				1F79106228097E2400102EA6 /* ChangePasswordVC.swift in Sources */,
 				18E379CD2823E4310029C01A /* FeedGalleryCollectionView.swift in Sources */,
@@ -2123,6 +2195,8 @@
 				18B4D433281BAEA7005C0816 /* ComplaintViewVC.swift in Sources */,
 				1F68261A27FD7DDD00FFB4DA /* EditProfileVC.swift in Sources */,
 				18697689281A722200F208BD /* UIViewController+Custom.swift in Sources */,
+				1F4CB089288539CD00C3AD2C /* ArtistImagesGalleryVC.swift in Sources */,
+				1F4CB09E2885402B00C3AD2C /* ImageViewerTheme.swift in Sources */,
 				1F5D98832872B23700A07A1A /* UIApplication+Extension.swift in Sources */,
 				189FB2CD2819384700C1EC42 /* SignUpServiceProvider.swift in Sources */,
 				18C5B96728211B6300876BAE /* BusinessFavouriteList.swift in Sources */,
@@ -2138,6 +2212,7 @@
 				1F8F6557285712A20036593D /* ErrorView.swift in Sources */,
 				18B4D443281BEE2A005C0816 /* AboutUsVC.swift in Sources */,
 				1F361094286C3CC10017F8B8 /* BottomResultView.swift in Sources */,
+				1F4CB0A22885402B00C3AD2C /* ImageViewerOption.swift in Sources */,
 				1F18D6812862EF2400C1922A /* CustomDatePicker.swift in Sources */,
 				18697671281A69A700F208BD /* FBAnnotationCluster.swift in Sources */,
 				1F93C68C287EE57800E1830A /* ServiceProviderNotificationResponse.swift in Sources */,
@@ -2147,6 +2222,7 @@
 				1F361093286C3CC10017F8B8 /* StyleKit.swift in Sources */,
 				189C962E28227486004B99EF /* InviteGuestVC.swift in Sources */,
 				1895B97E28200ED000842DD5 /* EventDetailVC.swift in Sources */,
+				1F4CB09A2885402B00C3AD2C /* ImageCarouselViewController.swift in Sources */,
 				18162EB72818037D00D29D10 /* ComplaintsListCell.swift in Sources */,
 				1F422F1727FC4F8E00877618 /* ExampleNavigationController.swift in Sources */,
 				18E379B52823D8F20029C01A /* ServiceEventVC.swift in Sources */,
@@ -2186,6 +2262,8 @@
 				1F277FD02878609A003875CA /* BusinessHomeFooterView.swift in Sources */,
 				1F8F6566285751DF0036593D /* SignUpAsUserModel.swift in Sources */,
 				18697675281A69A700F208BD /* FBQuadTreeNode.swift in Sources */,
+				1F4CB09C2885402B00C3AD2C /* UIView_Extensions.swift in Sources */,
+				1F4CB0A4288540E400C3AD2C /* UIImageView+Extension.swift in Sources */,
 				1F361095286C3CC10017F8B8 /* LocationCell.swift in Sources */,
 				1F8F655A285712A20036593D /* Singleton.swift in Sources */,
 				18EFEAB628214F57009ADBB4 /* AvailbilityVC.swift in Sources */,
@@ -2200,6 +2278,7 @@
 				1F422F1827FC4F8E00877618 /* ESTabBarItem.swift in Sources */,
 				18E379A22823C40F0029C01A /* ShopsListCell.swift in Sources */,
 				1869767F281A6BD300F208BD /* AnimatingView.swift in Sources */,
+				1F4CB09B2885402B00C3AD2C /* ImageItem.swift in Sources */,
 				1F9B00F4287023B6008A4FE1 /* EventDetailModel.swift in Sources */,
 				18E379B02823D5230029C01A /* RequestInviteFromCell.swift in Sources */,
 				18E379CA2823E4310029C01A /* GalleryAlbumTableView.swift in Sources */,
@@ -2208,6 +2287,7 @@
 				1F68260F27FD641E00FFB4DA /* NotificationListTVC.swift in Sources */,
 				189B7DBD28239413009AC87C /* AddArtistListCell.swift in Sources */,
 				1F8F655C285712A20036593D /* UserData.swift in Sources */,
+				1F4CB09F2885402B00C3AD2C /* UINavigationBar_Extensions.swift in Sources */,
 				18E379CE2823E4320029C01A /* GalleryVC.swift in Sources */,
 				18697679281A6ACD00F208BD /* LocationSearchTable.swift in Sources */,
 				18E379982823C0160029C01A /* ServiceNotificationVC.swift in Sources */,
@@ -2403,7 +2483,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2441,7 +2521,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
