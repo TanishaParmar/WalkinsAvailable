@@ -143,6 +143,22 @@ class TabBarVC: ESTabBarController {
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             self.selectedIndex = 2
+            if let tabItems = self.tabBar.items {
+                let tabItem = tabItems[3]
+                Singleton.shared.callBackBadgeCount = {
+                    DispatchQueue.main.async {
+                        if !(Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) {
+                            //                tabItem.badgeColor = (Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0") ? UIColor.green : UIColor.red
+                            tabItem.badgeValue = ""
+                        } else {
+                            tabItem.badgeValue = "" // Singleton.shared.notificationBadgeCount
+                        }
+                    }
+                }
+                if !(Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) {
+                    tabItem.badgeValue = ""
+                }
+            }
             let profileImg = UserDefaultsCustom.getUserData()?.image
             self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem, imageString: profileImg)
         case .business:
@@ -166,13 +182,26 @@ class TabBarVC: ESTabBarController {
             v5.userType = self.userType
             self.viewControllers = [v1, v2, v3, v4, v5].map({NavigationController(rootViewController: $0)})
             self.selectedIndex = 2
+            
             if let tabItems = self.tabBar.items {
                 let tabItem = tabItems[3]
-//                tabItem.badgeColor = (Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0") ? UIColor.green : UIColor.red
+                Singleton.shared.callBackBadgeCount = {
+                    DispatchQueue.main.async {
+                        if !(Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) {
+                            tabItem.badgeValue = ""
+                        } else {
+                            tabItem.badgeValue = "" // Singleton.shared.notificationBadgeCount
+                        }
+                    }
+                }
+                
                 if !(Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) {
                     tabItem.badgeValue = ""
                 }
+                
+                
             }
+            
             let profileImg = UserDefaultsCustom.getBusinessData()?.image
             self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem, imageString: profileImg)
         case .serviceProvider:

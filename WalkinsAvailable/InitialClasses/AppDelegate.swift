@@ -107,6 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let response = DataDecoder.decodeData(data, type: CategoryListModel.self) {
                     if let data = response.data {
                         Singleton.shared.categoryList = data
+                        Singleton.shared.callBackCategoryListing?()
                     }
                 }
             } else {
@@ -118,21 +119,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func getNotificationBadgeCountData() {
-        var role = ""
         if let userId = UserDefaultsCustom.getUserData()?.userId {
-            role = UserDefaultsCustom.getUserType(id: userId)?.role ?? ""
-        }
-        ApiHandler.updateProfile(apiName: API.Name.getNotificationBadgeCount, params: ["role": role]) { succeeded, response, data in
-            print("response data ** \(response)")
-            ActivityIndicator.sharedInstance.hideActivityIndicator()
-            if succeeded {
-                if let badgeCount = response["badgeCount"] as? String {
-//                    Singleton.shared.notificationBadgeCount = badgeCount
-                    Singleton.shared.notificationBadgeCount = "2"
+            let type = UserDefaultsCustom.getLoginRole(key: userId)
+            let role = UserDefaultsCustom.getLoginRole(key: userId).role
+            switch type {
+            case .user, .business:
+                ApiHandler.updateProfile(apiName: API.Name.getNotificationBadgeCount, params: ["role": role]) { succeeded, response, data in
+                    print("response data ** \(response)")
+                    ActivityIndicator.sharedInstance.hideActivityIndicator()
+                    if succeeded {
+                        if let badgeCount = response["badgeCount"] as? String {
+                            Singleton.shared.notificationBadgeCount = badgeCount
+                            Singleton.shared.callBackBadgeCount?()
+                        }
+                    } else {
+                        if let msg = response["message"] as? String {
+                        }
+                    }
                 }
-            } else {
-                if let msg = response["message"] as? String {
-                }
+            case .serviceProvider:
+                break
             }
         }
     }

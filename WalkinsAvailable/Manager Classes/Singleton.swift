@@ -24,7 +24,9 @@ class Singleton: NSObject {
     static var coins:Int? = 0
     var notificationBadgeCount: String?
     var categoryList: [CategoryList]?
-
+    
+    var callBackCategoryListing:(()->())?
+    var callBackBadgeCount:(()->())?
 //    static var userProfileData:UserProfileData?
 
     var keyboardSize: CGSize = CGSize(width: 0.0, height: 0.0)

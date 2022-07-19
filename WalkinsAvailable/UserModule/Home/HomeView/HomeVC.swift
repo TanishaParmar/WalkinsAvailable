@@ -15,9 +15,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var listingCollectionView: UICollectionView!
     
     
-    //MARK: Properties
-    var listArr: [(String, String, UIColor)] = [("Barber","barber", #colorLiteral(red: 0.991193831, green: 0.6588253379, blue: 0.5455851555, alpha: 1)),("Coffee","coffee", #colorLiteral(red: 0.7385370731, green: 0.6313439012, blue: 0.9501467347, alpha: 1)),("Makeup","makeup", #colorLiteral(red: 0.9670820832, green: 0.6249657273, blue: 0.8386198878, alpha: 1)),("Restaurant","restaurant", #colorLiteral(red: 1, green: 0.6488577724, blue: 0.6619021297, alpha: 1)),("Shopping","shopping", #colorLiteral(red: 0.9555502534, green: 0.8837473989, blue: 0.4137159288, alpha: 1)),("Tatto","tatto", #colorLiteral(red: 0.4223589599, green: 0.8335838318, blue: 0.7735235095, alpha: 1)),("Barber","barber", #colorLiteral(red: 0.991193831, green: 0.6588253379, blue: 0.5455851555, alpha: 1)),("Coffee","coffee", #colorLiteral(red: 0.7385370731, green: 0.6313439012, blue: 0.9501467347, alpha: 1)),("Makeup","makeup", #colorLiteral(red: 0.9670820832, green: 0.6249657273, blue: 0.8386198878, alpha: 1)),("Restaurant","restaurant", #colorLiteral(red: 1, green: 0.6488577724, blue: 0.6619021297, alpha: 1)),("Shopping","shopping", #colorLiteral(red: 0.9555502534, green: 0.8837473989, blue: 0.4137159288, alpha: 1)),("Tatto","tatto", #colorLiteral(red: 0.4223589599, green: 0.8335838318, blue: 0.7735235095, alpha: 1))]
-    
     //MARK: VC Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +33,15 @@ class HomeVC: UIViewController {
         let nib = UINib(nibName: "HomeListCVC", bundle: nil)
         listingCollectionView.register(nib, forCellWithReuseIdentifier: "HomeListCVC")
         self.navigationController?.navigationBar.isHidden = true
+        
+        if Singleton.shared.categoryList?.count ?? 0 == 0 {
+            Singleton.shared.callBackCategoryListing = {
+                DispatchQueue.main.async {
+                    self.listingCollectionView.reloadData()
+                    Singleton.shared.callBackCategoryListing = nil
+                }
+            }
+        }
     }
     
     
@@ -45,15 +51,13 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listArr.count
+        return Singleton.shared.categoryList?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeListCVC", for: indexPath) as! HomeListCVC
-        cell.titleLabel.text = listArr[indexPath.item].0
-        let img = UIImage(named: listArr[indexPath.item].1)
-        cell.logoImageView.image = img
-        cell.mainView.backgroundColor = listArr[indexPath.item].2
+        let categoryData = Singleton.shared.categoryList?[indexPath.row]
+        cell.setUI(categoryData: categoryData)
         return cell
     }
     

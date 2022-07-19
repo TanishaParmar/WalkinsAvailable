@@ -35,6 +35,7 @@ class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         selectedIndex = -1
+        getNotificationBadgeCountData()
         hitArtistProfileHomeApi()
     }
     
@@ -45,6 +46,10 @@ class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
         let nib = UINib(nibName: "ArtistListImgCell", bundle: nil)
         self.collectionImgView.register(nib, forCellWithReuseIdentifier: "ArtistListImgCell")
         artistImgView.addCornerRadius(view: artistImgView, cornerRadius: 4.0)
+        self.setBadgeLabel()
+    }
+    
+    func setBadgeLabel() {
         badgeLabel.addCornerRadius(view: badgeLabel, cornerRadius: badgeLabel.bounds.height / 2)
         badgeLabel.isHidden = (Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) ? true : false
     }
@@ -58,6 +63,27 @@ class ServiceArtistProfileVC: UIViewController, UIGestureRecognizerDelegate {
         self.imgArr.map({$0.image ?? ""})
     }
     
+    //MARK: Hit Notification Badge Count API
+    func getNotificationBadgeCountData() {
+        var role = ""
+        if let userId = UserDefaultsCustom.getUserData()?.userId {
+            role = UserDefaultsCustom.getLoginRole(key: userId).role
+        }
+        ApiHandler.updateProfile(apiName: API.Name.getNotificationBadgeCount, params: ["role": role]) { succeeded, response, data in
+            print("response data ** \(response)")
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let badgeCount = response["badgeCount"] as? String {
+//                    Singleton.shared.notificationBadgeCount = badgeCount
+                    Singleton.shared.notificationBadgeCount = "01"
+                    self.setBadgeLabel()
+                }
+            } else {
+//                if let msg = response["message"] as? String {
+//                }
+            }
+        }
+    }
     
     //MARK: Hit Artist Profile Home API
     func hitArtistProfileHomeApi() {

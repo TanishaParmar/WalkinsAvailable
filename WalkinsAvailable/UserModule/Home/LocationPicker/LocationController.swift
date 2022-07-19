@@ -60,7 +60,7 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
     open var currentLocationIconColor = #colorLiteral(red: 0.1176470588, green: 0.5098039216, blue: 0.3568627451, alpha: 1)
     open var searchResultLocationIconColor = #colorLiteral(red: 0.1176470588, green: 0.5098039216, blue: 0.3568627451, alpha: 1)
     open var alternativeLocationIconColor = #colorLiteral(red: 0.1176470588, green: 0.5098039216, blue: 0.3568627451, alpha: 1)
-    open var pinColor = #colorLiteral(red: 0.1176470588, green: 0.5098039216, blue: 0.3568627451, alpha: 1)
+    open var pinColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)  // #colorLiteral(red: 0.1176470588, green: 0.5098039216, blue: 0.3568627451, alpha: 1)
     open var primaryTextColor = #colorLiteral(red: 0.34902, green: 0.384314, blue: 0.427451, alpha: 1)
     open var secondaryTextColor = #colorLiteral(red: 0.541176, green: 0.568627, blue: 0.584314, alpha: 1)
     open var currentLocationIcon: UIImage? = nil
@@ -346,7 +346,6 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
         return true
     }
     
-    
     // MARK: Buttons
     
     @objc private func doneButtonDidTap(barButtonItem: UIBarButtonItem) {
@@ -401,8 +400,8 @@ open class LocationPicker: UIViewController, UIGestureRecognizerDelegate {
             guard let placemarks = placemarks else { return }
             var placemark = placemarks[0]
             if !self.isRedirectToExactCoordinate {
-                placemark = MKPlacemark(coordinate: location.coordinate, addressDictionary: placemark.addressDictionary as? [String : NSObject])
-            }
+                            placemark = MKPlacemark(coordinate: location.coordinate, addressDictionary: placemark.addressDictionary as? [String : NSObject])
+                        }
             
             if !self.searchBar.isFirstResponder {
                 let mapItem = MKMapItem(placemark: MKPlacemark(placemark: placemark))

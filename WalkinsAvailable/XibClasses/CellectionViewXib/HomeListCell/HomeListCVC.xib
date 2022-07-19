@@ -2,8 +2,10 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -25,28 +27,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="137" height="191"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFD-bQ-Oro">
-                                <rect key="frame" x="8" y="100" width="121" height="81"/>
+                                <rect key="frame" x="8" y="160" width="121" height="21"/>
                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i6T-ZI-jSz">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYd-0g-9l4">
                                 <rect key="frame" x="20" y="20" width="70" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i6T-ZI-jSz">
+                                        <rect key="frame" x="17" y="17" width="36" height="36"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="UZq-5a-Q4S"/>
-                                    <constraint firstAttribute="width" secondItem="i6T-ZI-jSz" secondAttribute="height" multiplier="1:1" id="uLX-Qk-gUu"/>
+                                    <constraint firstAttribute="height" constant="70" id="3rj-jQ-YO5"/>
+                                    <constraint firstAttribute="trailing" secondItem="i6T-ZI-jSz" secondAttribute="trailing" constant="17" id="Kql-KR-S24"/>
+                                    <constraint firstItem="i6T-ZI-jSz" firstAttribute="leading" secondItem="oYd-0g-9l4" secondAttribute="leading" constant="17" id="UOh-1o-7aY"/>
+                                    <constraint firstAttribute="width" secondItem="oYd-0g-9l4" secondAttribute="height" multiplier="1:1" id="WmZ-SU-vmM"/>
+                                    <constraint firstAttribute="bottom" secondItem="i6T-ZI-jSz" secondAttribute="bottom" constant="17" id="dFw-Dv-aiu"/>
+                                    <constraint firstItem="i6T-ZI-jSz" firstAttribute="top" secondItem="oYd-0g-9l4" secondAttribute="top" constant="17" id="xYZ-Na-oOV"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="WFD-bQ-Oro" secondAttribute="trailing" constant="8" id="28N-VY-zIe"/>
                             <constraint firstItem="WFD-bQ-Oro" firstAttribute="leading" secondItem="kcP-Ez-D2b" secondAttribute="leading" constant="8" id="AHS-gc-pmZ"/>
                             <constraint firstAttribute="bottom" secondItem="WFD-bQ-Oro" secondAttribute="bottom" constant="10" id="NHb-kb-YU6"/>
-                            <constraint firstItem="i6T-ZI-jSz" firstAttribute="leading" secondItem="kcP-Ez-D2b" secondAttribute="leading" constant="20" id="Twi-Yp-JKU"/>
-                            <constraint firstItem="WFD-bQ-Oro" firstAttribute="top" secondItem="i6T-ZI-jSz" secondAttribute="bottom" constant="10" id="X1F-J8-emh"/>
-                            <constraint firstItem="i6T-ZI-jSz" firstAttribute="top" secondItem="kcP-Ez-D2b" secondAttribute="top" constant="20" id="duG-zR-sIV"/>
+                            <constraint firstItem="oYd-0g-9l4" firstAttribute="top" secondItem="kcP-Ez-D2b" secondAttribute="top" constant="20" id="ZoF-js-SCL"/>
+                            <constraint firstItem="oYd-0g-9l4" firstAttribute="leading" secondItem="kcP-Ez-D2b" secondAttribute="leading" constant="20" id="md7-yv-Nr7"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -60,6 +71,7 @@
             </constraints>
             <size key="customSize" width="161" height="225"/>
             <connections>
+                <outlet property="imageBgView" destination="oYd-0g-9l4" id="pVQ-sO-zPB"/>
                 <outlet property="logoImageView" destination="i6T-ZI-jSz" id="pNc-XH-LDD"/>
                 <outlet property="mainView" destination="kcP-Ez-D2b" id="dBy-wg-Ini"/>
                 <outlet property="titleLabel" destination="WFD-bQ-Oro" id="oon-Jd-xhJ"/>
@@ -67,4 +79,9 @@
             <point key="canvasLocation" x="218.11594202898553" y="138.28125"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

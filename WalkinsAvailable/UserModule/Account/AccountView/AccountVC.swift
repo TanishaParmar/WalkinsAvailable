@@ -424,8 +424,14 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     let controller = SetAvailbilityVC()
                     self.navigationController?.pushViewController(controller, animated: true)
                 } else if indexPath.row == 4 {
-                    let controller = AboutUsVC()
-                    self.navigationController?.pushViewController(controller, animated: true)
+//                    let controller = AboutUsVC()
+//                    self.navigationController?.pushViewController(controller, animated: true)
+                    let urlString = API.UrlName.aboutUs
+                    if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+
+
                 } else if indexPath.row == 5 {
                     let contactVC = ContactUsVC()
                     contactVC.data = self.data
@@ -477,8 +483,12 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
                 else if indexPath.row == 4{
-                    let controller = AboutUsVC()
-                    self.navigationController?.pushViewController(controller, animated: true)
+//                    let controller = AboutUsVC()
+//                    self.navigationController?.pushViewController(controller, animated: true)
+                    let urlString = API.UrlName.aboutUs
+                    if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
                 }
                 else if indexPath.row == 5 {
                     let viewcontroller = ContactUsVC()
@@ -531,8 +541,12 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     self.navigationController?.pushViewController(controller, animated: true)
                 }
                 else if indexPath.row == 3{
-                    let controller = AboutUsVC()
-                    self.navigationController?.pushViewController(controller, animated: true)
+//                    let controller = AboutUsVC()
+//                    self.navigationController?.pushViewController(controller, animated: true)
+                    let urlString = API.UrlName.aboutUs
+                    if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
                 }
                 else if indexPath.row == 4 {
                     let viewcontroller = ContactUsVC()

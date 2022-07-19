@@ -79,6 +79,10 @@ class API {
 
         
     }
+    
+    struct UrlName {
+        static let aboutUs = "https://dharmani.com/WalkIns/"
+    }
 
     
 

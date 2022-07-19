@@ -48,7 +48,7 @@ class MapController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard let coordinate = LocationManager.shared.currentLocation?.coordinate else { return }
-        self.mapView.setRegion(lat: coordinate.latitude, lng: coordinate.longitude, zoom: 500, animated: true)
+        self.mapView.setRegion(lat: coordinate.latitude, lng: coordinate.longitude, zoom: 1500, animated: true)
         
     }
     
@@ -139,7 +139,7 @@ class MapController: UIViewController {
     
     @IBAction func zoomCurrentLocationAction(_ sender: UIButton) {
         let location = self.mapView.userLocation.coordinate
-        self.mapView.setRegion(location: location, zoom: 6000, animated: true)
+        self.mapView.setRegion(location: location, zoom: 4500, animated: true)
     }
     
 }
@@ -178,7 +178,7 @@ extension MapController: UITableViewDelegate {
         let height = self.locationSearchTable.frame.height
         self.locationSearchTable.transform = .init(scaleX: 0, y: height)
         print("placemark =========> \(coordinate)")
-        self.mapView.setRegion(lat: coordinate?.latitude ?? 0 , lng: coordinate?.longitude ?? 0, zoom: 5000, animated: true)
+        self.mapView.setRegion(lat: coordinate?.latitude ?? 0 , lng: coordinate?.longitude ?? 0, zoom: 4500, animated: true)
     }
     
 }

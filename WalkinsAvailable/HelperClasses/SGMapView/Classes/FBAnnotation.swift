@@ -84,7 +84,8 @@ class FBAnnotation : MKAnnotationView {
         
 //        rightButton.setImage(UIImage(named: "Drive"), for: .normal)
 //        rightButton.addTarget(self, action: #selector(navAction), for: .touchUpInside)
-        imageView.image = UIImage(named: "2")
+        
+        imageView.image = UIImage(named: "2") // update image for business
         imageView.frame = CGRect(origin: .zero, size: CGSize(width: 25, height: 25))
         self.leftCalloutAccessoryView = imageView
     }

@@ -78,8 +78,8 @@
                                 <constraint firstItem="FX7-bu-GRE" firstAttribute="leading" secondItem="e1t-nV-WmV" secondAttribute="leading" id="uyH-1C-xp1"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isz-5M-Zn8">
-                            <rect key="frame" x="0.0" y="110" width="78" height="40"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Service Provider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isz-5M-Zn8">
+                            <rect key="frame" x="0.0" y="110" width="185.5" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="jPU-t5-g4o"/>
                             </constraints>

@@ -152,19 +152,20 @@ struct UserDefaultsCustom {
 //        return .user
 //    }
     
-    static func getUserType(id: String) -> USER_TYPE? {
-        switch id {
-        case "1":
-            return .user
-        case "2":
-            return .business
-        case "3":
-            return .serviceProvider
-        default:
-            break
-        }
-        return nil
-    }
+    
+//    static func getUserType(id: String) -> USER_TYPE? {
+//        switch id {
+//        case "1":
+//            return .user
+//        case "2":
+//            return .business
+//        case "3":
+//            return .serviceProvider
+//        default:
+//            break
+//        }
+//        return nil
+//    }
     
     
     

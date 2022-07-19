@@ -96,7 +96,7 @@ class ServiceProviderEditProfile: UIViewController {
     
     func editScreen(isEditable: Bool) {
         if isEditable {
-            self.titleLabel.text = "Edit Artist Profile"
+            self.titleLabel.text = "Edit Service Provider Profile"
             self.editButton.isHidden = true
             self.editButton.isUserInteractionEnabled = false
             self.editProfileImgVw.isHidden = false
@@ -106,7 +106,7 @@ class ServiceProviderEditProfile: UIViewController {
             self.saveBtn.isHidden = false
             self.saveBtn.isUserInteractionEnabled = true
         } else {
-            self.titleLabel.text = "Artist Profile"
+            self.titleLabel.text = "Service Provider Profile"
             self.editButton.isHidden = false
             self.editButton.isUserInteractionEnabled = true
             self.editProfileImgVw.isHidden = true
