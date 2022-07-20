@@ -30,6 +30,10 @@ class EventDetail : Codable {
     var updatedAt : String?
     var image : String?
     var isFav : String?
+    
+    
+    var businessTypeId : String?
+    var distance : String?
 }
 
 // MARK: - FavUnFavModel

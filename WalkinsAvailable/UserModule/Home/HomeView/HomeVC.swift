@@ -73,6 +73,7 @@ extension HomeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mapVC = MapController()
+        mapVC.businessTypeId = Singleton.shared.categoryList?[indexPath.row].businessTypeId
         self.push(viewController: mapVC)
     }
     

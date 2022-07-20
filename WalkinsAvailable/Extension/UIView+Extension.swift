@@ -33,17 +33,17 @@ extension UIView {
     
     func addCornerBorderAndShadow(view: UIView, cornerRadius: CGFloat, shadowColor: UIColor, borderColor: UIColor, borderWidth: CGFloat) {
         // corner radius
-        view.layer.cornerRadius = cornerRadius
+        self.layer.cornerRadius = cornerRadius
 
         // border
-        view.layer.borderWidth = borderWidth
-        view.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
 
         // shadow
-        view.layer.shadowColor = shadowColor.cgColor
-        view.layer.shadowOffset = .zero
-        view.layer.shadowOpacity = 0.4
-        view.layer.shadowRadius = 4.0
+        self.layer.shadowColor = shadowColor.cgColor
+        self.layer.shadowOffset = .zero
+        self.layer.shadowOpacity = 0.4
+        self.layer.shadowRadius = 4.0
     }
     
 //    func roundCorners(topLeft: CGFloat = 0, topRight: CGFloat = 0, bottomLeft: CGFloat = 0, bottomRight: CGFloat = 0) {

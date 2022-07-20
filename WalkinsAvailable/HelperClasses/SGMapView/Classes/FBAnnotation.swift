@@ -14,15 +14,12 @@ import MapKit
 class FBAnnotation : MKAnnotationView {
     
     let titleLabel = UILabel()
-    let connectorLabel = UILabel()
-    let outputLabel = UILabel()
     let imageView = UIImageView()
-//    let rightButton: UIButton = UIButton(type: .detailDisclosure)
     
     var title: String? = ""
     var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
     var sgDelegate: SGMapViewDelegate?
-    var charger: ChargerData? {
+    var mapData: Any? {
         didSet {
             layoutSubviews()
         }
@@ -32,9 +29,9 @@ class FBAnnotation : MKAnnotationView {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
     }
 
-    init(charger: ChargerData?) {
+    init(data: Any?) {
         super.init(annotation: nil, reuseIdentifier: nil)
-        self.setChargerData(data: charger)
+        self.setChargerData(data: data)
     }
     
     init(value: (Double, Double)) {
@@ -52,12 +49,20 @@ class FBAnnotation : MKAnnotationView {
         super.init(coder: coder)
     }
     
-    func setChargerData(data: ChargerData?) {
-        self.charger = data
+    func setChargerData(data: Any?) {
+        self.mapData = data
         
-        let lat = charger?.lat ?? 0
-        let lng = charger?.lat ?? 0
-        self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        if let data = data as? BusinessData {
+            let lat = Double(data.latitude ?? "0") ?? 0.0
+            let lng = Double(data.longitude ?? "0") ?? 0.0
+            self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+            print("BusinessData lat lng \(self.coordinate)")
+        } else if let data = data as? EventDetail {
+            let lat = Double(data.latitude ?? "0") ?? 0.0
+            let lng = Double(data.longitude ?? "0") ?? 0.0
+            self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+            print("EventDetail lat lng \(self.coordinate)")
+        }
         
         self.setNeedsLayout()
         self.layoutIfNeeded()
@@ -66,28 +71,28 @@ class FBAnnotation : MKAnnotationView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        titleLabel.text = "test 1"//self.charger?.publicName
-        titleLabel.textAlignment = .justified
-        
-        connectorLabel.text = "test 2" //self.charger?.publicName
-        connectorLabel.textAlignment = .justified
-        
-        outputLabel.textAlignment = .justified
-        outputLabel.text = "test 3" //self.charger?.publicName
-        
-        let stack = UIStackView(arrangedSubviews: [titleLabel, connectorLabel, outputLabel])
-        stack.spacing = 2.0
-        stack.axis = .vertical
-        
-        self.detailCalloutAccessoryView = stack
-        self.detailCalloutAccessoryView?.addTarget(target: self, action: #selector(targetAction))
-        
-//        rightButton.setImage(UIImage(named: "Drive"), for: .normal)
-//        rightButton.addTarget(self, action: #selector(navAction), for: .touchUpInside)
-        
-        imageView.image = UIImage(named: "2") // update image for business
-        imageView.frame = CGRect(origin: .zero, size: CGSize(width: 25, height: 25))
-        self.leftCalloutAccessoryView = imageView
+        if let data = self.mapData as? EventDetail {
+            titleLabel.text = data.eventName
+            titleLabel.textAlignment = .justified
+            let stack = UIStackView(arrangedSubviews: [titleLabel])
+            stack.spacing = 2.0
+            
+            self.detailCalloutAccessoryView = stack
+            self.detailCalloutAccessoryView?.addTarget(target: self, action: #selector(targetAction))
+            
+            imageView.setImage(url: data.image, placeHolder: UIImage(named: "2")) 
+            imageView.frame = CGRect(origin: .zero, size: CGSize(width: 25, height: 25))
+            self.leftCalloutAccessoryView = imageView
+        } else {
+            self.addTarget(target: self, action: #selector(self.pinTapAction))
+        }
+    }
+    
+    @objc func pinTapAction() {
+        print("pinTapAction performas")
+        if let data = self.mapData as? BusinessData {
+            self.sgDelegate?.didTapOnPin(card: self, data: data)
+        }
     }
     
     @objc func navAction() {
@@ -97,7 +102,9 @@ class FBAnnotation : MKAnnotationView {
     
     @objc func targetAction() {
         print("targetAction performas")
-        self.sgDelegate?.didSelect(card: self)
+        if let data = self.mapData as? EventDetail {
+            self.sgDelegate?.didSelect(card: self, data: data)
+        }
     }
     
     func sameCoordinate(_ coordinate: CLLocationCoordinate2D) -> Bool {

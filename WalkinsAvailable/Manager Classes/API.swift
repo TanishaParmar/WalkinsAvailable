@@ -46,6 +46,7 @@ class API {
         static let getAllNotificationByRole            = "webservice/user/getAllNotificationByRole.php"
         static let acceptRejectShopRequest             = "webservice/user/acceptRejectShopRequest.php"
         static let getNotificationBadgeCount           = "webservice/user/getNotificationBadgeCount.php"
+        static let getBusinessAndEventByLocation       = "webservice/user/getBusinessAndEventByLocation.php"
         static let logOut                              = "webservice/user/logout.php"
         
         

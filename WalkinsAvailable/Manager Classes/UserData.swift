@@ -109,13 +109,18 @@ class BusinessData: Codable {
     var updatedAt: String?
     var disable: String?
     
-
     var name : String?
     var userToken : String?
     var typeId : String?
     var address : String?
     var description : String?
-
+    
+    var distance: String?
+    var eventDetail : [String]?
+    var isFav : String?
+    var businessAvailability : String?
+    var artistsList : [ArtistData]?
+    
 }
 
 

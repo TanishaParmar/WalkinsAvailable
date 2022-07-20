@@ -131,11 +131,11 @@ class TabBarVC: ESTabBarController {
             
             v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Chat", image: UIImage(named: "chat"), selectedImage: UIImage(named: "chatSelected"))
             v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Favourites", image:UIImage(named: "fav"), selectedImage: UIImage(named: "favSelected"))
-                let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
+            let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
             v3.tabBarItem = ESTabBarItem(ExampleIrregularityContentView(), title: nil, image: image, selectedImage: image)
             v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Notifications", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
             let img = UIImage(named: "placeHolder")?.withRenderingMode(.alwaysOriginal)
-
+            
             let tabItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "  Account", image: img, selectedImage: img)
             tabItem.contentView?.imageView.layer.cornerRadius = 12
             tabItem.contentView?.imageView.clipsToBounds = true
@@ -149,8 +149,6 @@ class TabBarVC: ESTabBarController {
                     DispatchQueue.main.async {
                         if !(Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) {
                             //                tabItem.badgeColor = (Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0") ? UIColor.green : UIColor.red
-                            tabItem.badgeValue = ""
-                        } else {
                             tabItem.badgeValue = "" // Singleton.shared.notificationBadgeCount
                         }
                     }
@@ -170,7 +168,7 @@ class TabBarVC: ESTabBarController {
             
             v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Event", image: UIImage(named: "eventTab"), selectedImage: UIImage(named: "t"))
             v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Favourites", image:UIImage(named: "fav"), selectedImage: UIImage(named: "favSelected"))
-                let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
+            let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
             v3.tabBarItem = ESTabBarItem(ExampleIrregularityContentView(), title: nil, image: image, selectedImage: image)
             v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Notifications", image: UIImage(named: "nt"), selectedImage: UIImage(named: "ntSelected"))
             let img = UIImage(named: "placeHolder")?.withRenderingMode(.alwaysOriginal)
@@ -189,17 +187,12 @@ class TabBarVC: ESTabBarController {
                     DispatchQueue.main.async {
                         if !(Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) {
                             tabItem.badgeValue = ""
-                        } else {
-                            tabItem.badgeValue = "" // Singleton.shared.notificationBadgeCount
                         }
                     }
                 }
-                
                 if !(Singleton.shared.notificationBadgeCount == "" || Singleton.shared.notificationBadgeCount == "0" || Singleton.shared.notificationBadgeCount == nil) {
                     tabItem.badgeValue = ""
                 }
-                
-                
             }
             
             let profileImg = UserDefaultsCustom.getBusinessData()?.image
@@ -212,7 +205,7 @@ class TabBarVC: ESTabBarController {
             let v5 = AccountVC()
             v1.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Event", image: UIImage(named: "eventTab"), selectedImage: UIImage(named: "t"))
             v2.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Chat", image:UIImage(named: "chat"), selectedImage: UIImage(named: "chatSelected"))
-                let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
+            let image = #imageLiteral(resourceName: "w").withRenderingMode(.alwaysOriginal)
             v3.tabBarItem = ESTabBarItem(ExampleIrregularityContentView(), title: nil, image: image, selectedImage: image)
             v4.tabBarItem = ESTabBarItem(ExampleIrregularityBasicContentView(), title: "Shops", image: UIImage(named: "shop"), selectedImage: UIImage(named: "shop"))
             let img = UIImage(named: "placeHolder")?.withRenderingMode(.alwaysOriginal)
@@ -225,8 +218,6 @@ class TabBarVC: ESTabBarController {
             self.selectedIndex = 2
             let profileImg = UserDefaultsCustom.getArtistData()?.image
             self.getImage(tabItem: v5.tabBarItem as! ESTabBarItem, imageString: profileImg)
-//        case .none:
-//            break
         }
         self.tabBar.items?.enumerated().forEach({ index, item in
             item.tag = index

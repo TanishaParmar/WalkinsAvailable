@@ -63,7 +63,6 @@ class SignUpBusinessProfile: SocialLoginVC {
     
     
     //    MARK: STORYBOARD_UPDATE
-    
     func uiUpdate() {
         self.businessTF.delegate = self
         self.businessTypeTF.delegate = self

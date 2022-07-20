@@ -1,22 +1,25 @@
 //
 //  MapController.swift
-//  CarCharger
+//  WalkinsAvailable
 //
-//  Created by hitesh on 01/02/21.
+//  Created by MyMac on 7/5/22.
 //
+
 
 import UIKit
 import MapKit
 
 class MapController: UIViewController {
-
+    
     @IBOutlet weak var locationSearchBar: LocationSearchBar!
     @IBOutlet weak var mapView: SGMapView!
     @IBOutlet weak var locationSearchTable: LocationSearchTable!
     @IBOutlet weak var stackView: UIStackView!
     
-    var chargers: [ChargerData] = []
-
+    var mapData: [MapData] = []
+    var businessEventResponse = BusinessEventByLocationResponseModel()
+    var businessTypeId: String?
+    
     init() {
         super.init(nibName: "MapController", bundle: nil)
         self.hidesBottomBarWhenPushed = false
@@ -27,7 +30,7 @@ class MapController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        self.setMapViewController()
+        super.viewDidLayoutSubviews()
     }
     
     override func viewDidLoad() {
@@ -43,19 +46,50 @@ class MapController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        hitBusinessEventListApi()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard let coordinate = LocationManager.shared.currentLocation?.coordinate else { return }
         self.mapView.setRegion(lat: coordinate.latitude, lng: coordinate.longitude, zoom: 1500, animated: true)
-        
     }
     
-    func setMapViewController() {
-        
-        setMapView()
+    
+    func generatingArtistHomeParameters() -> [String:Any] {
+        let currentLoc = LocationManager.shared.currentLocation?.coordinate
+        var params : [String:Any] = [:]
+        params["businessTypeId"] = businessTypeId ?? ""
+        params["search"] = ""
+        params["latitude"] = currentLoc?.latitude
+        params["longitude"] = currentLoc?.longitude
+
+        debugPrint("params data ** \(params)")
+        return params
     }
+    
+    
+    func hitBusinessEventListApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.getBusinessAndEventByLocation, params: generatingArtistHomeParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            DispatchQueue.main.async {
+                if succeeded {
+                    if let response = DataDecoder.decodeData(data, type: BusinessEventByLocationResponseModel.self) {
+                        print(response.allEvents?.count)
+                        print(response.allBusinesses?.count)
+                        self.businessEventResponse = response
+                        self.setMapView(businesses: response.allBusinesses ?? [], events: response.allEvents ?? [])
+                    }
+                } else {
+                    if let msg = response["message"] as? String {
+                        Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                    }
+                }
+            }
+        }
+    }
+    
     
     func setTableView() {
         let height = self.locationSearchTable.frame.height
@@ -112,21 +146,12 @@ class MapController: UIViewController {
         self.locationSearchTable.setPlaces(places: places)
     }
     
-    private func setMapView() {
-//        let locations = chargers?.map({FBAnnotation(charger: $0)}) ?? []
-        let array:[(Double, Double)] = [
-            (30.7333, 76.7794),
-            (30.7300, 76.7700),
-            (30.7400, 76.7600),
-            (30.7500, 76.7650),
-            (40.9006, 174.8860),
-            (-36.848461,174.763336),
-            (-38.685692,176.070206),
-            (-41.209164,174.908051),
-            (-37.683334,176.166672),
-            (30.70986938,76.69013925)
-        ]
-        let locations = array.map({FBAnnotation(value: $0)})
+    private func setMapView(businesses: [BusinessData], events: [EventDetail]) {
+        var array = [Any]()
+        array.append(contentsOf: businesses)
+        array.append(contentsOf: events)
+        
+        let locations = array.map({FBAnnotation(data: $0)})
         
         self.mapView.setPinLocations(locations: locations)
         self.mapView.setNeedsLayout()
@@ -139,24 +164,33 @@ class MapController: UIViewController {
     
     @IBAction func zoomCurrentLocationAction(_ sender: UIButton) {
         let location = self.mapView.userLocation.coordinate
-        self.mapView.setRegion(location: location, zoom: 4500, animated: true)
+        self.mapView.setRegion(location: location, zoom: 4000, animated: true)
     }
     
 }
 
 
 extension MapController: SGMapViewDelegate {
-    func didSelect(card: FBAnnotation) {
-        print("didselect \(card.charger)")
+    
+    func didTapOnPin(card: FBAnnotation, data: BusinessData) {
+        print("did tap on pin action")
         let controller = LocationDetailVC()
+        controller.modalPresentationStyle = .overFullScreen
+        controller.data = data
         controller.parentVC = self
         self.navigationController?.present(controller, animated: true, completion: nil)
     }
     
+    func didSelect(card: FBAnnotation, data: EventDetail) {
+        print("didselect \(card.mapData)")
+        let controller = EventDetailVC()
+        controller.isFromEventList = true
+        controller.eventId = data.eventId
+        self.push(viewController: controller)
+    }
+    
     func didTapNavigation(card: FBAnnotation) {
-        
-        let data = card.charger
-        
+        let data = card.mapData
         let from = self.mapView.userLocation.coordinate
         let lat = card.coordinate.latitude
         let lng = card.coordinate.longitude
@@ -180,5 +214,4 @@ extension MapController: UITableViewDelegate {
         print("placemark =========> \(coordinate)")
         self.mapView.setRegion(lat: coordinate?.latitude ?? 0 , lng: coordinate?.longitude ?? 0, zoom: 4500, animated: true)
     }
-    
 }

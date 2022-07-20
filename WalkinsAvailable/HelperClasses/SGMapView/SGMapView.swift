@@ -9,9 +9,11 @@ import UIKit
 import MapKit
 
 protocol SGMapViewDelegate :NSObjectProtocol {
-    func didSelect(card: FBAnnotation)
+    func didSelect(card: FBAnnotation, data: EventDetail)
     func didTapNavigation(card: FBAnnotation)
+    func didTapOnPin(card: FBAnnotation, data: BusinessData)
 }
+
 //LocationCardAnnotation
 class SGMapView: MKMapView {
     var clusteringManager: FBClusteringManager!
@@ -70,10 +72,8 @@ extension SGMapView: MKMapViewDelegate {
         let mapRectWidth = self.visibleMapRect.size.width
         let scale = mapBoundsWidth / mapRectWidth
         
-        let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(rect: self.visibleMapRect, withZoomScale: scale)
-        
+        let annotationArray = self.clusteringManager.clusteredAnnotationsWithinMapRect(rect: self.visibleMapRect, withZoomScale: scale)        
         self.clusteringManager.displayAnnotations(annotations: annotationArray, onMapView: self)
-        
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -100,12 +100,12 @@ extension SGMapView {
         if view == nil {
             view = self.dequeueReusableAnnotationView(withIdentifier: identifier, for: annotation)
         }
-        view?.image = UIImage(named: pinImage)
+        view?.image = UIImage(named: pinImage) // update image for business
         view?.canShowCallout = true
         if let index = array.firstIndex(where: {$0.coordinate.isLocation(annotation.coordinate)}) {
             if let fbAnnotaion = view as? FBAnnotation {
 //                fbAnnotaion.rightButton.tag = index
-                fbAnnotaion.setChargerData(data: array[index].charger)
+                fbAnnotaion.setChargerData(data: array[index].mapData)
                 fbAnnotaion.sgDelegate = self.sgDelegate
             }
         }
@@ -134,7 +134,14 @@ extension SGMapView {
     @objc func selectAction(_ gesture: UITapGestureRecognizer) {
         let tag = gesture.view?.tag ?? 0
         print("navAction \(tag)")
-        self.sgDelegate?.didSelect(card: array[tag])
+        self.sgDelegate?.didSelect(card: array[tag], data: EventDetail())
+    }
+    
+    
+    @objc func selectPinTapAction(_ gesture: UITapGestureRecognizer) {
+        let tag = gesture.view?.tag ?? 0
+        print("navAction \(tag)")
+        self.sgDelegate?.didTapOnPin(card: array[tag], data: BusinessData())
     }
     
 }

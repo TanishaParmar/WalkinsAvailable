@@ -137,6 +137,8 @@
 		1F112BDD2861D00D0008FE19 /* ArtistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F112BDC2861D00D0008FE19 /* ArtistData.swift */; };
 		1F133041286991CB000688A6 /* GoogleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F133040286991CB000688A6 /* GoogleManager.swift */; };
 		1F1330442869D1FC000688A6 /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1330432869D1FC000688A6 /* CategoryListModel.swift */; };
+		1F15CE892887E59F0013DED1 /* BusinessEventByLocationResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15CE882887E59F0013DED1 /* BusinessEventByLocationResponseModel.swift */; };
+		1F15CE8C288831FC0013DED1 /* PresentableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F15CE8B288831FC0013DED1 /* PresentableController.swift */; };
 		1F18D6802862EF2400C1922A /* CustomDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F18D67B2862EF2400C1922A /* CustomDatePicker.xib */; };
 		1F18D6812862EF2400C1922A /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D67C2862EF2400C1922A /* CustomDatePicker.swift */; };
 		1F18D6822862EF2400C1922A /* CustomPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18D67E2862EF2400C1922A /* CustomPickerController.swift */; };
@@ -401,6 +403,8 @@
 		1F112BDC2861D00D0008FE19 /* ArtistData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistData.swift; sourceTree = "<group>"; };
 		1F133040286991CB000688A6 /* GoogleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleManager.swift; sourceTree = "<group>"; };
 		1F1330432869D1FC000688A6 /* CategoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
+		1F15CE882887E59F0013DED1 /* BusinessEventByLocationResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessEventByLocationResponseModel.swift; sourceTree = "<group>"; };
+		1F15CE8B288831FC0013DED1 /* PresentableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentableController.swift; sourceTree = "<group>"; };
 		1F18D67B2862EF2400C1922A /* CustomDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePicker.xib; sourceTree = "<group>"; };
 		1F18D67C2862EF2400C1922A /* CustomDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		1F18D67E2862EF2400C1922A /* CustomPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerController.swift; sourceTree = "<group>"; };
@@ -646,6 +650,7 @@
 		1869765D281A5D6300F208BD /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				1F15CE872887E5890013DED1 /* ResponseModel */,
 				18697662281A68A800F208BD /* MapController.swift */,
 				18697663281A68A800F208BD /* MapController.xib */,
 				1869767A281A6AF600F208BD /* LocationSearchBar.swift */,
@@ -1192,6 +1197,22 @@
 			path = CategoryListModel;
 			sourceTree = "<group>";
 		};
+		1F15CE872887E5890013DED1 /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				1F15CE882887E59F0013DED1 /* BusinessEventByLocationResponseModel.swift */,
+			);
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
+		1F15CE8A288831EA0013DED1 /* PresentableController */ = {
+			isa = PBXGroup;
+			children = (
+				1F15CE8B288831FC0013DED1 /* PresentableController.swift */,
+			);
+			path = PresentableController;
+			sourceTree = "<group>";
+		};
 		1F18D67A2862EF2400C1922A /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1473,6 +1494,7 @@
 		1F39249F27F84AAD000F08F5 /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				1F15CE8A288831EA0013DED1 /* PresentableController */,
 				1F7C71CE2865F9B0006633D4 /* SocialLogin */,
 				1F18D67D2862EF2400C1922A /* CustomPickerController */,
 				1F18D67A2862EF2400C1922A /* DatePicker */,
@@ -2170,6 +2192,7 @@
 				18D620CA2824E7CA00BE9C95 /* BusinessComplaintDetailVC.swift in Sources */,
 				1895B973281FD14D00842DD5 /* EventVC.swift in Sources */,
 				1F422EEC27FC20E400877618 /* AccountVC.swift in Sources */,
+				1F15CE8C288831FC0013DED1 /* PresentableController.swift in Sources */,
 				1F1CBA0127FC6E8F007D9244 /* FavouriteListTVC.swift in Sources */,
 				1869767B281A6AF600F208BD /* LocationSearchBar.swift in Sources */,
 				189C9624282260B6004B99EF /* EventCreateVC.swift in Sources */,
@@ -2194,6 +2217,7 @@
 				1F8F6558285712A20036593D /* API.swift in Sources */,
 				18B4D433281BAEA7005C0816 /* ComplaintViewVC.swift in Sources */,
 				1F68261A27FD7DDD00FFB4DA /* EditProfileVC.swift in Sources */,
+				1F15CE892887E59F0013DED1 /* BusinessEventByLocationResponseModel.swift in Sources */,
 				18697689281A722200F208BD /* UIViewController+Custom.swift in Sources */,
 				1F4CB089288539CD00C3AD2C /* ArtistImagesGalleryVC.swift in Sources */,
 				1F4CB09E2885402B00C3AD2C /* ImageViewerTheme.swift in Sources */,

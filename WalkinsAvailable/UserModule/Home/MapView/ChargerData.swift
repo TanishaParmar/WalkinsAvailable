@@ -1,5 +1,5 @@
 //
-//  ChargerData.swift
+//  MapData.swift
 //  WalkinsAvailable
 //
 //  Created by apple on 28/04/22.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-
+ 
 // MARK: - Add Charger Data
-class ChargerData: Codable {
+class MapData: Codable {      /////ChargerData
     var __v: Int?
     var _id, type, publicName: String?
     var countryCode: String? = "+1"
