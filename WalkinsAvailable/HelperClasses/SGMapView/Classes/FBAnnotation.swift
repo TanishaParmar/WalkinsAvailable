@@ -9,9 +9,10 @@
 import Foundation
 import CoreLocation
 import MapKit
+import Kingfisher
 
 
-class FBAnnotation : MKAnnotationView {
+class FBAnnotation: MKAnnotationView {
     
     let titleLabel = UILabel()
     let imageView = UIImageView()
@@ -57,16 +58,45 @@ class FBAnnotation : MKAnnotationView {
             let lng = Double(data.longitude ?? "0") ?? 0.0
             self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
             print("BusinessData lat lng \(self.coordinate)")
+            self.setPinImageView(url: data.image ?? "")
         } else if let data = data as? EventDetail {
             let lat = Double(data.latitude ?? "0") ?? 0.0
             let lng = Double(data.longitude ?? "0") ?? 0.0
             self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
             print("EventDetail lat lng \(self.coordinate)")
+            self.setPinImageView(url: data.image ?? "")
         }
         
         self.setNeedsLayout()
         self.layoutIfNeeded()
     }
+    
+    
+    func setPinImageView(url originalURL: String) { // set background images
+        self.image = UIImage(named: "1")
+        if let image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: originalURL) {
+            self.image = MapPinImage.drawImageWithProfilePic(pp: image, image: UIImage(named: "1")!)
+        } else {
+            if let urlStr = originalURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                let url = URL(string: urlStr) {
+                DispatchQueue.global().async {
+                    if let data = try? Data(contentsOf: url)  {
+                        DispatchQueue.main.async {
+                            let pp = UIImage(data: data)!
+                            KingfisherManager.shared.cache.store(pp, forKey: originalURL)
+                            self.image = MapPinImage.drawImageWithProfilePic(pp: pp, image: UIImage(named: "1")!)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.image = UIImage(named: "1")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()

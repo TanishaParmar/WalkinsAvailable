@@ -47,6 +47,7 @@ class API {
         static let acceptRejectShopRequest             = "webservice/user/acceptRejectShopRequest.php"
         static let getNotificationBadgeCount           = "webservice/user/getNotificationBadgeCount.php"
         static let getBusinessAndEventByLocation       = "webservice/user/getBusinessAndEventByLocation.php"
+        static let addComplaint                        = "webservice/user/addComplaint.php"
         static let logOut                              = "webservice/user/logout.php"
         
         
@@ -63,7 +64,9 @@ class API {
         static let addArtist                           = "webservice/business/addArtist.php"
         static let artistBySearch                      = "webservice/business/artistBySearch.php"
         static let viewArtistDetail                    = "webservice/business/viewArtistDetail.php"
-
+        static let businessComplaintList               = "webservice/business/businessComplaintList.php"
+        static let businessComplaintReply              = "webservice/business/businessComplaintReply.php"
+        
         
         // Artist Flow Api's
         static let artistGoogleLogIn                   = "webservice/artist/googleLogin.php"

@@ -251,6 +251,7 @@
 		1F79106828098A5700102EA6 /* ComplaintsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79106628098A5700102EA6 /* ComplaintsVC.swift */; };
 		1F79106928098A5700102EA6 /* ComplaintsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F79106728098A5700102EA6 /* ComplaintsVC.xib */; };
 		1F7C71D02865F9C0006633D4 /* SocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C71CF2865F9C0006633D4 /* SocialLogin.swift */; };
+		1F8CABA628898A9600B3C628 /* MapPinImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8CABA528898A9600B3C628 /* MapPinImage.swift */; };
 		1F8F6543285708870036593D /* LogInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6542285708870036593D /* LogInModel.swift */; };
 		1F8F6552285712A20036593D /* UserDefaultsCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6545285712A20036593D /* UserDefaultsCustom.swift */; };
 		1F8F6553285712A20036593D /* Socketton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6546285712A20036593D /* Socketton.swift */; };
@@ -269,6 +270,7 @@
 		1F8F6566285751DF0036593D /* SignUpAsUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F6565285751DF0036593D /* SignUpAsUserModel.swift */; };
 		1F93C68C287EE57800E1830A /* ServiceProviderNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93C68B287EE57800E1830A /* ServiceProviderNotificationResponse.swift */; };
 		1F9B00F4287023B6008A4FE1 /* EventDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9B00F3287023B6008A4FE1 /* EventDetailModel.swift */; };
+		1FCEBC432889467C0069DCCC /* BusinessComplaintListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEBC422889467C0069DCCC /* BusinessComplaintListModel.swift */; };
 		B2A379552B5F9D1E1AD4AC52 /* Pods_WalkinsAvailable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8167BD75B3727D6B7E2CDE44 /* Pods_WalkinsAvailable.framework */; };
 /* End PBXBuildFile section */
 
@@ -520,6 +522,7 @@
 		1F79106628098A5700102EA6 /* ComplaintsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintsVC.swift; sourceTree = "<group>"; };
 		1F79106728098A5700102EA6 /* ComplaintsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComplaintsVC.xib; sourceTree = "<group>"; };
 		1F7C71CF2865F9C0006633D4 /* SocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin.swift; sourceTree = "<group>"; };
+		1F8CABA528898A9600B3C628 /* MapPinImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinImage.swift; sourceTree = "<group>"; };
 		1F8F6542285708870036593D /* LogInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModel.swift; sourceTree = "<group>"; };
 		1F8F6545285712A20036593D /* UserDefaultsCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsCustom.swift; sourceTree = "<group>"; };
 		1F8F6546285712A20036593D /* Socketton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Socketton.swift; sourceTree = "<group>"; };
@@ -538,6 +541,7 @@
 		1F8F6565285751DF0036593D /* SignUpAsUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAsUserModel.swift; sourceTree = "<group>"; };
 		1F93C68B287EE57800E1830A /* ServiceProviderNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviderNotificationResponse.swift; sourceTree = "<group>"; };
 		1F9B00F3287023B6008A4FE1 /* EventDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailModel.swift; sourceTree = "<group>"; };
+		1FCEBC422889467C0069DCCC /* BusinessComplaintListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessComplaintListModel.swift; sourceTree = "<group>"; };
 		62FEC1905C4F5ABD6AF712CC /* Pods-WalkinsAvailable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkinsAvailable.release.xcconfig"; path = "Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable.release.xcconfig"; sourceTree = "<group>"; };
 		8167BD75B3727D6B7E2CDE44 /* Pods_WalkinsAvailable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WalkinsAvailable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5123D836EA82DD3B54591CD /* Pods-WalkinsAvailable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WalkinsAvailable.debug.xcconfig"; path = "Target Support Files/Pods-WalkinsAvailable/Pods-WalkinsAvailable.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1501,6 +1505,7 @@
 				18697666281A698A00F208BD /* SGMapView */,
 				1F422EFB27FC4F8E00877618 /* ESTabController */,
 				1F3924A027F851DA000F08F5 /* AppHelperMethods.swift */,
+				1F8CABA528898A9600B3C628 /* MapPinImage.swift */,
 				1F61ABF8285B454900A8F826 /* ActivityIndicator.swift */,
 			);
 			path = HelperClasses;
@@ -1870,6 +1875,7 @@
 		1F7910642809851900102EA6 /* Complaints */ = {
 			isa = PBXGroup;
 			children = (
+				1FCEBC412889466C0069DCCC /* BusinessComplaintListModel */,
 				189FB2B42819173E00C1EC42 /* ComplaintsDetailView */,
 				1F7910652809893B00102EA6 /* ComplaintsView */,
 			);
@@ -1955,6 +1961,14 @@
 				1F9B00F3287023B6008A4FE1 /* EventDetailModel.swift */,
 			);
 			path = EventDetailModel;
+			sourceTree = "<group>";
+		};
+		1FCEBC412889466C0069DCCC /* BusinessComplaintListModel */ = {
+			isa = PBXGroup;
+			children = (
+				1FCEBC422889467C0069DCCC /* BusinessComplaintListModel.swift */,
+			);
+			path = BusinessComplaintListModel;
 			sourceTree = "<group>";
 		};
 		7FEED01CAA115568416D77E3 /* Frameworks */ = {
@@ -2289,6 +2303,7 @@
 				1F4CB09C2885402B00C3AD2C /* UIView_Extensions.swift in Sources */,
 				1F4CB0A4288540E400C3AD2C /* UIImageView+Extension.swift in Sources */,
 				1F361095286C3CC10017F8B8 /* LocationCell.swift in Sources */,
+				1FCEBC432889467C0069DCCC /* BusinessComplaintListModel.swift in Sources */,
 				1F8F655A285712A20036593D /* Singleton.swift in Sources */,
 				18EFEAB628214F57009ADBB4 /* AvailbilityVC.swift in Sources */,
 				18697685281A6EB800F208BD /* LocationManager.swift in Sources */,
@@ -2308,6 +2323,7 @@
 				18E379CA2823E4310029C01A /* GalleryAlbumTableView.swift in Sources */,
 				18E698372825460B00644838 /* BusinessEventVC.swift in Sources */,
 				1F361090286C3CC10017F8B8 /* LocationController.swift in Sources */,
+				1F8CABA628898A9600B3C628 /* MapPinImage.swift in Sources */,
 				1F68260F27FD641E00FFB4DA /* NotificationListTVC.swift in Sources */,
 				189B7DBD28239413009AC87C /* AddArtistListCell.swift in Sources */,
 				1F8F655C285712A20036593D /* UserData.swift in Sources */,
@@ -2507,7 +2523,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2545,7 +2561,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;

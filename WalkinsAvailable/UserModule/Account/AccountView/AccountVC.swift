@@ -430,8 +430,6 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
                         UIApplication.shared.open(url)
                     }
-
-
                 } else if indexPath.row == 5 {
                     let contactVC = ContactUsVC()
                     contactVC.data = self.data
@@ -495,6 +493,7 @@ extension AccountVC: UITableViewDataSource, UITableViewDelegate {
                     self.navigationController?.pushViewController(viewcontroller, animated: true)
                 } else if indexPath.row == 6 {
                     let viewcontroller = ComplaintsVC()
+                    viewcontroller.userType = self.userType
                     self.navigationController?.pushViewController(viewcontroller, animated: true)
                 } else if indexPath.row == 7 {
                     let viewcontroller = ChangePasswordVC()

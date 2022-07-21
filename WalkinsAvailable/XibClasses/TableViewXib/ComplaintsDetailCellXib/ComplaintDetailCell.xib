@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,25 +33,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="416" height="207"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O9b-Fs-CBB">
-                                        <rect key="frame" x="0.0" y="0.0" width="416" height="73"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="416" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FpZ-rU-yyQ">
-                                                <rect key="frame" x="10" y="0.0" width="396" height="73"/>
+                                                <rect key="frame" x="10" y="0.0" width="396" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AgC-j3-RBz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="73"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="60"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iY9-eq-9XG">
-                                                                <rect key="frame" x="0.0" y="0.0" width="198" height="73"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="198" height="60"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxE-84-cJs">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="36.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allen Khair" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crZ-fm-GlM">
-                                                                        <rect key="frame" x="0.0" y="36.5" width="198" height="36.5"/>
+                                                                        <rect key="frame" x="0.0" y="30" width="198" height="30"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -68,19 +68,19 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mku-1j-IVx">
-                                                        <rect key="frame" x="198" y="0.0" width="198" height="73"/>
+                                                        <rect key="frame" x="198" y="0.0" width="198" height="60"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3WX-9I-GuJ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="198" height="73"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="198" height="60"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lb4-Kx-Awf">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="36.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="198" height="30"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair Master" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZz-43-kOc">
-                                                                        <rect key="frame" x="0.0" y="36.5" width="198" height="36.5"/>
+                                                                        <rect key="frame" x="0.0" y="30" width="198" height="30"/>
                                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="16"/>
                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -101,7 +101,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="73" id="1zn-dT-EHi"/>
+                                            <constraint firstAttribute="height" constant="60" id="1zn-dT-EHi"/>
                                             <constraint firstItem="FpZ-rU-yyQ" firstAttribute="top" secondItem="O9b-Fs-CBB" secondAttribute="top" id="6Qk-WY-DqL"/>
                                             <constraint firstAttribute="trailing" secondItem="FpZ-rU-yyQ" secondAttribute="trailing" constant="10" id="J7y-hX-AJJ"/>
                                             <constraint firstItem="FpZ-rU-yyQ" firstAttribute="leading" secondItem="O9b-Fs-CBB" secondAttribute="leading" constant="10" id="Ur4-a8-7tG"/>
@@ -109,10 +109,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ldz-1i-KRh">
-                                        <rect key="frame" x="0.0" y="83" width="416" height="74"/>
+                                        <rect key="frame" x="0.0" y="70" width="416" height="87"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OGG-mp-egr">
-                                                <rect key="frame" x="10" y="0.0" width="396" height="74"/>
+                                                <rect key="frame" x="10" y="0.0" width="396" height="87"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoL-nc-KM1">
                                                         <rect key="frame" x="0.0" y="0.0" width="396" height="20.5"/>
@@ -124,7 +124,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sit-WO-0Cd">
-                                                        <rect key="frame" x="0.0" y="20.5" width="396" height="53.5"/>
+                                                        <rect key="frame" x="0.0" y="20.5" width="396" height="66.5"/>
                                                         <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. ... et Malorum" by Cicero are also reproduced in their exact original form,</string>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

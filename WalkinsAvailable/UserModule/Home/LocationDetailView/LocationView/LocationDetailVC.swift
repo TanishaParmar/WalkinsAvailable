@@ -23,6 +23,7 @@ class LocationDetailVC: PresentableController {
     @IBOutlet weak var locationDescriptionLbl: UILabel!
     @IBOutlet weak var locationStatusLbl: UILabel!
     @IBOutlet weak var waitingTimeLbl: UILabel!
+    @IBOutlet weak var noArtistLabel: UILabel!
     @IBOutlet weak var artistCollectionView: UICollectionView!
     @IBOutlet weak var locationDetailView: UIView!
     
@@ -52,34 +53,41 @@ class LocationDetailVC: PresentableController {
     }
     
     func uiUpdate() {
-        self.businessName.text = self.data.businessName
-        self.locationNameLbl.text = self.data.businessAddress
+//        self.businessName.text = self.data.businessName
+        self.locationNameLbl.text = self.data.businessName
         self.locationDescriptionLbl.text = self.data.businessDescription
-        self.locationAddressLbl.text = self.data.distance
+        self.locationAddressLbl.text = self.data.businessAddress
         self.locationStatusLbl.text = self.data.businessAvailability == "1" ? "Available" : "Unavailable"
         self.favUnfavButton.isSelected = self.data.isFav == "1"
         self.locationImgView.setImage(url: self.data.image, placeHolder: UIImage(named: ""))
         self.artistsList = self.data.artistsList ?? []
+        if artistsList.count > 0 {
+            artistCollectionView.isHidden = false
+            noArtistLabel.isHidden = true
+        } else {
+            artistCollectionView.isHidden = true
+            noArtistLabel.isHidden = false
+        }
         self.artistCollectionView.reloadData()
     }
 
     @IBAction func commentBtn(_ sender: UIButton) {
         self.dismiss(animated: true) {
             let controller = ComplaintViewVC()
+            controller.data = self.data
             self.parentVC?.present(controller, animated: true, completion: nil)
         }
-        
     }
     
     
     
     @IBAction func favUnfavButtonAction(_ sender: Any) {
-
+        favUnfavButton.isSelected = !favUnfavButton.isSelected
     }
     
 }
 
-extension LocationDetailVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+extension LocationDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.artistsList.count ?? 0
     }
@@ -94,12 +102,15 @@ extension LocationDetailVC: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.dismiss(animated: true) {
             let controller = ArtistProfileVC()
+            controller.artistId = self.artistsList[indexPath.row].artistId ?? ""
             self.parentVC?.navigationController?.pushViewController(controller, animated: true)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 90, height: 100)
+        let width = (collectionView.bounds.width / 5)
+        print(width)
+        return CGSize(width: width, height: width + 30)
     }
     
     
