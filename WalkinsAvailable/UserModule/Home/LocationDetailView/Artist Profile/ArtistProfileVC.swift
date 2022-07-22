@@ -8,14 +8,13 @@
 import UIKit
 
 class ArtistProfileVC: UIViewController {
-
-    var imgArr:[String] = ["img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4","img1","img2","img3","img4"]
     
 //    MARK: OUTLETS
     @IBOutlet weak var artistImgVw: UIImageView!
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var artistNameLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var favUnfavButton: UIButton!
     @IBOutlet weak var artistImgCollectionView: UICollectionView!
     
     var artistId = String()
@@ -51,6 +50,7 @@ class ArtistProfileVC: UIViewController {
     func setUIElements() {
         print("api response...")
         self.artistNameLbl.text = self.artistDetail.ownerName
+        self.favUnfavButton.isSelected = self.artistDetail.isFav == "1"
         let placeHolder = UIImage(named: "placeHolder")
         self.artistImgVw.setImage(url: self.artistDetail.image, placeHolder: placeHolder)
         artistImgCollectionView.reloadData()
@@ -60,7 +60,7 @@ class ArtistProfileVC: UIViewController {
     //MARK: hit Artist Detail Api
     func hitArtistDetailApi() {
         ActivityIndicator.sharedInstance.showActivityIndicator()
-        ApiHandler.updateProfile(apiName: API.Name.viewArtistDetail, params: ["artistId": self.artistId ?? ""]) { succeeded, response, data in
+        ApiHandler.updateProfile(apiName: API.Name.viewArtistDetail, params: ["artistId": self.artistId]) { succeeded, response, data in
             print("response data ** \(response)")
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             if succeeded {
@@ -77,6 +77,38 @@ class ArtistProfileVC: UIViewController {
             }
         }
     }
+    
+    
+    
+    func generatingFavnFavParameters() -> [String:Any] {
+        var params : [String:Any] = [:]
+        params["artistId"] = self.artistId
+        params["role"] = "3"
+        print(params)
+        return params
+    }
+    
+    
+    // MARK: Hit Fav Unfav API
+    func hitFavUnFavApi() {
+        ActivityIndicator.sharedInstance.showActivityIndicator()
+        ApiHandler.updateProfile(apiName: API.Name.favUnfavBusinessArtist, params: generatingFavnFavParameters()) { succeeded, response, data in
+            ActivityIndicator.sharedInstance.hideActivityIndicator()
+            if succeeded {
+                if let response = DataDecoder.decodeData(data, type: FavUnFavModel.self) {
+                    if let isFav = response.isFav {
+                        self.favUnfavButton.isSelected = isFav == "1"
+                    }
+                }
+                print(response)
+            } else {
+                if let msg = response["message"] as? String {
+                    Singleton.shared.showErrorMessage(error: msg, isError: .error)
+                }
+            }
+        }
+    }
+
 
     @IBAction func backBtn(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -88,7 +120,7 @@ class ArtistProfileVC: UIViewController {
     }
     
     @IBAction func favBtn(_ sender: UIButton) {
-        
+        hitFavUnFavApi()
     }
 }
 //extension ArtistProfileVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{

@@ -43,12 +43,15 @@ class API {
         static let appleLogIn                          = "webservice/user/appleLogin.php"
         static let facebookLogIn                       = "webservice/user/facebookLogin.php"
         static let favUnfavEvent                       = "webservice/user/favUnfavEvent.php"
+        static let favUnfavBusinessArtist              = "webservice/user/favUnfavBusinessArtist.php"
         static let getAllNotificationByRole            = "webservice/user/getAllNotificationByRole.php"
         static let acceptRejectShopRequest             = "webservice/user/acceptRejectShopRequest.php"
         static let getNotificationBadgeCount           = "webservice/user/getNotificationBadgeCount.php"
         static let getBusinessAndEventByLocation       = "webservice/user/getBusinessAndEventByLocation.php"
         static let addComplaint                        = "webservice/user/addComplaint.php"
+        static let userFavoriteList                    = "webservice/user/userFavoriteList.php"
         static let logOut                              = "webservice/user/logout.php"
+        
         
         
         // Buisness Flow Api's

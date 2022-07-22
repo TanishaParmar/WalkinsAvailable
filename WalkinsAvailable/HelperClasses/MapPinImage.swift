@@ -14,7 +14,7 @@ class MapPinImage: NSObject{
 
         let imgView = UIImageView(image: image)
         let picImgView = UIImageView(image: pp)
-        picImgView.frame = CGRect(x: 2, y: 2, width: 30, height: 30)
+        picImgView.frame = CGRect(x: 2, y: 2, width: 32, height: 32)
 
         imgView.addSubview(picImgView)
         picImgView.center.x = imgView.center.x

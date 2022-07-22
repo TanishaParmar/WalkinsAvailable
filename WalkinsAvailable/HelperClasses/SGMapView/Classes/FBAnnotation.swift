@@ -58,13 +58,14 @@ class FBAnnotation: MKAnnotationView {
             let lng = Double(data.longitude ?? "0") ?? 0.0
             self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
             print("BusinessData lat lng \(self.coordinate)")
-            self.setPinImageView(url: data.image ?? "")
+            
+            self.setPinImageView(url: data.image ?? "", backgroundImage: data.businessAvailability == "0" || data.businessAvailability == nil ? "locRed" : "locGreen")
         } else if let data = data as? EventDetail {
             let lat = Double(data.latitude ?? "0") ?? 0.0
             let lng = Double(data.longitude ?? "0") ?? 0.0
             self.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
             print("EventDetail lat lng \(self.coordinate)")
-            self.setPinImageView(url: data.image ?? "")
+            self.setPinImageView(url: data.image ?? "", backgroundImage: "locBlack")
         }
         
         self.setNeedsLayout()
@@ -72,10 +73,11 @@ class FBAnnotation: MKAnnotationView {
     }
     
     
-    func setPinImageView(url originalURL: String) { // set background images
-        self.image = UIImage(named: "1")
+    func setPinImageView(url originalURL: String, backgroundImage: String) { // set background images
+        self.image = UIImage(named: "locGreen")
         if let image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: originalURL) {
-            self.image = MapPinImage.drawImageWithProfilePic(pp: image, image: UIImage(named: "1")!)
+            let bgImage = UIImage(named: backgroundImage)
+            self.image = MapPinImage.drawImageWithProfilePic(pp: image, image: bgImage!)
         } else {
             if let urlStr = originalURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
                 let url = URL(string: urlStr) {
@@ -83,12 +85,13 @@ class FBAnnotation: MKAnnotationView {
                     if let data = try? Data(contentsOf: url)  {
                         DispatchQueue.main.async {
                             let pp = UIImage(data: data)!
+                            let bgImage = UIImage(named: backgroundImage)
                             KingfisherManager.shared.cache.store(pp, forKey: originalURL)
-                            self.image = MapPinImage.drawImageWithProfilePic(pp: pp, image: UIImage(named: "1")!)
+                            self.image = MapPinImage.drawImageWithProfilePic(pp: pp, image: bgImage!)
                         }
                     } else {
                         DispatchQueue.main.async {
-                            self.image = UIImage(named: "1")
+                            self.image = UIImage(named: "locGreen")
                         }
                     }
                 }

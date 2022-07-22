@@ -654,6 +654,7 @@
 		1869765D281A5D6300F208BD /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				1F25ECDA288ADC66003A379E /* MapTableViewCell */,
 				1F15CE872887E5890013DED1 /* ResponseModel */,
 				18697662281A68A800F208BD /* MapController.swift */,
 				18697663281A68A800F208BD /* MapController.xib */,
@@ -1266,6 +1267,13 @@
 				1F255924286ED37300804515 /* EventListModel.swift */,
 			);
 			path = EventsListModel;
+			sourceTree = "<group>";
+		};
+		1F25ECDA288ADC66003A379E /* MapTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapTableViewCell;
 			sourceTree = "<group>";
 		};
 		1F25F96D287D49FA0035E765 /* ArtistListing */ = {
@@ -2523,7 +2531,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;
@@ -2561,7 +2569,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalkinsAvailable/WalkinsAvailable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 6PFS82C7PP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WalkinsAvailable/Info.plist;

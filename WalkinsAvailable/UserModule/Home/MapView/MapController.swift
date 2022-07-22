@@ -11,14 +11,17 @@ import MapKit
 
 class MapController: UIViewController {
     
-    @IBOutlet weak var locationSearchBar: LocationSearchBar!
     @IBOutlet weak var mapView: SGMapView!
-    @IBOutlet weak var locationSearchTable: LocationSearchTable!
+    @IBOutlet weak var locationSearchTable: UITableView!
     @IBOutlet weak var stackView: UIStackView!
     
+    @IBOutlet weak var searchField: UITextField!
+    
     var mapData: [MapData] = []
-    var businessEventResponse = BusinessEventByLocationResponseModel()
+    var businessEventResponse: BusinessEventByLocationResponseModel?
     var businessTypeId: String?
+    var timer: Timer?
+    
     
     init() {
         super.init(nibName: "MapController", bundle: nil)
@@ -37,11 +40,10 @@ class MapController: UIViewController {
         super.viewDidLoad()
         self.mapView.setPinLocations(locations: [])
         self.setSearchAction()
-        self.setTableView()
         self.mapView.sgDelegate = self
         self.stackView.layer.cornerRadius = 12
-        
         self.stackView.clipsToBounds = true
+        self.setTableView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -56,11 +58,11 @@ class MapController: UIViewController {
     }
     
     
-    func generatingArtistHomeParameters() -> [String:Any] {
+    func generatingArtistHomeParameters(search: String) -> [String:Any] {
         let currentLoc = LocationManager.shared.currentLocation?.coordinate
         var params : [String:Any] = [:]
         params["businessTypeId"] = businessTypeId ?? ""
-        params["search"] = ""
+        params["search"] = search
         params["latitude"] = currentLoc?.latitude
         params["longitude"] = currentLoc?.longitude
 
@@ -69,17 +71,29 @@ class MapController: UIViewController {
     }
     
     
-    func hitBusinessEventListApi() {
-        ActivityIndicator.sharedInstance.showActivityIndicator()
-        ApiHandler.updateProfile(apiName: API.Name.getBusinessAndEventByLocation, params: generatingArtistHomeParameters()) { succeeded, response, data in
+    func hitBusinessEventListApi(search: String = "") {
+        if search.count > 0 {
+            let view = AnimatingView(height: 60, align: .center)
+            view.backgroundColor = .white
+            self.locationSearchTable.tableHeaderView = view
+        } else {
+            self.locationSearchTable.tableHeaderView = nil
+            ActivityIndicator.sharedInstance.showActivityIndicator()
+        }
+        ApiHandler.updateProfile(apiName: API.Name.getBusinessAndEventByLocation, params: generatingArtistHomeParameters(search: search)) { succeeded, response, data in
             ActivityIndicator.sharedInstance.hideActivityIndicator()
             DispatchQueue.main.async {
+                self.locationSearchTable.tableHeaderView = nil
                 if succeeded {
                     if let response = DataDecoder.decodeData(data, type: BusinessEventByLocationResponseModel.self) {
                         print(response.allEvents?.count)
                         print(response.allBusinesses?.count)
                         self.businessEventResponse = response
-                        self.setMapView(businesses: response.allBusinesses ?? [], events: response.allEvents ?? [])
+                        if search.count > 0 {
+                            self.locationSearchTable.reloadData()
+                        } else {
+                            self.setMapView(businesses: response.allBusinesses ?? [], events: response.allEvents ?? [])
+                        }
                     }
                 } else {
                     if let msg = response["message"] as? String {
@@ -95,55 +109,47 @@ class MapController: UIViewController {
         let height = self.locationSearchTable.frame.height
         self.locationSearchTable.transform = .init(scaleX: 0, y: height)
         self.locationSearchTable.backgroundColor = .clear
+        
         self.locationSearchTable.delegate = self
+        self.locationSearchTable.dataSource = self
+        self.locationSearchTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     func setSearchAction() {
-        locationSearchBar.interval = 0.35
-        locationSearchBar.returnKeyType = .default
-        locationSearchBar.layer.cornerRadius = 20
-        locationSearchBar.placeholder = "Search location"
-        locationSearchBar.setSearchBarBackground(color: .white)
-        locationSearchBar.barTintColor = UIColor.blue
-        locationSearchBar.tintColor = UIColor.blue
-        locationSearchBar.setActions {
-            DispatchQueue.main.async {
-                self.setTableData(places: [])
-            }
-        } searchResults: { (items) in
-            DispatchQueue.main.async {
-                self.setTableData(places: items)
-            }
-        } isSearching: { (isSearching) in
-            DispatchQueue.main.async {
-                if isSearching {
-                    let view = AnimatingView(height: 60, align: .center)
-                    view.backgroundColor = .white
-                    self.locationSearchTable.tableHeaderView = view
-                } else {
-                    self.locationSearchTable.tableHeaderView = nil
-                }
-            }
-        } searchButtonClicked: {
-            self.view.endEditing(true)
-            let height = self.locationSearchTable.frame.height
-            UIView.animate(withDuration: 0.25) {
-                self.locationSearchTable.transform = .init(scaleX: 0, y: height)
-            }
-        } searchBeginEditing: {
-            UIView.animate(withDuration: 0.25) {
-                self.locationSearchTable.transform = .identity
-            }
-        } searchEndEditing: {
-            let height = self.locationSearchTable.frame.height
-            UIView.animate(withDuration: 0.25) {
-                self.locationSearchTable.transform = .init(scaleX: 0, y: height)
-            }
-        }
-    }
-    
-    func setTableData(places: [Location]) {
-        self.locationSearchTable.setPlaces(places: places)
+//        locationSearchBar.setActions {
+//            DispatchQueue.main.async {
+//                self.setTableData(places: [])
+//            }
+//        } searchResults: { (items) in
+//            DispatchQueue.main.async {
+//                self.setTableData(places: items)
+//            }
+//        } isSearching: { (isSearching) in
+//            DispatchQueue.main.async {
+//                if isSearching {
+//                    let view = AnimatingView(height: 60, align: .center)
+//                    view.backgroundColor = .white
+//                    self.locationSearchTable.tableHeaderView = view
+//                } else {
+//                    self.locationSearchTable.tableHeaderView = nil
+//                }
+//            }
+//        } searchButtonClicked: {
+//            self.view.endEditing(true)
+//            let height = self.locationSearchTable.frame.height
+//            UIView.animate(withDuration: 0.25) {
+//                self.locationSearchTable.transform = .init(scaleX: 0, y: height)
+//            }
+//        } searchBeginEditing: {
+//            UIView.animate(withDuration: 0.25) {
+//                self.locationSearchTable.transform = .identity
+//            }
+//        } searchEndEditing: {
+//            let height = self.locationSearchTable.frame.height
+//            UIView.animate(withDuration: 0.25) {
+//                self.locationSearchTable.transform = .init(scaleX: 0, y: height)
+//            }
+//        }
     }
     
     private func setMapView(businesses: [BusinessData], events: [EventDetail]) {
@@ -156,6 +162,39 @@ class MapController: UIViewController {
         self.mapView.setPinLocations(locations: locations)
         self.mapView.setNeedsLayout()
         self.mapView.layoutIfNeeded()
+    }
+    
+    
+    @objc func searchAction(_ timer: Timer) {
+        guard let searchText = timer.userInfo as? String else { return }
+        if searchText.count > 0 {
+            hitBusinessEventListApi(search: searchText)
+        } else {
+            print("no text for searching")
+        }
+        
+    }
+    
+    
+    @IBAction func searchFieldBeginEditing(_ sender: UITextField) {
+        UIView.animate(withDuration: 0.25) {
+            self.locationSearchTable.transform = .identity
+        }
+    }
+    
+    @IBAction func searchFieldEndEditing(_ sender: UITextField) {
+//        let height = self.locationSearchTable.frame.height
+//        UIView.animate(withDuration: 0.25) {
+//            self.locationSearchTable.transform = .init(scaleX: 0, y: height)
+//        }
+    }
+    
+    @IBAction func searchFieldEditingChanged(_ sender: UITextField) {
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        }
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.searchAction(_:)), userInfo: sender.text, repeats: false)
     }
     
     @IBAction func menuAction(_ sender: UIButton) {
@@ -205,13 +244,51 @@ extension MapController: SGMapViewDelegate {
     
 }
 
-extension MapController: UITableViewDelegate {
+extension MapController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return self.businessEventResponse?.allBusinesses?.count ?? 0
+        } else {
+            return self.businessEventResponse?.allEvents?.count ?? 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        if indexPath.section == 0 {
+            cell.textLabel?.text = self.businessEventResponse?.allBusinesses?[indexPath.row].businessName
+        } else {
+            cell.textLabel?.text = self.businessEventResponse?.allEvents?[indexPath.row].eventName
+        }
+        return cell
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coordinate = locationSearchTable.places[indexPath.row].placemark.location?.coordinate
-        self.locationSearchBar.endEditing(true)
+        self.setMapView(businesses: self.businessEventResponse?.allBusinesses ?? [], events: self.businessEventResponse?.allEvents ?? [])
+        if indexPath.section == 0 {
+
+            let lat = Double(self.businessEventResponse?.allBusinesses?[indexPath.row].latitude ?? "") ?? 0.0
+            let long = Double(self.businessEventResponse?.allBusinesses?[indexPath.row].longitude ?? "") ?? 0.0
+            //            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+
+            self.mapView.setRegion(lat: lat, lng: long, zoom: 4500, animated: true)
+        } else {
+
+            let lat = Double(self.businessEventResponse?.allEvents?[indexPath.row].latitude ?? "") ?? 0.0
+            let long = Double(self.businessEventResponse?.allEvents?[indexPath.row].longitude ?? "") ?? 0.0
+            //            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+
+            self.mapView.setRegion(lat: lat, lng: long, zoom: 4500, animated: true)
+        }
+        self.searchField.endEditing(true)
         let height = self.locationSearchTable.frame.height
         self.locationSearchTable.transform = .init(scaleX: 0, y: height)
-        print("placemark =========> \(coordinate)")
-        self.mapView.setRegion(lat: coordinate?.latitude ?? 0 , lng: coordinate?.longitude ?? 0, zoom: 4500, animated: true)
     }
+    
 }
+

@@ -118,6 +118,11 @@ extension ComplaintsVC: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard (self.businessComplaintData.count-1) == indexPath.row else { return }
+        self.hitBusinessComplaintApi()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch userType {
         case .user:

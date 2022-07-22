@@ -45,10 +45,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VV8-Sa-cEi">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhg-Cy-sa3">
-                            <rect key="frame" x="0.0" y="325.5" width="414" height="492.5"/>
+                            <rect key="frame" x="0.0" y="369.5" width="414" height="492.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9C-fW-hWo">
                                     <rect key="frame" x="182" y="6" width="50" height="4"/>
@@ -86,7 +86,7 @@
                                                 <constraint firstAttribute="width" secondItem="mHS-mg-zQ9" secondAttribute="height" multiplier="1:1" id="76A-Xn-GNZ"/>
                                                 <constraint firstAttribute="height" constant="30" id="DTZ-lQ-ccF"/>
                                             </constraints>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                             <state key="normal" image="fav"/>
                                             <state key="selected" image="favFilled"/>
                                             <connections>
@@ -417,7 +417,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="VV8-Sa-cEi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EyA-ny-SfW"/>
-                <constraint firstItem="VV8-Sa-cEi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="IPU-K5-02N"/>
+                <constraint firstItem="VV8-Sa-cEi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IPU-K5-02N"/>
                 <constraint firstItem="E2y-cJ-3Xc" firstAttribute="top" secondItem="VV8-Sa-cEi" secondAttribute="bottom" id="SfC-ih-IzN"/>
                 <constraint firstItem="E2y-cJ-3Xc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TnH-RF-qVB"/>
                 <constraint firstAttribute="trailing" secondItem="E2y-cJ-3Xc" secondAttribute="trailing" id="Veg-um-C3E"/>
@@ -429,8 +429,8 @@
         </view>
     </objects>
     <resources>
-        <image name="fav" width="20" height="18"/>
-        <image name="favFilled" width="44" height="38"/>
+        <image name="fav" width="40" height="35"/>
+        <image name="favFilled" width="40" height="35"/>
         <image name="hr" width="62" height="54"/>
         <image name="image" width="290" height="180"/>
         <image name="re" width="55" height="55"/>
